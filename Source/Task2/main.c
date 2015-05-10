@@ -1,14 +1,12 @@
 #include <stdio.h>
 
-#define VALUE 65.0
-
 #define outputType(type, specificator) \
 void output_##type(type value) { \
-printf(#specificator, value); \
+printf(#specificator "\n", value); \
 }
 
-#define executionOutputType(type) \
-    output_##type(VALUE)
+#define executionOutputType(type, value) \
+    output_##type(value)
 
 outputType(short, %d);
 outputType(int, %d);
@@ -17,11 +15,11 @@ outputType(double, %f);
 outputType(float, %f);
 
 int main() {
-    executionOutputType(short);
-    executionOutputType(int);
-    executionOutputType(char);
-    executionOutputType(double);
-    executionOutputType(float);
+    executionOutputType(short, 10);
+    executionOutputType(int, 10);
+    executionOutputType(char, 54);
+    executionOutputType(double, 10.5);
+    executionOutputType(float, 10.5);
     
     return 0;
 }
