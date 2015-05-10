@@ -14,9 +14,30 @@
 //Требования:
 //- создать тестовый метод, который бы с помощью offsetof выводил расположение каждого из элементов структуры;
 //- создать тестовый метод, который бы выводил размер всей структуры;
+//2. Создать универсальный метод для вывода битов числа (различных типов) в консоль.
+
+void MRFPrintBytes(int value) {
+    union {
+        unsigned int val;
+        int bytes;
+    } byte;
+    byte.val = value;
+    
+    for (int i = 31; i >= 0; i--) {
+        printf("%d ", ((byte.bytes >> i) & 1));
+    }
+    
+//    for (int i = 0; i < size; i++) {
+//        printf("%d", mas[i]);
+//    }
+}
 
 int main() {
     MRFSizeOfStructsTest();
+    
+    int test = 7;
+    
+    MRFPrintBytes(test);
     
     return 0;
 }
