@@ -11,7 +11,7 @@
 
 #include <stdbool.h>
 
-struct unsortedStruct{
+typedef struct {
     bool someBool2;
     bool someBool3;
     bool someBool6;
@@ -26,33 +26,36 @@ struct unsortedStruct{
     bool someBool4;
     double someDouble;
     char *someString;
-};
+} unsortedStruct;
 
-struct sortedStruct{
+typedef struct {
+    char *someString;
+    long long someLL;
+    double someDouble;
+    int someInt;
+    float someFloat;
+    short someShort1;
+    short someShort2;
+    short someShort3;
     bool someBool1;
     bool someBool2;
     bool someBool3;
     bool someBool4;
     bool someBool5;
     bool someBool6;
-    short someShort1;
-    short someShort2;
-    short someShort3;
-    float someFloat;
-    int someInt;
-    double someDouble;
-    long long someLL;
-    char *someString;
-};
+} sortedStruct;
 
-struct sortedStructWithUnion {
+typedef struct {
     union {
-        bool someBool1 : 2;
-        bool someBool2 : 2;
-        bool someBool3 : 2;
-        bool someBool4 : 2;
-        bool someBool5 : 2;
-        bool someBool6 : 2;
+        struct {
+            bool someBool1 : 1;
+            bool someBool2 : 1;
+            bool someBool3 : 1;
+            bool someBool4 : 1;
+            bool someBool5 : 1;
+            bool someBool6 : 1;
+        } bitfield;
+        char someCharValue;
     };
     short someShort1;
     short someShort2;
@@ -62,6 +65,6 @@ struct sortedStructWithUnion {
     double someDouble;
     long long someLL;
     char *someString;
-};
+} sortedStructWithUnion;
 
 #endif

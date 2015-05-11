@@ -4,6 +4,7 @@
 
 #include "sizeOfStruct.h"
 #include "Task3Structs.h"
+#include "OffsetOfStructsTest.h"
 
 //Задачи:
 //1. Создать структуру, данных, хранящую в себе расположенные в случайном порядке 6 bool, 1 float, 1 int, 1 long long, 3 short, 1 double, 1 указатель на строку.
@@ -26,16 +27,13 @@ void MRFPrintBytes(int value) {
     for (int i = 31; i >= 0; i--) {
         printf("%d ", ((byte.bytes >> i) & 1));
     }
-    
-//    for (int i = 0; i < size; i++) {
-//        printf("%d", mas[i]);
-//    }
 }
 
 int main() {
     MRFSizeOfStructsTest();
+    OffsetOfStructsTest();
     
-    int test = 7;
+    int test = 2;
     
     MRFPrintBytes(test);
     

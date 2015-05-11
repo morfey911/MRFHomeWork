@@ -18,7 +18,7 @@ printf("SizeOf "#struct " = " "%lu\n", sizeof(struct));
 #pragma mark Public Implementations
 
 void MRFSizeOfStructsTest() {
-    MRFSizeOfStruct(struct unsortedStruct);
-    MRFSizeOfStruct(struct sortedStruct);
-    MRFSizeOfStruct(struct sortedStructWithUnion);
+    MRFSizeOfStruct(unsortedStruct);
+    MRFSizeOfStruct(sortedStruct);
+    MRFSizeOfStruct(sortedStructWithUnion);
 }
