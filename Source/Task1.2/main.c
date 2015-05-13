@@ -1,18 +1,25 @@
 #include <stdio.h>
 
+enum Family {
+    undefined = 0,
+    mother = 3,
+    father = 5,
+    motherFather = 15
+};
+
 int isMotherOrFather(int value) {
-    if (value % 15 == 0) {
+    if (value % motherFather == 0) {
         printf("%s", "мамапапа\n");
-        return 15;
-    } else if (value % 3 == 0) {
+        return motherFather;
+    } else if (value % mother == 0) {
         printf("%s", "мама\n");
-        return 3;
-    } else if (value % 5 == 0) {
+        return mother;
+    } else if (value % father == 0) {
         printf("%s", "папа\n");
-        return 5;
+        return father;
     }
     
-    return 0;
+    return undefined;
 }
 
 void testForIsMotherOrFather(int value) {
@@ -21,6 +28,7 @@ void testForIsMotherOrFather(int value) {
         isMotherOrFather(i);
     }
 }
+
 int main() {
     testForIsMotherOrFather(1000);
     
