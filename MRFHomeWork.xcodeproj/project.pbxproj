@@ -11,6 +11,7 @@
 		3F8A3ABD1AFA921C002B500F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A3A9A1AFA8DB9002B500F /* main.c */; };
 		3F8A3AC91AFA9270002B500F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A3A9C1AFA8DB9002B500F /* main.c */; };
 		3FDBA6C01AFF7D2A00025857 /* SizeOfStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6BE1AFF7D2A00025857 /* SizeOfStruct.c */; };
+		3FDBA6C91B00D78600025857 /* OffsetOfStructsTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6C71B00D78600025857 /* OffsetOfStructsTest.c */; };
 		3FE7A4591AFE73A100A33AF3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FE7A4581AFE73A100A33AF3 /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		3FDBA6BE1AFF7D2A00025857 /* SizeOfStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SizeOfStruct.c; sourceTree = "<group>"; };
 		3FDBA6C11AFF867500025857 /* SizeOfStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeOfStruct.h; sourceTree = "<group>"; };
 		3FDBA6C31AFF878100025857 /* Task3Structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task3Structs.h; sourceTree = "<group>"; };
+		3FDBA6C71B00D78600025857 /* OffsetOfStructsTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = OffsetOfStructsTest.c; sourceTree = "<group>"; };
+		3FDBA6C81B00D78600025857 /* OffsetOfStructsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffsetOfStructsTest.h; sourceTree = "<group>"; };
 		3FE7A4501AFE733400A33AF3 /* Task3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Task3; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE7A4581AFE73A100A33AF3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +162,8 @@
 			children = (
 				3FDBA6C11AFF867500025857 /* SizeOfStruct.h */,
 				3FDBA6BE1AFF7D2A00025857 /* SizeOfStruct.c */,
+				3FDBA6C81B00D78600025857 /* OffsetOfStructsTest.h */,
+				3FDBA6C71B00D78600025857 /* OffsetOfStructsTest.c */,
 			);
 			path = Task3;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			files = (
 				3FDBA6C01AFF7D2A00025857 /* SizeOfStruct.c in Sources */,
 				3FE7A4591AFE73A100A33AF3 /* main.c in Sources */,
+				3FDBA6C91B00D78600025857 /* OffsetOfStructsTest.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

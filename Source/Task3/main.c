@@ -17,25 +17,62 @@
 //- создать тестовый метод, который бы выводил размер всей структуры;
 //2. Создать универсальный метод для вывода битов числа (различных типов) в консоль.
 
-void MRFPrintBytes(int value) {
-    union {
-        unsigned int val;
-        int bytes;
-    } byte;
-    byte.val = value;
+enum byteOrder {
+    bigEndian = 0,
+    littleEndian = 1
+};
+
+int MRFByteOrder() {
+    unsigned short testVar= 1;
     
-    for (int i = 31; i >= 0; i--) {
-        printf("%d ", ((byte.bytes >> i) & 1));
+    if (*((unsigned char*) &testVar) != 0) {
+        return littleEndian;
+    }
+    return bigEndian;
+}
+
+void MRFPrintByte(char *byteAdress) {
+    int value = *byteAdress;
+    
+    for (int i = 8; i > 0; i--) {
+        int shiftedValue = value >> (i - 1);
+        printf("%d ", (shiftedValue & 1));
     }
 }
 
+void MRFPrintBitField(void *byteAddress, int size) {
+    char* bitfieldAdress = (char *)byteAddress;
+    int byteOrder = MRFByteOrder();
+    
+    if (byteOrder == bigEndian) {
+        bitfieldAdress += size - 1;
+    }
+    
+    for (int i = 0; i < size; i++) {
+        MRFPrintByte(bitfieldAdress);
+        if (byteOrder == bigEndian) {
+            bitfieldAdress--;
+        }
+        bitfieldAdress++;
+    }
+    printf("\n");
+}
+
 int main() {
-    MRFSizeOfStructsTest();
-    OffsetOfStructsTest();
+//    MRFSizeOfStructsTest();
+//    OffsetOfStructsTest();
     
-    int test = 2;
+    int test = 1;
+//    char testChar = 8;
     
-    MRFPrintBytes(test);
+//    MRFPrintBit(test);
+    
+//    MRFPrintByte2(&testChar);
+    
+//    MRFPrintBitefield(&testChar, sizeof(testChar));
+//    printf("%d", MRFByteOrder());
+    
+    MRFPrintBitField(&test, sizeof(test));
     
     return 0;
 }
