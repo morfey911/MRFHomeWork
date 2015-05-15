@@ -35,16 +35,22 @@ void MRFHumanDivorce(MRFHuman *object);
 #pragma mark Accessors
 
 extern
-void MRFHumanSetpartner(MRFHuman *object, MRFHuman *partner);
+void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner);
 
 extern
 MRFHuman *MRFHumanGetPartner(MRFHuman *object);
 
 extern
-void MRFHumanSetParents(MRFHuman *object, MRFHuman *parents);
+void MRFHumanSetFather(MRFHuman *object, MRFHuman *father);
 
 extern
-MRFHuman *MRFHumanGetParents(MRFHuman *object);
+MRFHuman *MRFHumanGetFather(MRFHuman *object);
+
+extern
+void MRFHumanSetMother(MRFHuman *object, MRFHuman *mother);
+
+extern
+MRFHuman *MRFHumanGetMother(MRFHuman *object);
 
 extern
 void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children);

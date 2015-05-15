@@ -17,7 +17,8 @@
 
 struct MRFHuman {
     MRFHuman *_partner;
-    MRFHuman *_parents[2];
+    MRFHuman *_father;
+    MRFHuman *_mother;
     MRFHuman *_children[20];
     char *_name;
     gender _sex;
@@ -70,12 +71,20 @@ MRFHuman *MRFHumanGetPartner(MRFHuman *object) {
     return object->_partner;
 }
 
-void MRFHumanSetParents(MRFHuman *object, MRFHuman *parents) {
-    *(object->_parents) = parents;
+void MRFHumanSetFather(MRFHuman *object, MRFHuman *father) {
+    object->_father = father;
 }
 
-MRFHuman *MRFHumanGetParents(MRFHuman *object) {
-    return *(object->_parents);
+MRFHuman *MRFHumanGetFather(MRFHuman *object) {
+    return object->_father;
+}
+
+void MRFHumanSetMother(MRFHuman *object, MRFHuman *mother) {
+    object->_mother = mother;
+}
+
+MRFHuman *MRFHumanGetMother(MRFHuman *object) {
+    return object->_mother;
 }
 
 void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children) {
