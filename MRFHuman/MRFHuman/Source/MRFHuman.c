@@ -15,6 +15,17 @@
 #pragma mark -
 #pragma mark Private Declaration
 
+struct MRFHuman {
+    MRFHuman *_partner;
+    MRFHuman *_parents[2];
+    MRFHuman *_children[20];
+    char *_name;
+    gender _sex;
+    int _age;
+    int _childrenCount;
+    bool _isMarried;
+};
+
 #pragma mark -
 #pragma mark Public Implementation
 
@@ -51,63 +62,63 @@ void MRFHumanDivorce(MRFHuman *object) {
     object->_partner = NULL;
 }
 
-void MRFHumanSet_partner(MRFHuman *object, MRFHuman *partner) {
+void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
     object->_partner = partner;
 }
 
-void MRFHumanSet_parents(MRFHuman *object, MRFHuman *parents) {
-    *(object->_parents) = parents;
-}
-
-void MRFHumanSet_children(MRFHuman *object, MRFHuman *children) {
-    *(object->_children) = children;
-}
-
-void MRFHumanSet_name(MRFHuman *object, char *name) {
-    object->_name = name;
-}
-
-void MRFHumanSet_gender(MRFHuman *object, gender gender) {
-    object->_sex = gender;
-}
-
-void MRFHumanSet_age(MRFHuman *object, int age) {
-    object->_age = age;
-}
-
-void MRFHumanSet_isMarried(MRFHuman *object, bool married) {
-    object->_isMarried = married;
-}
-
-
-MRFHuman *MRFHumanGet_partner(MRFHuman *object) {
+MRFHuman *MRFHumanGetPartner(MRFHuman *object) {
     return object->_partner;
 }
 
-MRFHuman *MRFHumanGet_parents(MRFHuman *object) {
+void MRFHumanSetParents(MRFHuman *object, MRFHuman *parents) {
+    *(object->_parents) = parents;
+}
+
+MRFHuman *MRFHumanGetParents(MRFHuman *object) {
     return *(object->_parents);
 }
 
-MRFHuman *MRFHumanGet_children(MRFHuman *object) {
+void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children) {
+    *(object->_children) = children;
+}
+
+MRFHuman *MRFHumanGetChildren(MRFHuman *object) {
     return *(object->_children);
 }
 
-char *MRFHumanGet_name(MRFHuman *object) {
+void MRFHumanSetName(MRFHuman *object, char *name) {
+    object->_name = name;
+}
+
+char *MRFHumanGetName(MRFHuman *object) {
     return object->_name;
 }
 
-gender *MRFHumanGet_gender(MRFHuman *object) {
-    return &object->_sex;
+void MRFHumanSetGender(MRFHuman *object, gender gender) {
+    object->_sex = gender;
 }
 
-int MRFHumanGet_age(MRFHuman *object) {
+gender MRFHumanGetGender(MRFHuman *object) {
+    return object->_sex;
+}
+
+void MRFHumanSetAge(MRFHuman *object, int age) {
+    object->_age = age;
+}
+
+int MRFHumanGetAge(MRFHuman *object) {
     return object->_age;
 }
 
-int MRFHumanGet_childrenCount(MRFHuman *object) {
+void MRFHumanSetIsMarried(MRFHuman *object, bool married) {
+    object->_isMarried = married;
+}
+
+bool MRFHumanGetIsMarried(MRFHuman *object) {
+    return object->_isMarried;
+}
+
+int MRFHumanGetChildrenCount(MRFHuman *object) {
     return object->_childrenCount;
 }
 
-bool MRFHumanGet_isMarried(MRFHuman *object) {
-    return object->_isMarried;
-}

@@ -19,17 +19,6 @@ typedef enum {
 
 typedef struct MRFHuman MRFHuman;
 
-struct MRFHuman {
-    MRFHuman *_partner;
-    MRFHuman *_parents[2];
-    MRFHuman *_children[20];
-    char *_name;
-    gender _sex;
-    int _age;
-    int _childrenCount;
-    bool _isMarried;
-};
-
 extern
 MRFHuman *MRFHumanCreate(char *name, gender gender, int age);
 
@@ -43,54 +32,51 @@ extern
 void MRFHumanDivorce(MRFHuman *object);
 
 #pragma mark -
-#pragma mark Setters
+#pragma mark Accessors
 
 extern
-void MRFHumanSet_partner(MRFHuman *object, MRFHuman *partner);
+void MRFHumanSetpartner(MRFHuman *object, MRFHuman *partner);
 
 extern
-void MRFHumanSet_parents(MRFHuman *object, MRFHuman *parents);
+MRFHuman *MRFHumanGetPartner(MRFHuman *object);
 
 extern
-void MRFHumanSet_children(MRFHuman *object, MRFHuman *children);
+void MRFHumanSetParents(MRFHuman *object, MRFHuman *parents);
 
 extern
-void MRFHumanSet_name(MRFHuman *object, char *name);
+MRFHuman *MRFHumanGetParents(MRFHuman *object);
 
 extern
-void MRFHumanSet_gender(MRFHuman *object, gender gender);
+void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children);
 
 extern
-void MRFHumanSet_age(MRFHuman *object, int age);
+MRFHuman *MRFHumanGetChildren(MRFHuman *object);
 
 extern
-void MRFHumanSet_isMarried(MRFHuman *object, bool married);
-
-#pragma mark -
-#pragma mark Getters
+void MRFHumanSetName(MRFHuman *object, char *name);
 
 extern
-MRFHuman *MRFHumanGet_partner(MRFHuman *object);
+char *MRFHumanGetName(MRFHuman *object);
 
 extern
-MRFHuman *MRFHumanGet_parents(MRFHuman *object);
+void MRFHumanSetGender(MRFHuman *object, gender gender);
 
 extern
-MRFHuman *MRFHumanGet_children(MRFHuman *object);
+gender MRFHumanGetGender(MRFHuman *object);
 
 extern
-char *MRFHumanGet_name(MRFHuman *object);
+void MRFHumanSetAge(MRFHuman *object, int age);
 
 extern
-gender *MRFHumanGet_gender(MRFHuman *object);
+int MRFHumanGetAge(MRFHuman *object);
 
 extern
-int MRFHumanGet_age(MRFHuman *object);
+void MRFHumanSetIsMarried(MRFHuman *object, bool married);
 
 extern
-int MRFHumanGet_childrenCount(MRFHuman *object);
+bool MRFHumanGetIsMarried(MRFHuman *object);
 
 extern
-bool MRFHumanGet_isMarried(MRFHuman *object);
+int MRFHumanGetChildrenCount(MRFHuman *object);
 
 #endif /* defined(__MRFHuman__MRFHuman__) */
