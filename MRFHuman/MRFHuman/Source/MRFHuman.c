@@ -64,7 +64,9 @@ void MRFHumanDivorce(MRFHuman *object) {
 }
 
 void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
-    object->_partner = partner;
+    if (NULL != object || NULL != partner) {
+         object->_partner = partner;
+    }
 }
 
 MRFHuman *MRFHumanGetPartner(MRFHuman *object) {
@@ -72,7 +74,9 @@ MRFHuman *MRFHumanGetPartner(MRFHuman *object) {
 }
 
 void MRFHumanSetFather(MRFHuman *object, MRFHuman *father) {
-    object->_father = father;
+    if (NULL != object || NULL != father) {
+        object->_father = father;
+    }
 }
 
 MRFHuman *MRFHumanGetFather(MRFHuman *object) {
@@ -80,7 +84,9 @@ MRFHuman *MRFHumanGetFather(MRFHuman *object) {
 }
 
 void MRFHumanSetMother(MRFHuman *object, MRFHuman *mother) {
-    object->_mother = mother;
+    if (NULL != object || NULL != mother) {
+        object->_mother = mother;
+    }
 }
 
 MRFHuman *MRFHumanGetMother(MRFHuman *object) {
@@ -88,7 +94,9 @@ MRFHuman *MRFHumanGetMother(MRFHuman *object) {
 }
 
 void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children) {
-    *(object->_children) = children;
+    if (NULL != object || NULL != children) {
+        *(object->_children) = children;
+    }
 }
 
 MRFHuman *MRFHumanGetChildren(MRFHuman *object) {
@@ -96,7 +104,9 @@ MRFHuman *MRFHumanGetChildren(MRFHuman *object) {
 }
 
 void MRFHumanSetName(MRFHuman *object, char *name) {
-    object->_name = name;
+    if (NULL != object || NULL != name) {
+        object->_name = name;
+    }
 }
 
 char *MRFHumanGetName(MRFHuman *object) {
@@ -104,7 +114,9 @@ char *MRFHumanGetName(MRFHuman *object) {
 }
 
 void MRFHumanSetGender(MRFHuman *object, gender gender) {
-    object->_sex = gender;
+    if (NULL != object) {
+        object->_sex = gender;
+    }
 }
 
 gender MRFHumanGetGender(MRFHuman *object) {
@@ -112,7 +124,9 @@ gender MRFHumanGetGender(MRFHuman *object) {
 }
 
 void MRFHumanSetAge(MRFHuman *object, int age) {
-    object->_age = age;
+    if (NULL != object) {
+        object->_age = age;
+    }
 }
 
 int MRFHumanGetAge(MRFHuman *object) {
@@ -120,7 +134,9 @@ int MRFHumanGetAge(MRFHuman *object) {
 }
 
 void MRFHumanSetIsMarried(MRFHuman *object, bool married) {
-    object->_isMarried = married;
+    if (NULL != object) {
+        object->_isMarried = married;
+    }
 }
 
 bool MRFHumanGetIsMarried(MRFHuman *object) {
