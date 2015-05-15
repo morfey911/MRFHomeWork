@@ -20,7 +20,7 @@ typedef enum {
 typedef struct MRFHuman MRFHuman;
 
 extern
-MRFHuman *MRFHumanCreate(char *name, gender gender, int age);
+MRFHuman *MRFHumanCreate(char *name, gender gender, uint8_t age);
 
 extern
 void MRFHumanPrint(MRFHuman *object);
