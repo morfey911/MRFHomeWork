@@ -69,7 +69,7 @@ void MRFHumanDivorce(MRFHuman *object) {
 
 void MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
     if (NULL != mother && NULL != father) {
-        uint8_t randomGender = rand() % 2;
+        uint8_t randomGender = rand() % 3;
         
         if (randomGender == 0) {
             randomGender += 1;
@@ -127,6 +127,10 @@ void MRFHumanSetChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children)
 
 MRFHuman *MRFHumanGetChildren(MRFHuman *object) {
     return *(object->_children);
+}
+
+MRFHuman *MRFHumanGetChildrenAtIndex(MRFHuman *object, uint8_t index) {
+    return object->_children[index];
 }
 
 void MRFHumanSetName(MRFHuman *object, char *name) {

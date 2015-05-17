@@ -14,8 +14,14 @@ int main(int argc, const char * argv[]) {
     
     MRFHumanCreateChildren(masha, vasya);
     MRFHumanCreateChildren(masha, vasya);
+    MRFHumanCreateChildren(masha, vasya);
+    MRFHumanCreateChildren(masha, vasya);
+    MRFHumanCreateChildren(masha, vasya);
+    MRFHumanCreateChildren(masha, vasya);
+    MRFHumanCreateChildren(masha, vasya);
     
-    printf("%d\n", MRFHumanGetChildrenCount(vasya));
+    printf("Children created: %d\n", MRFHumanGetChildrenCount(vasya));
+    printf("%d\n", MRFHumanGetGender(MRFHumanGetChildrenAtIndex(masha, 0)));
     
     MRFHumanDivorce(masha);
     

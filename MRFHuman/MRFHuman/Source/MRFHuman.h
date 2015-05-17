@@ -62,6 +62,9 @@ extern
 MRFHuman *MRFHumanGetChildren(MRFHuman *object);
 
 extern
+MRFHuman *MRFHumanGetChildrenAtIndex(MRFHuman *object, uint8_t index);
+
+extern
 void MRFHumanSetName(MRFHuman *object, char *name);
 
 extern
