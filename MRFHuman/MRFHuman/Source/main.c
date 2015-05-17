@@ -4,14 +4,6 @@
 #include "MRFHuman.h"
 
 int main(int argc, const char * argv[]) {
-//    MRFHuman *vasya = malloc(sizeof(MRFHuman));
-//    
-//    MRFHumanSet_name(vasya, "Vasya");
-//    MRFHumanSet_gender(vasya, 3);
-//    
-//    printf("%s\n", vasya->_name);
-//    printf("%d\n", vasya->_sex);
-    
     MRFHuman *masha = MRFHumanCreate("Masha", female, 18);
     MRFHuman *vasya = MRFHumanCreate("Vasya", male, 20);
     
@@ -19,6 +11,11 @@ int main(int argc, const char * argv[]) {
     
     MRFHumanPrint(masha);
     MRFHumanPrint(vasya);
+    
+    MRFHumanCreateChildren(masha, vasya);
+    MRFHumanCreateChildren(masha, vasya);
+    
+    printf("%d\n", MRFHumanGetChildrenCount(vasya));
     
     MRFHumanDivorce(masha);
     

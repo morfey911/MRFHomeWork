@@ -31,6 +31,9 @@ void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner);
 extern
 void MRFHumanDivorce(MRFHuman *object);
 
+extern
+void MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father);
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -53,7 +56,7 @@ extern
 MRFHuman *MRFHumanGetMother(MRFHuman *object);
 
 extern
-void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children);
+void MRFHumanSetChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children);
 
 extern
 MRFHuman *MRFHumanGetChildren(MRFHuman *object);

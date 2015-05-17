@@ -67,6 +67,23 @@ void MRFHumanDivorce(MRFHuman *object) {
     }
 }
 
+void MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
+    if (NULL != mother && NULL != father) {
+        uint8_t randomGender = rand() % 2;
+        
+        if (randomGender == 0) {
+            randomGender += 1;
+        }
+        
+        MRFHuman *newChildren = MRFHumanCreate(NULL, randomGender, 0);
+        assert(NULL != newChildren);
+        
+        MRFHumanSetMother(newChildren, mother);
+        MRFHumanSetFather(newChildren, father);
+        MRFHumanSetChildren(mother, father, newChildren);
+    }
+}
+
 void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
     if (NULL != object) {
          object->_partner = partner;
@@ -97,9 +114,14 @@ MRFHuman *MRFHumanGetMother(MRFHuman *object) {
     return object->_mother;
 }
 
-void MRFHumanSetChildren(MRFHuman *object, MRFHuman *children) {
-    if (NULL != object && NULL != children) {
-        *(object->_children) = children;
+void MRFHumanSetChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children) {
+    if (NULL != mother && NULL != father && NULL != children) {
+        if (father->_childrenCount <= 20 && mother->_childrenCount <= 20) {
+            mother->_children[mother->_childrenCount] = children;
+            father->_children[father->_childrenCount] = children;
+            mother->_childrenCount += 1;
+            father->_childrenCount += 1;
+        }
     }
 }
 
