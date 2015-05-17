@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FDBA6D71B026F8300025857 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6D61B026F8300025857 /* main.c */; };
 		3FDBA6E11B02735C00025857 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6DF1B02735C00025857 /* MRFHuman.c */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
+		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FDBA6D31B026F8300025857 /* MRFHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MRFHuman; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDBA6D61B026F8300025857 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3FDBA6DF1B02735C00025857 /* MRFHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 		3FDBA6DE1B0270A300025857 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3FC365491B091B3D00F03B12 /* MRFHumanTests.c */,
+				3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDBA6D71B026F8300025857 /* main.c in Sources */,
+				3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */,
 				3FDBA6E11B02735C00025857 /* MRFHuman.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +263,7 @@
 				3FDBA6DC1B026F8300025857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
