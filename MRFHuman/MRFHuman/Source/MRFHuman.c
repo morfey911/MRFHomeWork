@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 #include "MRFHuman.h"
 
@@ -134,8 +135,17 @@ MRFHuman *MRFHumanGetChildrenAtIndex(MRFHuman *object, uint8_t index) {
 }
 
 void MRFHumanSetName(MRFHuman *object, char *name) {
-    if (NULL != object && NULL != name) {
-        object->_name = name;
+    if (NULL != object) {
+        char *previousName = object->_name;
+        if (NULL != previousName ) {
+            free(previousName);
+            object->_name = NULL;
+        }
+        if (NULL != name) {
+            object->_name = strdup(name);
+            
+            assert(NULL != object->_name);
+        }
     }
 }
 
