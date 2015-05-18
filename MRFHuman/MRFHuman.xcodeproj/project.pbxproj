@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
+		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
+		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
 		3FDBA6D71B026F8300025857 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6D61B026F8300025857 /* main.c */; };
-		3FDBA6E11B02735C00025857 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6DF1B02735C00025857 /* MRFHuman.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,10 +28,12 @@
 /* Begin PBXFileReference section */
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
+		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
+		3FC3654E1B0A4C4F00F03B12 /* MRFHuman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFHuman.h; sourceTree = "<group>"; };
+		3FC365501B0A4CDF00F03B12 /* MRFObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFObject.c; sourceTree = "<group>"; };
+		3FC365511B0A4CDF00F03B12 /* MRFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFObject.h; sourceTree = "<group>"; };
 		3FDBA6D31B026F8300025857 /* MRFHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MRFHuman; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDBA6D61B026F8300025857 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		3FDBA6DF1B02735C00025857 /* MRFHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
-		3FDBA6E01B02735C00025857 /* MRFHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHuman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
+			isa = PBXGroup;
+			children = (
+				3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */,
+				3FC3654E1B0A4C4F00F03B12 /* MRFHuman.h */,
+			);
+			path = MRFHuman;
+			sourceTree = "<group>";
+		};
+		3FC3654F1B0A4C9000F03B12 /* MRFObject */ = {
+			isa = PBXGroup;
+			children = (
+				3FC365501B0A4CDF00F03B12 /* MRFObject.c */,
+				3FC365511B0A4CDF00F03B12 /* MRFObject.h */,
+			);
+			path = MRFObject;
+			sourceTree = "<group>";
+		};
 		3FDBA6CA1B026F8300025857 = {
 			isa = PBXGroup;
 			children = (
@@ -72,9 +93,9 @@
 		3FDBA6DD1B0270A300025857 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3FC3654C1B0A4C4F00F03B12 /* MRFHuman */,
+				3FC3654F1B0A4C9000F03B12 /* MRFObject */,
 				3FDBA6D61B026F8300025857 /* main.c */,
-				3FDBA6DF1B02735C00025857 /* MRFHuman.c */,
-				3FDBA6E01B02735C00025857 /* MRFHuman.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -145,8 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDBA6D71B026F8300025857 /* main.c in Sources */,
+				3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */,
+				3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */,
 				3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */,
-				3FDBA6E11B02735C00025857 /* MRFHuman.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
