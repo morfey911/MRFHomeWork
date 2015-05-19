@@ -12,8 +12,8 @@
 #include "MRFHuman.h"
 
 void MRFHumanTests() {
-    MRFHuman *masha = MRFHumanCreate("Masha", female, 18);
-    MRFHuman *vasya = MRFHumanCreate("Vasya", male, 20);
+    MRFHuman *masha = MRFHumanCreate("Masha", kMRFHumanFemale, 18);
+    MRFHuman *vasya = MRFHumanCreate("Vasya", kMRFHumanMale, 20);
     
     MRFHumanGetMarried(masha, vasya);
     

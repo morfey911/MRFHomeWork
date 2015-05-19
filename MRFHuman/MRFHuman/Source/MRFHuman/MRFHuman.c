@@ -22,7 +22,7 @@ struct MRFHuman {
     MRFHuman *_mother;
     MRFHuman *_children[20];
     char *_name;
-    gender _sex;
+    MRFGender _sex;
     uint8_t _age;
     int _childrenCount;
     bool _isMarried;
@@ -31,7 +31,7 @@ struct MRFHuman {
 #pragma mark -
 #pragma mark Public Implementation
 
-MRFHuman *MRFHumanCreate(char *name, gender gender, uint8_t age) {
+MRFHuman *MRFHumanCreate(char *name, MRFGender gender, uint8_t age) {
     MRFHuman *newHuman = calloc(1, sizeof(MRFHuman));
     
     assert(NULL != newHuman);
@@ -45,7 +45,7 @@ MRFHuman *MRFHumanCreate(char *name, gender gender, uint8_t age) {
 
 void MRFHumanPrint(MRFHuman *object) {
     printf("Name: '%s'  ", MRFHumanGetName(object));
-    printf("Gender: '%d'  ", (MRFHumanGetGender(object) == male) ? male : female);
+    printf("Gender: '%d'  ", (MRFHumanGetGender(object) == kMRFHumanMale) ? kMRFHumanMale : kMRFHumanFemale);
     (NULL == MRFHumanGetPartner(object)) ? printf("Partner: 'no' ") : printf("Partner '%s' ", MRFHumanGetName(MRFHumanGetPartner(object)));
     printf("Age: '%d'\n", MRFHumanGetAge(object));
 }
@@ -153,13 +153,13 @@ char *MRFHumanGetName(MRFHuman *object) {
     return object->_name;
 }
 
-void MRFHumanSetGender(MRFHuman *object, gender gender) {
+void MRFHumanSetGender(MRFHuman *object, MRFGender gender) {
     if (NULL != object) {
         object->_sex = gender;
     }
 }
 
-gender MRFHumanGetGender(MRFHuman *object) {
+MRFGender MRFHumanGetGender(MRFHuman *object) {
     return object->_sex;
 }
 

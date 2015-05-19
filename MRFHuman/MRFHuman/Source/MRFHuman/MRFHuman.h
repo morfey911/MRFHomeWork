@@ -12,15 +12,15 @@
 #include <stdbool.h>
 
 typedef enum {
-    undefined,
-    male,
-    female
-} gender;
+    kMRFHumanUndefined,
+    kMRFHumanMale,
+    kMRFHumanFemale
+} MRFGender;
 
 typedef struct MRFHuman MRFHuman;
 
 extern
-MRFHuman *MRFHumanCreate(char *name, gender gender, uint8_t age);
+MRFHuman *MRFHumanCreate(char *name, MRFGender gender, uint8_t age);
 
 extern
 void MRFHumanPrint(MRFHuman *object);
@@ -71,10 +71,10 @@ extern
 char *MRFHumanGetName(MRFHuman *object);
 
 extern
-void MRFHumanSetGender(MRFHuman *object, gender gender);
+void MRFHumanSetGender(MRFHuman *object, MRFGender gender);
 
 extern
-gender MRFHumanGetGender(MRFHuman *object);
+MRFGender MRFHumanGetGender(MRFHuman *object);
 
 extern
 void MRFHumanSetAge(MRFHuman *object, int age);
