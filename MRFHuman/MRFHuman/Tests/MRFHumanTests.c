@@ -17,8 +17,8 @@ void MRFHumanTests() {
     
     MRFHumanGetMarried(masha, vasya);
     
-    MRFHumanPrint(masha);
-    MRFHumanPrint(vasya);
+    MRFHumanPrintDescription(masha);
+    MRFHumanPrintDescription(vasya);
     
     MRFHumanCreateChildren(masha, vasya);
     MRFHumanCreateChildren(masha, vasya);
@@ -33,6 +33,6 @@ void MRFHumanTests() {
     
     MRFHumanDivorce(masha);
     
-    MRFHumanPrint(masha);
-    MRFHumanPrint(vasya);
+    MRFHumanPrintDescription(masha);
+    MRFHumanPrintDescription(vasya);
 }

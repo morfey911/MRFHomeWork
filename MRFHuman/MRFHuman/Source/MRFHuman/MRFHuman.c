@@ -25,7 +25,6 @@ struct MRFHuman {
     MRFGender _sex;
     uint8_t _age;
     int _childrenCount;
-    bool _isMarried;
 };
 
 #pragma mark -
@@ -43,7 +42,7 @@ MRFHuman *MRFHumanCreate(char *name, MRFGender gender, uint8_t age) {
     return newHuman;
 }
 
-void MRFHumanPrint(MRFHuman *object) {
+void MRFHumanPrintDescription(MRFHuman *object) {
     printf("Name: '%s'  ", MRFHumanGetName(object));
     printf("Gender: '%d'  ", (MRFHumanGetGender(object) == kMRFHumanMale) ? kMRFHumanMale : kMRFHumanFemale);
     (NULL == MRFHumanGetPartner(object)) ? printf("Partner: 'no' ") : printf("Partner '%s' ", MRFHumanGetName(MRFHumanGetPartner(object)));
@@ -52,17 +51,15 @@ void MRFHumanPrint(MRFHuman *object) {
 
 void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner) {
     if (NULL != object || NULL != partner) {
-        MRFHumanSetIsMarried(object, true);
-        MRFHumanSetPartner(object, partner);
-        MRFHumanSetIsMarried(partner, true);
-        MRFHumanSetPartner(partner, object);
+        if (object != partner) {
+            MRFHumanSetPartner(object, partner);
+            MRFHumanSetPartner(partner, object);
+        }
     }
 }
 
 void MRFHumanDivorce(MRFHuman *object) {
     if (NULL != object) {
-        MRFHumanSetIsMarried(object, false);
-        MRFHumanSetIsMarried(MRFHumanGetPartner(object), false);
         MRFHumanSetPartner(MRFHumanGetPartner(object), NULL);
         MRFHumanSetPartner(object, NULL);
     }
@@ -81,7 +78,7 @@ void MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
         
         MRFHumanSetMother(newChildren, mother);
         MRFHumanSetFather(newChildren, father);
-        MRFHumanSetChildren(mother, father, newChildren);
+        MRFHumanAddChildren(mother, father, newChildren);
     }
 }
 
@@ -115,7 +112,7 @@ MRFHuman *MRFHumanGetMother(MRFHuman *object) {
     return object->_mother;
 }
 
-void MRFHumanSetChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children) {
+void MRFHumanAddChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children) {
     if (NULL != mother && NULL != father && NULL != children) {
         if (father->_childrenCount <= 20 && mother->_childrenCount <= 20) {
             mother->_children[mother->_childrenCount] = children;
@@ -173,14 +170,8 @@ int MRFHumanGetAge(MRFHuman *object) {
     return object->_age;
 }
 
-void MRFHumanSetIsMarried(MRFHuman *object, bool married) {
-    if (NULL != object) {
-        object->_isMarried = married;
-    }
-}
-
 bool MRFHumanGetIsMarried(MRFHuman *object) {
-    return object->_isMarried;
+    return (object->_partner != NULL) ? true : false;
 }
 
 int MRFHumanGetChildrenCount(MRFHuman *object) {

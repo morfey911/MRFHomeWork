@@ -23,10 +23,10 @@ extern
 MRFHuman *MRFHumanCreate(char *name, MRFGender gender, uint8_t age);
 
 extern
-void MRFHumanPrint(MRFHuman *object);
+void MRFHumanPrintDescription(MRFHuman *object);
 
 extern
-void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner);
+void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner); //проверить object == partner
 
 extern
 void MRFHumanDivorce(MRFHuman *object);
@@ -56,7 +56,7 @@ extern
 MRFHuman *MRFHumanGetMother(MRFHuman *object);
 
 extern
-void MRFHumanSetChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children);
+void MRFHumanAddChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children);
 
 extern
 MRFHuman *MRFHumanGetChildren(MRFHuman *object);
@@ -81,9 +81,6 @@ void MRFHumanSetAge(MRFHuman *object, int age);
 
 extern
 int MRFHumanGetAge(MRFHuman *object);
-
-extern
-void MRFHumanSetIsMarried(MRFHuman *object, bool married);
 
 extern
 bool MRFHumanGetIsMarried(MRFHuman *object);
