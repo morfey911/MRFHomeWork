@@ -186,4 +186,3 @@ bool MRFHumanGetIsMarried(MRFHuman *object) {
 int MRFHumanGetChildrenCount(MRFHuman *object) {
     return object->_childrenCount;
 }
-
