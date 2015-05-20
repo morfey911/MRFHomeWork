@@ -20,7 +20,10 @@ typedef enum {
 typedef struct MRFHuman MRFHuman;
 
 extern
-MRFHuman *MRFHumanCreate(char *name, MRFGender gender, uint8_t age);
+MRFHuman *MRFHumanCreateWithParameters(char *name, MRFGender gender, uint8_t age);
+
+extern
+MRFHuman *MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father);
 
 extern
 void MRFHumanPrintDescription(MRFHuman *object);
@@ -32,37 +35,25 @@ extern
 void MRFHumanDivorce(MRFHuman *object);
 
 extern
-void MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father);
+void MRFHumanAddChild(MRFHuman *mother, MRFHuman *father, MRFHuman *child);
 
 #pragma mark -
 #pragma mark Accessors
 
 extern
-void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner);
-
-extern
 MRFHuman *MRFHumanGetPartner(MRFHuman *object);
-
-extern
-void MRFHumanSetFather(MRFHuman *object, MRFHuman *father);
 
 extern
 MRFHuman *MRFHumanGetFather(MRFHuman *object);
 
 extern
-void MRFHumanSetMother(MRFHuman *object, MRFHuman *mother);
-
-extern
 MRFHuman *MRFHumanGetMother(MRFHuman *object);
 
 extern
-void MRFHumanAddChildren(MRFHuman *mother, MRFHuman *father, MRFHuman *children);
+MRFHuman *MRFHumanGetChild(MRFHuman *object);
 
 extern
-MRFHuman *MRFHumanGetChildren(MRFHuman *object);
-
-extern
-MRFHuman *MRFHumanGetChildrenAtIndex(MRFHuman *object, uint8_t index);
+MRFHuman *MRFHumanGetChildAtIndex(MRFHuman *object, uint8_t index);
 
 extern
 void MRFHumanSetName(MRFHuman *object, char *name);
@@ -83,7 +74,7 @@ extern
 int MRFHumanGetAge(MRFHuman *object);
 
 extern
-bool MRFHumanGetIsMarried(MRFHuman *object);
+bool MRFHumanIsMarried(MRFHuman *object);
 
 extern
 int MRFHumanGetChildrenCount(MRFHuman *object);

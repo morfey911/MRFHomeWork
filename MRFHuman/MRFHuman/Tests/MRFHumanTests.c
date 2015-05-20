@@ -13,8 +13,8 @@
 #include "MRFObject.h"
 
 void MRFHumanTests() {
-    MRFHuman *masha = MRFHumanCreate("Masha", kMRFHumanFemale, 18);
-    MRFHuman *vasya = MRFHumanCreate("Vasya", kMRFHumanMale, 20);
+    MRFHuman *masha = MRFHumanCreateWithParameters("Masha", kMRFHumanFemale, 18);
+    MRFHuman *vasya = MRFHumanCreateWithParameters("Vasya", kMRFHumanMale, 20);
     
     MRFHumanGetMarried(masha, vasya);
     
@@ -30,7 +30,7 @@ void MRFHumanTests() {
     MRFHumanCreateChildren(masha, vasya);
     
     printf("Children created: %d\n", MRFHumanGetChildrenCount(vasya));
-    printf("%d\n", MRFHumanGetGender(MRFHumanGetChildrenAtIndex(masha, 0)));
+    printf("%d\n", MRFHumanGetGender(MRFHumanGetChildAtIndex(masha, 0)));
     
     MRFHumanDivorce(masha);
     
