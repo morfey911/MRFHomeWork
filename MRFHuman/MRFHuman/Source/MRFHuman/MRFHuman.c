@@ -12,11 +12,14 @@
 #include <string.h>
 
 #include "MRFHuman.h"
+#include "MRFObject.h"
 
 #pragma mark -
 #pragma mark Private Declaration
 
 struct MRFHuman {
+    MRFObject _super;
+    
     MRFHuman *_partner;
     MRFHuman *_father;
     MRFHuman *_mother;
@@ -30,8 +33,12 @@ struct MRFHuman {
 #pragma mark -
 #pragma mark Public Implementation
 
+void __MRFHumanDeallocate(void *object) {
+    __MRFObjectDeallocate(object);
+}
+
 MRFHuman *MRFHumanCreate(char *name, MRFGender gender, uint8_t age) {
-    MRFHuman *newHuman = calloc(1, sizeof(MRFHuman));
+    MRFHuman *newHuman = MRFObjectCreateOfType(MRFHuman);
     
     assert(NULL != newHuman);
     
@@ -84,7 +91,8 @@ void MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
 
 void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
     if (NULL != object) {
-         object->_partner = partner;
+        (partner != NULL) ? MRFObjectRetain(partner) : MRFObjectRelease(partner);
+        object->_partner = partner;
     }
 }
 
@@ -134,6 +142,7 @@ MRFHuman *MRFHumanGetChildrenAtIndex(MRFHuman *object, uint8_t index) {
 void MRFHumanSetName(MRFHuman *object, char *name) {
     if (NULL != object) {
         char *previousName = object->_name;
+        
         if (NULL != previousName ) {
             free(previousName);
             object->_name = NULL;

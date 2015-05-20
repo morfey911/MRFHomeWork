@@ -26,7 +26,7 @@ extern
 void MRFHumanPrintDescription(MRFHuman *object);
 
 extern
-void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner); //проверить object == partner
+void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner);
 
 extern
 void MRFHumanDivorce(MRFHuman *object);

@@ -10,6 +10,7 @@
 
 #include "MRFHumanTests.h"
 #include "MRFHuman.h"
+#include "MRFObject.h"
 
 void MRFHumanTests() {
     MRFHuman *masha = MRFHumanCreate("Masha", kMRFHumanFemale, 18);

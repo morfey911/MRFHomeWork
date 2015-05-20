@@ -22,7 +22,7 @@ extern
 void *__MRFObjectCreate(size_t objectSize, MRFObjectDeallocatorCallback deallocateCallback);
 
 #define MRFObjectCreateOfType(type) \
-MRFObjectCreate(sizeof(type), (MRFObjectDeallocatorCallback)__##type##Deallocate)
+__MRFObjectCreate(sizeof(type), (MRFObjectDeallocatorCallback)__##type##Deallocate)
 
 extern
 void *MRFObjectRetain(void *object);
