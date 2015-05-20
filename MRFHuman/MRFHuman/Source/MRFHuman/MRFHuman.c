@@ -30,8 +30,8 @@ struct MRFHuman {
     int _childrenCount;
 };
 
-//static
-//void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner);
+static
+void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner);
 
 static
 void MRFHumanSetFather(MRFHuman *object, MRFHuman *father);
@@ -63,7 +63,6 @@ MRFHuman *MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
     if (NULL != mother && NULL != father) {
         
         MRFHuman *newChild = MRFHumanCreateWithParameters(NULL, MRFHumanRandomGender(), 0);
-        assert(NULL != newChild);
         
         MRFHumanSetMother(newChild, mother);
         MRFHumanSetFather(newChild, father);
@@ -91,8 +90,8 @@ void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner) {
                                  ? object
                                  : partner);
             
-            male->_partner = female;
-            female->_partner = male;
+            MRFHumanSetPartner(male, female);
+            MRFHumanSetPartner(female, male);
             
             MRFObjectRetain(female);
         }
@@ -106,12 +105,18 @@ void MRFHumanDivorce(MRFHuman *object) {
                           : MRFHumanGetPartner(object));
         MRFHuman *female = MRFHumanGetPartner(male);
         
-        female->_partner = NULL;
+        MRFHumanSetPartner(female, NULL);
         
         if (male != female) {
             MRFObjectRelease(female);
-            male->_partner = NULL;
+            MRFHumanSetPartner(male, NULL);
         }
+    }
+}
+
+void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
+    if (NULL != object) {
+        object->_partner = partner;
     }
 }
 
