@@ -46,6 +46,10 @@ uint8_t MRFHumanRandomGender();
 #pragma mark Public Implementation
 
 void __MRFHumanDeallocate(void *object) {
+//    MRFHumanSetMother(object, NULL);
+//    MRFHumanSetFather(object, NULL);
+//    MRFHumanSetName(object, NULL);
+    
     __MRFObjectDeallocate(object);
 }
 
@@ -61,7 +65,6 @@ MRFHuman *MRFHumanCreateWithParameters(char *name, MRFGender gender, uint8_t age
 
 MRFHuman *MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
     if (NULL != mother && NULL != father) {
-        
         MRFHuman *newChild = MRFHumanCreateWithParameters(NULL, MRFHumanRandomGender(), 0);
         
         MRFHumanSetMother(newChild, mother);
@@ -147,6 +150,8 @@ MRFHuman *MRFHumanGetMother(MRFHuman *object) {
 void MRFHumanAddChild(MRFHuman *mother, MRFHuman *father, MRFHuman *child) {
     if (NULL != mother && NULL != father && NULL != child) {
         if (father->_childrenCount <= 20 && mother->_childrenCount <= 20) {
+            MRFObjectRetain(child);
+            
             mother->_children[mother->_childrenCount] = child;
             father->_children[father->_childrenCount] = child;
             mother->_childrenCount += 1;
@@ -214,5 +219,5 @@ int MRFHumanGetChildrenCount(MRFHuman *object) {
 uint8_t MRFHumanRandomGender() {
     uint8_t randomGender = rand() % 3;
     
-    return (randomGender == 0) ? randomGender += 1 : randomGender;
+    return (randomGender == kMRFHumanUndefined) ? randomGender += 1 : randomGender;
 }

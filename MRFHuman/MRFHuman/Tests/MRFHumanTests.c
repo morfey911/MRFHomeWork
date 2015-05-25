@@ -37,6 +37,10 @@ void MRFHumanTests() {
     assert(MRFObjectGetReferenceCount(masha) == 1);
     MRFObjectRetain(masha);
     
+    //рожаем ребенка
+//    MRFHuman *bob = MRFHumanCreateChildren(masha, vasya);
+//    assert(MRFObjectGetReferenceCount(bob) == 2);
+    
     //теперь разведем их, после развода referenceCount у жены 1, у мужа как и был 1.
     MRFHumanDivorce(masha);
     
@@ -48,10 +52,7 @@ void MRFHumanTests() {
     MRFHumanPrintDescription(vasya);
     
     //удалим наших героев, referenceCount будет равен 0.
-    
     MRFObjectRelease(masha);
     MRFObjectRelease(vasya);
     
-    assert(MRFObjectGetReferenceCount(masha) == 0);
-    assert(MRFObjectGetReferenceCount(vasya) == 0);
 }

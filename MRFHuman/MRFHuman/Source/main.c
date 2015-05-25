@@ -3,9 +3,12 @@
 
 #include "MRFHuman.h"
 #include "MRFHumanTests.h"
+#include "MRFArray.h"
+#include "MRFArrayTests.h"
 
 int main(int argc, const char * argv[]) {
-    MRFHumanTests();
+    MRFArrayTests();
+//    MRFHumanTests();
 
     return 0;
 }
