@@ -14,6 +14,8 @@
 
 #include "MRFObject.h"
 
+static const uint64_t kMRFNotFound = UINT64_MAX;
+
 typedef struct {
     MRFObject _super;
     
@@ -45,5 +47,8 @@ void MRFArrayRemoveObjectAtIndex(MRFArray *array, uint64_t index);
 
 extern
 void MRFArrayRemoveAllObjects(MRFArray *array);
+
+extern
+void __MRFArrayDeallocate(void *object);
 
 #endif /* defined(__MRFHuman__MRFArray__) */

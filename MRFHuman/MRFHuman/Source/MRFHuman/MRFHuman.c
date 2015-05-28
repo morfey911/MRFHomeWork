@@ -46,6 +46,7 @@ uint8_t MRFHumanRandomGender();
 #pragma mark Public Implementation
 
 void __MRFHumanDeallocate(void *object) {
+//    MRFHumanDivorce(object);
 //    MRFHumanSetMother(object, NULL);
 //    MRFHumanSetFather(object, NULL);
 //    MRFHumanSetName(object, NULL);
