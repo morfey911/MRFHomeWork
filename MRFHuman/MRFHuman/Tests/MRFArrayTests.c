@@ -33,8 +33,9 @@ void MRFArrayTests() {
 
 void MRFArrayOneObjectBehaviourTest() {
     //  after array was created
-    MRFArray *testArray = MRFArrayCreateWithCapacity(20);
-//    MRFArray *testArray = MRFObjectCreateOfType(MRFArray);
+//    MRFArray *testArray = MRFArrayCreateWithCapacity(20);
+    MRFArray *testArray = MRFObjectCreateOfType(MRFArray);
+    
     //      array must not be NULL
     assert(NULL != testArray);
     
@@ -101,7 +102,8 @@ void MRFArrayOneObjectBehaviourTest() {
 }
 
 void MRFArrayMultipleObjectBehaviourTest() {
-    MRFArray *testArray = MRFArrayCreateWithCapacity(10);
+//    MRFArray *testArray = MRFArrayCreateWithCapacity(10);
+    MRFArray *testArray = MRFObjectCreateOfType(MRFArray);
     MRFHuman *originObject = MRFHumanCreateWithParameters("Masha", kMRFHumanFemale, 10);
     MRFHuman *object2 = MRFHumanCreateWithParameters("Kolya", kMRFHumanMale, 12);
     

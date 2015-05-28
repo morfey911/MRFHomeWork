@@ -46,10 +46,11 @@ uint8_t MRFHumanRandomGender();
 #pragma mark Public Implementation
 
 void __MRFHumanDeallocate(void *object) {
-//    MRFHumanDivorce(object);
-//    MRFHumanSetMother(object, NULL);
-//    MRFHumanSetFather(object, NULL);
-//    MRFHumanSetName(object, NULL);
+    MRFHumanDivorce(object);
+    
+    MRFHumanSetMother(object, NULL);
+    MRFHumanSetFather(object, NULL);
+    MRFHumanSetName(object, NULL);
     
     __MRFObjectDeallocate(object);
 }
@@ -103,7 +104,7 @@ void MRFHumanGetMarried(MRFHuman *object, MRFHuman *partner) {
 }
 
 void MRFHumanDivorce(MRFHuman *object) {
-    if (NULL != object) {
+    if (NULL != object && NULL != MRFHumanGetPartner(object)) {
         MRFHuman *male = (kMRFHumanMale == MRFHumanGetGender(object)
                           ? object
                           : MRFHumanGetPartner(object));
