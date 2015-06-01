@@ -23,12 +23,15 @@ struct MRFHuman {
     MRFHuman *_partner;
     MRFHuman *_father;
     MRFHuman *_mother;
-    MRFHuman *_children[20];
+    MRFArray *_children;
     char *_name;
     MRFGender _sex;
     uint8_t _age;
     int _childrenCount;
 };
+
+static
+void MRFHumanSetChildren(MRFHuman *object, MRFArray *children);
 
 static
 void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner);
@@ -46,18 +49,24 @@ uint8_t MRFHumanRandomGender();
 #pragma mark Public Implementation
 
 void __MRFHumanDeallocate(void *object) {
-    MRFHumanDivorce(object);
+    MRFHuman *human = object;
     
-    MRFHumanSetMother(object, NULL);
-    MRFHumanSetFather(object, NULL);
-    MRFHumanSetName(object, NULL);
+    MRFHumanDivorce(human);
+    
+    MRFArrayRemoveAllObjects(MRFHumanGetChildren(human));
+    MRFHumanSetChildren(human, NULL);
+    MRFHumanSetMother(human, NULL);
+    MRFHumanSetFather(human, NULL);
+    MRFHumanSetName(human, NULL);
     
     __MRFObjectDeallocate(object);
 }
 
 MRFHuman *MRFHumanCreateWithParameters(char *name, MRFGender gender, uint8_t age) {
     MRFHuman *newHuman = MRFObjectCreateOfType(MRFHuman);
+    MRFArray *children = MRFObjectCreateOfType(MRFArray);
     
+    MRFHumanSetChildren(newHuman, children);
     MRFHumanSetName(newHuman, name);
     MRFHumanSetGender(newHuman, gender);
     MRFHumanSetAge(newHuman, age);
@@ -65,7 +74,7 @@ MRFHuman *MRFHumanCreateWithParameters(char *name, MRFGender gender, uint8_t age
     return newHuman;
 }
 
-MRFHuman *MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father) {
+MRFHuman *MRFHumanCreateChild(MRFHuman *mother, MRFHuman *father) {
     if (NULL != mother && NULL != father) {
         MRFHuman *newChild = MRFHumanCreateWithParameters(NULL, MRFHumanRandomGender(), 0);
         
@@ -151,23 +160,19 @@ MRFHuman *MRFHumanGetMother(MRFHuman *object) {
 
 void MRFHumanAddChild(MRFHuman *mother, MRFHuman *father, MRFHuman *child) {
     if (NULL != mother && NULL != father && NULL != child) {
-        if (father->_childrenCount <= 20 && mother->_childrenCount <= 20) {
-            MRFObjectRetain(child);
-            
-            mother->_children[mother->_childrenCount] = child;
-            father->_children[father->_childrenCount] = child;
-            mother->_childrenCount += 1;
-            father->_childrenCount += 1;
-        }
+        MRFArrayAddObject(MRFHumanGetChildren(mother), child);
+        MRFArrayAddObject(MRFHumanGetChildren(father), child);
+        mother->_childrenCount += 1;
+        father->_childrenCount += 1;
     }
 }
 
-MRFHuman *MRFHumanGetFirstChild(MRFHuman *object) {
-    return *(object->_children);
+MRFArray *MRFHumanGetChildren(MRFHuman *object) {
+    return NULL != object ? object->_children : NULL;
 }
 
 MRFHuman *MRFHumanGetChildAtIndex(MRFHuman *object, uint8_t index) {
-    return object->_children[index];
+    return MRFArrayGetObjectAtIndex(MRFHumanGetChildren(object), index);
 }
 
 void MRFHumanSetName(MRFHuman *object, char *name) {
@@ -216,6 +221,17 @@ bool MRFHumanIsMarried(MRFHuman *object) {
 
 int MRFHumanGetChildrenCount(MRFHuman *object) {
     return object->_childrenCount;
+}
+
+#pragma mark -
+#pragma mark Private Implementations
+
+void MRFHumanSetChildren(MRFHuman *object, MRFArray *children) {
+    if (NULL != object) {
+        MRFObjectRetain(children);
+        MRFObjectRelease(object->_children);
+        object->_children = children;
+    }
 }
 
 uint8_t MRFHumanRandomGender() {

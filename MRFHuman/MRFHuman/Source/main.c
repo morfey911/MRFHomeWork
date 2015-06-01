@@ -8,7 +8,7 @@
 
 int main(int argc, const char * argv[]) {
     MRFArrayTests();
-//    MRFHumanTests();
+    MRFHumanTests();
 
     return 0;
 }

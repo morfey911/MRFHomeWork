@@ -11,6 +11,8 @@
 
 #include <stdbool.h>
 
+#include "MRFArray.h"
+
 typedef enum {
     kMRFHumanUndefined,
     kMRFHumanMale,
@@ -23,7 +25,7 @@ extern
 MRFHuman *MRFHumanCreateWithParameters(char *name, MRFGender gender, uint8_t age);
 
 extern
-MRFHuman *MRFHumanCreateChildren(MRFHuman *mother, MRFHuman *father);
+MRFHuman *MRFHumanCreateChild(MRFHuman *mother, MRFHuman *father);
 
 extern
 void MRFHumanPrintDescription(MRFHuman *object);
@@ -50,7 +52,7 @@ extern
 MRFHuman *MRFHumanGetMother(MRFHuman *object);
 
 extern
-MRFHuman *MRFHumanGetChild(MRFHuman *object);
+MRFArray *MRFHumanGetChildren(MRFHuman *object);
 
 extern
 MRFHuman *MRFHumanGetChildAtIndex(MRFHuman *object, uint8_t index);

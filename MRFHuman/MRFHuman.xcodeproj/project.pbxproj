@@ -65,8 +65,8 @@
 		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
 			isa = PBXGroup;
 			children = (
-				3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */,
 				3FC3654E1B0A4C4F00F03B12 /* MRFHuman.h */,
+				3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */,
 			);
 			path = MRFHuman;
 			sourceTree = "<group>";
