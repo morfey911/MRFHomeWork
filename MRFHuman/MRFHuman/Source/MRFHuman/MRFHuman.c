@@ -128,30 +128,12 @@ void MRFHumanDivorce(MRFHuman *object) {
     }
 }
 
-void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
-    if (NULL != object) {
-        object->_partner = partner;
-    }
-}
-
 MRFHuman *MRFHumanGetPartner(MRFHuman *object) {
     return object->_partner;
 }
 
-void MRFHumanSetFather(MRFHuman *object, MRFHuman *father) {
-    if (NULL != object && NULL != father) {
-        object->_father = father;
-    }
-}
-
 MRFHuman *MRFHumanGetFather(MRFHuman *object) {
     return object->_father;
-}
-
-void MRFHumanSetMother(MRFHuman *object, MRFHuman *mother) {
-    if (NULL != object && NULL != mother) {
-        object->_mother = mother;
-    }
 }
 
 MRFHuman *MRFHumanGetMother(MRFHuman *object) {
@@ -231,6 +213,24 @@ void MRFHumanSetChildren(MRFHuman *object, MRFArray *children) {
         MRFObjectRetain(children);
         MRFObjectRelease(object->_children);
         object->_children = children;
+    }
+}
+
+void MRFHumanSetPartner(MRFHuman *object, MRFHuman *partner) {
+    if (NULL != object) {
+        object->_partner = partner;
+    }
+}
+
+void MRFHumanSetFather(MRFHuman *object, MRFHuman *father) {
+    if (NULL != object && NULL != father) {
+        object->_father = father;
+    }
+}
+
+void MRFHumanSetMother(MRFHuman *object, MRFHuman *mother) {
+    if (NULL != object && NULL != mother) {
+        object->_mother = mother;
     }
 }
 
