@@ -12,7 +12,8 @@
 
 #include "MRFArray.h"
 
-static const uint64_t kMRFArrayaMaximumCapacity = UINT64_MAX - 1;
+const uint64_t kMRFNotFound = UINT64_MAX;
+static const uint64_t kMRFArrayaMaximumCapacity = kMRFNotFound - 1;
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -138,10 +139,7 @@ void MRFArrayRemoveAllObjects(MRFArray *array) {
 #pragma mark Private Implementations
 
 uint64_t MRFArrayGetCapacity(MRFArray *array) {
-    if (NULL != array) {
-        return array->_capacity;
-    }
-    return 0;
+    return (NULL != array) ? array->_capacity : 0;
 }
 
 void MRFArraySetCapacity(MRFArray *array, uint64_t capacity) {

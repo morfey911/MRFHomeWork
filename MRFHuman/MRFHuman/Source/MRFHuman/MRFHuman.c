@@ -129,15 +129,15 @@ void MRFHumanDivorce(MRFHuman *object) {
 }
 
 MRFHuman *MRFHumanGetPartner(MRFHuman *object) {
-    return object->_partner;
+    return (NULL != object) ? object->_partner : NULL;
 }
 
 MRFHuman *MRFHumanGetFather(MRFHuman *object) {
-    return object->_father;
+    return (NULL != object) ? object->_father : NULL;
 }
 
 MRFHuman *MRFHumanGetMother(MRFHuman *object) {
-    return object->_mother;
+    return (NULL != object) ? object->_mother : NULL;
 }
 
 void MRFHumanAddChild(MRFHuman *mother, MRFHuman *father, MRFHuman *child) {
