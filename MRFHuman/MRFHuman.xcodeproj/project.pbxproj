@@ -11,6 +11,8 @@
 		3F58FC9E1B11CBD400B0FC4D /* MRFArrayTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */; };
 		3F58FCA21B1CE7FA00B0FC4D /* MRFString.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCA01B1CE7FA00B0FC4D /* MRFString.c */; };
 		3F58FCA51B1E235200B0FC4D /* MRFStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCA31B1E235200B0FC4D /* MRFStringTests.c */; };
+		3F58FCB31B1F29A100B0FC4D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCB21B1F29A100B0FC4D /* main.c */; };
+		3F58FCBA1B1F2ABC00B0FC4D /* MRFLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */; };
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
@@ -18,6 +20,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3F58FCAE1B1F29A100B0FC4D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		3FDBA6D11B026F8300025857 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,6 +49,10 @@
 		3F58FCA11B1CE7FA00B0FC4D /* MRFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFString.h; sourceTree = "<group>"; };
 		3F58FCA31B1E235200B0FC4D /* MRFStringTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFStringTests.c; sourceTree = "<group>"; };
 		3F58FCA41B1E235200B0FC4D /* MRFStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFStringTests.h; sourceTree = "<group>"; };
+		3F58FCB01B1F29A100B0FC4D /* LinkedList */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinkedList; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F58FCB21B1F29A100B0FC4D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListNode.c; sourceTree = "<group>"; };
+		3F58FCB91B1F2ABC00B0FC4D /* MRFLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListNode.h; sourceTree = "<group>"; };
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -49,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F58FCAD1B1F29A100B0FC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FDBA6D01B026F8300025857 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +99,40 @@
 			path = MRFString;
 			sourceTree = "<group>";
 		};
+		3F58FCA71B1F28F000B0FC4D /* MRFLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCA81B1F292000B0FC4D /* Source */,
+				3F58FCAB1B1F294700B0FC4D /* Tests */,
+			);
+			path = MRFLinkedList;
+			sourceTree = "<group>";
+		};
+		3F58FCA81B1F292000B0FC4D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCB71B1F2A9400B0FC4D /* MRFLinkedListNode */,
+				3F58FCB21B1F29A100B0FC4D /* main.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3F58FCAB1B1F294700B0FC4D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3F58FCB71B1F2A9400B0FC4D /* MRFLinkedListNode */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */,
+				3F58FCB91B1F2ABC00B0FC4D /* MRFLinkedListNode.h */,
+			);
+			path = MRFLinkedListNode;
+			sourceTree = "<group>";
+		};
 		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +154,7 @@
 		3FDBA6CA1B026F8300025857 = {
 			isa = PBXGroup;
 			children = (
+				3F58FCA71B1F28F000B0FC4D /* MRFLinkedList */,
 				3FDBA6D51B026F8300025857 /* MRFHuman */,
 				3FDBA6D41B026F8300025857 /* Products */,
 			);
@@ -107,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3FDBA6D31B026F8300025857 /* MRFHuman */,
+				3F58FCB01B1F29A100B0FC4D /* LinkedList */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +206,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3F58FCAF1B1F29A100B0FC4D /* LinkedList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F58FCB41B1F29A100B0FC4D /* Build configuration list for PBXNativeTarget "LinkedList" */;
+			buildPhases = (
+				3F58FCAC1B1F29A100B0FC4D /* Sources */,
+				3F58FCAD1B1F29A100B0FC4D /* Frameworks */,
+				3F58FCAE1B1F29A100B0FC4D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkedList;
+			productName = LinkedList;
+			productReference = 3F58FCB01B1F29A100B0FC4D /* LinkedList */;
+			productType = "com.apple.product-type.tool";
+		};
 		3FDBA6D21B026F8300025857 /* MRFHuman */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FDBA6DA1B026F8300025857 /* Build configuration list for PBXNativeTarget "MRFHuman" */;
@@ -174,6 +249,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Yurii Mamurko";
 				TargetAttributes = {
+					3F58FCAF1B1F29A100B0FC4D = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					3FDBA6D21B026F8300025857 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -192,11 +270,21 @@
 			projectRoot = "";
 			targets = (
 				3FDBA6D21B026F8300025857 /* MRFHuman */,
+				3F58FCAF1B1F29A100B0FC4D /* LinkedList */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F58FCAC1B1F29A100B0FC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F58FCBA1B1F2ABC00B0FC4D /* MRFLinkedListNode.c in Sources */,
+				3F58FCB31B1F29A100B0FC4D /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FDBA6CF1B026F8300025857 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +303,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3F58FCB51B1F29A100B0FC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3F58FCB61B1F29A100B0FC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3FDBA6D81B026F8300025857 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,6 +415,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F58FCB41B1F29A100B0FC4D /* Build configuration list for PBXNativeTarget "LinkedList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F58FCB51B1F29A100B0FC4D /* Debug */,
+				3F58FCB61B1F29A100B0FC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3FDBA6CE1B026F8300025857 /* Build configuration list for PBXProject "MRFHuman" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
