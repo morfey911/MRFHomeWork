@@ -13,6 +13,8 @@
 		3F58FCA51B1E235200B0FC4D /* MRFStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCA31B1E235200B0FC4D /* MRFStringTests.c */; };
 		3F58FCB31B1F29A100B0FC4D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCB21B1F29A100B0FC4D /* main.c */; };
 		3F58FCBA1B1F2ABC00B0FC4D /* MRFLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */; };
+		3F58FCBE1B1F346A00B0FC4D /* MRFLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCBC1B1F346A00B0FC4D /* MRFLinkedList.c */; };
+		3F58FCBF1B1F3D9B00B0FC4D /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
@@ -53,6 +55,8 @@
 		3F58FCB21B1F29A100B0FC4D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListNode.c; sourceTree = "<group>"; };
 		3F58FCB91B1F2ABC00B0FC4D /* MRFLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListNode.h; sourceTree = "<group>"; };
+		3F58FCBC1B1F346A00B0FC4D /* MRFLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedList.c; sourceTree = "<group>"; };
+		3F58FCBD1B1F346A00B0FC4D /* MRFLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedList.h; sourceTree = "<group>"; };
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		3F58FCA81B1F292000B0FC4D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3F58FCBB1B1F344600B0FC4D /* MRFLinkedList */,
 				3F58FCB71B1F2A9400B0FC4D /* MRFLinkedListNode */,
 				3F58FCB21B1F29A100B0FC4D /* main.c */,
 			);
@@ -131,6 +136,15 @@
 				3F58FCB91B1F2ABC00B0FC4D /* MRFLinkedListNode.h */,
 			);
 			path = MRFLinkedListNode;
+			sourceTree = "<group>";
+		};
+		3F58FCBB1B1F344600B0FC4D /* MRFLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCBC1B1F346A00B0FC4D /* MRFLinkedList.c */,
+				3F58FCBD1B1F346A00B0FC4D /* MRFLinkedList.h */,
+			);
+			path = MRFLinkedList;
 			sourceTree = "<group>";
 		};
 		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
@@ -280,6 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F58FCBF1B1F3D9B00B0FC4D /* MRFObject.c in Sources */,
+				3F58FCBE1B1F346A00B0FC4D /* MRFLinkedList.c in Sources */,
 				3F58FCBA1B1F2ABC00B0FC4D /* MRFLinkedListNode.c in Sources */,
 				3F58FCB31B1F29A100B0FC4D /* main.c in Sources */,
 			);

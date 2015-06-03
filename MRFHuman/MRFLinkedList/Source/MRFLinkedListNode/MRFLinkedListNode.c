@@ -10,6 +10,14 @@
 
 #include "MRFLinkedListNode.h"
 
+void __MRFLinkedListNodeDeallocate(void *object) {
+    MRFLinkedListNodeSetObject(object, NULL);
+    
+    MRFLinkedListNodeSetNextNode(object, NULL);
+    
+    __MRFObjectDeallocate(object);
+}
+
 MRFLinkedListNode *MRFLinkedListNodeCreateWithObject(void *object) {
     MRFLinkedListNode *node = MRFObjectCreateOfType(MRFLinkedListNode);
     MRFLinkedListNodeSetObject(node, object);
@@ -48,7 +56,3 @@ void MRFLinkedListNodeSetObject(MRFLinkedListNode *node, void *object) {
     }
 }
 
-void __MRFLinkedListNodeDeallocate(void *object) {
-    
-    __MRFObjectDeallocate(object);
-}
