@@ -33,4 +33,6 @@ uint64_t MRFStringGetLength(MRFString *object);
 extern
 bool MRFStringIsEmpty(MRFString *object);
 
+void __MRFStringDeallocate(void *object);
+
 #endif /* defined(__MRFHuman__MRFString__) */

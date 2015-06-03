@@ -13,6 +13,7 @@
 
 #include "MRFHuman.h"
 #include "MRFObject.h"
+#include "MRFString.h"
 
 #pragma mark -
 #pragma mark Private Declaration
@@ -24,7 +25,7 @@ struct MRFHuman {
     MRFHuman *_father;
     MRFHuman *_mother;
     MRFArray *_children;
-    char *_name;
+    MRFString *_name;
     MRFGender _sex;
     uint8_t _age;
     int _childrenCount;
@@ -76,7 +77,7 @@ MRFHuman *MRFHumanCreateWithParameters(char *name, MRFGender gender, uint8_t age
 
 MRFHuman *MRFHumanCreateChild(MRFHuman *mother, MRFHuman *father) {
     if (NULL != mother && NULL != father) {
-        MRFHuman *newChild = MRFHumanCreateWithParameters(NULL, MRFHumanRandomGender(), 0);
+        MRFHuman *newChild = MRFHumanCreateWithParameters("", MRFHumanRandomGender(), 0);
         
         MRFHumanSetMother(newChild, mother);
         MRFHumanSetFather(newChild, father);
@@ -159,14 +160,15 @@ MRFHuman *MRFHumanGetChildAtIndex(MRFHuman *object, uint8_t index) {
 
 void MRFHumanSetName(MRFHuman *object, char *name) {
     if (NULL != object) {
-        char *previousName = object->_name;
+        MRFString *previousName = object->_name;
         
-        if (NULL != previousName ) {
-            free(previousName);
+        if (NULL != previousName) {
+            MRFObjectRelease(previousName);
             object->_name = NULL;
         }
+        
         if (NULL != name) {
-            object->_name = strdup(name);
+            object->_name = MRFStringCreateWithString(name);
             
             assert(NULL != object->_name);
         }
@@ -174,7 +176,7 @@ void MRFHumanSetName(MRFHuman *object, char *name) {
 }
 
 char *MRFHumanGetName(MRFHuman *object) {
-    return object->_name;
+    return MRFStringGetString(object->_name);
 }
 
 void MRFHumanSetGender(MRFHuman *object, MRFGender gender) {

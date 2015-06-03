@@ -8,6 +8,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include "MRFString.h"
 
@@ -65,5 +66,7 @@ void MRFStringSetString(MRFString *object, char *string) {
     if (NULL != object) {
         MRFStringSetLength(object, strlen(string));
         object->_string = strdup(string);
+        
+        assert(NULL != object->_string);
     }
 }
