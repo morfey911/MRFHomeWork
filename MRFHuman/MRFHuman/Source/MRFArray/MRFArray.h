@@ -14,7 +14,7 @@
 
 #include "MRFObject.h"
 
-static const uint64_t kMRFNotFound = UINT64_MAX;
+extern const uint64_t kMRFNotFound;
 
 typedef struct {
     MRFObject _super;
