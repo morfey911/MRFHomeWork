@@ -22,9 +22,6 @@ typedef struct {
 } MRFLinkedList;
 
 extern
-MRFLinkedList *MRFLinkedListCreateWithObject(void *object);
-
-extern
 MRFObject *MRFLinkedListGetFirstObject(MRFLinkedList *list);
 
 extern
@@ -37,7 +34,10 @@ extern
 bool MRFLinkedListIsEmpty(MRFLinkedList *list);
 
 extern
-void MRFLinkedListAddObject(MRFLinkedList *list, void *object);
+void MRFLinkedListPushFront(MRFLinkedList *list, void *object);
+
+extern
+void MRFLinkedListPushBack(MRFLinkedList *list, void *object);
 
 extern
 void MRFLinkedListRemoveObject(MRFLinkedList *list, void *object);

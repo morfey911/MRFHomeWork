@@ -27,6 +27,9 @@ extern
 MRFLinkedListNode *MRFLinkedListNodeGetNextNode(MRFLinkedListNode *node);
 
 extern
+MRFLinkedListNode *MRFLinkedListNodeGetLastNode(MRFLinkedListNode *node);
+
+extern
 void MRFLinkedListNodeSetNextNode(MRFLinkedListNode *node, MRFLinkedListNode *nextNode);
 
 extern

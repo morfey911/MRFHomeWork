@@ -29,6 +29,18 @@ MRFLinkedListNode *MRFLinkedListNodeGetNextNode(MRFLinkedListNode *node) {
     return (NULL != node) ? node->_nextNode : NULL;
 }
 
+MRFLinkedListNode *MRFLinkedListNodeGetLastNode(MRFLinkedListNode *node) {
+    MRFLinkedListNode *lastNode = NULL;
+    
+    if (node) {
+        while(NULL != node->_nextNode) {
+            lastNode = node->_nextNode;
+        }
+    }
+    
+    return lastNode;
+}
+
 void MRFLinkedListNodeSetNextNode(MRFLinkedListNode *node, MRFLinkedListNode *nextNode) {
     if (NULL != node && node->_nextNode != node) {
         MRFObjectRetain(nextNode);
