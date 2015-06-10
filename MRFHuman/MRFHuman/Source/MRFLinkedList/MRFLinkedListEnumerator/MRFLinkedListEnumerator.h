@@ -40,5 +40,4 @@ bool MRFLinkedListEnumeratorIsValid(MRFLinkedListEnumerator *enumerator);
 extern
 void __MRFLinkedListEnumeratorDeallocate(void *object);
 
-
 #endif /* defined(__MRFHuman__MRFLinkedListEnumerator__) */

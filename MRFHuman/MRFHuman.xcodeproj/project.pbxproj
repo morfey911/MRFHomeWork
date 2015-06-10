@@ -15,6 +15,7 @@
 		3F58FCC11B20724500B0FC4D /* MRFLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */; };
 		3F58FCC51B208C2400B0FC4D /* MRFLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCC31B208C2400B0FC4D /* MRFLinkedListTests.c */; };
 		3F58FCC91B2710B100B0FC4D /* MRFLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCC71B2710B100B0FC4D /* MRFLinkedListEnumerator.c */; };
+		3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */; };
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
@@ -52,6 +53,8 @@
 		3F58FCC81B2710B100B0FC4D /* MRFLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListEnumerator.h; sourceTree = "<group>"; };
 		3F58FCCA1B2714DC00B0FC4D /* MRFLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
 		3F58FCCB1B27165500B0FC4D /* MRFLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListPrivate.h; sourceTree = "<group>"; };
+		3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListNodeTests.c; sourceTree = "<group>"; };
+		3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListNodeTests.h; sourceTree = "<group>"; };
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */,
 				3F58FCC31B208C2400B0FC4D /* MRFLinkedListTests.c */,
 				3F58FCC41B208C2400B0FC4D /* MRFLinkedListTests.h */,
+				3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */,
+				3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				3F58FCC11B20724500B0FC4D /* MRFLinkedListNode.c in Sources */,
 				3F58FCC01B20723F00B0FC4D /* MRFLinkedList.c in Sources */,
 				3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */,
+				3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */,
 				3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

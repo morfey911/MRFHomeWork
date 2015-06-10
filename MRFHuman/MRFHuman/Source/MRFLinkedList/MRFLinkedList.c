@@ -143,13 +143,18 @@ void MRFLinkedListSetHead(MRFLinkedList *list, MRFLinkedListNode *node) {
     }
 }
 
+void MRFLinkedListSetMutationCount(MRFLinkedList *list, uint64_t count) {
+    if (NULL != list) {
+        list->_mutationCount = count;
+    }
+}
+
 uint64_t MRFLinkedListGetMutationCount(MRFLinkedList *list) {
     return (NULL != list) ? list->_mutationCount : 0;
 }
 
 void MRFLinkedListMutate(MRFLinkedList *list) {
     if (NULL != list) {
-        list->_mutationCount++;
+        MRFLinkedListSetMutationCount(list, MRFLinkedListGetMutationCount(list) + 1);
     }
 }
-

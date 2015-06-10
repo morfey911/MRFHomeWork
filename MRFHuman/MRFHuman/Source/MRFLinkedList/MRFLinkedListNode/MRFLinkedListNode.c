@@ -71,4 +71,3 @@ void MRFLinkedListNodeSetObject(MRFLinkedListNode *node, void *object) {
         }
     }
 }
-

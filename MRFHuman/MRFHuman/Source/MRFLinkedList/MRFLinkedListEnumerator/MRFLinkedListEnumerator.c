@@ -112,4 +112,3 @@ MRFLinkedListNode *MRFLinkedListEnumeratorGetNextNode(MRFLinkedListEnumerator *e
     
     return nextNode;
 }
-

@@ -24,6 +24,9 @@ extern
 MRFLinkedListNode *MRFLinkedListGetHead(MRFLinkedList *list);
 
 extern
+void MRFLinkedListSetMutationCount(MRFLinkedList *list, uint64_t count);
+
+extern
 uint64_t MRFLinkedListGetMutationCount(MRFLinkedList *list);
 
 extern
