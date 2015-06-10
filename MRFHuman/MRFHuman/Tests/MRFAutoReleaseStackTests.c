@@ -66,11 +66,26 @@ void MRFAutoReleaseStackBehaviourTest() {
     //  stack count must be equals 7
     assert(7 == MRFAutoReleaseStackGetCount(stack));
     
-    //  after adding object one more time
-    MRFAutoReleaseStackPush(stack, object);
+    //  after adding 3 more objects
+    for (int i = 0; i < 3; i++) {
+        MRFAutoReleaseStackPush(stack, object);
+    }
     
-    //  stack count must be equals 8
-    assert(8 == MRFAutoReleaseStackGetCount(stack));
+    //  stack count must be equals 10
+    assert(10 == MRFAutoReleaseStackGetCount(stack));
+    
+    //  stack must be full
+    assert(true == MRFAutoReleaseStackIsFull(stack));
+    
+    //  MRFAutoReleaseStackPop must return MRFAutoReleaseStackObject for 3 last objects
+    for (int i = 0; i < 3; i++) {
+        assert(MRFAutoReleaseStackPopObject == MRFAutoReleaseStackPop(stack));
+    }
+    
+    //  next return must be MRFAutoReleaseStackNULL
+    assert(MRFAutoReleaseStackPopNULL == MRFAutoReleaseStackPop(stack));
+    
+    //  after poping all objects from stack
     
     MRFObjectRelease(object);
     MRFObjectRelease(stack);

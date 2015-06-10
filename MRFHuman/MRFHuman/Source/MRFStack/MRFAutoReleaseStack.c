@@ -57,9 +57,9 @@ MRFAutoReleaseStackPopType MRFAutoReleaseStackPop(MRFAutoReleaseStack *stack) {
         if (NULL != *head) {
             MRFObjectRelease(*head);
             result = MRFAutoReleaseStackPopObject;
-            
-            stack->_count -= 1;
         }
+        
+        stack->_count -= 1;
     }
     
     return result;
