@@ -17,6 +17,8 @@
 
 void MRFLinkedListBehaviourTest();
 
+void MRFLinkedListEnumeratorBehaviourTest();
+
 #pragma mark -
 #pragma mark Public
 
@@ -99,5 +101,8 @@ void MRFLinkedListBehaviourTest() {
     
     MRFObjectRelease(object);
     MRFObjectRelease(list);
+}
 
+void MRFLinkedListEnumeratorBehaviourTest() {
+    
 }

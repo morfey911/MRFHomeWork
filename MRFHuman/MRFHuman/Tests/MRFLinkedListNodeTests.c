@@ -61,6 +61,6 @@ void MRFLinkedListNodeCreateTest() {
 }
 
 void MRFLinkedListNodePerfomTest() {
-    printf("MRFLinkedListNodePerfomTest");
+    printf("MRFLinkedListNodePerfomTest\n");
     MRFLinkedListNodeCreateTest();
 }
