@@ -18,7 +18,7 @@ typedef struct MRFLinkedListNode MRFLinkedListNode;
 typedef struct MRFLinkedListEnumerator MRFLinkedListEnumerator;
 
 struct MRFLinkedListEnumerator {
-    MRFObject *_super;
+    MRFObject _super;
     
     MRFLinkedList *_list;
     MRFLinkedListNode *_node;

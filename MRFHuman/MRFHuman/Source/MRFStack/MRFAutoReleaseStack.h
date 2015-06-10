@@ -19,7 +19,7 @@ typedef enum {
 } MRFAutoReleaseStackPopType;
 
 typedef struct {
-    MRFObject *_super;
+    MRFObject _super;
     
     void **_data;
     
