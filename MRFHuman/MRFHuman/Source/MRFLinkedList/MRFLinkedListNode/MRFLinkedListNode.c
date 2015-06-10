@@ -18,6 +18,10 @@ void __MRFLinkedListNodeDeallocate(void *object) {
     __MRFObjectDeallocate(object);
 }
 
+MRFLinkedListNode *MRFLinkedListNodeCreate(void *object) {
+    return MRFLinkedListNodeCreateWithObject(NULL);
+}
+
 MRFLinkedListNode *MRFLinkedListNodeCreateWithObject(void *object) {
     MRFLinkedListNode *node = MRFObjectCreateOfType(MRFLinkedListNode);
     MRFLinkedListNodeSetObject(node, object);

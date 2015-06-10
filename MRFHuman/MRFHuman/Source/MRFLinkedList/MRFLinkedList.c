@@ -6,20 +6,10 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#include "MRFLinkedList.h"
-
-
-#pragma mark -
-#pragma mark Private Declarations
-
-void MRFLinkedListSetCount(MRFLinkedList *list, uint64_t count);
-
-MRFLinkedListNode *MRFLinkedListGetHead(MRFLinkedList *list);
-
-void MRFLinkedListSetHead(MRFLinkedList *list, MRFLinkedListNode *node);
+#include "MRFLinkedListPrivate.h"
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Public Implementations
 
 void __MRFLinkedListDeallocate(void *object) {
     MRFLinkedListSetHead(object, NULL);
@@ -64,29 +54,12 @@ bool MRFLinkedListIsEmpty(MRFLinkedList *list) {
     return (NULL != list) && (0 == list->_count);
 }
 
-void MRFLinkedListPushFront(MRFLinkedList *list, void *object) {
+void MRFLinkedListAddObject(MRFLinkedList *list, void *object) {
     if (list) {
         MRFLinkedListNode *newNode = MRFLinkedListNodeCreateWithObject(object);
         
         MRFLinkedListNodeSetNextNode(newNode, MRFLinkedListGetHead(list));
         MRFLinkedListSetHead(list, newNode);
-        MRFLinkedListSetCount(list, MRFLinkedListGetCount(list) + 1);
-        
-        MRFObjectRelease(newNode);
-    }
-}
-
-void MRFLinkedListPushBack(MRFLinkedList *list, void *object) {
-    if (list) {
-        MRFLinkedListNode *newNode = MRFLinkedListNodeCreateWithObject(object);
-        MRFLinkedListNode *lastNode = MRFLinkedListNodeGetLastNode(MRFLinkedListGetHead(list));
-        
-        MRFLinkedListNodeSetNextNode(lastNode, newNode);
-        
-        if (0 == MRFLinkedListGetCount(list)) {
-            MRFLinkedListSetHead(list, newNode);
-        }
-        
         MRFLinkedListSetCount(list, MRFLinkedListGetCount(list) + 1);
         
         MRFObjectRelease(newNode);
@@ -145,7 +118,7 @@ uint64_t MRFLinkedListGetCount(MRFLinkedList *list) {
 }
 
 #pragma mark -
-#pragma mark Private Declarations
+#pragma mark Private Implementations
 
 void MRFLinkedListSetCount(MRFLinkedList *list, uint64_t count) {
     if (list) {
@@ -169,3 +142,14 @@ void MRFLinkedListSetHead(MRFLinkedList *list, MRFLinkedListNode *node) {
         list->_head = node;
     }
 }
+
+uint64_t MRFLinkedListGetMutationCount(MRFLinkedList *list) {
+    return (NULL != list) ? list->_mutationCount : 0;
+}
+
+void MRFLinkedListMutate(MRFLinkedList *list) {
+    if (NULL != list) {
+        list->_mutationCount++;
+    }
+}
+

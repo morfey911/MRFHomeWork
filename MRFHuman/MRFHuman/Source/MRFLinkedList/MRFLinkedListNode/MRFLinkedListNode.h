@@ -21,6 +21,9 @@ struct MRFLinkedListNode {
 };
 
 extern
+MRFLinkedListNode *MRFLinkedListNodeCreate(void *object);
+
+extern
 MRFLinkedListNode *MRFLinkedListNodeCreateWithObject(void *object);
 
 extern

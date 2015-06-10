@@ -14,12 +14,18 @@
 #include "MRFObject.h"
 #include "MRFLinkedListNode.h"
 
-typedef struct {
+typedef struct MRFLinkedList MRFLinkedList;
+typedef struct MRFLinkedListNode MRFLinkedListNode;
+typedef struct MRFLinkedListEnumerator MRFLinkedListEnumerator;
+
+struct MRFLinkedList {
     MRFObject _super;
     
     MRFLinkedListNode *_head;
+    
     uint64_t _count;
-} MRFLinkedList;
+    uint64_t _mutationCount;
+};
 
 extern
 MRFObject *MRFLinkedListGetFirstObject(MRFLinkedList *list);
@@ -34,10 +40,7 @@ extern
 bool MRFLinkedListIsEmpty(MRFLinkedList *list);
 
 extern
-void MRFLinkedListPushFront(MRFLinkedList *list, void *object);
-
-extern
-void MRFLinkedListPushBack(MRFLinkedList *list, void *object);
+void MRFLinkedListAddObject(MRFLinkedList *list, void *object);
 
 extern
 void MRFLinkedListRemoveObject(MRFLinkedList *list, void *object);

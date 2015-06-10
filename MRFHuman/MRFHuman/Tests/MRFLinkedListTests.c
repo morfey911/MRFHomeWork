@@ -41,7 +41,7 @@ void MRFLinkedListBehaviourTest() {
     assert(false == MRFLinkedListContainsObject(list, object));
     
     //  after object was added to list
-    MRFLinkedListPushBack(list, object);
+    MRFLinkedListAddObject(list, object);
     
     //      object referenceCount must be 2
     assert(2 == MRFObjectGetReferenceCount(object));
@@ -66,7 +66,7 @@ void MRFLinkedListBehaviourTest() {
 
     // after object was added 20 times
     for (uint64_t iterator = 0; iterator < 2000; iterator++) {
-        MRFLinkedListPushFront(list, object);
+        MRFLinkedListAddObject(list, object);
     }
     
     //      list must not be empty
