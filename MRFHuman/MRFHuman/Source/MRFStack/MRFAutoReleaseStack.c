@@ -73,6 +73,20 @@ void MRFAutoReleaseStackPopAll(MRFAutoReleaseStack *stack) {
     }
 }
 
+MRFAutoReleaseStackPopType MRFAutoReleaseStackPopAllObjects(MRFAutoReleaseStack *stack) {
+    MRFAutoReleaseStackPopType result = MRFAutoReleaseStackPopNULL;
+    
+    if (stack) {
+        while (MRFAutoReleaseStackPopObject == MRFAutoReleaseStackPop(stack)) {
+            if (MRFAutoReleaseStackIsEmpty(stack) ) {
+                result = MRFAutoReleaseStackPopObject;
+            }
+        }
+    }
+    
+    return result;
+}
+
 uint64_t MRFAutoReleaseStackGetCount(MRFAutoReleaseStack *stack) {
     return (NULL != stack) ? stack->_count : 0;
 }

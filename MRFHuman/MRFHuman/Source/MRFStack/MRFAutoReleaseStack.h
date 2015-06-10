@@ -40,6 +40,9 @@ extern
 void MRFAutoReleaseStackPopAll(MRFAutoReleaseStack *stack);
 
 extern
+MRFAutoReleaseStackPopType MRFAutoReleaseStackPopAllObjects(MRFAutoReleaseStack *stack);
+
+extern
 uint64_t MRFAutoReleaseStackGetCount(MRFAutoReleaseStack *stack);
 
 extern
