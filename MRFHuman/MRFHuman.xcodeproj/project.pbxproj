@@ -18,6 +18,7 @@
 		3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */; };
 		3F58FCD31B285E9500B0FC4D /* MRFAutoReleasingStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */; };
 		3F58FCD61B286DC200B0FC4D /* MRFAutoReleasingStackTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */; };
+		3F58FCDA1B29CE3C00B0FC4D /* MRFAutoReleasePool.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */; };
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
@@ -61,6 +62,8 @@
 		3F58FCD21B285E9500B0FC4D /* MRFAutoReleasingStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStack.h; sourceTree = "<group>"; };
 		3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasingStackTests.c; sourceTree = "<group>"; };
 		3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStackTests.h; sourceTree = "<group>"; };
+		3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasePool.c; sourceTree = "<group>"; };
+		3F58FCD91B29CE3C00B0FC4D /* MRFAutoReleasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasePool.h; sourceTree = "<group>"; };
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -140,6 +143,15 @@
 			path = MRFAutoReleasingStack;
 			sourceTree = "<group>";
 		};
+		3F58FCD71B29CE0100B0FC4D /* MRFAutoReleasePool */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */,
+				3F58FCD91B29CE3C00B0FC4D /* MRFAutoReleasePool.h */,
+			);
+			path = MRFAutoReleasePool;
+			sourceTree = "<group>";
+		};
 		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +198,7 @@
 		3FDBA6DD1B0270A300025857 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3F58FCD71B29CE0100B0FC4D /* MRFAutoReleasePool */,
 				3F58FCD01B285E5300B0FC4D /* MRFAutoReleasingStack */,
 				3F58FCC21B2072D900B0FC4D /* MRFLinkedList */,
 				3F58FC9F1B1CE7EB00B0FC4D /* MRFString */,
@@ -286,6 +299,7 @@
 				3F58FCC01B20723F00B0FC4D /* MRFLinkedList.c in Sources */,
 				3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */,
 				3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */,
+				3F58FCDA1B29CE3C00B0FC4D /* MRFAutoReleasePool.c in Sources */,
 				3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
