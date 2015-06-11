@@ -86,7 +86,12 @@ void MRFAutoReleaseStackBehaviourTest() {
     assert(MRFAutoReleaseStackPopNULL == MRFAutoReleaseStackPop(stack));
     
     //  after poping all objects from stack
+    MRFAutoReleaseStackPopAll(stack);
     
+    //  stack must be empty
+    assert(true == MRFAutoReleaseStackIsEmpty(stack));
+    
+    //  just release them all
     MRFObjectRelease(object);
     MRFObjectRelease(stack);
 }
