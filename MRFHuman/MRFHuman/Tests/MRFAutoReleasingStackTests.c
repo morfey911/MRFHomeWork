@@ -38,7 +38,7 @@ void MRFAutoReleasingStackBehaviourTest() {
     
     //  after adding object
     MRFObject *object = MRFObjectCreateOfType(MRFObject);
-    MRFAutoReleasingStackPushObject(stack, object);
+    MRFAutoReleasingStackPushObject(stack, NULL);
     
     //  stack count must be equals 1
     assert(1 == MRFAutoReleasingStackGetCount(stack));
@@ -86,7 +86,7 @@ void MRFAutoReleasingStackBehaviourTest() {
     assert(MRFAutoReleasingStackPoppingNULL == MRFAutoReleasingStackPopObject(stack));
     
     //  after poping all objects from stack
-    MRFAutoReleasingStackPopAll(stack);
+    MRFAutoReleasingStackPopAllObjects(stack);
     
     //  stack must be empty
     assert(true == MRFAutoReleasingStackIsEmpty(stack));
