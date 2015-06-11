@@ -73,6 +73,8 @@ void MRFAutoReleaseStackPopAll(MRFAutoReleaseStack *stack) {
     }
 }
 
+
+//for future MRFAutoReleasePool
 MRFAutoReleaseStackPopType MRFAutoReleaseStackPopAllObjects(MRFAutoReleaseStack *stack) {
     MRFAutoReleaseStackPopType result = MRFAutoReleaseStackPopNULL;
     
