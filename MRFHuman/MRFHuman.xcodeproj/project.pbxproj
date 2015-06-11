@@ -16,8 +16,8 @@
 		3F58FCC51B208C2400B0FC4D /* MRFLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCC31B208C2400B0FC4D /* MRFLinkedListTests.c */; };
 		3F58FCC91B2710B100B0FC4D /* MRFLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCC71B2710B100B0FC4D /* MRFLinkedListEnumerator.c */; };
 		3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */; };
-		3F58FCD31B285E9500B0FC4D /* MRFAutoReleaseStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD11B285E9500B0FC4D /* MRFAutoReleaseStack.c */; };
-		3F58FCD61B286DC200B0FC4D /* MRFAutoReleaseStackTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD41B286DC200B0FC4D /* MRFAutoReleaseStackTests.c */; };
+		3F58FCD31B285E9500B0FC4D /* MRFAutoReleasingStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */; };
+		3F58FCD61B286DC200B0FC4D /* MRFAutoReleasingStackTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */; };
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
@@ -57,10 +57,10 @@
 		3F58FCCB1B27165500B0FC4D /* MRFLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListPrivate.h; sourceTree = "<group>"; };
 		3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListNodeTests.c; sourceTree = "<group>"; };
 		3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListNodeTests.h; sourceTree = "<group>"; };
-		3F58FCD11B285E9500B0FC4D /* MRFAutoReleaseStack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleaseStack.c; sourceTree = "<group>"; };
-		3F58FCD21B285E9500B0FC4D /* MRFAutoReleaseStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleaseStack.h; sourceTree = "<group>"; };
-		3F58FCD41B286DC200B0FC4D /* MRFAutoReleaseStackTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleaseStackTests.c; sourceTree = "<group>"; };
-		3F58FCD51B286DC200B0FC4D /* MRFAutoReleaseStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleaseStackTests.h; sourceTree = "<group>"; };
+		3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasingStack.c; sourceTree = "<group>"; };
+		3F58FCD21B285E9500B0FC4D /* MRFAutoReleasingStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStack.h; sourceTree = "<group>"; };
+		3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasingStackTests.c; sourceTree = "<group>"; };
+		3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStackTests.h; sourceTree = "<group>"; };
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -131,13 +131,13 @@
 			path = MRFLinkedListEnumerator;
 			sourceTree = "<group>";
 		};
-		3F58FCD01B285E5300B0FC4D /* MRFStack */ = {
+		3F58FCD01B285E5300B0FC4D /* MRFAutoReleasingStack */ = {
 			isa = PBXGroup;
 			children = (
-				3F58FCD11B285E9500B0FC4D /* MRFAutoReleaseStack.c */,
-				3F58FCD21B285E9500B0FC4D /* MRFAutoReleaseStack.h */,
+				3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */,
+				3F58FCD21B285E9500B0FC4D /* MRFAutoReleasingStack.h */,
 			);
-			path = MRFStack;
+			path = MRFAutoReleasingStack;
 			sourceTree = "<group>";
 		};
 		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
@@ -186,7 +186,7 @@
 		3FDBA6DD1B0270A300025857 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				3F58FCD01B285E5300B0FC4D /* MRFStack */,
+				3F58FCD01B285E5300B0FC4D /* MRFAutoReleasingStack */,
 				3F58FCC21B2072D900B0FC4D /* MRFLinkedList */,
 				3F58FC9F1B1CE7EB00B0FC4D /* MRFString */,
 				3F58FC981B10AF7600B0FC4D /* MRFArray */,
@@ -210,8 +210,8 @@
 				3F58FCC41B208C2400B0FC4D /* MRFLinkedListTests.h */,
 				3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */,
 				3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */,
-				3F58FCD41B286DC200B0FC4D /* MRFAutoReleaseStackTests.c */,
-				3F58FCD51B286DC200B0FC4D /* MRFAutoReleaseStackTests.h */,
+				3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */,
+				3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -281,8 +281,8 @@
 				3F58FC9B1B10AF8600B0FC4D /* MRFArray.c in Sources */,
 				3F58FCC51B208C2400B0FC4D /* MRFLinkedListTests.c in Sources */,
 				3F58FCC11B20724500B0FC4D /* MRFLinkedListNode.c in Sources */,
-				3F58FCD61B286DC200B0FC4D /* MRFAutoReleaseStackTests.c in Sources */,
-				3F58FCD31B285E9500B0FC4D /* MRFAutoReleaseStack.c in Sources */,
+				3F58FCD61B286DC200B0FC4D /* MRFAutoReleasingStackTests.c in Sources */,
+				3F58FCD31B285E9500B0FC4D /* MRFAutoReleasingStack.c in Sources */,
 				3F58FCC01B20723F00B0FC4D /* MRFLinkedList.c in Sources */,
 				3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */,
 				3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */,

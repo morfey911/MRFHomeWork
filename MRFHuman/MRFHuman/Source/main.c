@@ -6,7 +6,7 @@
 #include "MRFStringTests.h"
 #include "MRFLinkedListTests.h"
 #include "MRFLinkedListNodeTests.h"
-#include "MRFAutoReleaseStackTests.h"
+#include "MRFAutoReleasingStackTests.h"
 
 int main(int argc, const char * argv[]) {
     MRFArrayTests();
@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     MRFStringTests();
     MRFLinkedListTests();
     MRFLinkedListNodeTests();
-    MRFAutoReleaseStackTests();
+    MRFAutoReleasingStackTests();
     
     return 0;
 }

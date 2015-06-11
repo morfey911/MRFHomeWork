@@ -1,5 +1,5 @@
 //
-//  MRFAutoReleaseStackTests.h
+//  MRFAutoReleasingStackTests.h
 //  MRFHuman
 //
 //  Created by Yurii Mamurko on 10.06.15.
@@ -9,6 +9,6 @@
 #ifndef __MRFHuman__MRFAutoReleaseStackTests__
 #define __MRFHuman__MRFAutoReleaseStackTests__
 
-void MRFAutoReleaseStackTests();
+void MRFAutoReleasingStackTests();
 
 #endif /* defined(__MRFHuman__MRFAutoReleaseStackTests__) */
