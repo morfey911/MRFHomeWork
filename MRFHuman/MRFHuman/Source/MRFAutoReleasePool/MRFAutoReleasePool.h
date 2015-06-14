@@ -9,13 +9,14 @@
 #ifndef __MRFHuman__MRFAutoReleasePool__
 #define __MRFHuman__MRFAutoReleasePool__
 
+#include "MRFAutoReleasingStack.h"
 #include "MRFLinkedList.h"
 #include "MRFObject.h"
 
 typedef struct {
-    MRFObject _super;
-    
     MRFLinkedList *_list;
+    
+    MRFAutoReleasingStack *_stack;
 } MRFAutoReleasePool;
 
 extern
@@ -26,8 +27,5 @@ void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object);
 
 extern
 void MRFAutoReleasePoolDrain(MRFAutoReleasePool *pool);
-
-extern
-void __MRFAutoReleasePoolDeallocate(void *object);
 
 #endif /* defined(__MRFHuman__MRFAutoReleasePool__) */
