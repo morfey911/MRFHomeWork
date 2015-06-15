@@ -15,7 +15,7 @@
 
 void **MRFAutoReleasingStackGetHead(MRFAutoReleasingStack *stack);
 
-void MRFAutoReleasingStackSetSize(MRFAutoReleasingStack *stack, size_t size);
+void MRFAutoReleasingStackSetSize(MRFAutoReleasingStack *stack, uint64_t size);
 
 void MRFAutoReleasingStackPopAll(MRFAutoReleasingStack *stack);
 
@@ -28,7 +28,7 @@ void __MRFAutoReleasingStackDeallocate(void *object) {
     __MRFObjectDeallocate(object);
 }
 
-MRFAutoReleasingStack *MRFAutoReleasingStackCreateWithSize(size_t size) {
+MRFAutoReleasingStack *MRFAutoReleasingStackCreateWithSize(uint64_t size) {
     assert(0 != size);
     
     MRFAutoReleasingStack *stack = MRFObjectCreateOfType(MRFAutoReleasingStack);
@@ -101,7 +101,7 @@ void **MRFAutoReleasingStackGetHead(MRFAutoReleasingStack *stack) {
     return (NULL != stack) ? stack->_data + stack->_count - 1 : NULL;
 }
 
-void MRFAutoReleasingStackSetSize(MRFAutoReleasingStack *stack, size_t size) {
+void MRFAutoReleasingStackSetSize(MRFAutoReleasingStack *stack, uint64_t size) {
     if (NULL != stack) {
         if (NULL != stack->_data && 0 == size) {
             MRFAutoReleasingStackPopAll(stack);

@@ -23,12 +23,12 @@ typedef struct {
     
     void **_data;
     
-    size_t _size;
+    uint64_t _size;
     uint64_t _count;
 } MRFAutoReleasingStack;
 
 extern
-MRFAutoReleasingStack *MRFAutoReleasingStackCreateWithSize(size_t size);
+MRFAutoReleasingStack *MRFAutoReleasingStackCreateWithSize(uint64_t size);
 
 extern
 void MRFAutoReleasingStackPushObject(MRFAutoReleasingStack *stack, void *object);
