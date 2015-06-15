@@ -13,24 +13,28 @@
 #pragma mark Private Declarations
 
 static
-const uint64_t MRFAutoReleasingStackMaxSize = 100;
+const uint64_t MRFAutoReleasingStackDefaultSize = 100;
 
 
 static MRFAutoReleasePool *__pool = NULL;
 
+static
 MRFAutoReleasePool *MRFAutoReleasePoolGetPool();
 
+static
 void MRFAutoReleasePoolSetPool(MRFAutoReleasePool *pool);
 
+static
 void MRFAutoReleasePoolSetList(MRFAutoReleasePool *pool, MRFLinkedList *list);
 
+static
 MRFLinkedList *MRFAutoReleasePoolGetList(MRFAutoReleasePool *pool);
 
+static
 MRFAutoReleasingStack *MRFAutoReleasePoolGetStack(MRFAutoReleasePool *pool);
 
+static
 void MRFAutoReleasePoolSetStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack *stack);
-
-void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object);
 
 #pragma mark -
 #pragma mark Public
@@ -57,7 +61,7 @@ void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object) {
     if (NULL != pool) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
         MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetStack(pool);
-        uint64_t stackSize = MRFAutoReleasingStackMaxSize;
+        uint64_t stackSize = MRFAutoReleasingStackDefaultSize;
         
         if (NULL == stack || MRFAutoReleasingStackIsFull(stack)) {
             MRFAutoReleasingStack *newStack = MRFAutoReleasingStackCreateWithSize(stackSize);
