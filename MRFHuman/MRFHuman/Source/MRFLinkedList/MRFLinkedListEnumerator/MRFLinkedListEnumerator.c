@@ -27,6 +27,7 @@ MRFLinkedListEnumerator *MRFLinkedListEnumeratorCreateWithList(MRFLinkedList *li
     MRFLinkedListEnumerator *enumerator = MRFObjectCreateOfType(MRFLinkedListEnumerator);
     MRFLinkedListEnumeratorSetList(enumerator, list);
     MRFLinkedListEnumeratorSetMutationCount(enumerator, MRFLinkedListGetMutationCount(list));
+    enumerator->_valid = true;
     
     return enumerator;
 }

@@ -14,6 +14,7 @@
 #pragma mark -
 #pragma mark Private Declarations
 
+static
 void MRFStringBehaviourTest();
 
 #pragma mark -

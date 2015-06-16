@@ -15,8 +15,10 @@
 #pragma mark -
 #pragma mark Private Declarations
 
+static
 void MRFAutoReleasingStackBehaviourTest();
 
+static
 void MRFAutoReleasingStackPerfomTest();
 
 #pragma mark -

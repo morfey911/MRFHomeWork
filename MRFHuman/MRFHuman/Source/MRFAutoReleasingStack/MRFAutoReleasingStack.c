@@ -75,6 +75,7 @@ MRFAutoReleasingStackPoppingType MRFAutoReleasingStackPopAllObjects(MRFAutoRelea
         while (MRFAutoReleasingStackPoppingObject == MRFAutoReleasingStackPopObject(stack)) {
             if (MRFAutoReleasingStackIsEmpty(stack) ) {
                 result = MRFAutoReleasingStackPoppingObject;
+                break;
             }
         }
     }

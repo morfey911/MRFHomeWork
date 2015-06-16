@@ -16,8 +16,10 @@
 #pragma mark -
 #pragma mark Private Declarations
 
+static
 void MRFLinkedListNodeCreateTest();
 
+static
 void MRFLinkedListNodePerfomTest();
 
 #pragma mark -

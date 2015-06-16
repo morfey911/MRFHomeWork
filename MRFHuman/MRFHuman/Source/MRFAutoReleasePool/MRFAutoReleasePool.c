@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
+#include <assert.h>
+
+#include "MRFLinkedListEnumerator.h"
 #include "MRFAutoReleasePool.h"
 #include "MRFLinkedList.h"
 
@@ -13,7 +16,7 @@
 #pragma mark Private Declarations
 
 static
-const uint64_t MRFAutoReleasingStackDefaultSize = 100;
+const uint64_t MRFAutoReleasingStackDefaultSize = 128;
 
 
 static MRFAutoReleasePool *__pool = NULL;
@@ -44,10 +47,10 @@ MRFAutoReleasePool *MRFAutoReleasePoolCreate() {
     
     if (NULL == pool) {
         pool = calloc(1, sizeof(*pool));
-        MRFAutoReleasePoolSetPool(pool);
-        
         MRFLinkedList *list = MRFObjectCreateOfType(MRFLinkedList);
+        
         MRFAutoReleasePoolSetList(pool, list);
+        MRFAutoReleasePoolSetPool(pool);
         
         MRFObjectRelease(list);
     }
@@ -75,7 +78,29 @@ void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object) {
     }
 }
 
-void MRFAutoReleasePoolDrain(MRFAutoReleasePool *pool);
+void MRFAutoReleasePoolDrain(MRFAutoReleasePool *pool) {
+    if (NULL != pool) {
+        MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
+        MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetStack(pool);
+        MRFAutoReleasingStackPoppingType poppingType = MRFAutoReleasingStackPoppingNULL;
+        MRFLinkedListEnumerator *enumerator = MRFLinkedListEnumeratorCreateWithList(list);
+        
+        while (MRFLinkedListEnumeratorIsValid(enumerator)
+               && (MRFObject *)stack != MRFLinkedListEnumeratorNextObject(enumerator)) {}
+        
+        do {
+            poppingType = MRFAutoReleasingStackPopAllObjects(stack);
+            MRFAutoReleasingStack *nextStack = (MRFAutoReleasingStack *)MRFLinkedListEnumeratorNextObject(enumerator);
+            
+            if (MRFAutoReleasingStackIsEmpty(stack) && MRFAutoReleasingStackIsFull(nextStack)) {
+                stack = nextStack;
+                MRFAutoReleasePoolSetStack(pool, stack);
+            }
+        } while (poppingType == MRFAutoReleasingStackPoppingObject);
+        
+        MRFObjectRelease(enumerator);
+    }
+}
 
 #pragma mark -
 #pragma mark Private Implementations
@@ -104,14 +129,14 @@ MRFLinkedList *MRFAutoReleasePoolGetList(MRFAutoReleasePool *pool) {
 }
 
 MRFAutoReleasingStack *MRFAutoReleasePoolGetStack(MRFAutoReleasePool *pool) {
-    return (NULL != pool) ? pool->_stack : NULL;
+    return (NULL != pool) ? pool->_currentStack : NULL;
 }
 
 void MRFAutoReleasePoolSetStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack *stack) {
     if (NULL != pool) {
         MRFObjectRetain(stack);
         
-        MRFObjectRelease(pool->_stack);
-        pool->_stack = stack;
+        MRFObjectRelease(pool->_currentStack);
+        pool->_currentStack = stack;
     }
 }

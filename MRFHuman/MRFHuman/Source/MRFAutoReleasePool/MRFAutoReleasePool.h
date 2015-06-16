@@ -16,7 +16,7 @@
 typedef struct {
     MRFLinkedList *_list;
     
-    MRFAutoReleasingStack *_stack;
+    MRFAutoReleasingStack *_currentStack;
 } MRFAutoReleasePool;
 
 extern

@@ -15,8 +15,10 @@
 #pragma mark -
 #pragma mark Private Declarations
 
+static
 void MRFLinkedListBehaviourTest();
 
+static
 void MRFLinkedListEnumeratorBehaviourTest();
 
 #pragma mark -

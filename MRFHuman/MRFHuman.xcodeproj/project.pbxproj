@@ -19,6 +19,7 @@
 		3F58FCD31B285E9500B0FC4D /* MRFAutoReleasingStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */; };
 		3F58FCD61B286DC200B0FC4D /* MRFAutoReleasingStackTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */; };
 		3F58FCDA1B29CE3C00B0FC4D /* MRFAutoReleasePool.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */; };
+		3F58FCDD1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCDB1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c */; };
 		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
 		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
 		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
@@ -64,6 +65,8 @@
 		3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStackTests.h; sourceTree = "<group>"; };
 		3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasePool.c; sourceTree = "<group>"; };
 		3F58FCD91B29CE3C00B0FC4D /* MRFAutoReleasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasePool.h; sourceTree = "<group>"; };
+		3F58FCDB1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasePoolTests.c; sourceTree = "<group>"; };
+		3F58FCDC1B3044B800B0FC4D /* MRFAutoReleasePoolTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasePoolTests.h; sourceTree = "<group>"; };
 		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
 		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
 		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */,
 				3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */,
 				3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */,
+				3F58FCDB1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c */,
+				3F58FCDC1B3044B800B0FC4D /* MRFAutoReleasePoolTests.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F58FCA51B1E235200B0FC4D /* MRFStringTests.c in Sources */,
+				3F58FCDD1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c in Sources */,
 				3FDBA6D71B026F8300025857 /* main.c in Sources */,
 				3F58FC9E1B11CBD400B0FC4D /* MRFArrayTests.c in Sources */,
 				3F58FCA21B1CE7FA00B0FC4D /* MRFString.c in Sources */,
