@@ -14,8 +14,9 @@
 #include "MRFObject.h"
 
 typedef struct {
-    MRFLinkedList *_list;
+    MRFObject _super;
     
+    MRFLinkedList *_list;
     MRFAutoReleasingStack *_currentStack;
 } MRFAutoReleasePool;
 

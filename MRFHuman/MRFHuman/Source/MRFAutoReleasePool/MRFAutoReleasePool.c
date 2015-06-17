@@ -42,11 +42,19 @@ void MRFAutoReleasePoolSetStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack 
 #pragma mark -
 #pragma mark Public
 
+void __MRFAutoReleasePoolDeallocate(void *object) {
+    MRFAutoReleasePoolSetList(object, NULL);
+    MRFAutoReleasePoolSetStack(object, NULL);
+    
+    __MRFObjectDeallocate(object);
+}
+
 MRFAutoReleasePool *MRFAutoReleasePoolCreate() {
     MRFAutoReleasePool *pool = MRFAutoReleasePoolGetPool();
     
     if (NULL == pool) {
-        pool = calloc(1, sizeof(*pool));
+//        pool = calloc(1, sizeof(*pool));
+        pool = MRFObjectCreateOfType(MRFAutoReleasePool);
         MRFLinkedList *list = MRFObjectCreateOfType(MRFLinkedList);
         
         MRFAutoReleasePoolSetList(pool, list);
