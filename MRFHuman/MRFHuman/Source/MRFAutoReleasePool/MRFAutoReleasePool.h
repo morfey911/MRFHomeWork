@@ -18,6 +18,7 @@ typedef struct {
     
     MRFLinkedList *_list;
     MRFAutoReleasingStack *_currentStack;
+    uint64_t _emptyStacksCount;
 } MRFAutoReleasePool;
 
 extern
