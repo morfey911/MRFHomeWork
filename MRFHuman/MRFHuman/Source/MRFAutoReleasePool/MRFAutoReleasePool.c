@@ -18,10 +18,10 @@
 static MRFAutoReleasePool *__pool = NULL;
 
 static
-const uint64_t MRFAutoReleasingStackDefaultSize = 10;
+const uint64_t MRFAutoReleasingStackDefaultCapacity = 10;
 
 static
-const uint64_t MRFAutoReleasePoolDeflatingCount = 2;
+const uint64_t MRFAutoReleasePoolDeflationCount = 2;
 
 static
 MRFAutoReleasePool *MRFAutoReleasePoolGetPool();
@@ -36,10 +36,13 @@ static
 MRFLinkedList *MRFAutoReleasePoolGetList(MRFAutoReleasePool *pool);
 
 static
-MRFAutoReleasingStack *MRFAutoReleasePoolGetStack(MRFAutoReleasePool *pool);
+MRFAutoReleasingStack *MRFAutoReleasePoolGetEmptyStack (MRFAutoReleasePool *pool);
 
 static
-void MRFAutoReleasePoolSetStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack *stack);
+MRFAutoReleasingStack *MRFAutoReleasePoolGetCurrentStack(MRFAutoReleasePool *pool);
+
+static
+void MRFAutoReleasePoolSetCurrentStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack *stack);
 
 static
 void MRFAutoReleasePoolSetEmptyStacksCount(MRFAutoReleasePool *pool, uint64_t count);
@@ -57,10 +60,10 @@ void MRFAutoReleasePoolDeflate(MRFAutoReleasePool *pool);
 #pragma mark Public
 
 void __MRFAutoReleasePoolDeallocate(void *object) {
-    MRFAutoReleasePoolSetList(object, NULL);
-    MRFAutoReleasePoolSetStack(object, NULL);
-    
-    __MRFObjectDeallocate(object);
+//    MRFAutoReleasePoolSetList(object, NULL);
+//    MRFAutoReleasePoolSetCurrentStack(object, NULL);
+//    
+//    __MRFObjectDeallocate(object);
 }
 
 MRFAutoReleasePool *MRFAutoReleasePoolCreate() {
@@ -84,31 +87,30 @@ MRFAutoReleasePool *MRFAutoReleasePoolCreate() {
 void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object) {
     if (NULL != pool) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
-        MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetStack(pool);
+        MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetCurrentStack(pool);
+        MRFAutoReleasingStack *previousEmptyStack = MRFAutoReleasePoolGetEmptyStack(pool);
         
         if (NULL == stack || MRFAutoReleasingStackIsFull(stack)) {
-            if (0 == MRFAutoReleasePoolGetEmptyStacksCount(pool)) {
-                MRFAutoReleasingStack *newStack = MRFAutoReleasingStackCreateWithSize(MRFAutoReleasingStackDefaultSize);
+            if (NULL != previousEmptyStack) {
+                MRFAutoReleasePoolSetCurrentStack(pool, previousEmptyStack);
+            } else {
+                MRFAutoReleasingStack *newStack =
+                    MRFAutoReleasingStackCreateWithSize(MRFAutoReleasingStackDefaultCapacity);
                 MRFLinkedListAddObject(list, newStack);
-                MRFAutoReleasePoolSetStack(pool, newStack);
+                MRFAutoReleasePoolSetCurrentStack(pool, newStack);
                 
                 MRFObjectRelease(newStack);
-            } else {
-                MRFAutoReleasingStack *prevEmptyStack =
-                (MRFAutoReleasingStack *)MRFLinkedListGetObjectBeforeObject(list, (MRFObject *)stack);
-                MRFAutoReleasePoolSetStack(pool, prevEmptyStack);
-                MRFAutoReleasePoolSetEmptyStacksCount(pool, MRFAutoReleasePoolGetEmptyStacksCount(pool) - 1);
             }
         }
         
-        MRFAutoReleasingStackPushObject(MRFAutoReleasePoolGetStack(pool), object);
+        MRFAutoReleasingStackPushObject(MRFAutoReleasePoolGetCurrentStack(pool), object);
     }
 }
 
 void MRFAutoReleasePoolDrain(MRFAutoReleasePool *pool) {
     if (NULL != pool) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
-        MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetStack(pool);
+        MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetCurrentStack(pool);
         MRFAutoReleasingStackPoppingType poppingType = MRFAutoReleasingStackPoppingNULL;
         MRFLinkedListEnumerator *enumerator = MRFLinkedListEnumeratorCreateWithList(list);
         
@@ -121,7 +123,7 @@ void MRFAutoReleasePoolDrain(MRFAutoReleasePool *pool) {
             
             if (MRFAutoReleasingStackIsEmpty(stack) && MRFAutoReleasingStackIsFull(nextStack)) {
                 stack = nextStack;
-                MRFAutoReleasePoolSetStack(pool, stack);
+                MRFAutoReleasePoolSetCurrentStack(pool, stack);
                 MRFAutoReleasePoolSetEmptyStacksCount(pool, MRFAutoReleasePoolGetEmptyStacksCount(pool) + 1);
             }
         } while (poppingType == MRFAutoReleasingStackPoppingObject);
@@ -158,11 +160,30 @@ MRFLinkedList *MRFAutoReleasePoolGetList(MRFAutoReleasePool *pool) {
     return (NULL != pool) ? pool->_list : NULL;
 }
 
-MRFAutoReleasingStack *MRFAutoReleasePoolGetStack(MRFAutoReleasePool *pool) {
+MRFAutoReleasingStack *MRFAutoReleasePoolGetEmptyStack (MRFAutoReleasePool *pool) {
+    if (NULL != pool) {
+        MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
+        MRFAutoReleasingStack *currentStack = MRFAutoReleasePoolGetCurrentStack(pool);
+        
+        if (0 != MRFAutoReleasePoolGetEmptyStacksCount(pool)) {
+            MRFAutoReleasingStack *previousEmptyStack =
+            (MRFAutoReleasingStack *)MRFLinkedListGetObjectBeforeObject(list, (MRFObject *)currentStack);
+            
+            assert(true == MRFAutoReleasingStackIsEmpty(previousEmptyStack));
+            
+            MRFAutoReleasePoolSetEmptyStacksCount(pool, MRFAutoReleasePoolGetEmptyStacksCount(pool) - 1);
+            
+            return previousEmptyStack;
+        }
+    }
+    return NULL;
+}
+
+MRFAutoReleasingStack *MRFAutoReleasePoolGetCurrentStack(MRFAutoReleasePool *pool) {
     return (NULL != pool) ? pool->_currentStack : NULL;
 }
 
-void MRFAutoReleasePoolSetStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack *stack) {
+void MRFAutoReleasePoolSetCurrentStack(MRFAutoReleasePool *pool, MRFAutoReleasingStack *stack) {
     if (NULL != pool) {
         MRFObjectRetain(stack);
         
@@ -183,7 +204,7 @@ uint64_t MRFAutoReleasePoolGetEmptyStacksCount(MRFAutoReleasePool *pool) {
 
 void MRFAutoReleasePoolDeflateIfNeeded(MRFAutoReleasePool *pool) {
     if (NULL != pool) {
-        if (MRFAutoReleasePoolGetEmptyStacksCount(pool) > MRFAutoReleasePoolDeflatingCount) {
+        if (MRFAutoReleasePoolGetEmptyStacksCount(pool) > MRFAutoReleasePoolDeflationCount) {
             MRFAutoReleasePoolDeflate(pool);
         }
     }
@@ -193,7 +214,7 @@ void MRFAutoReleasePoolDeflate(MRFAutoReleasePool *pool) {
     if (NULL != pool) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
         uint64_t emptyStacksCount = MRFAutoReleasePoolGetEmptyStacksCount(pool);
-        uint64_t deflatingCount = MRFAutoReleasePoolDeflatingCount;
+        uint64_t deflatingCount = MRFAutoReleasePoolDeflationCount;
         uint64_t removeStacksCount = emptyStacksCount - deflatingCount;
         
         for (int i = 0; i < removeStacksCount; i++) {
