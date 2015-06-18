@@ -73,6 +73,10 @@ void MRFAutoReleasePoolMultipleStacksAndMultipleObjectsTest() {
     }
     
     MRFAutoReleasePoolDrain(pool);
+    
+    for (int i = 0; i < 31; i++) {
+        MRFAutoReleasePoolAddObject(pool, object);
+    }
 }
 
 void MRFAutoReleasePoolOneStackWithMultiplePools() {

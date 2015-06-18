@@ -21,7 +21,7 @@ static
 const uint64_t MRFAutoReleasingStackDefaultSize = 10;
 
 static
-const uint64_t MRFAutoReleasePoolDeflatingCount = 5;
+const uint64_t MRFAutoReleasePoolDeflatingCount = 2;
 
 static
 MRFAutoReleasePool *MRFAutoReleasePoolGetPool();
@@ -87,11 +87,18 @@ void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object) {
         MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetStack(pool);
         
         if (NULL == stack || MRFAutoReleasingStackIsFull(stack)) {
-            MRFAutoReleasingStack *newStack = MRFAutoReleasingStackCreateWithSize(MRFAutoReleasingStackDefaultSize);
-            MRFLinkedListAddObject(list, newStack);
-            MRFAutoReleasePoolSetStack(pool, newStack);
-            
-            MRFObjectRelease(newStack);
+            if (0 == MRFAutoReleasePoolGetEmptyStacksCount(pool)) {
+                MRFAutoReleasingStack *newStack = MRFAutoReleasingStackCreateWithSize(MRFAutoReleasingStackDefaultSize);
+                MRFLinkedListAddObject(list, newStack);
+                MRFAutoReleasePoolSetStack(pool, newStack);
+                
+                MRFObjectRelease(newStack);
+            } else {
+                MRFAutoReleasingStack *prevEmptyStack =
+                (MRFAutoReleasingStack *)MRFLinkedListGetObjectBeforeObject(list, (MRFObject *)stack);
+                MRFAutoReleasePoolSetStack(pool, prevEmptyStack);
+                MRFAutoReleasePoolSetEmptyStacksCount(pool, MRFAutoReleasePoolGetEmptyStacksCount(pool) - 1);
+            }
         }
         
         MRFAutoReleasingStackPushObject(MRFAutoReleasePoolGetStack(pool), object);
@@ -187,9 +194,9 @@ void MRFAutoReleasePoolDeflate(MRFAutoReleasePool *pool) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
         uint64_t emptyStacksCount = MRFAutoReleasePoolGetEmptyStacksCount(pool);
         uint64_t deflatingCount = MRFAutoReleasePoolDeflatingCount;
-        uint64_t removeCount = emptyStacksCount - deflatingCount;
+        uint64_t removeStacksCount = emptyStacksCount - deflatingCount;
         
-        for (int i = 0; i < removeCount; i++) {
+        for (int i = 0; i < removeStacksCount; i++) {
             MRFLinkedListRemoveFirstObject(list);
         }
         
