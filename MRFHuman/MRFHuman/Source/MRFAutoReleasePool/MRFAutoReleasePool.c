@@ -18,7 +18,7 @@
 static MRFAutoReleasePool *__pool = NULL;
 
 static
-const uint64_t MRFAutoReleasingStackDefaultCapacity = 10;
+const uint64_t MRFAutoReleasingStackDefaultCapacity = 512;
 
 static
 const uint64_t MRFAutoReleasePoolDeflationCount = 2;
@@ -88,9 +88,12 @@ void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object) {
     if (NULL != pool) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
         MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetCurrentStack(pool);
-        MRFAutoReleasingStack *previousEmptyStack = MRFAutoReleasePoolGetEmptyStack(pool);
+        
+        //need assert for pushing objects in empty pool
         
         if (NULL == stack || MRFAutoReleasingStackIsFull(stack)) {
+            MRFAutoReleasingStack *previousEmptyStack = MRFAutoReleasePoolGetEmptyStack(pool);
+            
             if (NULL != previousEmptyStack) {
                 MRFAutoReleasePoolSetCurrentStack(pool, previousEmptyStack);
             } else {
@@ -217,10 +220,10 @@ void MRFAutoReleasePoolDeflate(MRFAutoReleasePool *pool) {
         uint64_t deflatingCount = MRFAutoReleasePoolDeflationCount;
         uint64_t removeStacksCount = emptyStacksCount - deflatingCount;
         
-        for (int i = 0; i < removeStacksCount; i++) {
+        for (int i = 0; i <= removeStacksCount; i++) {
             MRFLinkedListRemoveFirstObject(list);
         }
         
-        MRFAutoReleasePoolSetEmptyStacksCount(pool, deflatingCount);
+        MRFAutoReleasePoolSetEmptyStacksCount(pool, deflatingCount - 1);
     }
 }

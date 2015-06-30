@@ -46,37 +46,54 @@ void MRFAutoReleasePoolPerfomTest() {
 }
 
 void MRFAutoReleasePoolOneStackAndOneObjectTest() {
+    //  after MRFAutoReleasePool was created
     MRFAutoReleasePool *pool = MRFAutoReleasePoolCreate();
+    
+    //  and after object was created
     MRFObject *object = MRFObjectCreateOfType(MRFObject);
     
+    //  additional retain
     MRFObjectRetain(object);
     
+    //  after adding MRFObject in pool
     MRFAutoReleasePoolAddObject(pool, object);
     
+    // retain count for MRFObject must be equal 2
     assert(2 == MRFObjectGetReferenceCount(object));
     
+    //  after draining the pool
     MRFAutoReleasePoolDrain(pool);
     
+    //  retain count should decrement
     assert(1 == MRFObjectGetReferenceCount(object));
     
     MRFObjectRelease(object);
 }
 
 void MRFAutoReleasePoolMultipleStacksAndMultipleObjectsTest() {
+    //  after MRFAutoReleasePool was created
     MRFAutoReleasePool *pool = MRFAutoReleasePoolCreate();
+    
+    //  and after object was created
     MRFObject *object = MRFObjectCreateOfType(MRFObject);
     
-    MRFObjectRetain(object);
-    
-    for (int i = 0; i < 11000000; i++) {
+    //  after adding MRFObject multiple times
+    for (int i = 0; i < 5 * 512 - 1; i++) {
         MRFAutoReleasePoolAddObject(pool, object);
     }
     
+    //  and after pool draining
     MRFAutoReleasePoolDrain(pool);
     
-    for (int i = 0; i < 3100000; i++) {
-        MRFAutoReleasePoolAddObject(pool, object);
+    //  creating another pool
+    MRFAutoReleasePool *pool2 = MRFAutoReleasePoolCreate();
+    
+    for (int i = 0; i < 255 * 512 - 1; i++) {
+        MRFAutoReleasePoolAddObject(pool2, object);
     }
+    
+    MRFAutoReleasePoolDrain(pool2);
+    
 }
 
 void MRFAutoReleasePoolOneStackWithMultiplePools() {
