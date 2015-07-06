@@ -18,6 +18,8 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"%@", being.name);
         
+        [being sayHi];
+        
         NSLog(@"main() ending");
     }
     return 0;
