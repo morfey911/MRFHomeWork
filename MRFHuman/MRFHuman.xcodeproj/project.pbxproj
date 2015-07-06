@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F58FC9B1B10AF8600B0FC4D /* MRFArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FC991B10AF8600B0FC4D /* MRFArray.c */; };
+		3F58FC9E1B11CBD400B0FC4D /* MRFArrayTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */; };
+		3F58FCA21B1CE7FA00B0FC4D /* MRFString.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCA01B1CE7FA00B0FC4D /* MRFString.c */; };
+		3F58FCA51B1E235200B0FC4D /* MRFStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCA31B1E235200B0FC4D /* MRFStringTests.c */; };
+		3F58FCC01B20723F00B0FC4D /* MRFLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCBC1B1F346A00B0FC4D /* MRFLinkedList.c */; };
+		3F58FCC11B20724500B0FC4D /* MRFLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */; };
+		3F58FCC51B208C2400B0FC4D /* MRFLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCC31B208C2400B0FC4D /* MRFLinkedListTests.c */; };
+		3F58FCC91B2710B100B0FC4D /* MRFLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCC71B2710B100B0FC4D /* MRFLinkedListEnumerator.c */; };
+		3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */; };
+		3F58FCD31B285E9500B0FC4D /* MRFAutoReleasingStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */; };
+		3F58FCD61B286DC200B0FC4D /* MRFAutoReleasingStackTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */; };
+		3F58FCDA1B29CE3C00B0FC4D /* MRFAutoReleasePool.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */; };
+		3F58FCDD1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCDB1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c */; };
+		3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365491B091B3D00F03B12 /* MRFHumanTests.c */; };
+		3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC365501B0A4CDF00F03B12 /* MRFObject.c */; };
+		3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */; };
+		3FDBA6D71B026F8300025857 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA6D61B026F8300025857 /* main.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3FDBA6D11B026F8300025857 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3F58FC991B10AF8600B0FC4D /* MRFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArray.c; sourceTree = "<group>"; };
+		3F58FC9A1B10AF8600B0FC4D /* MRFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArray.h; sourceTree = "<group>"; };
+		3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArrayTests.c; sourceTree = "<group>"; };
+		3F58FC9D1B11CBD400B0FC4D /* MRFArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArrayTests.h; sourceTree = "<group>"; };
+		3F58FCA01B1CE7FA00B0FC4D /* MRFString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFString.c; sourceTree = "<group>"; };
+		3F58FCA11B1CE7FA00B0FC4D /* MRFString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFString.h; sourceTree = "<group>"; };
+		3F58FCA31B1E235200B0FC4D /* MRFStringTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFStringTests.c; sourceTree = "<group>"; };
+		3F58FCA41B1E235200B0FC4D /* MRFStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFStringTests.h; sourceTree = "<group>"; };
+		3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListNode.c; sourceTree = "<group>"; };
+		3F58FCB91B1F2ABC00B0FC4D /* MRFLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListNode.h; sourceTree = "<group>"; };
+		3F58FCBC1B1F346A00B0FC4D /* MRFLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedList.c; sourceTree = "<group>"; };
+		3F58FCBD1B1F346A00B0FC4D /* MRFLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedList.h; sourceTree = "<group>"; };
+		3F58FCC31B208C2400B0FC4D /* MRFLinkedListTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListTests.c; sourceTree = "<group>"; };
+		3F58FCC41B208C2400B0FC4D /* MRFLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListTests.h; sourceTree = "<group>"; };
+		3F58FCC71B2710B100B0FC4D /* MRFLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListEnumerator.c; sourceTree = "<group>"; };
+		3F58FCC81B2710B100B0FC4D /* MRFLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListEnumerator.h; sourceTree = "<group>"; };
+		3F58FCCA1B2714DC00B0FC4D /* MRFLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
+		3F58FCCB1B27165500B0FC4D /* MRFLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListPrivate.h; sourceTree = "<group>"; };
+		3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFLinkedListNodeTests.c; sourceTree = "<group>"; };
+		3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLinkedListNodeTests.h; sourceTree = "<group>"; };
+		3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasingStack.c; sourceTree = "<group>"; };
+		3F58FCD21B285E9500B0FC4D /* MRFAutoReleasingStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStack.h; sourceTree = "<group>"; };
+		3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasingStackTests.c; sourceTree = "<group>"; };
+		3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasingStackTests.h; sourceTree = "<group>"; };
+		3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasePool.c; sourceTree = "<group>"; };
+		3F58FCD91B29CE3C00B0FC4D /* MRFAutoReleasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasePool.h; sourceTree = "<group>"; };
+		3F58FCDB1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFAutoReleasePoolTests.c; sourceTree = "<group>"; };
+		3F58FCDC1B3044B800B0FC4D /* MRFAutoReleasePoolTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAutoReleasePoolTests.h; sourceTree = "<group>"; };
+		3FC365491B091B3D00F03B12 /* MRFHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFHumanTests.c; sourceTree = "<group>"; };
+		3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHumanTests.h; sourceTree = "<group>"; };
+		3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MRFHuman.c; sourceTree = "<group>"; };
+		3FC3654E1B0A4C4F00F03B12 /* MRFHuman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFHuman.h; sourceTree = "<group>"; };
+		3FC365501B0A4CDF00F03B12 /* MRFObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFObject.c; sourceTree = "<group>"; };
+		3FC365511B0A4CDF00F03B12 /* MRFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFObject.h; sourceTree = "<group>"; };
+		3FDBA6D31B026F8300025857 /* MRFHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MRFHuman; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FDBA6D61B026F8300025857 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FDBA6D01B026F8300025857 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F58FC981B10AF7600B0FC4D /* MRFArray */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FC991B10AF8600B0FC4D /* MRFArray.c */,
+				3F58FC9A1B10AF8600B0FC4D /* MRFArray.h */,
+			);
+			path = MRFArray;
+			sourceTree = "<group>";
+		};
+		3F58FC9F1B1CE7EB00B0FC4D /* MRFString */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCA01B1CE7FA00B0FC4D /* MRFString.c */,
+				3F58FCA11B1CE7FA00B0FC4D /* MRFString.h */,
+			);
+			path = MRFString;
+			sourceTree = "<group>";
+		};
+		3F58FCB71B1F2A9400B0FC4D /* MRFLinkedListNode */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCB81B1F2ABC00B0FC4D /* MRFLinkedListNode.c */,
+				3F58FCB91B1F2ABC00B0FC4D /* MRFLinkedListNode.h */,
+			);
+			path = MRFLinkedListNode;
+			sourceTree = "<group>";
+		};
+		3F58FCC21B2072D900B0FC4D /* MRFLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCC61B27108B00B0FC4D /* MRFLinkedListEnumerator */,
+				3F58FCB71B1F2A9400B0FC4D /* MRFLinkedListNode */,
+				3F58FCBC1B1F346A00B0FC4D /* MRFLinkedList.c */,
+				3F58FCBD1B1F346A00B0FC4D /* MRFLinkedList.h */,
+				3F58FCCB1B27165500B0FC4D /* MRFLinkedListPrivate.h */,
+			);
+			path = MRFLinkedList;
+			sourceTree = "<group>";
+		};
+		3F58FCC61B27108B00B0FC4D /* MRFLinkedListEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCC71B2710B100B0FC4D /* MRFLinkedListEnumerator.c */,
+				3F58FCC81B2710B100B0FC4D /* MRFLinkedListEnumerator.h */,
+				3F58FCCA1B2714DC00B0FC4D /* MRFLinkedListEnumeratorPrivate.h */,
+			);
+			path = MRFLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
+		3F58FCD01B285E5300B0FC4D /* MRFAutoReleasingStack */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCD11B285E9500B0FC4D /* MRFAutoReleasingStack.c */,
+				3F58FCD21B285E9500B0FC4D /* MRFAutoReleasingStack.h */,
+			);
+			path = MRFAutoReleasingStack;
+			sourceTree = "<group>";
+		};
+		3F58FCD71B29CE0100B0FC4D /* MRFAutoReleasePool */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCD81B29CE3C00B0FC4D /* MRFAutoReleasePool.c */,
+				3F58FCD91B29CE3C00B0FC4D /* MRFAutoReleasePool.h */,
+			);
+			path = MRFAutoReleasePool;
+			sourceTree = "<group>";
+		};
+		3FC3654C1B0A4C4F00F03B12 /* MRFHuman */ = {
+			isa = PBXGroup;
+			children = (
+				3FC3654E1B0A4C4F00F03B12 /* MRFHuman.h */,
+				3FC3654D1B0A4C4F00F03B12 /* MRFHuman.c */,
+			);
+			path = MRFHuman;
+			sourceTree = "<group>";
+		};
+		3FC3654F1B0A4C9000F03B12 /* MRFObject */ = {
+			isa = PBXGroup;
+			children = (
+				3FC365501B0A4CDF00F03B12 /* MRFObject.c */,
+				3FC365511B0A4CDF00F03B12 /* MRFObject.h */,
+			);
+			path = MRFObject;
+			sourceTree = "<group>";
+		};
+		3FDBA6CA1B026F8300025857 = {
+			isa = PBXGroup;
+			children = (
+				3FDBA6D51B026F8300025857 /* MRFHuman */,
+				3FDBA6D41B026F8300025857 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FDBA6D41B026F8300025857 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FDBA6D31B026F8300025857 /* MRFHuman */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FDBA6D51B026F8300025857 /* MRFHuman */ = {
+			isa = PBXGroup;
+			children = (
+				3FDBA6DD1B0270A300025857 /* Source */,
+				3FDBA6DE1B0270A300025857 /* Tests */,
+			);
+			path = MRFHuman;
+			sourceTree = "<group>";
+		};
+		3FDBA6DD1B0270A300025857 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCD71B29CE0100B0FC4D /* MRFAutoReleasePool */,
+				3F58FCD01B285E5300B0FC4D /* MRFAutoReleasingStack */,
+				3F58FCC21B2072D900B0FC4D /* MRFLinkedList */,
+				3F58FC9F1B1CE7EB00B0FC4D /* MRFString */,
+				3F58FC981B10AF7600B0FC4D /* MRFArray */,
+				3FC3654C1B0A4C4F00F03B12 /* MRFHuman */,
+				3FC3654F1B0A4C9000F03B12 /* MRFObject */,
+				3FDBA6D61B026F8300025857 /* main.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3FDBA6DE1B0270A300025857 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3F58FCA31B1E235200B0FC4D /* MRFStringTests.c */,
+				3F58FCA41B1E235200B0FC4D /* MRFStringTests.h */,
+				3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */,
+				3F58FC9D1B11CBD400B0FC4D /* MRFArrayTests.h */,
+				3FC365491B091B3D00F03B12 /* MRFHumanTests.c */,
+				3FC3654A1B091B3D00F03B12 /* MRFHumanTests.h */,
+				3F58FCC31B208C2400B0FC4D /* MRFLinkedListTests.c */,
+				3F58FCC41B208C2400B0FC4D /* MRFLinkedListTests.h */,
+				3F58FCCC1B28419700B0FC4D /* MRFLinkedListNodeTests.c */,
+				3F58FCCD1B28419700B0FC4D /* MRFLinkedListNodeTests.h */,
+				3F58FCD41B286DC200B0FC4D /* MRFAutoReleasingStackTests.c */,
+				3F58FCD51B286DC200B0FC4D /* MRFAutoReleasingStackTests.h */,
+				3F58FCDB1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c */,
+				3F58FCDC1B3044B800B0FC4D /* MRFAutoReleasePoolTests.h */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FDBA6D21B026F8300025857 /* MRFHuman */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FDBA6DA1B026F8300025857 /* Build configuration list for PBXNativeTarget "MRFHuman" */;
+			buildPhases = (
+				3FDBA6CF1B026F8300025857 /* Sources */,
+				3FDBA6D01B026F8300025857 /* Frameworks */,
+				3FDBA6D11B026F8300025857 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MRFHuman;
+			productName = MRFHuman;
+			productReference = 3FDBA6D31B026F8300025857 /* MRFHuman */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FDBA6CB1B026F8300025857 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Yurii Mamurko";
+				TargetAttributes = {
+					3FDBA6D21B026F8300025857 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3FDBA6CE1B026F8300025857 /* Build configuration list for PBXProject "MRFHuman" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3FDBA6CA1B026F8300025857;
+			productRefGroup = 3FDBA6D41B026F8300025857 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FDBA6D21B026F8300025857 /* MRFHuman */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FDBA6CF1B026F8300025857 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F58FCA51B1E235200B0FC4D /* MRFStringTests.c in Sources */,
+				3F58FCDD1B3044B800B0FC4D /* MRFAutoReleasePoolTests.c in Sources */,
+				3FDBA6D71B026F8300025857 /* main.c in Sources */,
+				3F58FC9E1B11CBD400B0FC4D /* MRFArrayTests.c in Sources */,
+				3F58FCA21B1CE7FA00B0FC4D /* MRFString.c in Sources */,
+				3F58FCC91B2710B100B0FC4D /* MRFLinkedListEnumerator.c in Sources */,
+				3FC365531B0A536300F03B12 /* MRFHuman.c in Sources */,
+				3F58FC9B1B10AF8600B0FC4D /* MRFArray.c in Sources */,
+				3F58FCC51B208C2400B0FC4D /* MRFLinkedListTests.c in Sources */,
+				3F58FCC11B20724500B0FC4D /* MRFLinkedListNode.c in Sources */,
+				3F58FCD61B286DC200B0FC4D /* MRFAutoReleasingStackTests.c in Sources */,
+				3F58FCD31B285E9500B0FC4D /* MRFAutoReleasingStack.c in Sources */,
+				3F58FCC01B20723F00B0FC4D /* MRFLinkedList.c in Sources */,
+				3FC365521B0A4CDF00F03B12 /* MRFObject.c in Sources */,
+				3F58FCCE1B28419700B0FC4D /* MRFLinkedListNodeTests.c in Sources */,
+				3F58FCDA1B29CE3C00B0FC4D /* MRFAutoReleasePool.c in Sources */,
+				3FC3654B1B091B3D00F03B12 /* MRFHumanTests.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3FDBA6D81B026F8300025857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3FDBA6D91B026F8300025857 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3FDBA6DB1B026F8300025857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3FDBA6DC1B026F8300025857 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FDBA6CE1B026F8300025857 /* Build configuration list for PBXProject "MRFHuman" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FDBA6D81B026F8300025857 /* Debug */,
+				3FDBA6D91B026F8300025857 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FDBA6DA1B026F8300025857 /* Build configuration list for PBXNativeTarget "MRFHuman" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FDBA6DB1B026F8300025857 /* Debug */,
+				3FDBA6DC1B026F8300025857 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FDBA6CB1B026F8300025857 /* Project object */;
+}
