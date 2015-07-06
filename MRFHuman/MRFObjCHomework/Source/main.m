@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MRFBeing.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSLog(@"main() starting");
+        
+        MRFBeing *being = [[MRFBeing alloc] initWithName:@"MorFey" age:30];
+        
+        NSLog(@"%@", being.name);
+        
+        NSLog(@"main() ending");
     }
     return 0;
 }
