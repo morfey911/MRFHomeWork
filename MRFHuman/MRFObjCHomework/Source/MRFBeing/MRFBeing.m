@@ -20,29 +20,26 @@
     [super dealloc];
 }
 
-
-- (id) initWithName:(NSString *)name {
+- (id) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender)gender {
     self = [super init];
     
     if (self) {
         self.name = name;
+        self.age = age;
+        self.gender = gender;
     }
     
     return self;
 }
 
 - (id) initWithName:(NSString *)name age:(uint8_t)age {
-    self = [[MRFBeing alloc] initWithName:name];
-    
-    self.age = age;
+    self = [self initWithName:name age:age gender:0];
     
     return self;
 }
 
-- (id) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender)gender {
-    self = [[MRFBeing alloc] initWithName:name age:age];
-    
-    self.gender = gender;
+- (id) initWithName:(NSString *)name {
+    self = [self initWithName: name age:0 gender:0];
     
     return self;
 }
@@ -51,8 +48,14 @@
 #pragma mark Public Methods
 
 - (void) fight {
-    if (self.gender) {
+    if (MRFBeingMaleGender == self.gender) {
         NSLog(@"Fight");
+    }
+}
+
+- (void) giveBirth {
+    if (MRFBeingFemaleGender == self.gender) {
+        NSLog(@"Give birth");
     }
 }
 
