@@ -113,9 +113,9 @@
 		3F15A17A1B4AA242002011BF /* MRFObjCHomework */ = {
 			isa = PBXGroup;
 			children = (
-				3F15A1811B4AA2A2002011BF /* Tests */,
 				3F15A1801B4AA28A002011BF /* Source */,
 				3F15A17B1B4AA242002011BF /* main.m */,
+				3F15A1811B4AA2A2002011BF /* Tests */,
 			);
 			path = MRFObjCHomework;
 			sourceTree = "<group>";

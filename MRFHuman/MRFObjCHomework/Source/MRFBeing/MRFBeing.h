@@ -9,26 +9,29 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    MRFBeingMaleGender,
-    MRFBeingFemaleGender
+    kMRFBeingMaleGender = 1,
+    kMRFBeingFemaleGender = 2
 } MRFBeingGender;
 
 @interface MRFBeing : NSObject
 
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSMutableArray *children;
+@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, retain, readonly) NSArray *children;
 
-@property (nonatomic, assign) MRFBeingGender gender;
-@property (nonatomic, assign) uint8_t age;
-@property (nonatomic, assign) uint8_t weight;
+@property (nonatomic, assign, readonly) MRFBeingGender gender;
+@property (nonatomic, assign, readonly) uint8_t age;
+@property (nonatomic, assign, readonly) uint8_t weight;
 
 
-- (id) initWithName:(NSString *)name;
-- (id) initWithName:(NSString *)name age:(uint8_t)age;
-- (id) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender) gender;
+- (instancetype) init;
+- (instancetype) initWithName:(NSString *)name;
+- (instancetype) initWithName:(NSString *)name age:(uint8_t)age;
+- (instancetype) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender) gender;
 
 - (void) fight;
-
 - (void) sayHi;
+- (MRFBeing *) giveBirth;
+- (void) addChild:(MRFBeing *)child;
+- (void) removeChild:(MRFBeing *)child;
 
 @end

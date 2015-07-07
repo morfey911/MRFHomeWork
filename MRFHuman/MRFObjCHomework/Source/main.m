@@ -20,6 +20,8 @@ int main(int argc, const char * argv[]) {
         
         [being sayHi];
         
+        NSLog(@"%@", [being description]);
+        
         NSLog(@"main() ending");
     }
     return 0;
