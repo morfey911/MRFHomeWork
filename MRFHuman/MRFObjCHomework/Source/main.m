@@ -26,8 +26,8 @@ int main(int argc, const char * argv[]) {
             [being2 addChild:newBaby];
         }
         
-        NSLog(@"%@", being1);
-        NSLog(@"%@", being2);
+        NSLog(@"\n%@\n%@", being1, being1.children);
+        NSLog(@"\n%@\n%@", being2, being2.children);
         
 //        [MRFBeingTest testMRFBeing];
     }

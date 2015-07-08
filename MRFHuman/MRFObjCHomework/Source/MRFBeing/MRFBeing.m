@@ -46,19 +46,14 @@
 }
 
 - (instancetype) init {
+    return [self initWithGender:kMRFBeingUndefinedGender];
+}
+
+- (instancetype) initWithGender:(MRFBeingGender)gender {
     self = [super init];
     
     if (self) {
         self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
-    }
-    
-    return self;
-}
-
-- (instancetype) initWithGender:(MRFBeingGender)gender {
-    self = [self init];
-    
-    if (self) {
         self.gender = gender;
     }
     
