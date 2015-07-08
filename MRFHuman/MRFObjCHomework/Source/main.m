@@ -9,20 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #import "MRFBeing.h"
+#import "MRFBeingTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSLog(@"main() starting");
-        
-        MRFBeing *being = [[MRFBeing alloc] initWithName:@"MorFey" age:30];
-        
-        NSLog(@"%@", being.name);
-        
-        [being sayHi];
-        
-        NSLog(@"%@", [being description]);
-        
-        NSLog(@"main() ending");
+        [MRFBeingTest testMRFBeing];
     }
     return 0;
 }
