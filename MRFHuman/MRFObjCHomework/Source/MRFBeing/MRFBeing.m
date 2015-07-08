@@ -28,9 +28,13 @@
 @property (nonatomic, assign) uint8_t age;
 @property (nonatomic, assign) uint8_t weight;
 
+- (void) say:(NSString *)aMessage;
+
 @end
 
 @implementation MRFBeing
+
+//@synthesize mutableChildren = _mutableChildren;
 
 @dynamic children;
 
@@ -82,7 +86,15 @@
 #pragma mark Accessors
 
 - (NSArray *) children {
-    return [[[self mutableChildren] copy] autorelease];
+    return [[self.mutableChildren copy] autorelease];
+}
+
+- (NSMutableArray *) mutableChildren {
+    if (nil == _mutableChildren) {
+        _mutableChildren = [NSMutableArray new];
+    }
+    
+    return _mutableChildren;
 }
 
 - (NSString *) description {
@@ -106,27 +118,42 @@
 #pragma mark Public Methods
 
 - (void) fight {
-    if (kMRFBeingMaleGender == self.gender) {
-        NSLog(@"Fight");
-    }
+    [self say:@"I'm going to fight"];
 }
 
 - (void) sayHi {
-    NSLog(@"Hi");
+    [self say:@"Hi"];
+    
+    for (MRFBeing *child in self.mutableChildren) {
+        [child sayHi];
+    }
 }
 
 - (MRFBeing *) giveBirth {
-    NSLog(@"giveBirth");
-    
     return [[self init] autorelease];
 }
 
 - (void) addChild:(MRFBeing *)child {
-    [[self mutableChildren] addObject:child];
+    if (nil != child) {
+        [self.mutableChildren addObject:child];
+    }
 }
 
 - (void) removeChild:(MRFBeing *)child {
-    [[self mutableChildren] removeObject:child];
+    if (nil != child) {
+        [self.mutableChildren removeObject:child];
+    }
+}
+
+- (void) performGenderSpecificOperation {
+    
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void) say:(NSString *)aMessage {
+    NSLog(@"%@", aMessage);
 }
 
 @end

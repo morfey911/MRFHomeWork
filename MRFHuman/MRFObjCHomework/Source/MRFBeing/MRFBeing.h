@@ -29,9 +29,15 @@ typedef enum {
 - (instancetype) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender) gender;
 
 - (void) fight;
+
 - (void) sayHi;
+
 - (MRFBeing *) giveBirth;
+
 - (void) addChild:(MRFBeing *)child;
+
 - (void) removeChild:(MRFBeing *)child;
+
+- (void) performGenderSpecificOperation;
 
 @end
