@@ -9,24 +9,21 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    kMRFBeingMaleGender = 1,
-    kMRFBeingFemaleGender = 2
+    kMRFBeingUndefinedGender,
+    kMRFBeingMaleGender,
+    kMRFBeingFemaleGender
 } MRFBeingGender;
 
 @interface MRFBeing : NSObject
 
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, retain, readonly) NSArray *children;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy, readonly) NSArray *children;
 
 @property (nonatomic, assign, readonly) MRFBeingGender gender;
 @property (nonatomic, assign, readonly) uint8_t age;
 @property (nonatomic, assign, readonly) uint8_t weight;
 
-
-- (instancetype) init;
-- (instancetype) initWithName:(NSString *)name;
-- (instancetype) initWithName:(NSString *)name age:(uint8_t)age;
-- (instancetype) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender) gender;
+- (instancetype) initWithGender:(MRFBeingGender)gender;
 
 - (void) fight;
 

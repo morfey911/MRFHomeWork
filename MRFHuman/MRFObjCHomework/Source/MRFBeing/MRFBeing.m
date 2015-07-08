@@ -21,20 +21,17 @@
 
 @interface MRFBeing ()
 
-@property (nonatomic, copy) NSString *name;
 @property (nonatomic, retain) NSMutableArray *mutableChildren;
 
 @property (nonatomic, assign) MRFBeingGender gender;
 @property (nonatomic, assign) uint8_t age;
 @property (nonatomic, assign) uint8_t weight;
 
-- (void) say:(NSString *)aMessage;
+- (void) say:(NSString *)message;
 
 @end
 
 @implementation MRFBeing
-
-//@synthesize mutableChildren = _mutableChildren;
 
 @dynamic children;
 
@@ -58,24 +55,10 @@
     return self;
 }
 
-- (instancetype) initWithName:(NSString *)name {
-    self = [self initWithName: name age:0 gender:0];
-    
-    return self;
-}
-
-- (instancetype) initWithName:(NSString *)name age:(uint8_t)age {
-    self = [self initWithName:name age:age gender:0];
-    
-    return self;
-}
-
-- (instancetype) initWithName:(NSString *)name age:(uint8_t)age gender:(MRFBeingGender)gender {
+- (instancetype) initWithGender:(MRFBeingGender)gender {
     self = [self init];
     
     if (self) {
-        self.name = name;
-        self.age = age;
         self.gender = gender;
     }
     
@@ -89,29 +72,22 @@
     return [[self.mutableChildren copy] autorelease];
 }
 
-- (NSMutableArray *) mutableChildren {
-    if (nil == _mutableChildren) {
-        _mutableChildren = [NSMutableArray new];
-    }
-    
-    return _mutableChildren;
-}
-
 - (NSString *) description {
-    NSMutableString *gender = [[[NSMutableString alloc] initWithString:@"undefined"] autorelease];
+    NSMutableString *result = [[[NSMutableString alloc] initWithString:@"undefined"] autorelease];
     uint8_t genderValue = self.gender;
     
     if (kMRFBeingMaleGender == genderValue) {
-        [gender setString:@"male"];
+        [result setString:@"male"];
     }
     if (kMRFBeingFemaleGender == genderValue) {
-        [gender setString:@"female"];
+        [result setString:@"female"];
     }
     
-    return [NSString stringWithFormat: @"Being name: %@ age: %d gender: %@",
+    return [NSString stringWithFormat: @"%@ Being name: %@ age: %d gender: %@",
+            [super description],
             self.name,
             self.age,
-            gender];
+            result];
 }
 
 #pragma mark -
@@ -129,8 +105,14 @@
     }
 }
 
-- (MRFBeing *) giveBirth {
-    return [[self init] autorelease];
+- (instancetype) giveBirth {
+    MRFBeingGender randomGender = (arc4random() % 2) + 1;
+    
+    MRFBeing *baby = [self initWithGender:randomGender];
+    
+    NSLog(@"%@", baby.description);
+    
+    return baby;
 }
 
 - (void) addChild:(MRFBeing *)child {
@@ -152,8 +134,8 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void) say:(NSString *)aMessage {
-    NSLog(@"%@", aMessage);
+- (void) say:(NSString *)message {
+    NSLog(@"%@", message);
 }
 
 @end

@@ -13,7 +13,23 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [MRFBeingTest testMRFBeing];
+        MRFBeing *being1 = [[[MRFBeing alloc] initWithGender:kMRFBeingMaleGender] autorelease];
+        MRFBeing *being2 = [[[MRFBeing alloc] initWithGender:kMRFBeingFemaleGender] autorelease];
+        
+        being1.name = @"Being1";
+        being2.name = @"ololo";
+        
+        for (int i = 0; i < 10; i++) {
+            MRFBeing *newBaby = [being2 giveBirth];
+            
+            [being1 addChild:newBaby];
+            [being2 addChild:newBaby];
+        }
+        
+        NSLog(@"%@", being1);
+        NSLog(@"%@", being2);
+        
+//        [MRFBeingTest testMRFBeing];
     }
     return 0;
 }
