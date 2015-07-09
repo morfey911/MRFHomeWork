@@ -16,12 +16,12 @@ typedef enum {
 
 @interface MRFBeing : NSObject
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy, readonly) NSArray *children;
+@property (nonatomic, copy)             NSString       *name;
+@property (nonatomic, copy, readonly)   NSArray        *children;
 
 @property (nonatomic, assign, readonly) MRFBeingGender gender;
-@property (nonatomic, assign, readonly) uint8_t age;
-@property (nonatomic, assign, readonly) uint8_t weight;
+@property (nonatomic, assign, readonly) uint8_t        age;
+@property (nonatomic, assign, readonly) uint8_t        weight;
 
 - (instancetype)initWithGender:(MRFBeingGender)gender;
 
