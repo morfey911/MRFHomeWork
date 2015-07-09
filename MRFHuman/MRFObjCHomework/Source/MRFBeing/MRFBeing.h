@@ -23,18 +23,18 @@ typedef enum {
 @property (nonatomic, assign, readonly) uint8_t age;
 @property (nonatomic, assign, readonly) uint8_t weight;
 
-- (instancetype) initWithGender:(MRFBeingGender)gender;
+- (instancetype)initWithGender:(MRFBeingGender)gender;
 
-- (void) fight;
+- (void)fight;
 
-- (void) sayHi;
+- (void)sayHi;
 
-- (MRFBeing *) giveBirth;
+- (MRFBeing *)giveBirth;
 
-- (void) addChild:(MRFBeing *)child;
+- (void)addChild:(MRFBeing *)child;
 
-- (void) removeChild:(MRFBeing *)child;
+- (void)removeChild:(MRFBeing *)child;
 
-- (void) performGenderSpecificOperation;
+- (void)performGenderSpecificOperation;
 
 @end

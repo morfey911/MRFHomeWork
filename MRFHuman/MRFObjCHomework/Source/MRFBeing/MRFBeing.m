@@ -22,10 +22,7 @@
 @interface MRFBeing ()
 
 @property (nonatomic, retain) NSMutableArray *mutableChildren;
-
 @property (nonatomic, assign) MRFBeingGender gender;
-@property (nonatomic, assign) uint8_t age;
-@property (nonatomic, assign) uint8_t weight;
 
 - (void) say:(NSString *)message;
 
@@ -38,18 +35,18 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void) dealloc {
+- (void)dealloc {
     self.name = nil;
     self.mutableChildren = nil;
     
     [super dealloc];
 }
 
-- (instancetype) init {
+- (instancetype)init {
     return [self initWithGender:kMRFBeingUndefinedGender];
 }
 
-- (instancetype) initWithGender:(MRFBeingGender)gender {
+- (instancetype)initWithGender:(MRFBeingGender)gender {
     self = [super init];
     
     if (self) {
@@ -63,11 +60,11 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *) children {
+- (NSArray *)children {
     return [[self.mutableChildren copy] autorelease];
 }
 
-- (NSString *) description {
+- (NSString *)description {
     NSMutableString *result = [[[NSMutableString alloc] initWithString:@"undefined"] autorelease];
     uint8_t genderValue = self.gender;
     
@@ -88,11 +85,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void) fight {
+- (void)fight {
     [self say:@"I'm going to fight"];
 }
 
-- (void) sayHi {
+- (void)sayHi {
     [self say:@"Hi"];
     
     for (MRFBeing *child in self.mutableChildren) {
@@ -100,36 +97,30 @@
     }
 }
 
-- (instancetype) giveBirth {
+- (instancetype)giveBirth {
     MRFBeingGender randomGender = (arc4random() % 2) + 1;
     
-    MRFBeing *baby = [self initWithGender:randomGender];
-    
-    NSLog(@"%@", baby.description);
-    
-    return baby;
+    return [[[self class] alloc] initWithGender:randomGender];
 }
 
-- (void) addChild:(MRFBeing *)child {
+- (void)addChild:(MRFBeing *)child {
     if (nil != child) {
         [self.mutableChildren addObject:child];
     }
 }
 
-- (void) removeChild:(MRFBeing *)child {
-    if (nil != child) {
-        [self.mutableChildren removeObject:child];
-    }
+- (void)removeChild:(MRFBeing *)child {
+    [self.mutableChildren removeObject:child];
 }
 
-- (void) performGenderSpecificOperation {
+- (void)performGenderSpecificOperation {
     
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void) say:(NSString *)message {
+- (void)say:(NSString *)message {
     NSLog(@"%@", message);
 }
 
