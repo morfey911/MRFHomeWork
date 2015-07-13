@@ -31,6 +31,7 @@
 		3FFABC671B4EB7B20074770C /* MRFMaleBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC661B4EB7B20074770C /* MRFMaleBeing.m */; };
 		3FFABC6B1B4EBAE10074770C /* MRFFemaleBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC6A1B4EBAE10074770C /* MRFFemaleBeing.m */; };
 		3FFABC6F1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC6E1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m */; };
+		3FFABC751B53E7E30074770C /* MRFCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC741B53E7E30074770C /* MRFCar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +107,8 @@
 		3FFABC6A1B4EBAE10074770C /* MRFFemaleBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFemaleBeing.m; sourceTree = "<group>"; };
 		3FFABC6D1B53BAAF0074770C /* NSObject+MRFObjectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MRFObjectExtensions.h"; sourceTree = "<group>"; };
 		3FFABC6E1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MRFObjectExtensions.m"; sourceTree = "<group>"; };
+		3FFABC731B53E7E30074770C /* MRFCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCar.h; sourceTree = "<group>"; };
+		3FFABC741B53E7E30074770C /* MRFCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 		3F15A1801B4AA28A002011BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3FFABC701B53E5B00074770C /* MRFCarwash */,
 				3FFABC6C1B53B9F60074770C /* MRFObjectExtensions */,
 				3FFABC681B4EBAC30074770C /* MRFFemaleBeing */,
 				3FFABC641B4EB7740074770C /* MRFMaleBeing */,
@@ -157,6 +161,7 @@
 		3F15A1811B4AA2A2002011BF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3FFABC711B53E5D60074770C /* MRFCarwash */,
 				3FFABC611B4EAAF10074770C /* MRFBeingTests.h */,
 				3FFABC621B4EAAF10074770C /* MRFBeingTests.m */,
 			);
@@ -366,6 +371,30 @@
 			path = MRFObjectExtensions;
 			sourceTree = "<group>";
 		};
+		3FFABC701B53E5B00074770C /* MRFCarwash */ = {
+			isa = PBXGroup;
+			children = (
+				3FFABC721B53E5E90074770C /* MRFCar */,
+			);
+			path = MRFCarwash;
+			sourceTree = "<group>";
+		};
+		3FFABC711B53E5D60074770C /* MRFCarwash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MRFCarwash;
+			sourceTree = "<group>";
+		};
+		3FFABC721B53E5E90074770C /* MRFCar */ = {
+			isa = PBXGroup;
+			children = (
+				3FFABC731B53E7E30074770C /* MRFCar.h */,
+				3FFABC741B53E7E30074770C /* MRFCar.m */,
+			);
+			path = MRFCar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,6 +509,7 @@
 				3FFABC671B4EB7B20074770C /* MRFMaleBeing.m in Sources */,
 				3FFABC631B4EAAF10074770C /* MRFBeingTests.m in Sources */,
 				3FFABC6B1B4EBAE10074770C /* MRFFemaleBeing.m in Sources */,
+				3FFABC751B53E7E30074770C /* MRFCar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +730,7 @@
 				3FFABC601B4EA9040074770C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
