@@ -32,6 +32,7 @@
 		3FFABC6B1B4EBAE10074770C /* MRFFemaleBeing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC6A1B4EBAE10074770C /* MRFFemaleBeing.m */; };
 		3FFABC6F1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC6E1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m */; };
 		3FFABC751B53E7E30074770C /* MRFCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC741B53E7E30074770C /* MRFCar.m */; };
+		3FFABC791B53F1F30074770C /* MRFRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC781B53F1F30074770C /* MRFRoom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,6 +110,8 @@
 		3FFABC6E1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MRFObjectExtensions.m"; sourceTree = "<group>"; };
 		3FFABC731B53E7E30074770C /* MRFCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCar.h; sourceTree = "<group>"; };
 		3FFABC741B53E7E30074770C /* MRFCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCar.m; sourceTree = "<group>"; };
+		3FFABC771B53F1F30074770C /* MRFRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFRoom.h; sourceTree = "<group>"; };
+		3FFABC781B53F1F30074770C /* MRFRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFRoom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +377,7 @@
 		3FFABC701B53E5B00074770C /* MRFCarwash */ = {
 			isa = PBXGroup;
 			children = (
+				3FFABC761B53F14E0074770C /* MRFRoom */,
 				3FFABC721B53E5E90074770C /* MRFCar */,
 			);
 			path = MRFCarwash;
@@ -393,6 +397,15 @@
 				3FFABC741B53E7E30074770C /* MRFCar.m */,
 			);
 			path = MRFCar;
+			sourceTree = "<group>";
+		};
+		3FFABC761B53F14E0074770C /* MRFRoom */ = {
+			isa = PBXGroup;
+			children = (
+				3FFABC771B53F1F30074770C /* MRFRoom.h */,
+				3FFABC781B53F1F30074770C /* MRFRoom.m */,
+			);
+			path = MRFRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +522,7 @@
 				3FFABC671B4EB7B20074770C /* MRFMaleBeing.m in Sources */,
 				3FFABC631B4EAAF10074770C /* MRFBeingTests.m in Sources */,
 				3FFABC6B1B4EBAE10074770C /* MRFFemaleBeing.m in Sources */,
+				3FFABC791B53F1F30074770C /* MRFRoom.m in Sources */,
 				3FFABC751B53E7E30074770C /* MRFCar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
