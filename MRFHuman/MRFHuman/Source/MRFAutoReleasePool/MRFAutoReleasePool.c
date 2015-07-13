@@ -89,7 +89,7 @@ void MRFAutoReleasePoolAddObject(MRFAutoReleasePool *pool, void *object) {
         MRFLinkedList *list = MRFAutoReleasePoolGetList(pool);
         MRFAutoReleasingStack *stack = MRFAutoReleasePoolGetCurrentStack(pool);
         
-        //need assert for pushing objects in empty pool
+        //need assert for pushing objects in empty pool (without NULL in the begining)
         
         if (NULL == stack || MRFAutoReleasingStackIsFull(stack)) {
             MRFAutoReleasingStack *previousEmptyStack = MRFAutoReleasePoolGetEmptyStack(pool);
