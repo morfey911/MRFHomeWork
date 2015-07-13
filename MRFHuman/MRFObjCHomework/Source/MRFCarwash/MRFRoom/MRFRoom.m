@@ -13,6 +13,7 @@
 @end
 
 @implementation MRFRoom
+
 @dynamic humans;
 
 #pragma mark -
@@ -50,7 +51,9 @@
 #pragma mark Public Methods
 
 - (void)addHuman:(id)human {
-    [self.mutableHumans addObject:human];
+    if ([self.humans count] < self.humanCapacity) {
+        [self.mutableHumans addObject:human];
+    }
 }
 
 - (void)removeHuman:(id)human {
