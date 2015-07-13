@@ -8,6 +8,11 @@
 
 #import "MRFFemaleBeing.h"
 
+@interface MRFFemaleBeing ()
+@property (nonatomic, assign) id lastBornChild;
+
+@end
+
 @implementation MRFFemaleBeing
 
 - (void)giveBirth {

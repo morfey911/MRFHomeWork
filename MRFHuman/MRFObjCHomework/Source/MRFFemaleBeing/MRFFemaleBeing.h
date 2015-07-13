@@ -9,7 +9,7 @@
 #import "MRFBeing.h"
 
 @interface MRFFemaleBeing : MRFBeing
-@property (nonatomic, assign) id lastBornChild;
+@property (nonatomic, assign, readonly) id lastBornChild;
 
 - (void)giveBirth;
 
