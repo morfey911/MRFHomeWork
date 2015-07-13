@@ -10,7 +10,7 @@
 
 @interface MRFBuilding ()
 @property (nonatomic, retain) NSMutableSet *mutableRooms;
-@property (nonatomic, assign) uint8_t roomCapacity;
+@property (nonatomic, assign) uint8_t       roomCapacity;
 
 @end
 

@@ -11,7 +11,7 @@
 #import "MRFRoom.h"
 
 @interface MRFBuilding : NSObject
-@property (nonatomic, retain, readonly) NSSet *rooms;
+@property (nonatomic, retain, readonly) NSSet   *rooms;
 @property (nonatomic, assign, readonly) uint8_t roomCapacity;
 
 - (instancetype)initWithRoomCapacity:(uint8_t)roomCapacity;

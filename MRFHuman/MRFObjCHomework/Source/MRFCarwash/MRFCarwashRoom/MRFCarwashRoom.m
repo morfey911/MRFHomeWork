@@ -10,7 +10,8 @@
 
 @interface MRFCarwashRoom ()
 @property (nonatomic, retain) NSMutableSet *mutableCars;
-@property (nonatomic, assign) uint8_t carCapacity;
+@property (nonatomic, assign) uint8_t      carCapacity;
+
 @end
 
 @implementation MRFCarwashRoom

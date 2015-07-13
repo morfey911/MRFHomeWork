@@ -10,6 +10,7 @@
 
 @interface MRFRoom ()
 @property (nonatomic, retain) NSMutableSet *mutableHumans;
+
 @end
 
 @implementation MRFRoom
