@@ -46,6 +46,9 @@
     return [[self.mutableHumans copy] autorelease];
 }
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)addHuman:(id)human {
     [self.mutableHumans addObject:human];
 }
