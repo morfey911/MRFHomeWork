@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 #import "MRFBeing.h"
+#import "MRFMaleBeing.h"
+#import "MRFFemaleBeing.h"
 
 @interface MRFBeingTests : MRFBeing
 

@@ -14,34 +14,46 @@
 #pragma mark Public
 
 + (void)MRFBeingBehaviourTest {
-    MRFBeing *maleBeing = [[[MRFBeing alloc] initWithGender:kMRFBeingMaleGender] autorelease];
-    MRFBeing *femaleBeing = [[[MRFBeing alloc] initWithGender:kMRFBeingFemaleGender] autorelease];
+    MRFBeing *being = [[[MRFBeing alloc] init] autorelease];
+    MRFMaleBeing *maleBeing = [[[MRFMaleBeing alloc] initWithGender:kMRFBeingMaleGender] autorelease];
+    MRFFemaleBeing *femaleBeing = [[[MRFFemaleBeing alloc] init] autorelease];
     
-    maleBeing.name = @"Being1";
-    femaleBeing.name = @"ololo";
     
-    for (NSUInteger i = 0; i < 10; i++) {
-        MRFBeing *newBaby = [femaleBeing giveBirth];
-        newBaby.name = [NSString stringWithFormat:@"child%ld", i];
-        
-        [maleBeing addChild:newBaby];
-        [femaleBeing addChild:newBaby];
-    }
+    NSLog(@"%@", being.description);
+    NSLog(@"%@", maleBeing.description);
+    NSLog(@"%@", femaleBeing.description);
     
-    NSLog(@"\n%@ %@", maleBeing, maleBeing.children);
-    NSLog(@"\n%@ %@", femaleBeing, femaleBeing.children);
     
-    [maleBeing sayHi];
-    [femaleBeing sayHi];
-    
-    for (MRFBeing *being in maleBeing.children) {
-        if (kMRFBeingMaleGender == being.gender) {
-            [being fight];
-        }
-        if (kMRFBeingFemaleGender == being.gender) {
-            [being giveBirth];
-        }
-    }
+//////////////////      TASK 1      //////////////////
+//////////////////////////////////////////////////////
+//    MRFBeing *maleBeing = [[[MRFBeing alloc] initWithGender:kMRFBeingMaleGender] autorelease];
+//    MRFBeing *femaleBeing = [[[MRFBeing alloc] initWithGender:kMRFBeingFemaleGender] autorelease];
+//    
+//    maleBeing.name = @"Being1";
+//    femaleBeing.name = @"ololo";
+//    
+//    for (NSUInteger i = 0; i < 10; i++) {
+//        MRFBeing *newBaby = [femaleBeing giveBirth];
+//        newBaby.name = [NSString stringWithFormat:@"child%ld", i];
+//        
+//        [maleBeing addChild:newBaby];
+//        [femaleBeing addChild:newBaby];
+//    }
+//    
+//    NSLog(@"\n%@ %@", maleBeing, maleBeing.children);
+//    NSLog(@"\n%@ %@", femaleBeing, femaleBeing.children);
+//    
+//    [maleBeing sayHi];
+//    [femaleBeing sayHi];
+//    
+//    for (MRFBeing *being in maleBeing.children) {
+//        if (kMRFBeingMaleGender == being.gender) {
+//            [being fight];
+//        }
+//        if (kMRFBeingFemaleGender == being.gender) {
+//            [being giveBirth];
+//        }
+//    }
 }
 
 @end

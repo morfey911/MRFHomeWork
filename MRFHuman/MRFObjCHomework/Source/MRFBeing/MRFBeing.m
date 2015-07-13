@@ -7,6 +7,8 @@
 //
 
 #import "MRFBeing.h"
+#import "MRFMaleBeing.h"
+#import "MRFFemaleBeing.h"
 
 /*
  Задание 1.
@@ -33,9 +35,7 @@
  */
 
 @interface MRFBeing ()
-
 @property (nonatomic, retain) NSMutableArray *mutableChildren;
-@property (nonatomic, assign) MRFBeingGender gender;
 
 - (void) say:(NSString *)message;
 
@@ -44,6 +44,13 @@
 @implementation MRFBeing
 
 @dynamic children;
+
+#pragma mark -
+#pragma mark Class methods
+
++ (Class)humanClassForGender:(MRFBeingGender)gender {
+    return kMRFBeingMaleGender == gender ? [MRFMaleBeing class] : [MRFFemaleBeing class];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -55,19 +62,12 @@
     [super dealloc];
 }
 
-- (instancetype)init {
-    return [self initWithGender:kMRFBeingUndefinedGender];
-}
-
-- (instancetype)initWithGender:(MRFBeingGender)gender {
+- (id)initWithGender:(MRFBeingGender)gender {
     self = [super init];
+    Class humanClass = [[self class] humanClassForGender:gender];
+    [self release];
     
-    if (self) {
-        self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
-        self.gender = gender;
-    }
-    
-    return self;
+    return [[humanClass alloc] init];
 }
 
 #pragma mark -
@@ -78,29 +78,14 @@
 }
 
 - (NSString *)description {
-    NSMutableString *result = [[[NSMutableString alloc] initWithString:@"undefined"] autorelease];
-    uint8_t genderValue = self.gender;
-    
-    if (kMRFBeingMaleGender == genderValue) {
-        [result setString:@"male"];
-    }
-    if (kMRFBeingFemaleGender == genderValue) {
-        [result setString:@"female"];
-    }
-    
-    return [NSString stringWithFormat: @"%@ Being name: %@ age: %d gender: %@",
+    return [NSString stringWithFormat: @"%@ Being name: %@ age: %d",
             [super description],
             self.name,
-            self.age,
-            result];
+            self.age];
 }
 
 #pragma mark -
 #pragma mark Public Methods
-
-- (void)fight {
-    [self say:@"I'm going to fight"];
-}
 
 - (void)sayHi {
     [self say:@"Hi"];
@@ -108,12 +93,6 @@
     for (MRFBeing *child in self.mutableChildren) {
         [child sayHi];
     }
-}
-
-- (instancetype)giveBirth {
-    MRFBeingGender randomGender = (arc4random() % 2) + 1;
-    
-    return [[[self class] alloc] initWithGender:randomGender];
 }
 
 - (void)addChild:(MRFBeing *)child {
