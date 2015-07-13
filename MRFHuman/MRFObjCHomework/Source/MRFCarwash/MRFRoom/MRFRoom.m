@@ -26,15 +26,15 @@
 }
 
 - (instancetype)init {
-    return [self initWithCapacity:0];
+    return [self initWithHumanCapacity:0];
 }
 
-- (instancetype)initWithCapacity:(uint8_t)capacity {
+- (instancetype)initWithHumanCapacity:(uint8_t)humanCapacity {
     self = [super init];
     
     if (self) {
-        self.humanCapacity = capacity;
-        self.mutableHumans = [NSMutableSet setWithCapacity:capacity];
+        self.humanCapacity = humanCapacity;
+        self.mutableHumans = [NSMutableSet setWithCapacity:humanCapacity];
     }
     
     return self;
