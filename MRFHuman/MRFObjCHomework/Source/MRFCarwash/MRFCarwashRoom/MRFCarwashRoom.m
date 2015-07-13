@@ -26,6 +26,10 @@
     [super dealloc];
 }
 
+- (instancetype)init {
+    return [self initWithHumanCapacity:0 carCapacity:0];
+}
+
 - (instancetype)initWithHumanCapacity:(uint8_t)humanCapacity carCapacity:(uint8_t)carCapacity {
     self = [super initWithHumanCapacity:humanCapacity];
     
