@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface MRFCar : NSObject
-@property (nonatomic, assign) BOOL isClear;
-@property (nonatomic, assign, readonly) uint8_t money;
+@property (nonatomic, assign)           BOOL        isClear;
+@property (nonatomic, assign, readonly) uint8_t     money;
 
-- (instancetype)initWithMoney:(uint8_t)money andClear:(BOOL)isClear;
+- (instancetype)initWithMoney:(uint8_t)money;
 
 - (uint8_t)giveMoney:(uint8_t)money;
 

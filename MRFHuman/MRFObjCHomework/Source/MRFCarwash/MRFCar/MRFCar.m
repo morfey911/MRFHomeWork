@@ -16,18 +16,17 @@
 @implementation MRFCar
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Initializations and Deallocations
 
 - (instancetype)init {
-    return [[super init] initWithMoney:0 andClear:NO];
+    return [self initWithMoney:0];
 }
 
-- (instancetype)initWithMoney:(uint8_t)money andClear:(BOOL)isClear {
+- (instancetype)initWithMoney:(uint8_t)money {
     self = [super init];
     
     if (self) {
         self.money = money;
-        self.isClear = isClear;
     }
     
     return self;
