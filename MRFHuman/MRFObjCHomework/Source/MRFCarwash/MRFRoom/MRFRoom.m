@@ -13,6 +13,7 @@
 @end
 
 @implementation MRFRoom
+
 @dynamic humans;
 
 #pragma mark -
@@ -25,15 +26,15 @@
 }
 
 - (instancetype)init {
-    return [self initWithCapacity:0];
+    return [self initWithHumanCapacity:0];
 }
 
-- (instancetype)initWithCapacity:(uint8_t)capacity {
+- (instancetype)initWithHumanCapacity:(uint8_t)humanCapacity {
     self = [super init];
     
     if (self) {
-        self.humanCapacity = capacity;
-        self.mutableHumans = [NSMutableSet setWithCapacity:capacity];
+        self.humanCapacity = humanCapacity;
+        self.mutableHumans = [NSMutableSet setWithCapacity:humanCapacity];
     }
     
     return self;
@@ -50,7 +51,9 @@
 #pragma mark Public Methods
 
 - (void)addHuman:(id)human {
-    [self.mutableHumans addObject:human];
+    if ([self.humans count] < self.humanCapacity) {
+        [self.mutableHumans addObject:human];
+    }
 }
 
 - (void)removeHuman:(id)human {

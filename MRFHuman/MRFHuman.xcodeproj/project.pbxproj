@@ -33,6 +33,7 @@
 		3FFABC6F1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC6E1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m */; };
 		3FFABC751B53E7E30074770C /* MRFCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC741B53E7E30074770C /* MRFCar.m */; };
 		3FFABC791B53F1F30074770C /* MRFRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC781B53F1F30074770C /* MRFRoom.m */; };
+		3FFABC7D1B53FA070074770C /* MRFCarwashRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFABC7C1B53FA070074770C /* MRFCarwashRoom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +113,8 @@
 		3FFABC741B53E7E30074770C /* MRFCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCar.m; sourceTree = "<group>"; };
 		3FFABC771B53F1F30074770C /* MRFRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFRoom.h; sourceTree = "<group>"; };
 		3FFABC781B53F1F30074770C /* MRFRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFRoom.m; sourceTree = "<group>"; };
+		3FFABC7B1B53FA070074770C /* MRFCarwashRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCarwashRoom.h; sourceTree = "<group>"; };
+		3FFABC7C1B53FA070074770C /* MRFCarwashRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCarwashRoom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +380,7 @@
 		3FFABC701B53E5B00074770C /* MRFCarwash */ = {
 			isa = PBXGroup;
 			children = (
+				3FFABC7A1B53F9E10074770C /* MRFCarwashRoom */,
 				3FFABC761B53F14E0074770C /* MRFRoom */,
 				3FFABC721B53E5E90074770C /* MRFCar */,
 			);
@@ -406,6 +410,15 @@
 				3FFABC781B53F1F30074770C /* MRFRoom.m */,
 			);
 			path = MRFRoom;
+			sourceTree = "<group>";
+		};
+		3FFABC7A1B53F9E10074770C /* MRFCarwashRoom */ = {
+			isa = PBXGroup;
+			children = (
+				3FFABC7B1B53FA070074770C /* MRFCarwashRoom.h */,
+				3FFABC7C1B53FA070074770C /* MRFCarwashRoom.m */,
+			);
+			path = MRFCarwashRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFABC7D1B53FA070074770C /* MRFCarwashRoom.m in Sources */,
 				3FFABC6F1B53BAAF0074770C /* NSObject+MRFObjectExtensions.m in Sources */,
 				3F15A17C1B4AA242002011BF /* main.m in Sources */,
 				3F15A1851B4AAE92002011BF /* MRFBeing.m in Sources */,

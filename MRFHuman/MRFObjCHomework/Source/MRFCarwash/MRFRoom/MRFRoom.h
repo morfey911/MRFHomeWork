@@ -12,7 +12,7 @@
 @property (nonatomic, retain, readonly) NSSet    *humans;
 @property (nonatomic, assign)           uint8_t  humanCapacity;
 
-- (instancetype)initWithCapacity:(uint8_t)capacity;
+- (instancetype)initWithHumanCapacity:(uint8_t)HumanCapacity;
 
 - (void)addHuman:(id)human;
 - (void)removeHuman:(id)human;
