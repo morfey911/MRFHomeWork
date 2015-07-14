@@ -24,6 +24,8 @@
 }
 
 - (void)performGenderSpecificOperation {
+    [super performGenderSpecificOperation];
+    
     [self giveBirth];
 }
 

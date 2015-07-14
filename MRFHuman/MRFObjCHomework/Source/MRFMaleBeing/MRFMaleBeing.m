@@ -15,6 +15,8 @@
 }
 
 - (void)performGenderSpecificOperation {
+    [super performGenderSpecificOperation];
+    
     [self fight];
 }
 
