@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MRFRoom.h"
+@class MRFRoom;
 
 @interface MRFBuilding : NSObject
 @property (nonatomic, retain, readonly) NSSet   *rooms;

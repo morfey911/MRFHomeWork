@@ -7,7 +7,8 @@
 //
 
 #import "MRFRoom.h"
-#import "MRFCar.h"
+
+@class MRFCar;
 
 @interface MRFCarwashRoom : MRFRoom
 @property (nonatomic, retain, readonly) NSSet   *cars;
