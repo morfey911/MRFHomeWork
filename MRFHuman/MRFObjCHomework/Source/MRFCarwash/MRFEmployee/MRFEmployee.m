@@ -10,6 +10,8 @@
 
 @implementation MRFEmployee
 
+@synthesize money = _money;
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -18,12 +20,17 @@
     [super dealloc];
 }
 
-- (void)takeMoney:(uint8_t)money from:(id)object {
-    
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)takeMoney:(uint8_t)money fromMoneyKeeper:(id <MRFMoneyFlow>)moneyKeeper {
+    self.money += money;
+    moneyKeeper.money -= money;
 }
 
-- (void)giveMoney:(uint8_t)money to:(id)object {
-    
+- (void)giveMoney:(uint8_t)money toMoneyKeeper:(id <MRFMoneyFlow>)moneyKeeper {
+    self.money -= money;
+    moneyKeeper.money += money;
 }
 
 @end

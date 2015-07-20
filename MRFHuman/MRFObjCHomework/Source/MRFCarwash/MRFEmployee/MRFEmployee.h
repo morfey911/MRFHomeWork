@@ -8,13 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MRFEmployee : NSObject
-@property (nonatomic, assign) uint8_t money;
+#import "MRFMoneyFlow.h"
+
+@interface MRFEmployee : NSObject <MRFMoneyFlow>
 @property (nonatomic, assign) uint8_t salary;
 @property (nonatomic, assign) uint8_t experience;
-
-- (void)takeMoney:(uint8_t)money from:(id)object;
-- (void)giveMoney:(uint8_t)money to:(id)object;
-
 
 @end

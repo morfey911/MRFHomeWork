@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @protocol MRFMoneyFlow <NSObject>
+@property (nonatomic, assign)uint8_t money;
 
-- (void)takeMoney:(uint64_t)money from:(id)moneyKeeper;
-
-@optional
-- (void)giveMoney:(uint64_t)money to:(id)moneyKeeper;
+- (void)takeMoney:(uint8_t)money fromMoneyKeeper:(id)moneyKeeper;
+- (void)giveMoney:(uint8_t)money toMoneyKeeper:(id)moneyKeeper;
 
 @end
