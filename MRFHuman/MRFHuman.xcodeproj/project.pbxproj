@@ -68,6 +68,7 @@
 		3F15A1841B4AAE92002011BF /* MRFBeing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFBeing.m; sourceTree = "<group>"; };
 		3F543CF91B56980300ECA337 /* MRFCarwashEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCarwashEnterprise.h; sourceTree = "<group>"; };
 		3F543CFA1B56980300ECA337 /* MRFCarwashEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCarwashEnterprise.m; sourceTree = "<group>"; };
+		3F543D001B5D52CF00ECA337 /* MRFMoneyFlow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFMoneyFlow.h; sourceTree = "<group>"; };
 		3F58FC991B10AF8600B0FC4D /* MRFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArray.c; sourceTree = "<group>"; };
 		3F58FC9A1B10AF8600B0FC4D /* MRFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArray.h; sourceTree = "<group>"; };
 		3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArrayTests.c; sourceTree = "<group>"; };
@@ -202,6 +203,14 @@
 				3F543CFA1B56980300ECA337 /* MRFCarwashEnterprise.m */,
 			);
 			path = MRFCarwashEnterprise;
+			sourceTree = "<group>";
+		};
+		3F543CFC1B5D51BE00ECA337 /* MRFMoneyFlow */ = {
+			isa = PBXGroup;
+			children = (
+				3F543D001B5D52CF00ECA337 /* MRFMoneyFlow.h */,
+			);
+			path = MRFMoneyFlow;
 			sourceTree = "<group>";
 		};
 		3F58FC981B10AF7600B0FC4D /* MRFArray */ = {
@@ -401,6 +410,7 @@
 		3FFABC701B53E5B00074770C /* MRFCarwash */ = {
 			isa = PBXGroup;
 			children = (
+				3F543CFC1B5D51BE00ECA337 /* MRFMoneyFlow */,
 				3F543CF81B5697CB00ECA337 /* MRFCarwashEnterprise */,
 				3FFABC881B5421640074770C /* MRFEmployeeWasher */,
 				3FFABC841B5414A00074770C /* MRFEmployee */,
