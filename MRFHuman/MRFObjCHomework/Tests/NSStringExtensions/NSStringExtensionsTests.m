@@ -21,7 +21,8 @@
 + (void)NSStringExtensionsTest {
     //after string was created with +alphabetWithUnicodeRange with range
     NSRange range = {'A', 26};
-    NSString *string = [NSString alhabetWithUnicodeRange:range];
+    NSString *string = [NSString alphabetWithUnicodeRange:range];
+    NSString *randomString = [NSString randomStringWithLength:200 charString:string];
     
     //string must be equal to NSString class
     NSAssert([string isKindOfClass:[NSString class]], @"1");
@@ -33,6 +34,7 @@
     NSAssert([string isEqualToString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ"] , @"3");
     
     NSLog(@"%@", string);
+    NSLog(@"%@", randomString);
 }
 
 

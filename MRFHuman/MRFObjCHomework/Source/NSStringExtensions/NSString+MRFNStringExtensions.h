@@ -10,8 +10,16 @@
 
 @interface NSString (MRFNStringExtensions)
 
-+ (instancetype)alhabetWithUnicodeRange:(NSRange)range;
++ (instancetype)alphabetWithUnicodeRange:(NSRange)range;
+
++ (instancetype)capitalizedLetterAlphabet;
+
++ (instancetype)lowercaseLetterAlphabet;
+
++ (instancetype)letterAlphabet;
 
 + (instancetype)randomStringWithLength:(uint32_t)length charString:(NSString *)string;
+
++ (instancetype)randomStringWithLength:(uint32_t)length;
 
 @end

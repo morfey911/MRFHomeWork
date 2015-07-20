@@ -10,13 +10,31 @@
 
 @implementation NSString (MRFNStringExtensions)
 
-+ (instancetype)alhabetWithUnicodeRange:(NSRange)range {
++ (instancetype)alphabetWithUnicodeRange:(NSRange)range {
     NSMutableString *string = [NSMutableString string];
     for (unichar character = range.location; character < NSMaxRange(range); character++) {
         [string appendFormat:@"%c", character];
     }
     
     return [self stringWithString:string];
+}
+
++ (instancetype)capitalizedLetterAlphabet {
+    NSRange range = {'A', 26};
+    return [self alphabetWithUnicodeRange:range];
+}
+
++ (instancetype)lowercaseLetterAlphabet {
+    NSRange range = {'a', 26};
+    return [self alphabetWithUnicodeRange:range];
+}
+
++ (instancetype)letterAlphabet {
+    NSMutableString *result = [NSMutableString stringWithString:[self lowercaseLetterAlphabet]];
+    [result appendString:[self capitalizedLetterAlphabet]];
+    
+    return [self stringWithString:result];
+    
 }
 
 + (instancetype)randomStringWithLength:(uint32_t)length charString:(NSString *)string {
@@ -29,6 +47,10 @@
     }
     
     return [self stringWithString:result];
+}
+
++ (instancetype)randomStringWithLength:(uint32_t)length {
+    return [self randomStringWithLength:length charString:[self letterAlphabet]];
 }
 
 @end
