@@ -22,4 +22,6 @@
 
 + (instancetype)randomStringWithLength:(uint32_t)length;
 
++ (instancetype)randomString;
+
 @end

@@ -8,6 +8,8 @@
 
 #import "NSString+MRFNStringExtensions.h"
 
+static const uint32_t defaultLength = 30;
+
 @implementation NSString (MRFNStringExtensions)
 
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range {
@@ -51,6 +53,10 @@
 
 + (instancetype)randomStringWithLength:(uint32_t)length {
     return [self randomStringWithLength:length charString:[self letterAlphabet]];
+}
+
++ (instancetype)randomString {
+    return [self randomStringWithLength:defaultLength];
 }
 
 @end
