@@ -12,47 +12,33 @@ static const uint32_t defaultLength = 30;
 
 @implementation NSString (MRFNStringExtensions)
 
-+ (instancetype)alphabetWithUnicodeRange:(NSRange)range {
-    NSMutableString *string = [NSMutableString string];
-    for (unichar character = range.location; character < NSMaxRange(range); character++) {
-        [string appendFormat:@"%c", character];
++ (instancetype)stringWithAlphabet:(MRFAlphabet *)alphabet {
+    NSMutableString *result = [NSMutableString string];
+    
+    for (NSUInteger i = 0; i < [alphabet.symbols count]; i++) {
+        NSString *symbol = [alphabet.symbols objectAtIndex:i];
+        [result appendString:symbol];
     }
     
-    return [self stringWithString:string];
-}
-
-+ (instancetype)capitalizedLetterAlphabet {
-    NSRange range = {'A', 26};
-    return [self alphabetWithUnicodeRange:range];
-}
-
-+ (instancetype)lowercaseLetterAlphabet {
-    NSRange range = {'a', 26};
-    return [self alphabetWithUnicodeRange:range];
-}
-
-+ (instancetype)letterAlphabet {
-    NSMutableString *result = [NSMutableString stringWithString:[self lowercaseLetterAlphabet]];
-    [result appendString:[self capitalizedLetterAlphabet]];
-    
     return [self stringWithString:result];
-    
 }
 
-+ (instancetype)randomStringWithLength:(uint32_t)length charString:(NSString *)string {
+
++ (instancetype)randomStringWithLength:(uint32_t)length alphabet:(MRFAlphabet *)alphabet {
     NSMutableString *result = [NSMutableString stringWithCapacity:length];
-    uint32_t stringLength = (uint32_t)[string length];
+    NSArray *alphabetSymbols = [alphabet symbols];
+    uint32_t alphabetCount = (uint32_t)[alphabet.symbols count];
     
     for (uint32_t iterator = 0; iterator < length; iterator++) {
-        unichar randomChar = [string characterAtIndex:arc4random_uniform(stringLength)];
-        [result appendFormat:@"%c", randomChar];
+        NSString *randomSymbol = [alphabetSymbols objectAtIndex:arc4random_uniform(alphabetCount)];
+        [result appendFormat:@"%@", randomSymbol];
     }
     
     return [self stringWithString:result];
 }
 
 + (instancetype)randomStringWithLength:(uint32_t)length {
-    return [self randomStringWithLength:length charString:[self letterAlphabet]];
+    return [self randomStringWithLength:length alphabet:[MRFAlphabet capitalizedLetterAlphabet]];
 }
 
 + (instancetype)randomString {

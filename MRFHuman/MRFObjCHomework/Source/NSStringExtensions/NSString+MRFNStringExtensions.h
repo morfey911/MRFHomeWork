@@ -8,17 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MRFAlphabet.h"
+
 @interface NSString (MRFNStringExtensions)
 
-+ (instancetype)alphabetWithUnicodeRange:(NSRange)range;
++ (instancetype)stringWithAlphabet:(MRFAlphabet *)alphabet;
 
-+ (instancetype)capitalizedLetterAlphabet;
 
-+ (instancetype)lowercaseLetterAlphabet;
-
-+ (instancetype)letterAlphabet;
-
-+ (instancetype)randomStringWithLength:(uint32_t)length charString:(NSString *)string;
++ (instancetype)randomStringWithLength:(uint32_t)length alphabet:(MRFAlphabet *)alphabet;
 
 + (instancetype)randomStringWithLength:(uint32_t)length;
 

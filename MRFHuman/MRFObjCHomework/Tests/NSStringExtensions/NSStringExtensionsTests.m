@@ -22,7 +22,8 @@
 + (void)NSStringExtensionsTest {
     //after string was created with +alphabetWithUnicodeRange with range
     NSRange range = {'A', 26};
-    NSString *string = [NSString alphabetWithUnicodeRange:range];
+    MRFAlphabet *alphabet = [MRFAlphabet alphabetWithUnicodeRange:range];
+    NSString *string = [NSString stringWithAlphabet:alphabet];
     
     //string must be equal to NSString class
     NSAssert([string isKindOfClass:[NSString class]], @"1");
@@ -39,8 +40,8 @@
 
 + (void)NSStringExtensionsRandomStringTest {
     NSRange cyrillicRange = {0x0410, 0x044F-0x0410};
-    NSString *cyrillicTable = [NSString alphabetWithUnicodeRange:cyrillicRange];
-    NSString *randomString = [NSString randomStringWithLength:200 charString:cyrillicTable];
+    MRFAlphabet *cyrillicTable = [MRFAlphabet alphabetWithUnicodeRange:cyrillicRange];
+    NSString *randomString = [NSString randomStringWithLength:200 alphabet:cyrillicTable];
     NSLog(@"%@", randomString);
 }
 

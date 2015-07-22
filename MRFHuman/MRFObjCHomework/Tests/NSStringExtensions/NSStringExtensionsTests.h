@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "NSString+MRFNStringExtensions.h"
+#import "MRFAlphabet.h"
 
 @interface NSStringExtensions : NSObject
 
