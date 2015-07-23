@@ -8,15 +8,19 @@
 
 #import "MRFAlphabet.h"
 #import "MRFAlphabetWithRange.h"
+#import "MRFAlphabetFromString.h"
 
 @implementation MRFAlphabet
 
 @dynamic symbols;
 
-+ (MRFAlphabet *)alphabetWithUnicodeRange:(NSRange)range {
++ (instancetype)alphabetWithUnicodeRange:(NSRange)range {
     return [[[MRFAlphabetWithRange alloc] initWithUnicodeRange:range] autorelease];
 }
 
++ (instancetype)alphabetWithString:(NSString *)string {
+    return [[[MRFAlphabetFromString alloc] initWithString:string] autorelease];
+}
 
 + (instancetype)capitalizedLetterAlphabet {
     NSRange range = {'A', 26};
