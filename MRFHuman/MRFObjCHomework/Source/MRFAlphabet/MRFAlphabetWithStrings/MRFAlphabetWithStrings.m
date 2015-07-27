@@ -15,6 +15,12 @@
 
 @implementation MRFAlphabetWithStrings
 
+- (void)dealloc {
+    self.strings = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)initWithStrings:(NSArray *)strings {
     self = [super init];
     

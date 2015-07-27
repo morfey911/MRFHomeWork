@@ -18,6 +18,12 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    self.mutableStringWithSymbols = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)initWithString:(NSString *)string {
     self = [super init];
     
