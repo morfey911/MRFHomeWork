@@ -15,10 +15,11 @@
 + (instancetype)alphabetWithString:(NSString *)string;
 
 
-+ (instancetype)capitalizedLetterAlphabet;
++ (instancetype)uppercaseLetterAlphabet;
 
 + (instancetype)lowercaseLetterAlphabet;
 
++ (instancetype)numericAlphabet;
 
 //TODO method to add alphabets to existing alphabetObject
 

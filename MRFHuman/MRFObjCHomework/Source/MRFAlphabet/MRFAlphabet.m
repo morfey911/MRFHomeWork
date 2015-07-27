@@ -22,13 +22,18 @@
     return [[[MRFAlphabetFromString alloc] initWithString:string] autorelease];
 }
 
-+ (instancetype)capitalizedLetterAlphabet {
++ (instancetype)uppercaseLetterAlphabet {
     NSRange range = {'A', 26};
     return [self alphabetWithUnicodeRange:range];
 }
 
 + (instancetype)lowercaseLetterAlphabet {
     NSRange range = {'a', 26};
+    return [self alphabetWithUnicodeRange:range];
+}
+
++ (instancetype)numericAlphabet {
+    NSRange range = {'0', 10};
     return [self alphabetWithUnicodeRange:range];
 }
 
