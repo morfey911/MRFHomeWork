@@ -41,7 +41,7 @@
 + (void)NSStringExtensionsRandomStringTest {
     NSRange cyrillicRange = {0x0410, 0x044F-0x0410};
     MRFAlphabet *cyrillicTable = [MRFAlphabet alphabetWithUnicodeRange:cyrillicRange];
-    NSString *randomString = [NSString randomStringWithLength:200 alphabet:cyrillicTable];
+    NSString *randomString = [NSString randomStringWithLength:100 alphabet:cyrillicTable];
     NSLog(@"%@", randomString);
 }
 

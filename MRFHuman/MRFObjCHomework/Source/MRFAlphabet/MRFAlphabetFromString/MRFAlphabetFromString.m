@@ -36,7 +36,7 @@
     NSUInteger length = [string length];
     
     for (NSUInteger iterator = 0; iterator < length; iterator++) {
-        NSString* character = [NSString stringWithFormat:@"%c", [string characterAtIndex:iterator]];
+        NSString* character = [NSString stringWithFormat:@"%C", [string characterAtIndex:iterator]];
         [array addObject:character];
     }
     

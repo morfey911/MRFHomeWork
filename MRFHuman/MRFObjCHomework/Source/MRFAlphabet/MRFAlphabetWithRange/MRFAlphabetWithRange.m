@@ -9,7 +9,7 @@
 #import "MRFAlphabetWithRange.h"
 
 @interface MRFAlphabetWithRange ()
-@property (nonatomic, retain) NSMutableString *mutableStringWithSymbols;
+@property (nonatomic, assign) NSRange range;
 
 @end
 
@@ -19,7 +19,6 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableStringWithSymbols = nil;
     
     [super dealloc];
 }
@@ -28,11 +27,7 @@
     self = [super init];
     
     if (self) {
-        self.mutableStringWithSymbols = [NSMutableString string];
-        
-        for (unichar character = range.location; character < NSMaxRange(range); character++ ) {
-            [self.mutableStringWithSymbols appendFormat:@"%c", character];
-        }
+        self.range = range;
     }
     
     return self;
@@ -42,13 +37,12 @@
 #pragma mark Accessors
 
 - (NSArray *)symbols {
-    NSMutableArray *array = [NSMutableArray array];
-    NSString *string = [[self.mutableStringWithSymbols copy] autorelease];
-    NSUInteger length = [string length];
+    NSRange range = self.range;
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:NSMaxRange(range)];
     
-    for (NSUInteger iterator = 0; iterator < length; iterator++) {
-        NSString* character = [NSString stringWithFormat:@"%c", [string characterAtIndex:iterator]];
-        [array addObject:character];
+    for (unichar character = range.location; character < NSMaxRange(range); character++) {
+        NSString *string = [NSString stringWithFormat:@"%C", character];
+        [array addObject:string];
     }
     
     return [[array copy] autorelease];

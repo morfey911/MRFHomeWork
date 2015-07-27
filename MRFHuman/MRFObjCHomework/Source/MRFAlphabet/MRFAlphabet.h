@@ -12,7 +12,6 @@
 @property (nonatomic, copy, readonly) NSArray *symbols;
 
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range;
-
 + (instancetype)alphabetWithString:(NSString *)string;
 
 
