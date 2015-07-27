@@ -10,6 +10,6 @@
 
 @interface MRFAlphabetWithStrings : MRFAlphabet
 
-- (instancetype)initWithStrings:(NSArray *)array;
+- (instancetype)initWithStrings:(NSArray *)strings;
 
 @end

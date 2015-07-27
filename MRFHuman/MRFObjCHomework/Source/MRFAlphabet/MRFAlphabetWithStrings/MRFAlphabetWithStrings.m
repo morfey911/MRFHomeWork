@@ -9,24 +9,24 @@
 #import "MRFAlphabetWithStrings.h"
 
 @interface MRFAlphabetWithStrings ()
-@property (nonatomic, retain) NSMutableArray *mutableArray;
+@property (nonatomic, retain) NSMutableArray *strings;
 
 @end
 
 @implementation MRFAlphabetWithStrings
 
-- (instancetype)initWithStrings:(NSArray *)array {
+- (instancetype)initWithStrings:(NSArray *)strings {
     self = [super init];
     
     if (self) {
-        self.mutableArray = [NSMutableArray arrayWithArray:array];
+        self.strings = [NSMutableArray arrayWithArray:strings];
     }
     
     return self;
 }
 
 - (NSArray *)symbols {
-    return [[self.mutableArray copy] autorelease];
+    return [[self.strings copy] autorelease];
 }
 
 @end
