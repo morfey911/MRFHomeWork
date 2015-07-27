@@ -14,11 +14,14 @@
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range;
 + (instancetype)alphabetWithString:(NSString *)string;
 + (instancetype)alphabetWithStrings:(NSArray *)strings;
++ (instancetype)alphabetWithAlphabets:(NSArray *)alphabets;
 
 
 + (instancetype)uppercaseLetterAlphabet;
 
 + (instancetype)lowercaseLetterAlphabet;
+
++ (instancetype)letterAlphabet;
 
 + (instancetype)numericAlphabet;
 

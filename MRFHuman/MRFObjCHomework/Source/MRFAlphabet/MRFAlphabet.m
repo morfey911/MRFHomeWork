@@ -10,6 +10,7 @@
 #import "MRFAlphabetWithRange.h"
 #import "MRFAlphabetFromString.h"
 #import "MRFAlphabetWithStrings.h"
+#import "MRFAlphabetWithAlphabets.h"
 
 @implementation MRFAlphabet
 
@@ -27,15 +28,28 @@
     return [[[MRFAlphabetWithStrings alloc] initWithStrings:strings] autorelease];
 }
 
++ (instancetype)alphabetWithAlphabets:(NSArray *)alphabets {
+    return [[[MRFAlphabetWithAlphabets alloc] initWithAlphabets:alphabets] autorelease];
+}
+
 
 + (instancetype)uppercaseLetterAlphabet {
-    NSRange range = {'A', 26};
+    NSRange range = {'A', ('Z' - 'A' + 1)};
     return [self alphabetWithUnicodeRange:range];
 }
 
 + (instancetype)lowercaseLetterAlphabet {
-    NSRange range = {'a', 26};
+    NSRange range = {'a', ('z' - 'a' + 1)};
     return [self alphabetWithUnicodeRange:range];
+}
+
++ (instancetype)letterAlphabet {
+    NSArray *alphabets = [NSArray arrayWithObjects:
+                                 [self uppercaseLetterAlphabet],
+                                 [self lowercaseLetterAlphabet],
+                                 nil];
+    
+    return [self alphabetWithAlphabets:alphabets];
 }
 
 + (instancetype)numericAlphabet {
