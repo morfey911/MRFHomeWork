@@ -9,6 +9,7 @@
 #import "MRFAlphabet.h"
 #import "MRFAlphabetWithRange.h"
 #import "MRFAlphabetFromString.h"
+#import "MRFAlphabetWithStrings.h"
 
 @implementation MRFAlphabet
 
@@ -21,6 +22,11 @@
 + (instancetype)alphabetWithString:(NSString *)string {
     return [[[MRFAlphabetFromString alloc] initWithString:string] autorelease];
 }
+
++ (instancetype)alphabetWithStrings:(NSArray *)strings {
+    return [[[MRFAlphabetWithStrings alloc] initWithStrings:strings] autorelease];
+}
+
 
 + (instancetype)uppercaseLetterAlphabet {
     NSRange range = {'A', 26};

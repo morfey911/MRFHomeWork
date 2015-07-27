@@ -13,6 +13,7 @@
 
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range;
 + (instancetype)alphabetWithString:(NSString *)string;
++ (instancetype)alphabetWithStrings:(NSArray *)strings;
 
 
 + (instancetype)uppercaseLetterAlphabet;

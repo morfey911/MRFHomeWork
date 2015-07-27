@@ -8,8 +8,6 @@
 
 #import "MRFAlphabetFromString.h"
 
-#import "MRFAlphabet.h"
-
 @interface MRFAlphabetFromString ()
 @property (nonatomic, retain) NSMutableString *mutableStringWithSymbols;
 
