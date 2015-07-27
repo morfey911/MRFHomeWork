@@ -34,6 +34,9 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Overriden parent method
+
 - (NSArray *)symbols {
     NSMutableArray *array = [NSMutableArray array];
     NSString *string = [[self.mutableStringWithSymbols copy] autorelease];

@@ -15,6 +15,9 @@
 
 @implementation MRFAlphabetWithStrings
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (void)dealloc {
     self.strings = nil;
     
@@ -30,6 +33,9 @@
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Overriden parent method
 
 - (NSArray *)symbols {
     return [[self.strings copy] autorelease];

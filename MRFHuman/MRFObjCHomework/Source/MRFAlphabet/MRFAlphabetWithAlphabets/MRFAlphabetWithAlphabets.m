@@ -15,6 +15,9 @@
 
 @implementation MRFAlphabetWithAlphabets
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (void)dealloc {
     self.alphabets = nil;
     
@@ -30,6 +33,9 @@
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Overriden parent getter
 
 - (NSArray *)symbols {
     NSMutableArray *result = [NSMutableArray array];
