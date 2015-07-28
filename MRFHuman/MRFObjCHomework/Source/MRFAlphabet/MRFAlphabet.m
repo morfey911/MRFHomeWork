@@ -16,6 +16,9 @@
 
 @dynamic symbols;
 
+#pragma mark -
+#pragma mark Class methods
+
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range {
     return [[[MRFAlphabetWithRange alloc] initWithUnicodeRange:range] autorelease];
 }
@@ -32,6 +35,36 @@
     return [[[MRFAlphabetWithAlphabets alloc] initWithAlphabets:alphabets] autorelease];
 }
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithUnicodeRange:(NSRange)range {
+    [self release];
+    
+    return [[MRFAlphabetWithRange alloc] initWithUnicodeRange:range];
+}
+
+- (instancetype)initWithString:(NSString *)string {
+    [self release];
+    
+    return [[MRFAlphabetFromString alloc] initWithString:string];
+}
+
+- (instancetype)initWithStrings:(NSArray *)strings {
+    [self release];
+    
+    return [[MRFAlphabetWithStrings alloc] initWithStrings:strings];
+}
+
+- (instancetype)initWithAlphabets:(NSArray *)alphabets {
+    [self release];
+    
+    return [[MRFAlphabetWithAlphabets alloc] initWithAlphabets:alphabets];
+}
+
+
+#pragma mark -
+#pragma mark Public Methods
 
 + (instancetype)uppercaseLetterAlphabet {
     NSRange range = {'A', ('Z' - 'A' + 1)};
