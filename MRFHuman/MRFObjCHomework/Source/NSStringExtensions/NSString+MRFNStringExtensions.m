@@ -38,7 +38,7 @@ static const uint32_t defaultLength = 30;
 }
 
 + (instancetype)randomStringWithLength:(uint32_t)length {
-    return [self randomStringWithLength:length alphabet:[MRFAlphabet uppercaseLetterAlphabet]];
+    return [self randomStringWithLength:length alphabet:[MRFAlphabets letterAlphabet]];
 }
 
 + (instancetype)randomString {

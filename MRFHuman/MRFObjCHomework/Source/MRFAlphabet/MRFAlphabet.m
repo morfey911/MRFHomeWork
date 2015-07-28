@@ -63,6 +63,12 @@
 #pragma mark -
 #pragma mark Public Methods
 
+- (NSArray *)symbols {
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
 - (NSUInteger)count {
     [self doesNotRecognizeSelector:_cmd];
     
