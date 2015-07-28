@@ -13,8 +13,6 @@
 
 @implementation MRFAlphabet
 
-@dynamic symbols;
-
 #pragma mark -
 #pragma mark Class methods
 

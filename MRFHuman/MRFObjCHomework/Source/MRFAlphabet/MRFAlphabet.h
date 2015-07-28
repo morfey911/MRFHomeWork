@@ -15,7 +15,6 @@
 #import <Foundation/Foundation.h>
 
 @interface MRFAlphabet : NSObject <NSFastEnumeration>
-@property (nonatomic, copy, readonly) NSArray *symbols;
 
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range;
 + (instancetype)alphabetWithString:(NSString *)string;
@@ -32,6 +31,7 @@
 + (instancetype)letterAlphabet;
 + (instancetype)numericAlphabet;
 
+- (NSArray *)symbols;
 - (NSUInteger)count;
 - (NSString *)symbolAtIndex:(NSUInteger)index;
 
