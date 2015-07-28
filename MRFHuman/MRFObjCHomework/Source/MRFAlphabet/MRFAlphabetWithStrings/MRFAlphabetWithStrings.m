@@ -34,6 +34,22 @@
     return self;
 }
 
+- (instancetype)initWithAlphabets:(NSArray *)alphabets {
+    self = [super init];
+    
+    if (self) {
+        self.strings = [NSMutableArray array];
+        
+        for (MRFAlphabet *alphabet in alphabets) {
+            for (NSUInteger i = 0; i < [alphabet count]; i++) {
+                [self.strings addObject:[alphabet symbolAtIndex:i]];
+            }
+        }
+    }
+    
+    return self;
+}
+
 #pragma mark -
 #pragma mark Overriden parent method
 

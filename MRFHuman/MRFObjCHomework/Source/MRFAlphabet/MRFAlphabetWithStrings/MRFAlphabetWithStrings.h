@@ -12,4 +12,6 @@
 
 - (instancetype)initWithStrings:(NSArray *)strings;
 
+- (instancetype)initWithAlphabets:(NSArray *)alphabets;
+
 @end

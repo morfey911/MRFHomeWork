@@ -10,7 +10,6 @@
 #import "MRFAlphabetWithRange.h"
 #import "MRFAlphabetFromString.h"
 #import "MRFAlphabetWithStrings.h"
-#import "MRFAlphabetWithAlphabets.h"
 
 @implementation MRFAlphabet
 
@@ -20,19 +19,19 @@
 #pragma mark Class methods
 
 + (instancetype)alphabetWithUnicodeRange:(NSRange)range {
-    return [[[MRFAlphabetWithRange alloc] initWithUnicodeRange:range] autorelease];
+    return [[[self alloc] initWithUnicodeRange:range] autorelease];
 }
 
 + (instancetype)alphabetWithString:(NSString *)string {
-    return [[[MRFAlphabetFromString alloc] initWithString:string] autorelease];
+    return [[[self alloc] initWithString:string] autorelease];
 }
 
 + (instancetype)alphabetWithStrings:(NSArray *)strings {
-    return [[[MRFAlphabetWithStrings alloc] initWithStrings:strings] autorelease];
+    return [[[self alloc] initWithStrings:strings] autorelease];
 }
 
 + (instancetype)alphabetWithAlphabets:(NSArray *)alphabets {
-    return [[[MRFAlphabetWithAlphabets alloc] initWithAlphabets:alphabets] autorelease];
+    return [[[self alloc] initWithAlphabets:alphabets] autorelease];
 }
 
 #pragma mark -
@@ -59,7 +58,7 @@
 - (instancetype)initWithAlphabets:(NSArray *)alphabets {
     [self release];
     
-    return [[MRFAlphabetWithAlphabets alloc] initWithAlphabets:alphabets];
+    return [[MRFAlphabetWithStrings alloc] initWithAlphabets:alphabets];
 }
 
 
