@@ -8,8 +8,8 @@
 
 /*
  TODO:
- symbols  сделать методом
  реализовать NSFastEnumeration
+ больше тестов для бога тестов!
 */
 
 #import <Foundation/Foundation.h>
@@ -25,11 +25,6 @@
 - (instancetype)initWithString:(NSString *)string;
 - (instancetype)initWithStrings:(NSArray *)strings;
 - (instancetype)initWithAlphabets:(NSArray *)alphabets;
-
-+ (instancetype)uppercaseLetterAlphabet;
-+ (instancetype)lowercaseLetterAlphabet;
-+ (instancetype)letterAlphabet;
-+ (instancetype)numericAlphabet;
 
 - (NSArray *)symbols;
 - (NSUInteger)count;

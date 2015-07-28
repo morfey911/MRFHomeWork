@@ -39,10 +39,19 @@
 }
 
 + (void)NSStringExtensionsRandomStringTest {
-    NSRange cyrillicRange = {0x0410, 0x044F-0x0410};
-    MRFAlphabet *cyrillicTable = [MRFAlphabet alphabetWithUnicodeRange:cyrillicRange];
-    NSString *randomString = [NSString randomStringWithLength:100 alphabet:cyrillicTable];
-    NSLog(@"%@", randomString);
+    MRFAlphabets *letterAlphabet = [MRFAlphabets letterAlphabet];
+    
+    NSString *letterAlphabetString = [NSString stringWithAlphabet:letterAlphabet];
+//    NSString *randomString = [NSString randomStringWithLength:500 alphabet:letterAlphabet];
+    
+    NSLog(@"%@", letterAlphabetString);
+    NSLog(@"%lu", [letterAlphabet count]);
+    NSLog(@"%@", [letterAlphabet symbolAtIndex:26]);
+    
+//    NSRange cyrillicRange = {0x0410, 0x044F-0x0410};
+//    MRFAlphabet *cyrillicTable = [MRFAlphabet alphabetWithUnicodeRange:cyrillicRange];
+//    NSString *randomString = [NSString randomStringWithLength:100 alphabet:cyrillicTable];
+//    NSLog(@"%@", randomString);
 }
 
 

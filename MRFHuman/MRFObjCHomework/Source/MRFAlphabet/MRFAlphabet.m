@@ -63,31 +63,6 @@
 #pragma mark -
 #pragma mark Public Methods
 
-+ (instancetype)uppercaseLetterAlphabet {
-    NSRange range = {'A', ('Z' - 'A' + 1)};
-    return [self alphabetWithUnicodeRange:range];
-}
-
-+ (instancetype)lowercaseLetterAlphabet {
-    NSRange range = {'a', ('z' - 'a' + 1)};
-    return [self alphabetWithUnicodeRange:range];
-}
-
-+ (instancetype)letterAlphabet {
-    NSArray *alphabets = [NSArray arrayWithObjects:
-                                 [self uppercaseLetterAlphabet],
-                                 [self lowercaseLetterAlphabet],
-                                 nil];
-    
-    return [self alphabetWithAlphabets:alphabets];
-}
-
-+ (instancetype)numericAlphabet {
-    NSRange range = {'0', 10};
-    return [self alphabetWithUnicodeRange:range];
-}
-
-
 - (NSUInteger)count {
     [self doesNotRecognizeSelector:_cmd];
     

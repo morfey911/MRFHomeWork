@@ -10,6 +10,7 @@
 
 #import "NSString+MRFNStringExtensions.h"
 #import "MRFAlphabet.h"
+#import "MRFAlphabets.h"
 
 @interface NSStringExtensions : NSObject
 
