@@ -41,4 +41,12 @@
     return [[self.strings copy] autorelease];
 }
 
+- (NSUInteger)count {
+    return [self.strings count];
+}
+
+- (NSString *)symbolAtIndex:(NSUInteger)index {
+    return [self.strings objectAtIndex:index];
+}
+
 @end

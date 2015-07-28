@@ -9,7 +9,7 @@
 #import "MRFAlphabetWithAlphabets.h"
 
 @interface MRFAlphabetWithAlphabets ()
-@property (nonatomic, retain) NSMutableArray *alphabets;
+@property (nonatomic, retain) NSMutableArray *alphabetsSymbols;
 
 @end
 
@@ -19,7 +19,7 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.alphabets = nil;
+    self.alphabetsSymbols = nil;
     
     [super dealloc];
 }
@@ -28,22 +28,31 @@
     self = [super init];
     
     if (self) {
-        self.alphabets = [NSMutableArray arrayWithArray:alphabets];
+        self.alphabetsSymbols = [NSMutableArray array];
+        
+        for (MRFAlphabet *alphabet in alphabets) {
+            for (NSUInteger i = 0; i < [alphabet count]; i++) {
+                [self.alphabetsSymbols addObject:[alphabet symbolAtIndex:i]];
+            }
+        }
     }
     
     return self;
 }
 
 #pragma mark -
-#pragma mark Overriden parent getter
+#pragma mark Overriden parent getters
 
 - (NSArray *)symbols {
-    NSMutableArray *result = [NSMutableArray array];
-    for (MRFAlphabet *alphabet in self.alphabets) {
-        [result addObjectsFromArray:[alphabet symbols]];
-    }
-    
-    return result;
+    return [[self.alphabetsSymbols copy] autorelease];
+}
+
+- (NSUInteger)count {
+    return [self.alphabetsSymbols count];
+}
+
+- (NSString *)symbolAtIndex:(NSUInteger)index {
+    return [self.alphabetsSymbols objectAtIndex:index];
 }
 
 @end

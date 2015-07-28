@@ -48,4 +48,13 @@
     return [[array copy] autorelease];
 }
 
+
+- (NSUInteger)count {
+    return self.range.length;
+}
+
+- (NSString *)symbolAtIndex:(NSUInteger)index {
+    return [NSString stringWithFormat:@"%C", (unichar)(self.range.location + index)];
+}
+
 @end

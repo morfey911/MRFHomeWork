@@ -90,4 +90,17 @@
     return [self alphabetWithUnicodeRange:range];
 }
 
+
+- (NSUInteger)count {
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return 0;
+}
+
+- (NSString *)symbolAtIndex:(NSUInteger)index {
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
 @end

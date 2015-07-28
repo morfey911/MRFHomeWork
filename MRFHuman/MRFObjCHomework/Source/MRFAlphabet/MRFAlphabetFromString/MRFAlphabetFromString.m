@@ -50,4 +50,12 @@
     return [[array copy] autorelease];
 }
 
+- (NSUInteger)count {
+    return [self.mutableStringWithSymbols length];
+}
+
+- (NSString *)symbolAtIndex:(NSUInteger)index {
+    return [NSString stringWithFormat:@"%C", [self.mutableStringWithSymbols characterAtIndex:index]];
+}
+
 @end

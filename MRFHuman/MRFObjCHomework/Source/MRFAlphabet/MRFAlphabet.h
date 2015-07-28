@@ -7,9 +7,8 @@
 //
 
 /*
+ TODO:
  symbols  сделать методом
- count, objectAtIndex - реализовать методы
- объявить в хедере кластерногго класса init сам классов
  реализовать NSFastEnumeration
 */
 
@@ -29,11 +28,11 @@
 - (instancetype)initWithAlphabets:(NSArray *)alphabets;
 
 + (instancetype)uppercaseLetterAlphabet;
-
 + (instancetype)lowercaseLetterAlphabet;
-
 + (instancetype)letterAlphabet;
-
 + (instancetype)numericAlphabet;
+
+- (NSUInteger)count;
+- (NSString *)symbolAtIndex:(NSUInteger)index;
 
 @end
