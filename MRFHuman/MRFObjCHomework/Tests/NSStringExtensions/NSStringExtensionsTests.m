@@ -46,13 +46,16 @@
     
     NSLog(@"%@", letterAlphabetString);
     NSLog(@"%lu", [letterAlphabet count]);
-    NSLog(@"%@", [letterAlphabet symbolAtIndex:26]);
+    NSLog(@"%@", letterAlphabet[26]);
+    
+    for (MRFAlphabet *alphabet in letterAlphabet) {
+        NSLog(@"%@", alphabet);
+    }
     
 //    NSRange cyrillicRange = {0x0410, 0x044F-0x0410};
 //    MRFAlphabet *cyrillicTable = [MRFAlphabet alphabetWithUnicodeRange:cyrillicRange];
 //    NSString *randomString = [NSString randomStringWithLength:100 alphabet:cyrillicTable];
 //    NSLog(@"%@", randomString);
 }
-
 
 @end

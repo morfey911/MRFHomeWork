@@ -8,8 +8,7 @@
 
 /*
  TODO:
- реализовать NSFastEnumeration
- больше тестов для бога тестов!
+ MOARRR TESTS!
 */
 
 #import <Foundation/Foundation.h>
@@ -29,5 +28,6 @@
 - (NSArray *)symbols;
 - (NSUInteger)count;
 - (NSString *)symbolAtIndex:(NSUInteger)index;
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 @end

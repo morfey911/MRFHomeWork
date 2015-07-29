@@ -81,4 +81,34 @@
     return nil;
 }
 
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+    return [self.symbols objectAtIndex:idx];
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id [])buffer
+                                    count:(NSUInteger)len
+{
+    if (0 == state->state) {
+        state->mutationsPtr = (unsigned long *)self;
+    }
+    
+    state->itemsPtr = buffer;
+    NSUInteger count = 0;
+    unsigned long passedCount = state->state;
+    
+    while (count < len && passedCount < [self.symbols count]) {
+        buffer[count] = self[passedCount];
+        count++;
+        passedCount++;
+    }
+    
+    state->state = passedCount;
+    
+    return count;
+}
+
 @end
