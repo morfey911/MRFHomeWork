@@ -98,15 +98,13 @@
     
     state->itemsPtr = buffer;
     NSUInteger count = 0;
-    unsigned long passedCount = state->state;
+    unsigned long passedSymbolsCount = state->state;
     
-    while (count < len && passedCount < [self.symbols count]) {
-        buffer[count] = self[passedCount];
-        count++;
-        passedCount++;
+    while (count < len && passedSymbolsCount < [self.symbols count]) {
+        buffer[count++] = self[passedSymbolsCount++];
     }
     
-    state->state = passedCount;
+    state->state = passedSymbolsCount;
     
     return count;
 }
