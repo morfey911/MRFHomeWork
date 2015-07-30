@@ -100,7 +100,7 @@
     NSUInteger count = 0;
     unsigned long passedSymbolsCount = state->state;
     
-    while (count < len && passedSymbolsCount < [self.symbols count]) {
+    while (count < len && passedSymbolsCount < [self count]) {
         buffer[count++] = self[passedSymbolsCount++];
     }
     
