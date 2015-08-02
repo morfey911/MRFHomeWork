@@ -12,7 +12,7 @@ static const uint32_t defaultLength = 30;
 
 @implementation NSString (MRFNStringExtensions)
 
-+ (instancetype)stringWithAlphabet:(MRFAlphabet *)alphabet {
++ (instancetype)makeStringFromAlphabet:(MRFAlphabet *)alphabet {
     NSMutableString *result = [NSMutableString string];
     
     for (NSUInteger i = 0; i < [alphabet.symbols count]; i++) {

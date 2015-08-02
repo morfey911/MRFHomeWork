@@ -23,7 +23,7 @@
     //after string was created with +alphabetWithUnicodeRange with range
     NSRange range = {'A', 26};
     MRFAlphabet *alphabet = [MRFAlphabet alphabetWithUnicodeRange:range];
-    NSString *string = [NSString stringWithAlphabet:alphabet];
+    NSString *string = [NSString makeStringFromAlphabet:alphabet];
     
     //string must be equal to NSString class
     NSAssert([string isKindOfClass:[NSString class]], @"1");
@@ -41,7 +41,7 @@
 + (void)NSStringExtensionsRandomStringTest {
     MRFAlphabets *letterAlphabet = [MRFAlphabets letterAlphabet];
     
-    NSString *letterAlphabetString = [NSString stringWithAlphabet:letterAlphabet];
+    NSString *letterAlphabetString = [NSString makeStringFromAlphabet:letterAlphabet];
 //    NSString *randomString = [NSString randomStringWithLength:500 alphabet:letterAlphabet];
     
     NSLog(@"%@", letterAlphabetString);

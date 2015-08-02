@@ -13,7 +13,7 @@
 
 @interface NSString (MRFNStringExtensions)
 
-+ (instancetype)stringWithAlphabet:(MRFAlphabet *)alphabet;
++ (instancetype)makeStringFromAlphabet:(MRFAlphabet *)alphabet;
 
 
 + (instancetype)randomStringWithLength:(uint32_t)length alphabet:(MRFAlphabet *)alphabet;
