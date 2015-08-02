@@ -90,6 +90,7 @@
 		3F543D271B6814BF00ECA337 /* MRFAlphabetWithStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAlphabetWithStrings.m; sourceTree = "<group>"; };
 		3F543D2B1B68161300ECA337 /* MRFAlphabets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAlphabets.h; sourceTree = "<group>"; };
 		3F543D2C1B68161300ECA337 /* MRFAlphabets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAlphabets.m; sourceTree = "<group>"; };
+		3F543D2E1B6E371B00ECA337 /* IDPStudyPlan */ = {isa = PBXFileReference; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
 		3F58FC991B10AF8600B0FC4D /* MRFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArray.c; sourceTree = "<group>"; };
 		3F58FC9A1B10AF8600B0FC4D /* MRFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArray.h; sourceTree = "<group>"; };
 		3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArrayTests.c; sourceTree = "<group>"; };
@@ -392,6 +393,7 @@
 		3FDBA6CA1B026F8300025857 = {
 			isa = PBXGroup;
 			children = (
+				3F543D2E1B6E371B00ECA337 /* IDPStudyPlan */,
 				3FDBA6D51B026F8300025857 /* MRFHuman */,
 				3F15A17A1B4AA242002011BF /* MRFObjCHomework */,
 				3FFABC591B4EA9040074770C /* MRFBeingTests */,
