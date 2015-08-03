@@ -18,6 +18,10 @@
     [super dealloc];
 }
 
+- (instancetype)init {
+    return [self initWithMoney:0];
+}
+
 - (instancetype)initWithMoney:(uint32_t)money {
     self = [super init];
     
