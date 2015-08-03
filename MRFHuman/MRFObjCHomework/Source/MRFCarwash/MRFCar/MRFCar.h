@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MRFMoneyKeeper.h"
 
-@interface MRFCar : MRFMoneyKeeper
+#import "MRFMoneyFlow.h"
+
+@interface MRFCar : NSObject <MRFMoneyFlow>
 @property (nonatomic, assign)           BOOL        isClear;
 
 - (instancetype)initWithMoney:(uint8_t)money;
