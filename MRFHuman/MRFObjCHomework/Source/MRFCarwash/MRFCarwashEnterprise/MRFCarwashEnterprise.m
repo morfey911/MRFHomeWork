@@ -10,13 +10,10 @@
 
 #import "NSObject+MRFObjectExtensions.h"
 
-#import "MRFBuilding.h"
 #import "MRFEmployeeWasher.h"
 #import "MRFCar.h"
 
 @interface MRFCarwashEnterprise ()
-@property (nonatomic, retain) MRFBuilding *carwashBuilding;
-@property (nonatomic, retain) MRFBuilding *administrativeBuilding;
 @property (nonatomic, copy) NSMutableSet *mutableWashers;
 
 @end
@@ -27,8 +24,6 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.carwashBuilding = nil;
-    self.administrativeBuilding = nil;
     self.mutableWashers = nil;
     
     [super dealloc];
@@ -38,8 +33,6 @@
     self = [super init];
     
     if (self) {
-        self.carwashBuilding = [[[MRFBuilding alloc] initWithRoomCapacity:1] autorelease];
-        self.administrativeBuilding = [[[MRFBuilding alloc] initWithRoomCapacity:1] autorelease];
         self.mutableWashers = [NSMutableSet set];
     }
     
