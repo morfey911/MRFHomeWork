@@ -234,14 +234,6 @@
 			path = MRFCarwashEnterprise;
 			sourceTree = "<group>";
 		};
-		3F543CFC1B5D51BE00ECA337 /* MRFMoneyFlow */ = {
-			isa = PBXGroup;
-			children = (
-				3F543D001B5D52CF00ECA337 /* MRFMoneyFlow.h */,
-			);
-			path = MRFMoneyFlow;
-			sourceTree = "<group>";
-		};
 		3F543D011B5D760E00ECA337 /* NSStringExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +308,14 @@
 				3F543D351B6FCCF600ECA337 /* MRFQueue.m */,
 			);
 			path = MRFQueue;
+			sourceTree = "<group>";
+		};
+		3F543D371B6FE60D00ECA337 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3F543D001B5D52CF00ECA337 /* MRFMoneyFlow.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3F58FC981B10AF7600B0FC4D /* MRFArray */ = {
@@ -516,7 +516,7 @@
 		3FFABC701B53E5B00074770C /* MRFCarwash */ = {
 			isa = PBXGroup;
 			children = (
-				3F543CFC1B5D51BE00ECA337 /* MRFMoneyFlow */,
+				3F543D371B6FE60D00ECA337 /* Protocols */,
 				3F543CF81B5697CB00ECA337 /* MRFCarwashEnterprise */,
 				3FFABC881B5421640074770C /* MRFEmployeeWasher */,
 				3FFABC841B5414A00074770C /* MRFEmployee */,
