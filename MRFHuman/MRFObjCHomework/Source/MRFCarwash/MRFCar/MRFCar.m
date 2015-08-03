@@ -8,11 +8,6 @@
 
 #import "MRFCar.h"
 
-@interface MRFCar ()
-@property (nonatomic, assign) uint8_t money;
-
-@end
-
 @implementation MRFCar
 
 #pragma mark -
@@ -30,19 +25,6 @@
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (uint8_t)giveMoney:(uint8_t)money {
-    if (money <= self.money) {
-        self.money -= money;
-        
-        return self.money;
-    }
-    
-    return 0;
 }
 
 @end

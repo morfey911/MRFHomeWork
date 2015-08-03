@@ -7,13 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MRFMoneyKeeper.h"
 
-@interface MRFCar : NSObject
+@interface MRFCar : MRFMoneyKeeper
 @property (nonatomic, assign)           BOOL        isClear;
-@property (nonatomic, assign, readonly) uint8_t     money;
 
 - (instancetype)initWithMoney:(uint8_t)money;
-
-- (uint8_t)giveMoney:(uint8_t)money;
 
 @end
