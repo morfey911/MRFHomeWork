@@ -9,5 +9,6 @@
 #import "MRFEmployee.h"
 
 @interface MRFEmployeeWasher : MRFEmployee
+@property (nonatomic, assign) uint8_t price;
 
 @end
