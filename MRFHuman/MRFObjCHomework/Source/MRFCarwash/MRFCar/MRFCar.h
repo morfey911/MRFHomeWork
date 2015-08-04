@@ -11,7 +11,7 @@
 #import "MRFMoneyFlow.h"
 
 @interface MRFCar : NSObject <MRFMoneyFlow>
-@property (nonatomic, assign)           BOOL        isClear;
+@property (nonatomic, assign, getter=isClean)   BOOL    clean;
 
 - (instancetype)initWithMoney:(uint8_t)money;
 
