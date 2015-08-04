@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface MRFObservableObject : NSObject
-@property (nonatomic, assign) NSUInteger state;
 @property (nonatomic, retain, readonly) NSSet *observersSet;
 
 - (void)addObserver:(id)observer;
@@ -17,7 +16,7 @@
 - (void)removeObservers;
 - (BOOL)containsObserver:(id)observer;
 
-// This method only for subclassing. Never call it directly;
-- (SEL)selectorForState:(NSUInteger)state;
+- (void)notifyObserversWithSelector:(SEL)selector;
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
 
 @end

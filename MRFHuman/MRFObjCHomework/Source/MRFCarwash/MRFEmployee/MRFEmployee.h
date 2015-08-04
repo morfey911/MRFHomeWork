@@ -9,18 +9,22 @@
 #import <Foundation/Foundation.h>
 
 #import "MRFMoneyFlow.h"
+#import "MRFObservableObject.h"
+#import "MRFEmployeeObserver.h"
 
 typedef NS_ENUM(NSUInteger, MRFEmployeeState) {
-    MRFEmployeeDidBecomeFree,
-    MRFEmployeeDidBecomeBusy,
-    MRFEmployeeDidPerformWorkWithObject
+    kMRFEmployeeDidBecomeFree,
+    kMRFEmployeeDidBecomeBusy,
+    kMRFEmployeeDidPerformWorkWithObject
 };
 
-@interface MRFEmployee : NSObject <MRFMoneyFlow>
-@property (nonatomic, assign)           uint8_t salary;
-@property (nonatomic, assign)           uint8_t experience;
-@property (nonatomic, getter=isFree)    BOOL    free;
+@interface MRFEmployee : MRFObservableObject <MRFMoneyFlow>
+@property (nonatomic, assign)             uint8_t           salary;
+@property (nonatomic, assign)             uint8_t           experience;
+@property (nonatomic, assign, readonly)   MRFEmployeeState  state;
 
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object;
+
+- (SEL)selectorForState:(MRFEmployeeState)state;
 
 @end

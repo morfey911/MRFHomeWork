@@ -8,6 +8,11 @@
 
 #import "MRFEmployee.h"
 
+@interface MRFEmployee ()
+@property (nonatomic, assign) MRFEmployeeState state;
+
+@end
+
 @implementation MRFEmployee
 
 @synthesize money = _money;
@@ -15,10 +20,10 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-    
-    [super dealloc];
-}
+//- (void)dealloc {
+//    
+//    [super dealloc];
+//}
 
 - (instancetype)init {
     return [self initWithMoney:0 salary:0 experience:0];
@@ -31,7 +36,6 @@
         self.money = money;
         self.salary = salary;
         self.experience = experience;
-        self.free = YES;
     }
     
     return self;
@@ -40,12 +44,36 @@
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setState:(MRFEmployeeState)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObserversWithSelector:[self selectorForState:(state)]];
+    }
+}
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object {
     [self doesNotRecognizeSelector:_cmd];
+}
+
+- (SEL)selectorForState:(MRFEmployeeState)state {
+    NSDictionary *selectors = @{@(kMRFEmployeeDidBecomeFree) :
+            NSStringFromSelector(@selector(MRFEmployeeDidBecomeFree:)), @(kMRFEmployeeDidBecomeBusy) :
+            NSStringFromSelector(@selector(MRFEmployeeDidBecomeBusy:)), @(kMRFEmployeeDidPerformWorkWithObject) :
+            NSStringFromSelector(@selector(MRFEmployeeDidPerformWorkWithObject:))};
+    
+    return NSSelectorFromString(selectors[@(state)]);
+}
+
+- (void)addObserver:(id<MRFEmployeeObserver>)observer {
+    [super addObserver:observer];
+}
+
+- (void)removeObserver:(id<MRFEmployeeObserver>)observer {
+    [super removeObserver:observer];
 }
 
 #pragma mark -

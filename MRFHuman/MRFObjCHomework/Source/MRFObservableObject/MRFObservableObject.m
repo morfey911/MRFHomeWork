@@ -11,8 +11,6 @@
 @interface MRFObservableObject ()
 @property (nonatomic, retain) NSHashTable *observersHashTable;
 
-- (void)notifyOfStateChangeWithSelector:(SEL)selector;
-
 @end
 
 @implementation MRFObservableObject
@@ -41,14 +39,6 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyOfStateChangeWithSelector:[self selectorForState:state]];
-    }
-}
-
 - (NSSet *)observersSet {
     return self.observersHashTable.setRepresentation;
 }
@@ -72,20 +62,16 @@
     return [self.observersHashTable containsObject:observer];
 }
 
-#pragma mark -
-#pragma mark Private Methods
-
-- (SEL)selectorForState:(NSUInteger)state {
-    [self doesNotRecognizeSelector:_cmd];
-    
-    return nil;
+- (void)notifyObserversWithSelector:(SEL)selector {
+    [self notifyObserversWithSelector:selector withObject:self];
 }
 
-- (void)notifyOfStateChangeWithSelector:(SEL)selector {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     NSHashTable *observers = self.observersHashTable;
+    
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+            [observer performSelector:selector withObject:object];
         }
     }
 }
