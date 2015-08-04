@@ -24,6 +24,8 @@ typedef NS_ENUM(NSUInteger, MRFEmployeeState) {
 @property (nonatomic, assign, readonly)         MRFEmployeeState  state;
 @property (nonatomic, assign, getter=isFree)    BOOL              free;
 
+- (instancetype)initWithMoney:(uint8_t)money salary:(uint8_t)salary experience:(uint8_t)experience;
+
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object;
 
 - (SEL)selectorForState:(MRFEmployeeState)state;

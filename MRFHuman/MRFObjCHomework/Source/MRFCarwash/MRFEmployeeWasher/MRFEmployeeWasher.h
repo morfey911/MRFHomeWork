@@ -11,4 +11,6 @@
 @interface MRFEmployeeWasher : MRFEmployee
 @property (nonatomic, assign) uint8_t price;
 
+- (instancetype)initWithPrice:(uint8_t)price;
+
 @end
