@@ -19,9 +19,10 @@ typedef NS_ENUM(NSUInteger, MRFEmployeeState) {
 };
 
 @interface MRFEmployee : MRFObservableObject <MRFMoneyFlow>
-@property (nonatomic, assign)             uint8_t           salary;
-@property (nonatomic, assign)             uint8_t           experience;
-@property (nonatomic, assign, readonly)   MRFEmployeeState  state;
+@property (nonatomic, assign)                   uint8_t           salary;
+@property (nonatomic, assign)                   uint8_t           experience;
+@property (nonatomic, assign, readonly)         MRFEmployeeState  state;
+@property (nonatomic, assign, getter=isFree)    BOOL              free;
 
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object;
 

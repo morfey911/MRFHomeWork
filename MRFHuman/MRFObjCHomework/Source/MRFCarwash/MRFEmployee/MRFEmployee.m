@@ -52,6 +52,15 @@
     }
 }
 
+- (void)setFree:(BOOL)free {
+    if (_free != free) {
+        _free = free;
+        
+        MRFEmployeeState state = _free ? kMRFEmployeeDidBecomeFree : kMRFEmployeeDidBecomeBusy;
+        [self notifyObserversWithSelector:[self selectorForState:state]];
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
