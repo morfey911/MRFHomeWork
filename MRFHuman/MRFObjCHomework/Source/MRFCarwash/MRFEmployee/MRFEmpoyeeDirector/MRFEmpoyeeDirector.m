@@ -1,23 +1,23 @@
 //
-//  MRFEmployeeAccountant.m
+//  MRFEmpoyeeDirector.m
 //  MRFHuman
 //
 //  Created by Yurii Mamurko on 04.08.15.
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
+#import "MRFEmpoyeeDirector.h"
+
 #import "MRFEmployeeAccountant.h"
 
-#import "MRFEmployeeWasher.h"
-
-@interface MRFEmployeeAccountant ()
+@interface MRFEmpoyeeDirector ()
 @property (nonatomic, assign) uint8_t capital;
 
-- (void)count;
+- (void)profit;
 
 @end
 
-@implementation MRFEmployeeAccountant
+@implementation MRFEmpoyeeDirector
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -39,18 +39,18 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(MRFEmployeeWasher *)washer {
+- (void)performWorkWithObject:(MRFEmployeeAccountant *)accountant {
     self.free = NO;
-    [self takeMoney:washer.money fromMoneyKeeper:washer];
-    washer.free = YES;
-    [self count];
-    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject]];
+    [self takeMoney:accountant.capital fromMoneyKeeper:accountant];
+    accountant.free = YES;
+    [self profit];
+    self.free = YES;
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)count {
+- (void)profit {
     self.capital += self.money;
     self.money = 0;
 }
