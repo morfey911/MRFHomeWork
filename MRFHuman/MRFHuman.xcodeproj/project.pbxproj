@@ -24,6 +24,7 @@
 		3F543D4E1B71582400ECA337 /* MRFEmployeeWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F543D4B1B71582400ECA337 /* MRFEmployeeWasher.m */; };
 		3F543D521B7158B400ECA337 /* MRFEmpoyeeDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F543D511B7158B400ECA337 /* MRFEmpoyeeDirector.m */; };
 		3F543D561B72723C00ECA337 /* MRFEmployeesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F543D551B72723C00ECA337 /* MRFEmployeesPool.m */; };
+		3F543D5E1B729B6700ECA337 /* MRFCarwashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F543D5D1B729B6700ECA337 /* MRFCarwashTests.m */; };
 		3F58FC9B1B10AF8600B0FC4D /* MRFArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FC991B10AF8600B0FC4D /* MRFArray.c */; };
 		3F58FC9E1B11CBD400B0FC4D /* MRFArrayTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */; };
 		3F58FCA21B1CE7FA00B0FC4D /* MRFString.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F58FCA01B1CE7FA00B0FC4D /* MRFString.c */; };
@@ -108,6 +109,8 @@
 		3F543D511B7158B400ECA337 /* MRFEmpoyeeDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFEmpoyeeDirector.m; sourceTree = "<group>"; };
 		3F543D541B72723C00ECA337 /* MRFEmployeesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFEmployeesPool.h; sourceTree = "<group>"; };
 		3F543D551B72723C00ECA337 /* MRFEmployeesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFEmployeesPool.m; sourceTree = "<group>"; };
+		3F543D5C1B729B6700ECA337 /* MRFCarwashTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCarwashTests.h; sourceTree = "<group>"; };
+		3F543D5D1B729B6700ECA337 /* MRFCarwashTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCarwashTests.m; sourceTree = "<group>"; };
 		3F58FC991B10AF8600B0FC4D /* MRFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArray.c; sourceTree = "<group>"; };
 		3F58FC9A1B10AF8600B0FC4D /* MRFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArray.h; sourceTree = "<group>"; };
 		3F58FC9C1B11CBD400B0FC4D /* MRFArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MRFArrayTests.c; sourceTree = "<group>"; };
@@ -213,8 +216,8 @@
 		3F15A1811B4AA2A2002011BF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3F543D5B1B729B6700ECA337 /* MRFCarwashTests */,
 				3F543D051B5D8B4D00ECA337 /* NSStringExtensions */,
-				3FFABC711B53E5D60074770C /* MRFCarwash */,
 				3FFABC611B4EAAF10074770C /* MRFBeingTests.h */,
 				3FFABC621B4EAAF10074770C /* MRFBeingTests.m */,
 			);
@@ -380,6 +383,15 @@
 				3F543D551B72723C00ECA337 /* MRFEmployeesPool.m */,
 			);
 			path = MRFEmployeesPool;
+			sourceTree = "<group>";
+		};
+		3F543D5B1B729B6700ECA337 /* MRFCarwashTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F543D5C1B729B6700ECA337 /* MRFCarwashTests.h */,
+				3F543D5D1B729B6700ECA337 /* MRFCarwashTests.m */,
+			);
+			path = MRFCarwashTests;
 			sourceTree = "<group>";
 		};
 		3F58FC981B10AF7600B0FC4D /* MRFArray */ = {
@@ -588,13 +600,6 @@
 			path = MRFCarwash;
 			sourceTree = "<group>";
 		};
-		3FFABC711B53E5D60074770C /* MRFCarwash */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MRFCarwash;
-			sourceTree = "<group>";
-		};
 		3FFABC721B53E5E90074770C /* MRFCar */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +738,7 @@
 				3F543D281B6814BF00ECA337 /* MRFAlphabetFromString.m in Sources */,
 				3FFABC751B53E7E30074770C /* MRFCar.m in Sources */,
 				3F543D0C1B5EF20700ECA337 /* MRFAlphabet.m in Sources */,
+				3F543D5E1B729B6700ECA337 /* MRFCarwashTests.m in Sources */,
 				3F543D041B5D7C2D00ECA337 /* NSString+MRFNStringExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

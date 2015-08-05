@@ -11,11 +11,13 @@
 #import "MRFBeing.h"
 #import "MRFBeingTests.h"
 #import "NSStringExtensionsTests.h"
+#import "MRFCarwashTests.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [MRFBeingTests MRFBeingBehaviourTest];
-        [NSStringExtensions NSStringPerfomExtensionsTests];
+//        [MRFBeingTests MRFBeingBehaviourTest];
+//        [NSStringExtensions NSStringPerfomExtensionsTests];
+        [MRFCarwashTests MRFCarwashBehaviourTests];
     }
     return 0;
 }
