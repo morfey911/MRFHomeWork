@@ -27,6 +27,12 @@
 #pragma mark -
 #pragma mark Allocations and Deallocations
 
+- (void)dealloc {
+    self.mutableEmployees = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)init {
     self = [super init];
     
