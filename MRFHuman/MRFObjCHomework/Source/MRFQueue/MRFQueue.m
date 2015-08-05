@@ -16,6 +16,13 @@
 @implementation MRFQueue
 
 #pragma mark -
+#pragma mark Class methods
+
++ (instancetype)queue {
+    return [[[self alloc] init] autorelease];
+}
+
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {

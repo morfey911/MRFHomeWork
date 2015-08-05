@@ -11,6 +11,8 @@
 @interface MRFQueue : NSObject
 @property (nonatomic, assign, readonly, getter=isEmpty) BOOL empty;
 
++ (instancetype)queue;
+
 - (void)enqueueObject:(id)object;
 
 - (id)dequeueObject;
