@@ -12,9 +12,17 @@
 
 #import "MRFEmployeeWasher.h"
 #import "MRFCar.h"
+#import "MRFEmployeesPool.h"
+#import "MRFEmployeeAccountant.h"
+#import "MRFEmpoyeeDirector.h"
+#import "MRFQueue.h"
 
 @interface MRFCarwashEnterprise ()
-@property (nonatomic, copy) NSMutableSet *mutableWashers;
+@property (nonatomic, retain) MRFQueue *cars;
+@property (nonatomic, retain) MRFEmployeesPool *employees;
+
+- (void)hireBosses;
+- (void)hireWashers;
 
 @end
 
@@ -24,7 +32,8 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableWashers = nil;
+    self.cars = nil;
+    self.employees = nil;
     
     [super dealloc];
 }
@@ -33,28 +42,75 @@
     self = [super init];
     
     if (self) {
-        self.mutableWashers = [NSMutableSet set];
+        self.cars = [MRFQueue queue];
+        self.employees = [MRFEmployeesPool pool];
     }
     
     return self;
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
-- (NSSet *)washers {
-    return [[self.mutableWashers copy] autorelease];
+- (void)hireStaff {
+    [self hireBosses];
+    [self hireWashers];
+}
+
+- (void)takeTheCar:(MRFCar *)car {
+    MRFEmployeeWasher *washer = [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]];
+    
+    [washer performWorkWithObject:car];
+}
+
+- (void)takeTheCars:(NSArray *)cars {
+    MRFQueue *carsQueue = [MRFQueue queue];
+    
+    for (MRFCar *car in cars) {
+        [carsQueue enqueueObject:car];
+    }
+    
+    while (!carsQueue.isEmpty) {
+        [self takeTheCar:[carsQueue dequeueObject]];
+    }
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Private Methods
 
-- (void)preparation {
+- (void)hireBosses {
+    MRFEmpoyeeDirector *director = [MRFEmpoyeeDirector object];
+    MRFEmployeeAccountant *accountant = [MRFEmployeeAccountant object];
     
+    [self.employees addEmployee:director];
+    [self.employees addEmployee:accountant];
+    
+    [accountant addObserver:director];
 }
 
-- (void)work {
+- (void)hireWashers {
+    MRFEmployeesPool *employees = self.employees;
+    MRFEmployeeAccountant *accountant = [employees freeEmployeeWithClass:[MRFEmployeeAccountant class]];
+    NSUInteger washersCount = arc4random_uniform(200);
     
+    for (NSUInteger index = 0; index < washersCount; index++) {
+        MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
+        
+        [washer addObserver:self];
+        [washer addObserver:accountant];
+        [employees addEmployee:washer];
+    }
+}
+
+#pragma mark -
+#pragma mark <MRFEmployeeObserver>
+
+- (void)MRFEmployeeDidBecomeFree:(MRFEmployeeWasher *)washer {
+    MRFQueue *cars = self.cars;
+    
+    if (!cars.empty) {
+        [washer performSelector:@selector(performWorkWithObject:) withObject:[cars dequeueObject]];
+    }
 }
 
 @end

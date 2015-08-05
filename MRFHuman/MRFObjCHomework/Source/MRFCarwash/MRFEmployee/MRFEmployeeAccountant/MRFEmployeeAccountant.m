@@ -11,30 +11,12 @@
 #import "MRFEmployeeWasher.h"
 
 @interface MRFEmployeeAccountant ()
-@property (nonatomic, assign) uint8_t capital;
 
 - (void)count;
 
 @end
 
 @implementation MRFEmployeeAccountant
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)init {
-    return [self initWithCapital:0];
-}
-
-- (instancetype)initWithCapital:(uint8_t)capital {
-    self = [super init];
-    
-    if (self) {
-        self.capital = capital;
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Public
@@ -51,8 +33,7 @@
 #pragma mark Private
 
 - (void)count {
-    self.capital += self.money;
-    self.money = 0;
+    usleep(arc4random_uniform(1000 * 1000));
 }
 
 @end

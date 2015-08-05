@@ -11,7 +11,7 @@
 #import "MRFEmployeeAccountant.h"
 
 @interface MRFEmpoyeeDirector ()
-@property (nonatomic, assign) uint8_t capital;
+@property (nonatomic, assign) uint64_t capital;
 
 - (void)profit;
 
@@ -26,7 +26,7 @@
     return [self initWithCapital:0];
 }
 
-- (instancetype)initWithCapital:(uint8_t)capital {
+- (instancetype)initWithCapital:(uint64_t)capital {
     self = [super init];
     
     if (self) {
@@ -41,7 +41,7 @@
 
 - (void)performWorkWithObject:(MRFEmployeeAccountant *)accountant {
     self.free = NO;
-    [self takeMoney:accountant.capital fromMoneyKeeper:accountant];
+    [self takeMoney:accountant.money fromMoneyKeeper:accountant];
     accountant.free = YES;
     [self profit];
     self.free = YES;
@@ -53,6 +53,8 @@
 - (void)profit {
     self.capital += self.money;
     self.money = 0;
+    
+    NSLog(@"capital = %llu", self.capital);
 }
 
 @end

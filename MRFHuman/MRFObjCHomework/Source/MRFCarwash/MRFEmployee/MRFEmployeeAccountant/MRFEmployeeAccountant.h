@@ -9,8 +9,5 @@
 #import "MRFEmployee.h"
 
 @interface MRFEmployeeAccountant : MRFEmployee
-@property (nonatomic, assign, readonly) uint8_t capital;
-
-- (instancetype)initWithCapital:(uint8_t)capital;
 
 @end

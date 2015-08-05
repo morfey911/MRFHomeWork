@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MRFCarwashEnterprise : NSObject
-@property (nonatomic, copy, readonly) NSMutableSet *washers;
+#import "MRFCar.h"
+#import "MRFEmployeeObserver.h"
 
-- (void)preparation;
+@interface MRFCarwashEnterprise : NSObject <MRFEmployeeObserver>
 
-- (void)work;
+- (void)hireStaff;
+
+- (void)takeTheCar:(MRFCar *)car;
+- (void)takeTheCars:(NSArray *)cars;
 
 @end

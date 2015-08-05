@@ -45,7 +45,7 @@
 #pragma mark Private
 
 - (void)washCar:(MRFCar *)car {
-    sleep(arc4random_uniform(3));
+    usleep(arc4random_uniform(1000 * 1000));
     car.clean = YES;
 }
 

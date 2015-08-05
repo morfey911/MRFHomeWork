@@ -98,4 +98,11 @@
     moneyKeeper.money += money;
 }
 
+#pragma mark -
+#pragma mark <MRFEmployeeObserver> protocol
+
+- (void)MRFEmployeeDidPerformWorkWithObject:(id<MRFMoneyFlow>)object {
+    [self performWorkWithObject:object];
+}
+
 @end
