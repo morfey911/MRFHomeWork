@@ -91,26 +91,28 @@
 - (void)hireWashers {
     MRFEmployeesPool *employees = self.employees;
     MRFEmployeeAccountant *accountant = [employees freeEmployeeWithClass:[MRFEmployeeAccountant class]];
-    NSUInteger washersCount = arc4random_uniform(200);
+    NSUInteger washersCount = arc4random_uniform(50);
     
     for (NSUInteger index = 0; index < washersCount; index++) {
         MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
         
-        [washer addObserver:self];
+//        [washer addObserver:self];
         [washer addObserver:accountant];
         [employees addEmployee:washer];
     }
+    
+    NSLog (@"Hired %lu washers", washersCount);
 }
 
 #pragma mark -
 #pragma mark <MRFEmployeeObserver>
 
 - (void)MRFEmployeeDidBecomeFree:(MRFEmployeeWasher *)washer {
-    MRFQueue *cars = self.cars;
-    
-    if (!cars.empty) {
-        [washer performSelector:@selector(performWorkWithObject:) withObject:[cars dequeueObject]];
-    }
+//    MRFQueue *cars = self.cars;
+//    
+//    if (!cars.empty) {
+//        [washer performSelector:@selector(performWorkWithObject:) withObject:[cars dequeueObject]];
+//    }
 }
 
 @end

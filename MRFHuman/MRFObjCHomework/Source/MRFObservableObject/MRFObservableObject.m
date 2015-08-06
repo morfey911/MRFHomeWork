@@ -63,13 +63,11 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
-    [self notifyObserversWithSelector:selector withObject:self];
+    [self notifyObserversWithSelector:selector withObject:nil];
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    NSHashTable *observers = self.observersHashTable;
-    
-    for (id observer in observers) {
+    for (id observer in self.observersHashTable) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:object];
         }

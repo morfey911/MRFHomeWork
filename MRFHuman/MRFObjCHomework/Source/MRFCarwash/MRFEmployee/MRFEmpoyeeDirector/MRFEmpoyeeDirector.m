@@ -54,7 +54,7 @@
     self.capital += self.money;
     self.money = 0;
     
-    NSLog(@"capital = %llu", self.capital);
+    NSLog(@"Directors capital = %llu", self.capital);
 }
 
 @end

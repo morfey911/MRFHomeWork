@@ -26,14 +26,14 @@
     [self takeMoney:washer.money fromMoneyKeeper:washer];
     washer.free = YES;
     [self count];
-    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject]];
+    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject] withObject:self];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)count {
-    usleep(arc4random_uniform(1000 * 1000));
+//    usleep(arc4random_uniform(10 * 1000));
 }
 
 @end

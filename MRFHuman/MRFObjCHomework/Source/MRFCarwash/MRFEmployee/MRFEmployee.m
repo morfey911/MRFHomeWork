@@ -77,14 +77,6 @@
     return NSSelectorFromString(selectors[@(state)]);
 }
 
-- (void)addObserver:(id<MRFEmployeeObserver>)observer {
-    [super addObserver:observer];
-}
-
-- (void)removeObserver:(id<MRFEmployeeObserver>)observer {
-    [super removeObserver:observer];
-}
-
 #pragma mark -
 #pragma mark MRFMoneyFlow protocol
 

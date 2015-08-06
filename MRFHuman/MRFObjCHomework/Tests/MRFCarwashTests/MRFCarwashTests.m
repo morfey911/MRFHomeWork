@@ -46,7 +46,7 @@
     NSMutableArray *cars = [NSMutableArray array];
     MRFCarwashEnterprise *carwash = [MRFCarwashEnterprise object];
     
-    for (NSUInteger index = 0; index < 50; index++) {
+    for (NSUInteger index = 0; index < 1000; index++) {
         MRFCar *car = [[[MRFCar alloc] initWithMoney:100] autorelease];
         [cars addObject:car];
     }

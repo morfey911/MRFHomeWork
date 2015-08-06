@@ -65,11 +65,12 @@
     __block MRFEmployee *employee = nil;
     
     [self.mutableEmployees enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        employee = obj;
         
-        if ([employee isKindOfClass:class] && employee.free == YES) {
+        if ([obj isMemberOfClass:class] && ((MRFEmployee *)obj).free == YES) {
             *stop = YES;
         }
+        
+        employee = obj;
     }];
     
     return employee;

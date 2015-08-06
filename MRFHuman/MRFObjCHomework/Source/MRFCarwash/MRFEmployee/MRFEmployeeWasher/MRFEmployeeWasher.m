@@ -34,18 +34,18 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(MRFCar *)object {
+- (void)performWorkWithObject:(MRFCar *)car {
     self.free = NO;
-    [self takeMoney:self.price fromMoneyKeeper:object];
-    [self washCar:object];
-    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject]];
+    [self takeMoney:self.price fromMoneyKeeper:car];
+    [self washCar:car];
+    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject] withObject:self];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)washCar:(MRFCar *)car {
-    usleep(arc4random_uniform(1000 * 1000));
+//    usleep(arc4random_uniform(100 * 1000));
     car.clean = YES;
 }
 
