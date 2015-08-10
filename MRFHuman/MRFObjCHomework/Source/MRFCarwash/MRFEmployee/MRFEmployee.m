@@ -20,11 +20,6 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-//- (void)dealloc {
-//    
-//    [super dealloc];
-//}
-
 - (instancetype)init {
     return [self initWithMoney:0 salary:0 experience:0];
 }
@@ -36,6 +31,7 @@
         self.money = money;
         self.salary = salary;
         self.experience = experience;
+        self.free = YES;
     }
     
     return self;
@@ -48,7 +44,7 @@
     if (_state != state) {
         _state = state;
         
-        [self notifyObserversWithSelector:[self selectorForState:(state)]];
+        [self notifyObserversWithSelector:[self selectorForState:(state)] withObject:self];
     }
 }
 
@@ -57,7 +53,7 @@
         _free = free;
         
         MRFEmployeeState state = _free ? kMRFEmployeeDidBecomeFree : kMRFEmployeeDidBecomeBusy;
-        [self notifyObserversWithSelector:[self selectorForState:state]];
+        [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
     }
 }
 

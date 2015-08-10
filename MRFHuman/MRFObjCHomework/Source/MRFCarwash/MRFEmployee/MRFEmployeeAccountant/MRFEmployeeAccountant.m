@@ -33,7 +33,7 @@
 #pragma mark Private
 
 - (void)count {
-//    usleep(arc4random_uniform(10 * 1000));
+    usleep(arc4random_uniform(10 * 1000));
 }
 
 @end

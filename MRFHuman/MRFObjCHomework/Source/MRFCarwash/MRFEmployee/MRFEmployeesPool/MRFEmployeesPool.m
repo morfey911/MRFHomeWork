@@ -62,18 +62,17 @@
 }
 
 - (id)freeEmployeeWithClass:(Class)class {
-    __block MRFEmployee *employee = nil;
+    __block MRFEmployee *freeEmployee = nil;
     
-    [self.mutableEmployees enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+    [self.mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
         
-        if ([obj isMemberOfClass:class] && ((MRFEmployee *)obj).free == YES) {
+        if ([employee isMemberOfClass:class] && employee.free == YES) {
+            freeEmployee = employee;
             *stop = YES;
         }
-        
-        employee = obj;
     }];
     
-    return employee;
+    return freeEmployee;
 }
 
 - (BOOL)containsEmployee:(MRFEmployee *)employee {
