@@ -22,11 +22,13 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(MRFEmployeeWasher *)washer {
-    self.free = NO;
-    [self takeMoney:washer.money fromMoneyKeeper:washer];
-    washer.free = YES;
-    [self count];
-    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject] withObject:self];
+    @synchronized (self) {
+        self.free = NO;
+        [self takeMoney:washer.money fromMoneyKeeper:washer];
+        washer.free = YES;
+        [self count];
+        [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject] withObject:self];
+    }
 }
 
 #pragma mark -

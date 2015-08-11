@@ -40,11 +40,13 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(MRFEmployeeAccountant *)accountant {
-    self.free = NO;
-    [self takeMoney:accountant.money fromMoneyKeeper:accountant];
-    accountant.free = YES;
-    [self profit];
-    self.free = YES;
+    @synchronized (self) {
+        self.free = NO;
+        [self takeMoney:accountant.money fromMoneyKeeper:accountant];
+        accountant.free = YES;
+        [self profit];
+        self.free = YES;
+    }
 }
 
 #pragma mark -
