@@ -64,6 +64,10 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object {
+    [self performSelectorInBackground:@selector(performWorkWithObject:) withObject:object];
+}
+
 - (SEL)selectorForState:(MRFEmployeeState)state {
     NSDictionary *selectors = @{@(kMRFEmployeeDidBecomeFree) :
             NSStringFromSelector(@selector(MRFEmployeeDidBecomeFree:)), @(kMRFEmployeeDidBecomeBusy) :

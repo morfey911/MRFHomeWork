@@ -27,6 +27,7 @@ typedef NS_ENUM(NSUInteger, MRFEmployeeState) {
 - (instancetype)initWithMoney:(uint8_t)money salary:(uint8_t)salary experience:(uint8_t)experience;
 
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object;
+- (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object;
 
 - (SEL)selectorForState:(MRFEmployeeState)state;
 
