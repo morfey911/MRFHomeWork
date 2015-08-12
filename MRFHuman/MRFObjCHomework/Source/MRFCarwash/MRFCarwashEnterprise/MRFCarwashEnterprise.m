@@ -65,16 +65,24 @@
         [carsQueue enqueueObject:car];
     }
     
-    while (!carsQueue.isEmpty && (washer = [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]])) {
-        @synchronized (washer) {
-            @synchronized (carsQueue) {
-                if (carsQueue.isEmpty) {
+    while (!carsQueue.isEmpty
+           && (washer = [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]]))
+    {
+        if (washer.state == kMRFEmployeeDidBecomeFree) {
+            @synchronized (washer) {
+                if ([carsQueue isEmpty]) {
                     break;
                 }
                 
-                [washer performWorkWithObjectInBackground:[carsQueue dequeueObject]];
+                id object = [carsQueue dequeueObject];
+                
+                if (washer.state == kMRFEmployeeDidBecomeFree) {
+                    [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                             withObject:object];
+                }
             }
         }
+
     }
     
     [[NSRunLoop currentRunLoop] run];
@@ -98,6 +106,8 @@
     MRFEmployeeAccountant *accountant = [employees freeEmployeeWithClass:[MRFEmployeeAccountant class]];
     NSUInteger washersCount = arc4random_uniform(3) + 1;
     
+    washersCount = 100;
+    
     for (NSUInteger index = 0; index < washersCount; index++) {
         MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
         
@@ -118,7 +128,8 @@
         MRFQueue *carsQueue = self.cars;
         
         if (!carsQueue.isEmpty) {
-            [washer performWorkWithObjectInBackground:[carsQueue dequeueObject]];
+            [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                     withObject:[carsQueue dequeueObject]];
         }
     }
 }

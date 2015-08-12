@@ -49,7 +49,9 @@
 #pragma mark Accessors
 
 - (NSSet *)employees {
-    return [[self.mutableEmployees copy] autorelease];
+    @synchronized(_mutableEmployees) {
+        return [[_mutableEmployees copy] autorelease];
+    }
 }
 
 #pragma mark -
@@ -57,30 +59,29 @@
 
 - (void)addEmployee:(MRFEmployee *)employee {
     @synchronized (_mutableEmployees) {
-        [self.mutableEmployees addObject:employee];
+        [_mutableEmployees addObject:employee];
     }
 }
 
 - (void)removeEmployee:(MRFEmployee *)employee {
     @synchronized (_mutableEmployees) {
-        [self.mutableEmployees removeObject:employee];
+        [_mutableEmployees removeObject:employee];
     }
 }
 
 - (id)freeEmployeeWithClass:(Class)class {
+    __block MRFEmployee *freeEmployee = nil;
+
     @synchronized (_mutableEmployees) {
-        __block MRFEmployee *freeEmployee = nil;
-        
-        [self.mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
-            
+        [_mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
             if ([employee isMemberOfClass:class] && employee.state == kMRFEmployeeDidBecomeFree) {
                 freeEmployee = employee;
                 *stop = YES;
             }
         }];
-        
-        return freeEmployee;
     }
+    
+    return freeEmployee;
 }
 
 - (NSSet *)freeEmployeesWithClass:(Class)class {

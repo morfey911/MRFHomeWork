@@ -22,14 +22,17 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(MRFEmployeeWasher *)washer {
-    @synchronized (self) {
-        NSLog(@"Accountant just started work with washer: %@", washer);
-        [self employeeStartWork];
-        [self takeMoney:washer.money fromMoneyKeeper:washer];
-        [washer employeeMayBeFree];
-        [self count];
-        [self employeeFinishWork];
+    @autoreleasepool {
+        @synchronized (self) {
+            NSLog(@"%s %@", __PRETTY_FUNCTION__, washer);
+            [self takeMoney:washer.money fromMoneyKeeper:washer];
+            
+            [self count];
+            
+            [super performWorkWithObject:washer];
+        }
     }
+
 }
 
 #pragma mark -
@@ -37,6 +40,16 @@
 
 - (void)count {
     usleep(arc4random_uniform(10 * 1000));
+}
+
+- (void)MRFEmployeeDidPerformWorkWithObject:(MRFEmployeeWasher *)object {
+    [super MRFEmployeeDidPerformWorkWithObject:object];
+    
+    [object employeeMayBeFree];
+//    [object performSelectorOnMainThread:@selector(employeeMayBeFree)
+//                             withObject:nil
+//                          waitUntilDone:YES];
+//    [object employeeMayBeFree];
 }
 
 @end

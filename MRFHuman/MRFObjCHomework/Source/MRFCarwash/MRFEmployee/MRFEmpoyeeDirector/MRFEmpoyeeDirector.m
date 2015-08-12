@@ -40,12 +40,13 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(MRFEmployeeAccountant *)accountant {
-    @synchronized (self) {
-        [self employeeStartWork];
-        [self takeMoney:accountant.money fromMoneyKeeper:accountant];
-        [accountant employeeMayBeFree];
-        [self profit];
-        [self employeeMayBeFree];
+    @autoreleasepool {
+        @synchronized (self) {
+            [self takeMoney:accountant.money fromMoneyKeeper:accountant];
+            [self profit];
+            
+            [super performWorkWithObject:accountant];
+        }
     }
 }
 
@@ -59,4 +60,9 @@
     NSLog(@"Directors capital = %llu", self.capital);
 }
 
+
+- (void)MRFEmployeeDidPerformWorkWithObject:(MRFEmployeeAccountant *)object {
+    [super MRFEmployeeDidPerformWorkWithObject:object];
+    [object employeeMayBeFree];
+}
 @end

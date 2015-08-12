@@ -52,21 +52,26 @@
 #pragma mark Public Methods
 
 - (void)enqueueObject:(id)object {
-    [self.queue addObject:object];
+    @synchronized(_queue) {
+        [_queue addObject:object];
+    }
 }
 
 - (id)dequeueObject {
     @synchronized (_queue) {
-        NSMutableArray *queue = self.queue;
-        id object = queue[0];
-        [queue removeObjectAtIndex:0];
+        id object = [[[_queue firstObject] retain] autorelease];
+        if (object) {
+            [_queue removeObjectAtIndex:0];
+        }
         
         return object;
     }
 }
 
 - (NSUInteger)count {
-    return [self.queue count];
+    @synchronized(_queue) {
+        return [_queue count];
+    }
 }
 
 @end
