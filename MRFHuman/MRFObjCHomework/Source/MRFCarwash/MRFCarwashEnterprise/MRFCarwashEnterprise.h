@@ -15,7 +15,6 @@
 
 - (void)hireStaff;
 
-- (void)takeTheCar:(MRFCar *)car;
 - (void)takeTheCars:(NSArray *)cars;
 
 @end

@@ -40,36 +40,51 @@
 #pragma mark Accessors
 
 - (NSSet *)observersSet {
-    return self.observersHashTable.setRepresentation;
+    @synchronized (self) {
+        return self.observersHashTable.setRepresentation;
+    }
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-    [self.observersHashTable addObject:observer];
+    @synchronized (self) {
+        [self.observersHashTable addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.observersHashTable removeObject:observer];
+    @synchronized (self) {
+        [self.observersHashTable removeObject:observer];
+    }
 }
 
 - (void)removeObservers {
-    [self.observersHashTable removeAllObjects];
+    @synchronized (self) {
+        [self.observersHashTable removeAllObjects];
+    }
 }
 
 - (BOOL)containsObserver:(id)observer {
-    return [self.observersHashTable containsObject:observer];
+    @synchronized (self) {
+        return [self.observersHashTable containsObject:observer];
+    }
 }
 
-- (void)notifyObserversWithSelector:(SEL)selector {
-    [self notifyObserversWithSelector:selector withObject:nil];
+- (void)notifyObserversWithSelector:(NSString *)selector {
+    @synchronized (self) {
+        [self notifyObserversWithSelector:selector withObject:self];
+    }
 }
 
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    for (id observer in self.observersHashTable) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object];
+- (void)notifyObserversWithSelector:(NSString *)selector withObject:(id)object {
+    @synchronized (self) {
+        SEL trueSelector = NSSelectorFromString(selector);
+        for (id observer in self.observersHashTable) {
+            if ([observer respondsToSelector:trueSelector]) {
+                [observer performSelector:trueSelector withObject:object];
+            }
         }
     }
 }

@@ -41,11 +41,11 @@
 
 - (void)performWorkWithObject:(MRFEmployeeAccountant *)accountant {
     @synchronized (self) {
-        self.free = NO;
+        [self employeeStartWork];
         [self takeMoney:accountant.money fromMoneyKeeper:accountant];
-        accountant.free = YES;
+        [accountant employeeMayBeFree];
         [self profit];
-        self.free = YES;
+        [self employeeMayBeFree];
     }
 }
 

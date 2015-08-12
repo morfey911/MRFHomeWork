@@ -10,6 +10,7 @@
 
 @interface MRFEmployee ()
 @property (nonatomic, assign) MRFEmployeeState state;
+@property (nonatomic, retain) NSRecursiveLock *lock;
 
 @end
 
@@ -31,7 +32,8 @@
         self.money = money;
         self.salary = salary;
         self.experience = experience;
-        self.free = YES;
+        self.state = kMRFEmployeeDidBecomeFree;
+        self.lock = [[NSRecursiveLock new] autorelease];
     }
     
     return self;
@@ -41,24 +43,35 @@
 #pragma mark Accessors
 
 - (void)setState:(MRFEmployeeState)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObserversWithSelector:[self selectorForState:(state)] withObject:self];
-    }
-}
-
-- (void)setFree:(BOOL)free {
-    if (_free != free) {
-        _free = free;
-        
-        MRFEmployeeState state = _free ? kMRFEmployeeDidBecomeFree : kMRFEmployeeDidBecomeBusy;
-        [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+    NSUInteger currentState = self.state;
+    NSRecursiveLock *lock = self.lock;
+    if (currentState != state) {
+        [lock lock];
+        if (currentState != state) {
+            _state = state;
+            
+            [self performSelectorOnMainThread:@selector(notifyObserversWithSelector:)
+                                   withObject:[self selectorForState:state]
+                                waitUntilDone:NO];
+        }
+        [lock unlock];
     }
 }
 
 #pragma mark -
 #pragma mark Public Methods
+
+- (void)employeeMayBeFree {
+    self.state = kMRFEmployeeDidBecomeFree;
+}
+
+- (void)employeeStartWork {
+    self.state = kMRFEmployeeDidBecomeBusy;
+}
+
+- (void)employeeFinishWork {
+    self.state = kMRFEmployeeDidPerformWorkWithObject;
+}
 
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object {
     [self doesNotRecognizeSelector:_cmd];
@@ -68,13 +81,11 @@
     [self performSelectorInBackground:@selector(performWorkWithObject:) withObject:object];
 }
 
-- (SEL)selectorForState:(MRFEmployeeState)state {
-    NSDictionary *selectors = @{@(kMRFEmployeeDidBecomeFree) :
-            NSStringFromSelector(@selector(MRFEmployeeDidBecomeFree:)), @(kMRFEmployeeDidBecomeBusy) :
-            NSStringFromSelector(@selector(MRFEmployeeDidBecomeBusy:)), @(kMRFEmployeeDidPerformWorkWithObject) :
-            NSStringFromSelector(@selector(MRFEmployeeDidPerformWorkWithObject:))};
+- (NSString *)selectorForState:(MRFEmployeeState)state {
+    NSDictionary *selectors = @{@(kMRFEmployeeDidBecomeFree) : NSStringFromSelector(@selector(MRFEmployeeDidBecomeFree:)), @(kMRFEmployeeDidBecomeBusy) : NSStringFromSelector(@selector(MRFEmployeeDidBecomeBusy:)),
+        @(kMRFEmployeeDidPerformWorkWithObject) : NSStringFromSelector(@selector(MRFEmployeeDidPerformWorkWithObject:))};
     
-    return NSSelectorFromString(selectors[@(state)]);
+    return selectors[@(state)];
 }
 
 #pragma mark -

@@ -56,11 +56,13 @@
 }
 
 - (id)dequeueObject {
-    NSMutableArray *queue = self.queue;
-    id object = queue[0];
-    [queue removeObjectAtIndex:0];
-    
-    return object;
+    @synchronized (_queue) {
+        NSMutableArray *queue = self.queue;
+        id object = queue[0];
+        [queue removeObjectAtIndex:0];
+        
+        return object;
+    }
 }
 
 - (NSUInteger)count {

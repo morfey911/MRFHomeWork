@@ -35,10 +35,13 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(MRFCar *)car {
-    self.free = NO;
-    [self takeMoney:self.price fromMoneyKeeper:car];
-    [self washCar:car];
-    [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject] withObject:self];
+    @synchronized (self) {
+        NSLog(@"Washer just started wash a car: %@" ,car);
+        [self employeeStartWork];
+        [self takeMoney:self.price fromMoneyKeeper:car];
+        [self washCar:car];
+        [self employeeFinishWork];
+    }
 }
 
 #pragma mark -

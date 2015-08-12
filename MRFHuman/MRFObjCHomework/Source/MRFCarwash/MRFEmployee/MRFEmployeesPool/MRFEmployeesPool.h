@@ -21,6 +21,8 @@
 
 - (id)freeEmployeeWithClass:(Class)class;
 
+- (NSSet *)freeEmployeesWithClass:(Class)class;
+
 - (BOOL)containsEmployee:(MRFEmployee *)employee;
 
 - (NSUInteger)count;

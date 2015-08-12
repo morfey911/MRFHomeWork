@@ -23,11 +23,12 @@
 
 - (void)performWorkWithObject:(MRFEmployeeWasher *)washer {
     @synchronized (self) {
-        self.free = NO;
+        NSLog(@"Accountant just started work with washer: %@", washer);
+        [self employeeStartWork];
         [self takeMoney:washer.money fromMoneyKeeper:washer];
-        washer.free = YES;
+        [washer employeeMayBeFree];
         [self count];
-        [self notifyObserversWithSelector:[self selectorForState:kMRFEmployeeDidPerformWorkWithObject] withObject:self];
+        [self employeeFinishWork];
     }
 }
 

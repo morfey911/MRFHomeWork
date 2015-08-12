@@ -593,9 +593,9 @@
 			isa = PBXGroup;
 			children = (
 				3F543D431B71582400ECA337 /* MRFEmployee */,
-				3F543D371B6FE60D00ECA337 /* Protocols */,
 				3F543CF81B5697CB00ECA337 /* MRFCarwashEnterprise */,
 				3FFABC721B53E5E90074770C /* MRFCar */,
+				3F543D371B6FE60D00ECA337 /* Protocols */,
 			);
 			path = MRFCarwash;
 			sourceTree = "<group>";

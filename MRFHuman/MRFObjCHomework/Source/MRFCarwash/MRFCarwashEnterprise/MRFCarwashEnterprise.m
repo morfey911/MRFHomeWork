@@ -57,21 +57,24 @@
     [self hireWashers];
 }
 
-- (void)takeTheCar:(MRFCar *)car {
-    MRFEmployeeWasher *washer = [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]];
-    
-    [washer performWorkWithObjectInBackground:car];
-}
-
 - (void)takeTheCars:(NSArray *)cars {
-    MRFQueue *carsQueue = [MRFQueue queue];
+    MRFEmployeeWasher *washer = nil;
+    MRFQueue *carsQueue = self.cars;
     
     for (MRFCar *car in cars) {
         [carsQueue enqueueObject:car];
     }
     
-    while (!carsQueue.isEmpty && nil != [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]]) {
-        [self takeTheCar:[carsQueue dequeueObject]];
+    while (!carsQueue.isEmpty && (washer = [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]])) {
+        @synchronized (washer) {
+            @synchronized (carsQueue) {
+                if (carsQueue.isEmpty) {
+                    break;
+                }
+                
+                [washer performWorkWithObjectInBackground:[carsQueue dequeueObject]];
+            }
+        }
     }
     
     [[NSRunLoop currentRunLoop] run];
@@ -93,7 +96,7 @@
 - (void)hireWashers {
     MRFEmployeesPool *employees = self.employees;
     MRFEmployeeAccountant *accountant = [employees freeEmployeeWithClass:[MRFEmployeeAccountant class]];
-    NSUInteger washersCount = arc4random_uniform(2) + 1;
+    NSUInteger washersCount = arc4random_uniform(3) + 1;
     
     for (NSUInteger index = 0; index < washersCount; index++) {
         MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
@@ -110,10 +113,13 @@
 #pragma mark <MRFEmployeeObserver>
 
 - (void)MRFEmployeeDidBecomeFree:(MRFEmployeeWasher *)washer {
-    MRFQueue *cars = self.cars;
-    
-    if (!cars.isEmpty) {
-        [washer performWorkWithObjectInBackground:[cars dequeueObject]];
+    @synchronized (washer) {
+        NSLog(@"Washer %@ just became free", washer);
+        MRFQueue *carsQueue = self.cars;
+        
+        if (!carsQueue.isEmpty) {
+            [washer performWorkWithObjectInBackground:[carsQueue dequeueObject]];
+        }
     }
 }
 

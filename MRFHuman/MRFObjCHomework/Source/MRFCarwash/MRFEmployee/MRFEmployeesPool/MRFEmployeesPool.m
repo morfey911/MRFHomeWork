@@ -8,6 +8,8 @@
 
 #import "MRFEmployeesPool.h"
 
+#import "NSObject+MRFObjectExtensions.h"
+
 @interface MRFEmployeesPool ()
 @property (nonatomic, retain) NSMutableSet *mutableEmployees;
 
@@ -21,7 +23,7 @@
 #pragma mark Class methods
 
 + (MRFEmployeesPool *)pool {
-    return [[[self alloc] init] autorelease];
+    return [self object];
 }
 
 #pragma mark -
@@ -54,33 +56,52 @@
 #pragma mark Public methods
 
 - (void)addEmployee:(MRFEmployee *)employee {
-    [self.mutableEmployees addObject:employee];
+    @synchronized (_mutableEmployees) {
+        [self.mutableEmployees addObject:employee];
+    }
 }
 
 - (void)removeEmployee:(MRFEmployee *)employee {
-    [self.mutableEmployees removeObject:employee];
+    @synchronized (_mutableEmployees) {
+        [self.mutableEmployees removeObject:employee];
+    }
 }
 
 - (id)freeEmployeeWithClass:(Class)class {
-    __block MRFEmployee *freeEmployee = nil;
-    
-    [self.mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
+    @synchronized (_mutableEmployees) {
+        __block MRFEmployee *freeEmployee = nil;
         
-        if ([employee isMemberOfClass:class] && employee.free == YES) {
-            freeEmployee = employee;
-            *stop = YES;
-        }
+        [self.mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
+            
+            if ([employee isMemberOfClass:class] && employee.state == kMRFEmployeeDidBecomeFree) {
+                freeEmployee = employee;
+                *stop = YES;
+            }
+        }];
+        
+        return freeEmployee;
+    }
+}
+
+- (NSSet *)freeEmployeesWithClass:(Class)class {
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(MRFEmployee *employee, NSDictionary *bindings) {
+        return ([employee isMemberOfClass:class]
+                && employee.state == kMRFEmployeeDidBecomeFree);
     }];
     
-    return freeEmployee;
+    return [self.employees filteredSetUsingPredicate:predicate];
 }
 
 - (BOOL)containsEmployee:(MRFEmployee *)employee {
-    return [self.mutableEmployees containsObject:employee];
+    @synchronized (_mutableEmployees) {
+        return [self.mutableEmployees containsObject:employee];
+    }
 }
 
 - (NSUInteger)count {
-    return [self.mutableEmployees count];
+    @synchronized (_mutableEmployees) {
+        return [self.mutableEmployees count];
+    }
 }
 
 @end
