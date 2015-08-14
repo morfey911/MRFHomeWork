@@ -24,7 +24,6 @@
 - (void)performWorkWithObject:(MRFEmployeeWasher *)washer {
     @autoreleasepool {
         @synchronized (self) {
-            NSLog(@"%s %@", __PRETTY_FUNCTION__, washer);
             [self takeMoney:washer.money fromMoneyKeeper:washer];
             
             [self count];
@@ -46,10 +45,6 @@
     [super MRFEmployeeDidPerformWorkWithObject:object];
     
     [object employeeMayBeFree];
-//    [object performSelectorOnMainThread:@selector(employeeMayBeFree)
-//                             withObject:nil
-//                          waitUntilDone:YES];
-//    [object employeeMayBeFree];
 }
 
 @end

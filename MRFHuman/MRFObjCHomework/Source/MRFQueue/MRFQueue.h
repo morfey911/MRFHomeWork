@@ -12,11 +12,12 @@
 @property (nonatomic, assign, readonly, getter=isEmpty) BOOL empty;
 
 + (instancetype)queue;
++ (instancetype)queueWithSet:(NSSet *)set;
+
+- (instancetype)initWithSet:(NSSet *)set;
 
 - (void)enqueueObject:(id)object;
-
 - (id)dequeueObject;
-
 - (NSUInteger)count;
 
 @end

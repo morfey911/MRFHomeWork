@@ -70,16 +70,12 @@
 }
 
 - (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object {
-    if (object == nil) {
-        return;
-    }
-    
     @autoreleasepool {
-            [self performSelectorOnMainThread:@selector(employeeStartWork)
-                                   withObject:nil
-                                waitUntilDone:YES];
-            
-            [self performWorkWithObject:object];
+        [self performSelectorOnMainThread:@selector(employeeStartWork)
+                               withObject:nil
+                            waitUntilDone:YES];
+        
+        [self performWorkWithObject:object];
     }
 }
 
@@ -111,12 +107,7 @@
 #pragma mark -
 #pragma mark <MRFEmployeeObserver> protocol
 
-- (void)MRFEmployeeDidPerformWorkWithObject:(id<MRFMoneyFlow>)object {
-    NSLog(@"THREAD:%@ %s %@",
-          [NSThread isMainThread] ? @"MAIN" : @"BCKG",
-          __PRETTY_FUNCTION__,
-          object);
-    
+- (void)MRFEmployeeDidPerformWorkWithObject:(id<MRFMoneyFlow>)object {    
     [self performWorkWithObjectInBackground:object];
 }
 

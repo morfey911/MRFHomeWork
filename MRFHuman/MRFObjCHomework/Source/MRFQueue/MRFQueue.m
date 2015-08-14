@@ -22,6 +22,10 @@
     return [[[self alloc] init] autorelease];
 }
 
++ (instancetype)queueWithSet:(NSSet *)set {
+    return [[[self alloc] initWithSet:set] autorelease];
+}
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -32,10 +36,18 @@
 }
 
 - (instancetype)init {
+    return [self initWithSet:nil];
+}
+
+- (instancetype)initWithSet:(NSSet *)set {
     self = [super init];
     
     if (self) {
         self.queue = [NSMutableArray array];
+        
+        for (id object in set) {
+            [self.queue addObject:object];
+        }
     }
     
     return self;

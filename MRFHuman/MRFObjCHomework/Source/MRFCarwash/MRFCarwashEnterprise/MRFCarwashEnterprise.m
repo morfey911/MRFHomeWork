@@ -58,31 +58,20 @@
 }
 
 - (void)takeTheCars:(NSArray *)cars {
-    MRFEmployeeWasher *washer = nil;
+    MRFQueue *freeWashersQueue = [MRFQueue queueWithSet:[self.employees freeEmployeesWithClass:[MRFEmployeeWasher class]]];
     MRFQueue *carsQueue = self.cars;
     
     for (MRFCar *car in cars) {
         [carsQueue enqueueObject:car];
     }
     
-    while (!carsQueue.isEmpty
-           && (washer = [self.employees freeEmployeeWithClass:[MRFEmployeeWasher class]]))
-    {
-        if (washer.state == kMRFEmployeeDidBecomeFree) {
-            @synchronized (washer) {
-                if ([carsQueue isEmpty]) {
-                    break;
-                }
-                
-                id object = [carsQueue dequeueObject];
-                
-                if (washer.state == kMRFEmployeeDidBecomeFree) {
-                    [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                             withObject:object];
-                }
-            }
-        }
-
+    while (!carsQueue.isEmpty && !freeWashersQueue.isEmpty) {
+      
+    MRFCar *car = [carsQueue dequeueObject];
+        MRFEmployeeWasher *washer = [freeWashersQueue dequeueObject];
+        
+        [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:car];
+        
     }
     
     [[NSRunLoop currentRunLoop] run];
@@ -104,9 +93,7 @@
 - (void)hireWashers {
     MRFEmployeesPool *employees = self.employees;
     MRFEmployeeAccountant *accountant = [employees freeEmployeeWithClass:[MRFEmployeeAccountant class]];
-    NSUInteger washersCount = arc4random_uniform(3) + 1;
-    
-    washersCount = 100;
+    NSUInteger washersCount = arc4random_uniform(49) + 1;
     
     for (NSUInteger index = 0; index < washersCount; index++) {
         MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
@@ -123,14 +110,11 @@
 #pragma mark <MRFEmployeeObserver>
 
 - (void)MRFEmployeeDidBecomeFree:(MRFEmployeeWasher *)washer {
-    @synchronized (washer) {
-        NSLog(@"Washer %@ just became free", washer);
-        MRFQueue *carsQueue = self.cars;
-        
-        if (!carsQueue.isEmpty) {
-            [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                     withObject:[carsQueue dequeueObject]];
-        }
+    MRFQueue *carsQueue = self.cars;
+    
+    if (!carsQueue.isEmpty) {
+        [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                 withObject:[carsQueue dequeueObject]];
     }
 }
 

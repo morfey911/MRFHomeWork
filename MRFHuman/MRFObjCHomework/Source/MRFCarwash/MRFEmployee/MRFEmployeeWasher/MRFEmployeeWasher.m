@@ -36,9 +36,8 @@
 
 - (void)performWorkWithObject:(MRFCar *)car {
     @synchronized (self) {
-        NSLog(@"Washer just started wash a car: %@" ,car);
-        [self takeMoney:self.price fromMoneyKeeper:car];
         [self washCar:car];
+        [self takeMoney:self.price fromMoneyKeeper:car];
         
         [super performWorkWithObject:car];
     }
