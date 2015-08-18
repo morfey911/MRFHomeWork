@@ -69,6 +69,18 @@
     }
 }
 
+- (id)freeEmployee {
+    id result = nil;
+    
+    @synchronized (_mutableEmployees) {
+        if (0 != [self.mutableEmployees count]) {
+            result = [self.mutableEmployees anyObject];
+        }
+    }
+    
+    return result;
+}
+
 - (id)freeEmployeeWithClass:(Class)class {
     __block MRFEmployee *freeEmployee = nil;
 

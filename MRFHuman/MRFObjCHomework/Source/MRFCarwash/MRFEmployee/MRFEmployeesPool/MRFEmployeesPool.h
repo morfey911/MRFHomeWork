@@ -16,14 +16,13 @@
 + (MRFEmployeesPool *)pool;
 
 - (void)addEmployee:(MRFEmployee *)employee;
-
 - (void)removeEmployee:(MRFEmployee *)employee;
 
-- (id)freeEmployeeWithClass:(Class)class;
-
-- (NSSet *)freeEmployeesWithClass:(Class)class;
-
 - (BOOL)containsEmployee:(MRFEmployee *)employee;
+
+- (id)freeEmployee;
+- (id)freeEmployeeWithClass:(Class)class;
+- (NSSet *)freeEmployeesWithClass:(Class)class;
 
 - (NSUInteger)count;
 
