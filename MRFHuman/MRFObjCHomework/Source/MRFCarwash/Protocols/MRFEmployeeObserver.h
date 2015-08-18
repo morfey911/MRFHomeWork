@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MRFMoneyFlow.h"
+
 @class MRFEmployee;
 
 @protocol MRFEmployeeObserver <NSObject>
