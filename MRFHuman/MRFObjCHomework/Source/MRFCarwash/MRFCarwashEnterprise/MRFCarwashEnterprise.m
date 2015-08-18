@@ -66,12 +66,10 @@
     }
     
     while (!carsQueue.isEmpty && !freeWashersQueue.isEmpty) {
-      
-    MRFCar *car = [carsQueue dequeueObject];
+        MRFCar *car = [carsQueue dequeueObject];
         MRFEmployeeWasher *washer = [freeWashersQueue dequeueObject];
         
         [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:car];
-        
     }
     
     [[NSRunLoop currentRunLoop] run];
