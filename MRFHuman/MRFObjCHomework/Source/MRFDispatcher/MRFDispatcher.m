@@ -15,6 +15,8 @@
 @property (nonatomic, retain) MRFQueue *processingObjects;
 @property (nonatomic, retain) MRFEmployeesPool *mutableHandlers;
 
+- (void)processTheObject:(id)object withHandler:(MRFEmployee *)handler;
+
 @end
 
 @implementation MRFDispatcher
