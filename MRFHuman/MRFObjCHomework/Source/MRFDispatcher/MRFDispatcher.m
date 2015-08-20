@@ -87,9 +87,9 @@
 #pragma mark Private Implementations
 
 - (void)processTheObject:(id)object withHandler:(MRFEmployee *)handler {
-    @synchronized(self) {
+    @synchronized(handler) {
         if (kMRFEmployeeDidBecomeFree == handler.state) {
-            [handler performWorkWithObjectInBackground:object];
+            [handler performWorkWithObject:object];
         }
     }
 }
@@ -98,7 +98,11 @@
 #pragma mark MRFEmployeeObserver
 
 - (void)MRFEmployeeDidBecomeFree:(MRFEmployee *)employee {
-    [self processTheObject:[self.processingObjects dequeueObject] withHandler:employee];
+    MRFQueue *processingObjects = self.processingObjects;
+    
+    if (![processingObjects isEmpty]) {
+        [self processTheObject:[processingObjects dequeueObject] withHandler:employee];
+    }
 }
 
 @end

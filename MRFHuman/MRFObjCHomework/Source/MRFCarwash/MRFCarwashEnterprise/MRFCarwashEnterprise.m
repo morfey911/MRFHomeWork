@@ -16,12 +16,17 @@
 #import "MRFEmployeeAccountant.h"
 #import "MRFEmpoyeeDirector.h"
 #import "MRFQueue.h"
+#import "MRFDispatcher.h"
 
 @interface MRFCarwashEnterprise ()
 @property (nonatomic, retain) MRFQueue *cars;
 @property (nonatomic, retain) MRFEmployeesPool *employees;
+@property (nonatomic, retain) MRFDispatcher *washerDispatcher;
+@property (nonatomic, retain) MRFDispatcher *accountantDispatcher;
+@property (nonatomic, retain) MRFDispatcher *directorDispatcher;
 
-- (void)hireBosses;
+- (void)hireDirectors;
+- (void)hireAccountants;
 - (void)hireWashers;
 
 @end
@@ -34,6 +39,9 @@
 - (void)dealloc {
     self.cars = nil;
     self.employees = nil;
+    self.washerDispatcher = nil;
+    self.accountantDispatcher = nil;
+    self.directorDispatcher = nil;
     
     [super dealloc];
 }
@@ -44,6 +52,9 @@
     if (self) {
         self.cars = [MRFQueue queue];
         self.employees = [MRFEmployeesPool pool];
+        self.washerDispatcher = [MRFDispatcher object];
+        self.accountantDispatcher = [MRFDispatcher object];
+        self.directorDispatcher = [MRFDispatcher object];
     }
     
     return self;
@@ -52,24 +63,13 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)hireStaff {
-    [self hireBosses];
-    [self hireWashers];
-}
-
 - (void)takeTheCars:(NSArray *)cars {
-    MRFQueue *freeWashersQueue = [MRFQueue queueWithSet:[self.employees freeEmployeesWithClass:[MRFEmployeeWasher class]]];
-    MRFQueue *carsQueue = self.cars;
+    [self hireStaff];
+    
+    MRFDispatcher *washerDispatcher = self.washerDispatcher;
     
     for (MRFCar *car in cars) {
-        [carsQueue enqueueObject:car];
-    }
-    
-    while (!carsQueue.isEmpty && !freeWashersQueue.isEmpty) {
-        MRFCar *car = [carsQueue dequeueObject];
-        MRFEmployeeWasher *washer = [freeWashersQueue dequeueObject];
-        
-        [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:car];
+        [washerDispatcher performSelectorInBackground:@selector(addProcessingObject:) withObject:car];
     }
     
     [[NSRunLoop currentRunLoop] run];
@@ -78,27 +78,43 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)hireBosses {
-    MRFEmpoyeeDirector *director = [MRFEmpoyeeDirector object];
-    MRFEmployeeAccountant *accountant = [MRFEmployeeAccountant object];
+- (void)hireStaff {
+    [self hireDirectors];
+    [self hireAccountants];
+    [self hireWashers];
+}
+
+- (void)hireDirectors {
+    [self.directorDispatcher addHandler:[MRFEmpoyeeDirector object]];
     
-    [self.employees addEmployee:director];
-    [self.employees addEmployee:accountant];
+    NSLog(@"Hired 1 director");
+}
+
+- (void)hireAccountants {
+    MRFDispatcher *accountantDispatcher = self.accountantDispatcher;
+    NSUInteger accountantsCount = arc4random_uniform(24) + 1;
+    accountantsCount = 20;
     
-    [accountant addObserver:director];
+    for (NSUInteger index = 0; index < accountantsCount; index++) {
+        MRFEmployeeAccountant *accountant = [MRFEmployeeAccountant object];
+        
+        [accountant addObserver:self];
+        [accountantDispatcher addHandler:accountant];
+    }
+    
+    NSLog(@"Hired %lu accountants", accountantsCount);
 }
 
 - (void)hireWashers {
-    MRFEmployeesPool *employees = self.employees;
-    MRFEmployeeAccountant *accountant = [employees freeEmployeeWithClass:[MRFEmployeeAccountant class]];
+    MRFDispatcher *washerDispatcher = self.washerDispatcher;
     NSUInteger washersCount = arc4random_uniform(49) + 1;
+    washersCount = 50;
     
     for (NSUInteger index = 0; index < washersCount; index++) {
         MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
         
         [washer addObserver:self];
-        [washer addObserver:accountant];
-        [employees addEmployee:washer];
+        [washerDispatcher addHandler:washer];
     }
     
     NSLog (@"Hired %lu washers", washersCount);
@@ -107,12 +123,11 @@
 #pragma mark -
 #pragma mark <MRFEmployeeObserver>
 
-- (void)MRFEmployeeDidBecomeFree:(MRFEmployeeWasher *)washer {
-    MRFQueue *carsQueue = self.cars;
-    
-    if (!carsQueue.isEmpty) {
-        [washer performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                 withObject:[carsQueue dequeueObject]];
+- (void)MRFEmployeeDidPerformWorkWithObject:(id<MRFMoneyFlow>)object {
+    if ([object isKindOfClass:[MRFEmployeeWasher class]]) {
+        [self.accountantDispatcher addProcessingObject:object];
+    } else if ([object isKindOfClass:[MRFEmployeeAccountant class]]) {
+        [self.directorDispatcher addProcessingObject:object];
     }
 }
 

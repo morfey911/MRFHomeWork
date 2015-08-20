@@ -70,15 +70,18 @@
 }
 
 - (id)freeEmployee {
-    id result = nil;
+    __block MRFEmployee *freeEmployee = nil;
     
     @synchronized (_mutableEmployees) {
-        if (0 != [self.mutableEmployees count]) {
-            result = [self.mutableEmployees anyObject];
-        }
+        [_mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
+            if (kMRFEmployeeDidBecomeFree == employee.state) {
+                freeEmployee = employee;
+                *stop = YES;
+            }
+        }];
     }
     
-    return result;
+    return freeEmployee;
 }
 
 - (id)freeEmployeeWithClass:(Class)class {
@@ -86,7 +89,7 @@
 
     @synchronized (_mutableEmployees) {
         [_mutableEmployees enumerateObjectsUsingBlock:^(MRFEmployee *employee, BOOL *stop) {
-            if ([employee isMemberOfClass:class] && employee.state == kMRFEmployeeDidBecomeFree) {
+            if ([employee isMemberOfClass:class] && kMRFEmployeeDidBecomeFree == employee.state) {
                 freeEmployee = employee;
                 *stop = YES;
             }
