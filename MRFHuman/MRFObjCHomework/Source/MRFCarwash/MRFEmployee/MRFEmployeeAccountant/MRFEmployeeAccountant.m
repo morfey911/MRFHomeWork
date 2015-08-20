@@ -21,17 +21,11 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(MRFEmployeeWasher *)washer {
-    @autoreleasepool {
-        @synchronized (self) {
-            [self takeMoney:washer.money fromMoneyKeeper:washer];
-            
-            [self count];
-            
-            [super performWorkWithObject:washer];
-        }
+- (void)workWithObject:(MRFEmployeeWasher *)washer {
+    @synchronized(washer) {
+        [self takeMoney:washer.money fromMoneyKeeper:washer];
+        [self count];
     }
-
 }
 
 #pragma mark -
@@ -39,12 +33,6 @@
 
 - (void)count {
     usleep(arc4random_uniform(10 * 1000));
-}
-
-- (void)MRFEmployeeDidPerformWorkWithObject:(MRFEmployeeWasher *)object {
-    [super MRFEmployeeDidPerformWorkWithObject:object];
-    
-    [object employeeMayBeFree];
 }
 
 @end

@@ -44,8 +44,9 @@
     if (_state != state) {
         _state = state;
         
-        [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+        [self notifyObserversOnMainThreadWithSelector:[self selectorForState:state]];
     }
+    
 }
 
 #pragma mark -
@@ -63,20 +64,29 @@
     self.state = kMRFEmployeeDidPerformWorkWithObject;
 }
 
+- (void)workWithObject:(id<MRFMoneyFlow>)object {
+    
+}
+
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object {
-    [self performSelectorOnMainThread:@selector(employeeFinishWork)
-                           withObject:nil
-                        waitUntilDone:YES];
+    NSLog(@"self = %@ object = %@", self, object);
+    
+    [self employeeStartWork];
+    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
 }
 
 - (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object {
     @autoreleasepool {
-        [self performSelectorOnMainThread:@selector(employeeStartWork)
-                               withObject:nil
-                            waitUntilDone:YES];
+        [self workWithObject:object];
         
-        [self performWorkWithObject:object];
+        [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:) withObject:object waitUntilDone:NO];
     }
+}
+
+- (void)performWorkWithObjectOnMainThread:(MRFEmployee *)object {
+    [self employeeFinishWork];
+    
+    [object employeeMayBeFree];
 }
 
 - (NSString *)selectorForState:(MRFEmployeeState)state {
@@ -91,24 +101,17 @@
 #pragma mark MRFMoneyFlow protocol
 
 - (void)takeMoney:(uint8_t)money fromMoneyKeeper:(id <MRFMoneyFlow>)moneyKeeper {
-    @synchronized(self) {
+    @synchronized(moneyKeeper) {
         self.money += money;
         moneyKeeper.money -= money;
     }
 }
 
 - (void)giveMoney:(uint8_t)money toMoneyKeeper:(id <MRFMoneyFlow>)moneyKeeper {
-    @synchronized(self) {
+    @synchronized(moneyKeeper) {
         self.money -= money;
         moneyKeeper.money += money;
     }
-}
-
-#pragma mark -
-#pragma mark <MRFEmployeeObserver> protocol
-
-- (void)MRFEmployeeDidPerformWorkWithObject:(id<MRFMoneyFlow>)object {    
-    [self performWorkWithObjectInBackground:object];
 }
 
 @end

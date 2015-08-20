@@ -27,19 +27,18 @@
 }
 
 + (void)MRFCarwashOneCarTest {
-    //afters car and carwash was created
-    MRFCar *car = [[[MRFCar alloc] initWithMoney:250] autorelease];
-    MRFCarwashEnterprise *carwash = [MRFCarwashEnterprise object];
-    
-    //car must be dirty and have money
-    assert(NO == car.clean);
-    assert(250 == car.money);
-    
-    [carwash hireStaff];
-    [carwash takeTheCar:car];
-    
-    assert(YES == car.clean);
-    assert(150 == car.money);
+//    //afters car and carwash was created
+//    MRFCar *car = [[[MRFCar alloc] initWithMoney:250] autorelease];
+//    MRFCarwashEnterprise *carwash = [MRFCarwashEnterprise object];
+//    
+//    //car must be dirty and have money
+//    assert(NO == car.clean);
+//    assert(250 == car.money);
+//    
+//    [carwash takeTheCar:car];
+//    
+//    assert(YES == car.clean);
+//    assert(150 == car.money);
 }
 
 + (void)MRFCarwashMultipleCarsTest {
@@ -51,7 +50,6 @@
         [cars addObject:car];
     }
     
-    [carwash hireStaff];
     [carwash takeTheCars:cars];
 }
 
