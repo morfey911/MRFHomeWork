@@ -62,6 +62,10 @@
     return [self.observersHashTable containsObject:observer];
 }
 
+- (void)notifyObserversOnMainThreadWithSelector:(NSString *)selector {
+    [self performSelectorOnMainThread:@selector(notifyObserversWithSelector:) withObject:selector waitUntilDone:YES];
+}
+
 - (void)notifyObserversWithSelector:(NSString *)selector {
     [self notifyObserversWithSelector:selector withObject:self];
 }
