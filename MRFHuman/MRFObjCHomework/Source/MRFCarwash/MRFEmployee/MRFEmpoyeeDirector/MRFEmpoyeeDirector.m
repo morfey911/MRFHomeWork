@@ -11,8 +11,6 @@
 #import "MRFEmployeeAccountant.h"
 
 @interface MRFEmpoyeeDirector ()
-@property (nonatomic, assign) uint64_t capital;
-
 - (void)profit;
 
 @end
@@ -20,49 +18,28 @@
 @implementation MRFEmpoyeeDirector
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)init {
-    return [self initWithCapital:0];
-}
-
-- (instancetype)initWithCapital:(uint64_t)capital {
-    self = [super init];
-    
-    if (self) {
-        self.capital = capital;
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(MRFEmployeeAccountant *)accountant {
-    @autoreleasepool {
-        @synchronized (self) {
-            [self takeMoney:accountant.money fromMoneyKeeper:accountant];
-            [self profit];
-            
-            [super performWorkWithObject:accountant];
-        }
+- (void)workWithObject:(MRFEmployeeAccountant *)accountant {
+    @synchronized(accountant) {
+        [self takeMoney:accountant.money fromMoneyKeeper:accountant];
+        [self profit];
     }
+}
+
+- (void)performWorkWithObjectOnMainThread:(MRFEmployee *)object {
+    [object employeeMayBeFree];
+    
+    [self employeeMayBeFree];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)profit {
-    self.capital += self.money;
-    self.money = 0;
+    usleep(arc4random_uniform(10 * 1000));
     
-    NSLog(@"Directors capital = %llu", self.capital);
+    NSLog(@"Directors money = %d", self.money);
 }
 
-
-- (void)MRFEmployeeDidPerformWorkWithObject:(MRFEmployeeAccountant *)object {
-    [super MRFEmployeeDidPerformWorkWithObject:object];
-    [object employeeMayBeFree];
-}
 @end
