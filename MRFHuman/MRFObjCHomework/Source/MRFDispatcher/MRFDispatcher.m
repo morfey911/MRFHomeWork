@@ -21,8 +21,6 @@
 
 @implementation MRFDispatcher
 
-@dynamic handlers;
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -46,24 +44,17 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (NSSet *)handlers {
-    return [self.mutableHandlers employees];
-}
-
-#pragma mark -
 #pragma mark Public Implementations
 
 - (void)addProcessingObject:(id)object {
-    @synchronized(object) {
-        id freeHandler = [self.mutableHandlers freeEmployee];
-        
-        if (nil != freeHandler) {
+    MRFEmployee *freeHandler = [self.mutableHandlers freeEmployee];
+    
+    @synchronized(freeHandler) {
+        if (nil != freeHandler && kMRFEmployeeDidBecomeFree == freeHandler.state) {
             [self processTheObject:object withHandler:freeHandler];
+        } else {
+            [self.processingObjects enqueueObject:object];
         }
-        
-        [self.processingObjects enqueueObject:object];
     }
 }
 

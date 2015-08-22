@@ -13,7 +13,6 @@
 @class MRFEmployee;
 
 @interface MRFDispatcher : NSObject <MRFEmployeeObserver>
-@property (nonatomic, retain) NSSet *handlers;
 
 - (void)addProcessingObject:(id)object;
 
