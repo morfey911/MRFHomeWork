@@ -63,7 +63,13 @@
 }
 
 - (void)notifyObserversOnMainThreadWithSelector:(NSString *)selector {
-    [self performSelectorOnMainThread:@selector(notifyObserversWithSelector:) withObject:selector waitUntilDone:YES];
+    if ([NSThread isMainThread]) {
+        [self notifyObserversWithSelector:selector];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self notifyObserversWithSelector:selector];
+        });
+    }
 }
 
 - (void)notifyObserversWithSelector:(NSString *)selector {

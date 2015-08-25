@@ -72,14 +72,18 @@
     NSLog(@"self = %@ object = %@", self, object);
     
     [self employeeStartWork];
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self performWorkWithObjectInBackground:object];
+    });
 }
 
 - (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object {
     @autoreleasepool {
         [self workWithObject:object];
         
-        [self performSelectorOnMainThread:@selector(performWorkWithObjectOnMainThread:) withObject:object waitUntilDone:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performWorkWithObjectOnMainThread:object];
+        });
     }
 }
 

@@ -69,7 +69,10 @@
     MRFDispatcher *washerDispatcher = self.washerDispatcher;
     
     for (MRFCar *car in cars) {
-        [washerDispatcher performSelectorInBackground:@selector(addProcessingObject:) withObject:car];
+//        [washerDispatcher performSelectorInBackground:@selector(addProcessingObject:) withObject:car];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [washerDispatcher addProcessingObject:car];
+        });
     }
     
     [[NSRunLoop currentRunLoop] run];
@@ -93,7 +96,6 @@
 - (void)hireAccountants {
     MRFDispatcher *accountantDispatcher = self.accountantDispatcher;
     NSUInteger accountantsCount = arc4random_uniform(24) + 1;
-    accountantsCount = 20;
     
     for (NSUInteger index = 0; index < accountantsCount; index++) {
         MRFEmployeeAccountant *accountant = [MRFEmployeeAccountant object];
@@ -108,7 +110,6 @@
 - (void)hireWashers {
     MRFDispatcher *washerDispatcher = self.washerDispatcher;
     NSUInteger washersCount = arc4random_uniform(49) + 1;
-    washersCount = 50;
     
     for (NSUInteger index = 0; index < washersCount; index++) {
         MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
