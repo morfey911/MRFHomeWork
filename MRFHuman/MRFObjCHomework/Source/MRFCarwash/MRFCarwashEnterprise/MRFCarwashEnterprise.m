@@ -10,14 +10,24 @@
 
 #import "NSObject+MRFObjectExtensions.h"
 
-#import "MRFBuilding.h"
 #import "MRFEmployeeWasher.h"
 #import "MRFCar.h"
+#import "MRFEmployeesPool.h"
+#import "MRFEmployeeAccountant.h"
+#import "MRFEmpoyeeDirector.h"
+#import "MRFQueue.h"
+#import "MRFDispatcher.h"
 
 @interface MRFCarwashEnterprise ()
-@property (nonatomic, retain) MRFBuilding *carwashBuilding;
-@property (nonatomic, retain) MRFBuilding *administrativeBuilding;
-@property (nonatomic, copy) NSMutableSet *mutableWashers;
+@property (nonatomic, retain) MRFQueue *cars;
+@property (nonatomic, retain) MRFEmployeesPool *employees;
+@property (nonatomic, retain) MRFDispatcher *washerDispatcher;
+@property (nonatomic, retain) MRFDispatcher *accountantDispatcher;
+@property (nonatomic, retain) MRFDispatcher *directorDispatcher;
+
+- (void)hireDirectors;
+- (void)hireAccountants;
+- (void)hireWashers;
 
 @end
 
@@ -27,9 +37,11 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.carwashBuilding = nil;
-    self.administrativeBuilding = nil;
-    self.mutableWashers = nil;
+    self.cars = nil;
+    self.employees = nil;
+    self.washerDispatcher = nil;
+    self.accountantDispatcher = nil;
+    self.directorDispatcher = nil;
     
     [super dealloc];
 }
@@ -38,30 +50,83 @@
     self = [super init];
     
     if (self) {
-        self.carwashBuilding = [[[MRFBuilding alloc] initWithRoomCapacity:1] autorelease];
-        self.administrativeBuilding = [[[MRFBuilding alloc] initWithRoomCapacity:1] autorelease];
-        self.mutableWashers = [NSMutableSet set];
+        self.cars = [MRFQueue queue];
+        self.employees = [MRFEmployeesPool pool];
+        self.washerDispatcher = [MRFDispatcher object];
+        self.accountantDispatcher = [MRFDispatcher object];
+        self.directorDispatcher = [MRFDispatcher object];
     }
     
     return self;
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
-- (NSSet *)washers {
-    return [[self.mutableWashers copy] autorelease];
+- (void)takeTheCars:(NSArray *)cars {
+    [self hireStaff];
+    
+    MRFDispatcher *washerDispatcher = self.washerDispatcher;
+    
+    for (MRFCar *car in cars) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [washerDispatcher addProcessingObject:car];
+        });
+    }
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Private Methods
 
-- (void)preparation {
-    
+- (void)hireStaff {
+    [self hireDirectors];
+    [self hireAccountants];
+    [self hireWashers];
 }
 
-- (void)work {
+- (void)hireDirectors {
+    [self.directorDispatcher addHandler:[MRFEmpoyeeDirector object]];
     
+    NSLog(@"Hired 1 director");
+}
+
+- (void)hireAccountants {
+    MRFDispatcher *accountantDispatcher = self.accountantDispatcher;
+    NSUInteger accountantsCount = arc4random_uniform(24) + 1;
+    
+    for (NSUInteger index = 0; index < accountantsCount; index++) {
+        MRFEmployeeAccountant *accountant = [MRFEmployeeAccountant object];
+        
+        [accountant addObserver:self];
+        [accountantDispatcher addHandler:accountant];
+    }
+    
+    NSLog(@"Hired %lu accountants", accountantsCount);
+}
+
+- (void)hireWashers {
+    MRFDispatcher *washerDispatcher = self.washerDispatcher;
+    NSUInteger washersCount = arc4random_uniform(49) + 1;
+    
+    for (NSUInteger index = 0; index < washersCount; index++) {
+        MRFEmployeeWasher *washer = [[MRFEmployeeWasher alloc] initWithPrice:100];
+        
+        [washer addObserver:self];
+        [washerDispatcher addHandler:washer];
+    }
+    
+    NSLog (@"Hired %lu washers", washersCount);
+}
+
+#pragma mark -
+#pragma mark <MRFEmployeeObserver>
+
+- (void)MRFEmployeeDidPerformWorkWithObject:(id<MRFMoneyFlow>)object {
+    if ([object isKindOfClass:[MRFEmployeeWasher class]]) {
+        [self.accountantDispatcher addProcessingObject:object];
+    } else if ([object isKindOfClass:[MRFEmployeeAccountant class]]) {
+        [self.directorDispatcher addProcessingObject:object];
+    }
 }
 
 @end

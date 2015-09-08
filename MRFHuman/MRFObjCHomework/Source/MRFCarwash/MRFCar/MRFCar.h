@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MRFCar : NSObject
-@property (nonatomic, assign)           BOOL        isClear;
-@property (nonatomic, assign, readonly) uint8_t     money;
+#import "MRFMoneyFlow.h"
+
+@interface MRFCar : NSObject <MRFMoneyFlow>
+@property (nonatomic, assign, getter=isClean)   BOOL    clean;
 
 - (instancetype)initWithMoney:(uint8_t)money;
-
-- (uint8_t)giveMoney:(uint8_t)money;
 
 @end

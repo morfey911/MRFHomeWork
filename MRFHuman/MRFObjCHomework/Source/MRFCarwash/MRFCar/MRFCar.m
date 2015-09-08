@@ -8,12 +8,9 @@
 
 #import "MRFCar.h"
 
-@interface MRFCar ()
-@property (nonatomic, assign) uint8_t money;
-
-@end
-
 @implementation MRFCar
+
+@synthesize money = _money;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -33,16 +30,16 @@
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark MRFMoneyFlow Protocol
 
-- (uint8_t)giveMoney:(uint8_t)money {
-    if (money <= self.money) {
-        self.money -= money;
-        
-        return self.money;
-    }
-    
-    return 0;
+- (void)takeMoney:(uint8_t)money fromMoneyKeeper:(id <MRFMoneyFlow>)moneyKeeper {
+    self.money += money;
+    moneyKeeper.money -= money;
+}
+
+- (void)giveMoney:(uint8_t)money toMoneyKeeper:(id <MRFMoneyFlow>)moneyKeeper {
+    self.money -= money;
+    moneyKeeper.money += money;
 }
 
 @end

@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class MRFBuilding;
-@class MRFEmployeeWasher;
+#import "MRFCar.h"
+#import "MRFEmployeeObserver.h"
 
-@interface MRFCarwashEnterprise : NSObject
-@property (nonatomic, retain, readonly) MRFBuilding *carwashBuilding;
-@property (nonatomic, retain, readonly) MRFBuilding *administrativeBuilding;
-@property (nonatomic, copy, readonly) NSMutableSet *washers;
+@interface MRFCarwashEnterprise : NSObject <MRFEmployeeObserver>
 
-- (void)preparation;
+- (void)hireStaff;
 
-- (void)work;
+- (void)takeTheCars:(NSArray *)cars;
 
 @end
