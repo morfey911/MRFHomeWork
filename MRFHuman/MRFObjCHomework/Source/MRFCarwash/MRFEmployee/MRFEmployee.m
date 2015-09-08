@@ -68,23 +68,17 @@
     
 }
 
-- (void)performWorkWithObject:(id<MRFMoneyFlow>)object {
+- (void)performWorkWithObject:(MRFEmployee *)object {
     NSLog(@"self = %@ object = %@", self, object);
     
     [self employeeStartWork];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self performWorkWithObjectInBackground:object];
-    });
-}
-
-- (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object {
-    @autoreleasepool {
         [self workWithObject:object];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self performWorkWithObjectOnMainThread:object];
         });
-    }
+    });
 }
 
 - (void)performWorkWithObjectOnMainThread:(MRFEmployee *)object {

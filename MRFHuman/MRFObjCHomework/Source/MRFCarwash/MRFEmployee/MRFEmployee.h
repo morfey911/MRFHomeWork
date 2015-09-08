@@ -30,7 +30,6 @@ typedef NS_ENUM(NSUInteger, MRFEmployeeState) {
 - (void)employeeFinishWork;
 
 - (void)performWorkWithObject:(id<MRFMoneyFlow>)object;
-- (void)performWorkWithObjectInBackground:(id<MRFMoneyFlow>)object;
 
 - (NSString *)selectorForState:(MRFEmployeeState)state;
 

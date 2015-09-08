@@ -69,13 +69,10 @@
     MRFDispatcher *washerDispatcher = self.washerDispatcher;
     
     for (MRFCar *car in cars) {
-//        [washerDispatcher performSelectorInBackground:@selector(addProcessingObject:) withObject:car];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [washerDispatcher addProcessingObject:car];
         });
     }
-    
-    [[NSRunLoop currentRunLoop] run];
 }
 
 #pragma mark -

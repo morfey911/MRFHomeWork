@@ -22,10 +22,8 @@
 #pragma mark Public
 
 - (void)workWithObject:(MRFEmployeeWasher *)washer {
-    @synchronized(washer) {
-        [self takeMoney:washer.money fromMoneyKeeper:washer];
-        [self count];
-    }
+    [self takeMoney:washer.money fromMoneyKeeper:washer];
+    [self count];
 }
 
 #pragma mark -

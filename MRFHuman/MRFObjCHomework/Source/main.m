@@ -18,6 +18,8 @@ int main(int argc, const char * argv[]) {
 //        [MRFBeingTests MRFBeingBehaviourTest];
 //        [NSStringExtensions NSStringPerfomExtensionsTests];
         [MRFCarwashTests MRFCarwashBehaviourTests];
+        
+        [[NSRunLoop currentRunLoop] run];
     }
     return 0;
 }

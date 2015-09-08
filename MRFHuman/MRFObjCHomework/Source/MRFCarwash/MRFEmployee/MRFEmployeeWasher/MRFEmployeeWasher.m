@@ -35,10 +35,8 @@
 #pragma mark Public
 
 - (void)workWithObject:(MRFCar *)car {
-//    @synchronized(car) {
-        [self takeMoney:self.price fromMoneyKeeper:car];
-        [self washCar:car];
-//    }
+    [self takeMoney:self.price fromMoneyKeeper:car];
+    [self washCar:car];
 }
 
 - (void)performWorkWithObjectOnMainThread:(MRFEmployee *)object {

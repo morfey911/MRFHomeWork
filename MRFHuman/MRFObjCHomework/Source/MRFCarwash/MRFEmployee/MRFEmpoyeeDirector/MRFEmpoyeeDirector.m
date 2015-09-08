@@ -21,10 +21,8 @@
 #pragma mark Public
 
 - (void)workWithObject:(MRFEmployeeAccountant *)accountant {
-    @synchronized(accountant) {
-        [self takeMoney:accountant.money fromMoneyKeeper:accountant];
-        [self profit];
-    }
+    [self takeMoney:accountant.money fromMoneyKeeper:accountant];
+    [self profit];
 }
 
 - (void)performWorkWithObjectOnMainThread:(MRFEmployee *)object {
