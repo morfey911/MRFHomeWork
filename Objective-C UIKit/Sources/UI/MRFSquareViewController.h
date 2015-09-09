@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MRFSquareView.h"
-
 @interface MRFSquareViewController : UIViewController
-
-- (IBAction)startButtonClick:(id)sender;
 
 @end
