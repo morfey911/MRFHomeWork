@@ -11,6 +11,7 @@
 #import "MRFSquareView.h"
 
 @interface MRFSquareViewController : UIViewController
-@property (nonatomic, retain) IBOutlet MRFSquareView *squareView;
+
+- (IBAction)startButtonClick:(id)sender;
 
 @end

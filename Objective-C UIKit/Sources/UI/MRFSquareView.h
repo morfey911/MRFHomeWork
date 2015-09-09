@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, MRFSquarePositionType) {
+    MRFTopLeftCorner,
+    MRFTopRightCorner,
+    MRFBottomLeftCorner,
+    MRFBottomRightCorner
+};
+
 @interface MRFSquareView : UIView
+@property (nonatomic, strong)   IBOutlet    UIView      *squareView;
+@property (nonatomic, strong)   IBOutlet    UIButton    *startButton;
+
+@property (nonatomic, unsafe_unretained)    MRFSquarePositionType   squarePosition;
 
 @end
