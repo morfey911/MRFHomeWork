@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, MRFSquarePositionType) {
 @property (nonatomic, strong)   IBOutlet    UIView      *squareView;
 @property (nonatomic, strong)   IBOutlet    UIButton    *startButton;
 
-@property (nonatomic, unsafe_unretained)    MRFSquarePositionType   squarePosition;
+@property (nonatomic, assign)    MRFSquarePositionType   squarePosition;
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated;

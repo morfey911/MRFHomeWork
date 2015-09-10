@@ -8,9 +8,11 @@
 
 #import "MRFHolderForSquareView.h"
 
+static const NSTimeInterval MRFSquareViewAnimationDuration = 0.6;
+static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
+
 @interface MRFHolderForSquareView ()
 
-- (void)moveSquare:(CGRect)frame;
 - (CGRect)frameForSquarePosition:(MRFSquarePositionType)squarePosition;
 
 @end
@@ -21,23 +23,34 @@
 #pragma mark Public
 
 - (void)setSquarePosition:(MRFSquarePositionType)position {
-    [self setSquarePosition:position animated:NO];
+    [self setSquarePosition:position animated:YES];
 }
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated
 {
-    [self setSquarePosition:position animated:NO completionHandler:^{
-        NSLog(@"test");
-    }];
+    [self setSquarePosition:position animated:animated completionHandler:^{}];
 }
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated
         completionHandler:(void(^)(void))handler
 {
-    [self moveSquare:[self frameForSquarePosition:position]];
-    _squarePosition = position;
+    NSTimeInterval duration = animated ? MRFSquareViewAnimationDuration : 0;
+    
+    [UIView animateWithDuration:duration
+                          delay:MRFSquareViewAnimationDelay
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.squareView.frame = [self frameForSquarePosition:position];
+                     }
+                     completion:^(BOOL finished) {
+                         _squarePosition = position;
+                         
+                         if (handler) {
+                             handler();
+                         }
+                     }];
 }
 
 
@@ -47,10 +60,6 @@
 
 #pragma mark -
 #pragma mark Private
-
-- (void)moveSquare:(CGRect)frame {
-    self.squareView.frame = frame;
-}
 
 - (CGRect)frameForSquarePosition:(MRFSquarePositionType)squarePosition {
     CGRect result = self.squareView.frame;
