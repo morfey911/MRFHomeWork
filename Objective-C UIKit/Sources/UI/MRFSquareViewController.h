@@ -10,4 +10,6 @@
 
 @interface MRFSquareViewController : UIViewController
 
+- (IBAction)onClickStartButton:(id)sender;
+
 @end

@@ -11,7 +11,7 @@
 #import "MRFHolderForSquareView.h"
 
 @interface MRFSquareViewController ()
-@property (nonatomic, readonly) MRFHolderForSquareView   *squareView;
+@property (nonatomic, readonly) MRFHolderForSquareView  *squareView;
 
 @end
 
@@ -39,6 +39,35 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)onClickStartButton:(id)sender {
+    [self changeTitleForButton];
+    
+    self.squareView.moving = self.squareView.moving ? NO : YES;
+    
+    [self moveSquareToRandomPosition];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)changeTitleForButton {
+    UIButton *startButton = self.squareView.startButton;
+    
+    self.squareView.moving ?
+        [startButton setTitle:@"Start" forState:UIControlStateNormal] :
+        [startButton setTitle:@"Stop" forState:UIControlStateNormal];
+}
+
+- (void)moveSquareToRandomPosition {
+    MRFSquarePositionType position = (arc4random_uniform(MRFSquarePositionCount));
+    
+    if (self.squareView.moving) {
+        [self.squareView setSquarePosition:position animated:YES completionHandler:^{
+            [self moveSquareToRandomPosition];
+        }];
+    }
 }
 
 @end
