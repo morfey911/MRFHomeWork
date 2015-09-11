@@ -16,6 +16,8 @@
 		3FE68B5C1B9F4D7B00632885 /* MRFSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B5A1B9F4D7B00632885 /* MRFSquareViewController.xib */; };
 		3FE68B5F1B9F4E6E00632885 /* MRFHolderForSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B5E1B9F4E6E00632885 /* MRFHolderForSquareView.m */; };
 		3FE68B621BA06F9A00632885 /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B611BA06F9A00632885 /* MRFAppDelegate.m */; };
+		3FE68B661BA2D8DE00632885 /* UIColor+MRFExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B651BA2D8DE00632885 /* UIColor+MRFExtentions.m */; };
+		3FE68B6C1BA2E44F00632885 /* MRFRandomValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B6B1BA2E44F00632885 /* MRFRandomValues.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,10 @@
 		3FE68B5E1B9F4E6E00632885 /* MRFHolderForSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFHolderForSquareView.m; sourceTree = "<group>"; };
 		3FE68B601BA06F9A00632885 /* MRFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAppDelegate.h; sourceTree = "<group>"; };
 		3FE68B611BA06F9A00632885 /* MRFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAppDelegate.m; sourceTree = "<group>"; };
+		3FE68B641BA2D8DE00632885 /* UIColor+MRFExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MRFExtentions.h"; sourceTree = "<group>"; };
+		3FE68B651BA2D8DE00632885 /* UIColor+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MRFExtentions.m"; sourceTree = "<group>"; };
+		3FE68B6A1BA2E44F00632885 /* MRFRandomValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFRandomValues.h; sourceTree = "<group>"; };
+		3FE68B6B1BA2E44F00632885 /* MRFRandomValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFRandomValues.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,8 @@
 		3FE68B3E1B9F2FF300632885 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3FE68B671BA2DC9500632885 /* MRFRandomValues */,
+				3FE68B631BA2D8A800632885 /* UIColor+MRFExtentions */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -149,6 +157,24 @@
 				3FE68B4B1B9F300C00632885 /* Objective_C_UIKitTests.m */,
 			);
 			path = "Objective-C UIKitTests";
+			sourceTree = "<group>";
+		};
+		3FE68B631BA2D8A800632885 /* UIColor+MRFExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				3FE68B641BA2D8DE00632885 /* UIColor+MRFExtentions.h */,
+				3FE68B651BA2D8DE00632885 /* UIColor+MRFExtentions.m */,
+			);
+			path = "UIColor+MRFExtentions";
+			sourceTree = "<group>";
+		};
+		3FE68B671BA2DC9500632885 /* MRFRandomValues */ = {
+			isa = PBXGroup;
+			children = (
+				3FE68B6A1BA2E44F00632885 /* MRFRandomValues.h */,
+				3FE68B6B1BA2E44F00632885 /* MRFRandomValues.m */,
+			);
+			path = MRFRandomValues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,9 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE68B6C1BA2E44F00632885 /* MRFRandomValues.m in Sources */,
 				3FE68B621BA06F9A00632885 /* MRFAppDelegate.m in Sources */,
 				3FE68B5B1B9F4D7B00632885 /* MRFSquareViewController.m in Sources */,
 				3FE68B431B9F2FF300632885 /* main.m in Sources */,
+				3FE68B661BA2D8DE00632885 /* UIColor+MRFExtentions.m in Sources */,
 				3FE68B5F1B9F4E6E00632885 /* MRFHolderForSquareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
