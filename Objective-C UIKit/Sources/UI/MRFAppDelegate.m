@@ -22,10 +22,8 @@
     self.window = window;
     
     window.rootViewController = [MRFSquareViewController new];
-    window.backgroundColor = [UIColor greenColor];
     
     [window makeKeyAndVisible];
-    
     
     return YES;
 }
