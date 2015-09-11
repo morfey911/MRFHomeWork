@@ -7,6 +7,7 @@
 //
 
 #import "MRFHolderForSquareView.h"
+#import "UIColor+MRFExtentions.h"
 
 static const NSTimeInterval MRFSquareViewAnimationDuration = 0.6;
 static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
@@ -20,16 +21,16 @@ static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
 @implementation MRFHolderForSquareView
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Accessors
 
 - (void)setSquarePosition:(MRFSquarePositionType)position {
     [self setSquarePosition:position animated:YES];
 }
 
-- (void)setSquarePosition:(MRFSquarePositionType)position
-                 animated:(BOOL)animated
-{
-    [self setSquarePosition:position animated:animated completionHandler:^{}];
+- (void)setSquarePosition:(MRFSquarePositionType)position animated:(BOOL)animated {
+    [self setSquarePosition:position animated:animated completionHandler:^{
+    
+    }];
 }
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
@@ -40,9 +41,10 @@ static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
     
     [UIView animateWithDuration:duration
                           delay:MRFSquareViewAnimationDelay
-                        options:UIViewAnimationOptionBeginFromCurrentState
+                        options:0
                      animations:^{
                          self.squareView.frame = [self frameForSquarePosition:position];
+                         self.squareView.backgroundColor = [UIColor randomColor];
                      }
                      completion:^(BOOL finished) {
                          _squarePosition = position;
@@ -51,11 +53,6 @@ static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
                              handler();
                          }
                      }];
-}
-
-
-- (IBAction)onClickStartButton:(id)sender {
-    self.squarePosition = (self.squarePosition + 1) % MRFSquarePositionCount;
 }
 
 #pragma mark -

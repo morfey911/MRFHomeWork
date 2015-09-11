@@ -21,6 +21,8 @@ typedef NS_ENUM(NSUInteger, MRFSquarePositionType) {
 @property (nonatomic, strong)   IBOutlet    UIButton    *startButton;
 
 @property (nonatomic, assign)    MRFSquarePositionType   squarePosition;
+@property (nonatomic, assign, getter=isMoving) BOOL moving;
+
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated;
@@ -28,7 +30,5 @@ typedef NS_ENUM(NSUInteger, MRFSquarePositionType) {
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated
         completionHandler:(void(^)(void))handler;
-
-- (IBAction)onClickStartButton:(id)sender;
 
 @end
