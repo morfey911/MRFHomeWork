@@ -7,28 +7,12 @@
 //
 
 #import "MRFSquareViewController.h"
-
 #import "MRFSquareViewHolder.h"
+#import "MRFMacros.h"
 
-@interface MRFSquareViewController ()
-@property (nonatomic, readonly) MRFSquareViewHolder  *squareView;
-
-@end
+MRFViewControllerBaseViewProperty(MRFSquareViewController, squareView, MRFSquareViewHolder)
 
 @implementation MRFSquareViewController
-
-@dynamic squareView;
-
-#pragma mark -
-#pragma mark Accessors
-
-- (MRFSquareViewHolder *)squareView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[MRFSquareViewHolder class]]) {
-        return (MRFSquareViewHolder *)self.view;
-    }
-    
-    return nil;
-}
 
 #pragma mark -
 #pragma mark View Lifecycle
