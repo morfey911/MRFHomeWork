@@ -1,5 +1,5 @@
 //
-//  MRFHolderForSquareView.h
+//  MRFSquareViewHolder.h
 //  Objective-C UIKit
 //
 //  Created by Yurii Mamurko on 08.09.15.
@@ -9,18 +9,18 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, MRFSquarePositionType) {
-    MRFTopLeftCorner,
-    MRFTopRightCorner,
-    MRFBottomLeftCorner,
-    MRFBottomRightCorner,
+    MRFTopLeftSquareCorner,
+    MRFTopRightSquareCorner,
+    MRFBottomLeftSquareCorner,
+    MRFBottomRightSquareCorner,
     MRFSquarePositionCount
 };
 
-@interface MRFHolderForSquareView : UIView
+@interface MRFSquareViewHolder : UIView
 @property (nonatomic, strong)   IBOutlet    UIView      *squareView;
-@property (nonatomic, strong)   IBOutlet    UIButton    *startButton;
+@property (nonatomic, strong)   IBOutlet    UIButton    *animateButton;
 
-@property (nonatomic, assign)    MRFSquarePositionType   squarePosition;
+@property (nonatomic, assign)   MRFSquarePositionType   squarePosition;
 @property (nonatomic, assign, getter=isMoving) BOOL moving;
 
 

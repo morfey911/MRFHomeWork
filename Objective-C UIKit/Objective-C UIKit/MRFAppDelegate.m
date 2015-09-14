@@ -8,7 +8,7 @@
 
 #import "MRFAppDelegate.h"
 #import "MRFSquareViewController.h"
-#import "UIWindow+UIWindow_MFRExtentions.h"
+#import "UIWindow+MFRExtentions.h"
 
 @interface MRFAppDelegate ()
 

@@ -8,10 +8,10 @@
 
 #import "MRFSquareViewController.h"
 
-#import "MRFHolderForSquareView.h"
+#import "MRFSquareViewHolder.h"
 
 @interface MRFSquareViewController ()
-@property (nonatomic, readonly) MRFHolderForSquareView  *squareView;
+@property (nonatomic, readonly) MRFSquareViewHolder  *squareView;
 
 @end
 
@@ -22,9 +22,9 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (MRFHolderForSquareView *)squareView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[MRFHolderForSquareView class]]) {
-        return (MRFHolderForSquareView *)self.view;
+- (MRFSquareViewHolder *)squareView {
+    if ([self isViewLoaded] && [self.view isKindOfClass:[MRFSquareViewHolder class]]) {
+        return (MRFSquareViewHolder *)self.view;
     }
     
     return nil;
@@ -41,10 +41,8 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)onClickStartButton:(id)sender {
-    [self changeTitleForButton];
-    
-    self.squareView.moving = self.squareView.moving ? NO : YES;
+- (IBAction)onTapAnimateButton:(id)sender {
+    self.squareView.moving = !self.squareView.moving;
     
     [self moveSquareToRandomPosition];
 }
@@ -52,18 +50,9 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)changeTitleForButton {
-    UIButton *startButton = self.squareView.startButton;
-    
-    self.squareView.moving ?
-        [startButton setTitle:@"Start" forState:UIControlStateNormal] :
-        [startButton setTitle:@"Stop" forState:UIControlStateNormal];
-}
-
 - (void)moveSquareToRandomPosition {
-    MRFSquarePositionType position = (arc4random_uniform(MRFSquarePositionCount));
-    
     if (self.squareView.moving) {
+        MRFSquarePositionType position = (arc4random_uniform(MRFSquarePositionCount));
         [self.squareView setSquarePosition:position animated:YES completionHandler:^{
             [self moveSquareToRandomPosition];
         }];

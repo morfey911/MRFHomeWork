@@ -12,12 +12,13 @@
 		3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B381B9F2FF300632885 /* LaunchScreen.xib */; };
 		3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B3C1B9F2FF300632885 /* Images.xcassets */; };
 		3FE68B4D1B9F300C00632885 /* Objective_C_UIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B4B1B9F300C00632885 /* Objective_C_UIKitTests.m */; };
-		3FE68B5B1B9F4D7B00632885 /* MRFSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B591B9F4D7B00632885 /* MRFSquareViewController.m */; };
-		3FE68B5C1B9F4D7B00632885 /* MRFSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B5A1B9F4D7B00632885 /* MRFSquareViewController.xib */; };
-		3FE68B5F1B9F4E6E00632885 /* MRFHolderForSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B5E1B9F4E6E00632885 /* MRFHolderForSquareView.m */; };
-		3FE68B621BA06F9A00632885 /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B611BA06F9A00632885 /* MRFAppDelegate.m */; };
 		3FE68B661BA2D8DE00632885 /* UIColor+MRFExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B651BA2D8DE00632885 /* UIColor+MRFExtentions.m */; };
 		3FE68B6C1BA2E44F00632885 /* MRFRandomValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B6B1BA2E44F00632885 /* MRFRandomValues.m */; };
+		3FE68B731BA7360F00632885 /* UIWindow+MFRExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B721BA7360F00632885 /* UIWindow+MFRExtentions.m */; };
+		3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B751BA739EB00632885 /* MRFAppDelegate.m */; };
+		3FE68B7D1BA73D4E00632885 /* MRFSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B791BA73D4E00632885 /* MRFSquareViewController.m */; };
+		3FE68B7E1BA73D4E00632885 /* MRFSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */; };
+		3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,17 +41,19 @@
 		3FE68B3C1B9F2FF300632885 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3FE68B4A1B9F300C00632885 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE68B4B1B9F300C00632885 /* Objective_C_UIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Objective_C_UIKitTests.m; sourceTree = "<group>"; };
-		3FE68B581B9F4D7B00632885 /* MRFSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewController.h; sourceTree = "<group>"; };
-		3FE68B591B9F4D7B00632885 /* MRFSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewController.m; sourceTree = "<group>"; };
-		3FE68B5A1B9F4D7B00632885 /* MRFSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFSquareViewController.xib; sourceTree = "<group>"; };
-		3FE68B5D1B9F4E6E00632885 /* MRFHolderForSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFHolderForSquareView.h; sourceTree = "<group>"; };
-		3FE68B5E1B9F4E6E00632885 /* MRFHolderForSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFHolderForSquareView.m; sourceTree = "<group>"; };
-		3FE68B601BA06F9A00632885 /* MRFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAppDelegate.h; sourceTree = "<group>"; };
-		3FE68B611BA06F9A00632885 /* MRFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAppDelegate.m; sourceTree = "<group>"; };
 		3FE68B641BA2D8DE00632885 /* UIColor+MRFExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MRFExtentions.h"; sourceTree = "<group>"; };
 		3FE68B651BA2D8DE00632885 /* UIColor+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MRFExtentions.m"; sourceTree = "<group>"; };
 		3FE68B6A1BA2E44F00632885 /* MRFRandomValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFRandomValues.h; sourceTree = "<group>"; };
 		3FE68B6B1BA2E44F00632885 /* MRFRandomValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFRandomValues.m; sourceTree = "<group>"; };
+		3FE68B711BA7360F00632885 /* UIWindow+MFRExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+MFRExtentions.h"; sourceTree = "<group>"; };
+		3FE68B721BA7360F00632885 /* UIWindow+MFRExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+MFRExtentions.m"; sourceTree = "<group>"; };
+		3FE68B741BA739EB00632885 /* MRFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAppDelegate.h; sourceTree = "<group>"; };
+		3FE68B751BA739EB00632885 /* MRFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAppDelegate.m; sourceTree = "<group>"; };
+		3FE68B781BA73D4E00632885 /* MRFSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewController.h; sourceTree = "<group>"; };
+		3FE68B791BA73D4E00632885 /* MRFSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewController.m; sourceTree = "<group>"; };
+		3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFSquareViewController.xib; sourceTree = "<group>"; };
+		3FE68B7B1BA73D4E00632885 /* MRFSquareViewHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewHolder.h; sourceTree = "<group>"; };
+		3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewHolder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 			children = (
 				3FE68B2E1B9F2FF300632885 /* Info.plist */,
 				3FE68B2F1B9F2FF300632885 /* main.m */,
+				3FE68B741BA739EB00632885 /* MRFAppDelegate.h */,
+				3FE68B751BA739EB00632885 /* MRFAppDelegate.m */,
 			);
 			path = "Objective-C UIKit";
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 		3FE68B3E1B9F2FF300632885 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3FE68B6D1BA567C700632885 /* UIWindow+MFRExtentions */,
 				3FE68B671BA2DC9500632885 /* MRFRandomValues */,
 				3FE68B631BA2D8A800632885 /* UIColor+MRFExtentions */,
 			);
@@ -139,13 +145,7 @@
 		3FE68B401B9F2FF300632885 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3FE68B581B9F4D7B00632885 /* MRFSquareViewController.h */,
-				3FE68B591B9F4D7B00632885 /* MRFSquareViewController.m */,
-				3FE68B5A1B9F4D7B00632885 /* MRFSquareViewController.xib */,
-				3FE68B5D1B9F4E6E00632885 /* MRFHolderForSquareView.h */,
-				3FE68B5E1B9F4E6E00632885 /* MRFHolderForSquareView.m */,
-				3FE68B601BA06F9A00632885 /* MRFAppDelegate.h */,
-				3FE68B611BA06F9A00632885 /* MRFAppDelegate.m */,
+				3FE68B771BA73CF300632885 /* MRFSquareViewController */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -175,6 +175,27 @@
 				3FE68B6B1BA2E44F00632885 /* MRFRandomValues.m */,
 			);
 			path = MRFRandomValues;
+			sourceTree = "<group>";
+		};
+		3FE68B6D1BA567C700632885 /* UIWindow+MFRExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				3FE68B711BA7360F00632885 /* UIWindow+MFRExtentions.h */,
+				3FE68B721BA7360F00632885 /* UIWindow+MFRExtentions.m */,
+			);
+			path = "UIWindow+MFRExtentions";
+			sourceTree = "<group>";
+		};
+		3FE68B771BA73CF300632885 /* MRFSquareViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FE68B781BA73D4E00632885 /* MRFSquareViewController.h */,
+				3FE68B791BA73D4E00632885 /* MRFSquareViewController.m */,
+				3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */,
+				3FE68B7B1BA73D4E00632885 /* MRFSquareViewHolder.h */,
+				3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */,
+			);
+			path = MRFSquareViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */,
-				3FE68B5C1B9F4D7B00632885 /* MRFSquareViewController.xib in Resources */,
+				3FE68B7E1BA73D4E00632885 /* MRFSquareViewController.xib in Resources */,
 				3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */,
 				3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */,
 			);
@@ -280,11 +301,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE68B6C1BA2E44F00632885 /* MRFRandomValues.m in Sources */,
-				3FE68B621BA06F9A00632885 /* MRFAppDelegate.m in Sources */,
-				3FE68B5B1B9F4D7B00632885 /* MRFSquareViewController.m in Sources */,
+				3FE68B7D1BA73D4E00632885 /* MRFSquareViewController.m in Sources */,
 				3FE68B431B9F2FF300632885 /* main.m in Sources */,
 				3FE68B661BA2D8DE00632885 /* UIColor+MRFExtentions.m in Sources */,
-				3FE68B5F1B9F4E6E00632885 /* MRFHolderForSquareView.m in Sources */,
+				3FE68B731BA7360F00632885 /* UIWindow+MFRExtentions.m in Sources */,
+				3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */,
+				3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +497,7 @@
 				3FE68B261B9F2D1000632885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FE68B271B9F2D1000632885 /* Build configuration list for PBXNativeTarget "Objective-C UIKitTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +506,7 @@
 				3FE68B291B9F2D1000632885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
