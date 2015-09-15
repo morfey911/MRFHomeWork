@@ -7,9 +7,9 @@
 //
 
 #import "MRFSquareViewHolder.h"
-#import "UIColor+MRFExtentions.h"
+#import "MRFMacro.h"
 
-static const NSTimeInterval MRFSquareViewAnimationDuration = 0.6;
+static const NSTimeInterval MRFSquareViewAnimationDuration = 0.4;
 static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
 static NSString *MRFAnimateButtonNotMovedTitle = @"Start";
 static NSString *MRFAnimateButtonMovedTitle = @"Stop";
@@ -26,15 +26,8 @@ static NSString *MRFAnimateButtonMovedTitle = @"Stop";
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setMoving:(BOOL)moving {
-    if (_moving != moving) {
-        [self changeTitleForAnimateButton];
-        _moving = moving;
-    }
-}
-
 - (void)setSquarePosition:(MRFSquarePositionType)position {
-    [self setSquarePosition:position animated:YES];
+    [self setSquarePosition:position animated:NO];
 }
 
 - (void)setSquarePosition:(MRFSquarePositionType)position animated:(BOOL)animated {
@@ -45,15 +38,13 @@ static NSString *MRFAnimateButtonMovedTitle = @"Stop";
                  animated:(BOOL)animated
         completionHandler:(void(^)(void))handler
 {
-    UIView *squareView = self.squareView;
     NSTimeInterval duration = animated ? MRFSquareViewAnimationDuration : 0;
     
     [UIView animateWithDuration:duration
                           delay:MRFSquareViewAnimationDelay
-                        options:0
+                        options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         squareView.frame = [self frameForSquarePosition:position];
-                         squareView.backgroundColor = [UIColor randomColor];
+                         self.squareView.frame = [self frameForSquarePosition:position];
                      }
                      completion:^(BOOL finished) {
                          _squarePosition = position;
@@ -65,14 +56,29 @@ static NSString *MRFAnimateButtonMovedTitle = @"Stop";
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (void)moveSquareToRandomPosition {
+    [self changeTitleForAnimateButton];
+    
+    if (self.moving) {
+        MRFSquarePositionType position = (arc4random_uniform(MRFSquarePositionCount));
+        MRFWeakify(self);
+        
+        [self setSquarePosition:position animated:YES completionHandler:^{
+            MRFStrongify(self);
+            [self moveSquareToRandomPosition];
+        }];
+    }
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (void)changeTitleForAnimateButton {
-    UIButton *animateButton = self.animateButton;
+    NSString *title = self.moving ? MRFAnimateButtonMovedTitle : MRFAnimateButtonNotMovedTitle;
     
-    self.moving ?
-    [animateButton setTitle:MRFAnimateButtonNotMovedTitle forState:UIControlStateNormal] :
-    [animateButton setTitle:MRFAnimateButtonMovedTitle forState:UIControlStateNormal];
+    [self.animateButton setTitle:title forState:UIControlStateNormal];
 }
 
 - (CGRect)frameForSquarePosition:(MRFSquarePositionType)squarePosition {
@@ -80,9 +86,8 @@ static NSString *MRFAnimateButtonMovedTitle = @"Stop";
     CGRect superviewBounds = self.superview.bounds;
     CGPoint point = CGPointZero;
     
-    CGPoint max = CGPointZero;
-    max.x = CGRectGetWidth(superviewBounds) - CGRectGetWidth(result);
-    max.y = CGRectGetHeight(superviewBounds) - CGRectGetHeight(result);
+    CGPoint max = CGPointMake(CGRectGetWidth(superviewBounds) - CGRectGetWidth(result),
+                              CGRectGetHeight(superviewBounds) - CGRectGetHeight(result));
     
     switch (squarePosition) {
         case MRFTopRightSquareCorner:

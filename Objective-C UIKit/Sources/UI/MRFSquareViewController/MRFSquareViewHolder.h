@@ -24,11 +24,13 @@ typedef NS_ENUM(NSUInteger, MRFSquarePositionType) {
 @property (nonatomic, assign, getter=isMoving) BOOL moving;
 
 
-- (void)setSquarePosition:(MRFSquarePositionType)position
-                 animated:(BOOL)animated;
+- (void)setSquarePosition:(MRFSquarePositionType)position animated:(BOOL)animated;
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated
         completionHandler:(void(^)(void))handler;
+
+
+- (void)moveSquareToRandomPosition;
 
 @end
