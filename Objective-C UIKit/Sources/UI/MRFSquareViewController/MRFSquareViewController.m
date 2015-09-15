@@ -8,11 +8,20 @@
 
 #import "MRFSquareViewController.h"
 #import "MRFSquareViewHolder.h"
-#import "MRFMacros.h"
+#import "MRFMacro.h"
 
 MRFViewControllerBaseViewProperty(MRFSquareViewController, squareView, MRFSquareViewHolder)
 
 @implementation MRFSquareViewController
+
+#pragma mark -
+#pragma mark Public
+
+- (IBAction)onAnimateButton:(id)sender {
+    self.squareView.moving = !self.squareView.moving;
+    
+    [self.squareView moveSquareToRandomPosition];
+}
 
 #pragma mark -
 #pragma mark View Lifecycle
@@ -23,24 +32,6 @@ MRFViewControllerBaseViewProperty(MRFSquareViewController, squareView, MRFSquare
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (IBAction)onTapAnimateButton:(id)sender {
-    self.squareView.moving = !self.squareView.moving;
-    
-    [self moveSquareToRandomPosition];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)moveSquareToRandomPosition {
-    if (self.squareView.moving) {
-        MRFSquarePositionType position = (arc4random_uniform(MRFSquarePositionCount));
-        [self.squareView setSquarePosition:position animated:YES completionHandler:^{
-            [self moveSquareToRandomPosition];
-        }];
-    }
 }
 
 @end

@@ -10,6 +10,9 @@
 
 @implementation UIWindow (MFRExtentions)
 
+#pragma mark -
+#pragma mark Class methods
+
 + (instancetype)window {
     return [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 }

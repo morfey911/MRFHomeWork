@@ -19,15 +19,24 @@
     }
 
 #define MRFViewControllerBaseViewProperty(viewControllerClass, propertyName, baseViewClass) \
-    @interface viewControllerClass (__MRFPrivateBaseView) \
+    @interface viewControllerClass (__MRFPrivateBaseView__##baseViewClass) \
     MRFDefineBaseViewProperty(propertyName, baseViewClass) \
     \
     @end \
     \
-    @implementation viewControllerClass (__MRFPrivateBaseView) \
+    @implementation viewControllerClass (__MRFPrivateBaseView__##baseViewClass) \
     \
     @dynamic propertyName; \
     \
     MRFBaseViewGetterSynthesize(propertyName, baseViewClass) \
     \
     @end
+
+
+
+#define MRFWeakify(object) \
+    __weak __typeof(object) __MRFWeak_##object = object
+
+//use ONLY after MRFWeakify macros!!!11
+#define MRFStrongify(object) \
+    __strong __typeof(object) object = __MRFWeak_##object \

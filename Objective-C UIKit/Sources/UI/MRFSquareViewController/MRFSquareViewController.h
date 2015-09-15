@@ -10,6 +10,6 @@
 
 @interface MRFSquareViewController : UIViewController
 
-- (IBAction)onTapAnimateButton:(id)sender;
+- (IBAction)onAnimateButton:(id)sender;
 
 @end

@@ -35,7 +35,7 @@
 		3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFSquareViewController.xib; sourceTree = "<group>"; };
 		3FE68B7B1BA73D4E00632885 /* MRFSquareViewHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewHolder.h; sourceTree = "<group>"; };
 		3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewHolder.m; sourceTree = "<group>"; };
-		3FE68B811BA74B1000632885 /* MRFMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFMacros.h; sourceTree = "<group>"; };
+		3FE68B811BA74B1000632885 /* MRFMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFMacro.h; sourceTree = "<group>"; };
 		3FE68B831BA88FE400632885 /* UIViewController+MRFExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MRFExtentions.h"; sourceTree = "<group>"; };
 		3FE68B841BA88FE400632885 /* UIViewController+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MRFExtentions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				3FE68B821BA88FB200632885 /* UIViewController+MRFExtentions */,
-				3FE68B801BA74A8C00632885 /* MRFMacros */,
 				3FE68B6D1BA567C700632885 /* UIWindow+MFRExtentions */,
+				3FE68B811BA74B1000632885 /* MRFMacro.h */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -144,14 +144,6 @@
 				3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */,
 			);
 			path = MRFSquareViewController;
-			sourceTree = "<group>";
-		};
-		3FE68B801BA74A8C00632885 /* MRFMacros */ = {
-			isa = PBXGroup;
-			children = (
-				3FE68B811BA74B1000632885 /* MRFMacros.h */,
-			);
-			path = MRFMacros;
 			sourceTree = "<group>";
 		};
 		3FE68B821BA88FB200632885 /* UIViewController+MRFExtentions */ = {
