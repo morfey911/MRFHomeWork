@@ -8,7 +8,7 @@
 
 #import "MRFSquareViewController.h"
 #import "MRFSquareViewHolder.h"
-#import "MRFMacro.h"
+#import "MRFMacros.h"
 
 MRFViewControllerBaseViewProperty(MRFSquareViewController, squareView, MRFSquareViewHolder)
 

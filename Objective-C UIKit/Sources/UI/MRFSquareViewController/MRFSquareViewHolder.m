@@ -7,12 +7,12 @@
 //
 
 #import "MRFSquareViewHolder.h"
-#import "MRFMacro.h"
+#import "MRFMacros.h"
 
-static const NSTimeInterval MRFSquareViewAnimationDuration = 0.4;
-static const NSTimeInterval MRFSquareViewAnimationDelay = 0;
-static NSString *MRFAnimateButtonNotMovedTitle = @"Start";
-static NSString *MRFAnimateButtonMovedTitle = @"Stop";
+static const NSTimeInterval kMRFSquareViewAnimationDuration = 0.4;
+static const NSTimeInterval kMRFSquareViewAnimationDelay = 0;
+static NSString *kMRFAnimateButtonNotMovedTitle = @"Start";
+static NSString *kMRFAnimateButtonMovedTitle = @"Stop";
 
 @interface MRFSquareViewHolder ()
 
@@ -38,10 +38,10 @@ static NSString *MRFAnimateButtonMovedTitle = @"Stop";
                  animated:(BOOL)animated
         completionHandler:(void(^)(void))handler
 {
-    NSTimeInterval duration = animated ? MRFSquareViewAnimationDuration : 0;
+    NSTimeInterval duration = animated ? kMRFSquareViewAnimationDuration : 0;
     
     [UIView animateWithDuration:duration
-                          delay:MRFSquareViewAnimationDelay
+                          delay:kMRFSquareViewAnimationDelay
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.squareView.frame = [self frameForSquarePosition:position];
@@ -76,7 +76,7 @@ static NSString *MRFAnimateButtonMovedTitle = @"Stop";
 #pragma mark Private
 
 - (void)changeTitleForAnimateButton {
-    NSString *title = self.moving ? MRFAnimateButtonMovedTitle : MRFAnimateButtonNotMovedTitle;
+    NSString *title = self.moving ? kMRFAnimateButtonMovedTitle : kMRFAnimateButtonNotMovedTitle;
     
     [self.animateButton setTitle:title forState:UIControlStateNormal];
 }
