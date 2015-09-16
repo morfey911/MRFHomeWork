@@ -19,12 +19,12 @@
     }
 
 #define MRFViewControllerBaseViewProperty(viewControllerClass, propertyName, baseViewClass) \
-    @interface viewControllerClass (__MRFPrivateBaseView__##baseViewClass) \
+    @interface viewControllerClass (__##baseViewClass##__##propertyName) \
     MRFDefineBaseViewProperty(propertyName, baseViewClass) \
     \
     @end \
     \
-    @implementation viewControllerClass (__MRFPrivateBaseView__##baseViewClass) \
+    @implementation viewControllerClass (__##baseViewClass##__##propertyName) \
     \
     @dynamic propertyName; \
     \
