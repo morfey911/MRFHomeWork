@@ -14,7 +14,11 @@
 #pragma mark Class methods
 
 + (instancetype)controller {
-    return [[self alloc] initWithNibName:NSStringFromClass([self class]) bundle:nil];
+    return [[self alloc] initWithNibName:[self nibName] bundle:nil];
+}
+
++ (NSString *)nibName {
+    return nil;
 }
 
 @end
