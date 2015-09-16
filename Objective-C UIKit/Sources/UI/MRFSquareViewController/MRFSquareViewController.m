@@ -18,9 +18,7 @@ MRFViewControllerBaseViewProperty(MRFSquareViewController, squareView, MRFSquare
 #pragma mark Public
 
 - (IBAction)onAnimateButton:(id)sender {
-    self.squareView.moving = !self.squareView.moving;
-    
-    [self.squareView moveSquareToRandomPosition];
+    self.squareView.animating = !self.squareView.animating;
 }
 
 #pragma mark -

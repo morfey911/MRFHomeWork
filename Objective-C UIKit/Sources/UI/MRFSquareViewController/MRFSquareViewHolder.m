@@ -10,12 +10,15 @@
 #import "MRFMacros.h"
 
 static const NSTimeInterval kMRFSquareViewAnimationDuration = 0.4;
-static const NSTimeInterval kMRFSquareViewAnimationDelay = 0;
-static NSString *kMRFAnimateButtonNotMovedTitle = @"Start";
-static NSString *kMRFAnimateButtonMovedTitle = @"Stop";
+static const NSTimeInterval kMRFSquareViewAnimationDelay    = 0;
+static NSString * const kMRFAnimateButtonNotMovedTitle      = @"Start";
+static NSString * const kMRFAnimateButtonMovedTitle         = @"Stop";
 
 @interface MRFSquareViewHolder ()
+@property (nonatomic, assign)   BOOL    animationInProcess;
 
+- (MRFSquarePositionType)randomPositionForSquare;
+- (void)prepareForAnimate;
 - (void)changeTitleForAnimateButton;
 - (CGRect)frameForSquarePosition:(MRFSquarePositionType)squarePosition;
 
@@ -25,6 +28,14 @@ static NSString *kMRFAnimateButtonMovedTitle = @"Stop";
 
 #pragma mark -
 #pragma mark Accessors
+
+- (void)setAnimating:(BOOL)animating {
+    if (_animating != animating) {
+        _animating = animating;
+        
+        [self prepareForAnimate];
+    }
+}
 
 - (void)setSquarePosition:(MRFSquarePositionType)position {
     [self setSquarePosition:position animated:NO];
@@ -36,7 +47,7 @@ static NSString *kMRFAnimateButtonMovedTitle = @"Stop";
 
 - (void)setSquarePosition:(MRFSquarePositionType)position
                  animated:(BOOL)animated
-        completionHandler:(void(^)(void))handler
+        completionHandler:(void(^)(BOOL finished))handler
 {
     NSTimeInterval duration = animated ? kMRFSquareViewAnimationDuration : 0;
     
@@ -50,33 +61,44 @@ static NSString *kMRFAnimateButtonMovedTitle = @"Stop";
                          _squarePosition = position;
                          
                          if (handler) {
-                             handler();
+                             handler(finished);
                          }
                      }];
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Private
 
-- (void)moveSquareToRandomPosition {
+- (MRFSquarePositionType)randomPositionForSquare {
+    return arc4random_uniform(MRFSquarePositionCount);
+}
+
+- (void)prepareForAnimate {
     [self changeTitleForAnimateButton];
     
-    if (self.moving) {
-        MRFSquarePositionType position = (arc4random_uniform(MRFSquarePositionCount));
+    if (self.animating) {
+        [self animateSquare];
+    }
+}
+
+- (void)animateSquare {
+    if (self.animating && !self.animationInProcess) {
+        MRFSquarePositionType position = [self randomPositionForSquare];
+        self.animationInProcess = YES;
         MRFWeakify(self);
         
-        [self setSquarePosition:position animated:YES completionHandler:^{
+        [self setSquarePosition:position animated:YES completionHandler:^(BOOL finished){
             MRFStrongify(self);
-            [self moveSquareToRandomPosition];
+            if (self && finished) {
+                self.animationInProcess = NO;
+                [self animateSquare];
+            }
         }];
     }
 }
 
-#pragma mark -
-#pragma mark Private
-
 - (void)changeTitleForAnimateButton {
-    NSString *title = self.moving ? kMRFAnimateButtonMovedTitle : kMRFAnimateButtonNotMovedTitle;
+    NSString *title = self.animating ? kMRFAnimateButtonMovedTitle : kMRFAnimateButtonNotMovedTitle;
     
     [self.animateButton setTitle:title forState:UIControlStateNormal];
 }
@@ -85,7 +107,6 @@ static NSString *kMRFAnimateButtonMovedTitle = @"Stop";
     CGRect result = self.squareView.frame;
     CGRect superviewBounds = self.superview.bounds;
     CGPoint point = CGPointZero;
-    
     CGPoint max = CGPointMake(CGRectGetWidth(superviewBounds) - CGRectGetWidth(result),
                               CGRectGetHeight(superviewBounds) - CGRectGetHeight(result));
     
