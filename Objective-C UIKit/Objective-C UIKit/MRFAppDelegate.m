@@ -8,6 +8,7 @@
 
 #import "MRFAppDelegate.h"
 #import "MRFSquareViewController.h"
+#import "MRFInfoViewController.h"
 #import "UIWindow+MFRExtentions.h"
 #import "UIViewController+MRFExtentions.h"
 
@@ -22,7 +23,8 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    window.rootViewController = [MRFSquareViewController controller];
+//    window.rootViewController = [MRFSquareViewController controller];
+    window.rootViewController = [MRFInfoViewController controller];
     
     [window makeKeyAndVisible];
     
