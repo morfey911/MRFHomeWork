@@ -18,7 +18,8 @@ MRFViewControllerBaseViewProperty(MRFSquareViewController, squareView, MRFSquare
 #pragma mark Public
 
 - (IBAction)onAnimateButton:(id)sender {
-    self.squareView.animating = !self.squareView.animating;
+    MRFSquareViewHolder *squareView = self.squareView;
+    squareView.animating = !squareView.animating;
 }
 
 #pragma mark -

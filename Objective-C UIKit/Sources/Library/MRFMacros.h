@@ -40,3 +40,11 @@
 //use ONLY after MRFWeakify macros!!!11
 #define MRFStrongify(object) \
     __strong __typeof(object) object = __MRFWeak_##object \
+
+//use ONLY after MRFWeakify macros!!!11
+#define MRFStrongifyAndReturnIfNil(object) \
+    MRFStrongify(object); \
+    if (!object) { \
+        return; \
+    } \
+

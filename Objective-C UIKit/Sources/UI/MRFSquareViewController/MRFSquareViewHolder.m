@@ -9,16 +9,15 @@
 #import "MRFSquareViewHolder.h"
 #import "MRFMacros.h"
 
-static const NSTimeInterval kMRFSquareViewAnimationDuration = 0.4;
+static const NSTimeInterval kMRFSquareViewAnimationDuration = 0.5;
 static const NSTimeInterval kMRFSquareViewAnimationDelay    = 0;
 static NSString * const kMRFAnimateButtonNotMovedTitle      = @"Start";
 static NSString * const kMRFAnimateButtonMovedTitle         = @"Stop";
 
 @interface MRFSquareViewHolder ()
-@property (nonatomic, assign)   BOOL    animationInProcess;
+@property (nonatomic, assign)   BOOL    animationInProgress;
 
-- (MRFSquarePositionType)randomPositionForSquare;
-- (void)prepareForAnimate;
+- (MRFSquarePositionType)nextPositionForSquare;
 - (void)changeTitleForAnimateButton;
 - (CGRect)frameForSquarePosition:(MRFSquarePositionType)squarePosition;
 
@@ -33,8 +32,16 @@ static NSString * const kMRFAnimateButtonMovedTitle         = @"Stop";
     if (_animating != animating) {
         _animating = animating;
         
-        [self prepareForAnimate];
+        [self animateSquare];
     }
+}
+
+- (void)setAnimationInProgress:(BOOL)animationInProgress {
+    if (_animationInProgress != animationInProgress) {
+        _animationInProgress = animationInProgress;
+    }
+    
+    [self changeTitleForAnimateButton];
 }
 
 - (void)setSquarePosition:(MRFSquarePositionType)position {
@@ -69,28 +76,20 @@ static NSString * const kMRFAnimateButtonMovedTitle         = @"Stop";
 #pragma mark -
 #pragma mark Private
 
-- (MRFSquarePositionType)randomPositionForSquare {
+- (MRFSquarePositionType)nextPositionForSquare {
     return arc4random_uniform(MRFSquarePositionCount);
 }
 
-- (void)prepareForAnimate {
-    [self changeTitleForAnimateButton];
-    
-    if (self.animating) {
-        [self animateSquare];
-    }
-}
-
 - (void)animateSquare {
-    if (self.animating && !self.animationInProcess) {
-        MRFSquarePositionType position = [self randomPositionForSquare];
-        self.animationInProcess = YES;
+    if (self.animating && !self.animationInProgress) {
+        MRFSquarePositionType position = [self nextPositionForSquare];
+        self.animationInProgress = YES;
         MRFWeakify(self);
         
         [self setSquarePosition:position animated:YES completionHandler:^(BOOL finished){
-            MRFStrongify(self);
-            if (self && finished) {
-                self.animationInProcess = NO;
+            MRFStrongifyAndReturnIfNil(self);
+            if (finished) {
+                self.animationInProgress = NO;
                 [self animateSquare];
             }
         }];
