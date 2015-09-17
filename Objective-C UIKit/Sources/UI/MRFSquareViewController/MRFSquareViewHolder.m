@@ -39,9 +39,9 @@ static NSString * const kMRFAnimateButtonMovedTitle         = @"Stop";
 - (void)setAnimationInProgress:(BOOL)animationInProgress {
     if (_animationInProgress != animationInProgress) {
         _animationInProgress = animationInProgress;
+        
+        [self changeTitleForAnimateButton];
     }
-    
-    [self changeTitleForAnimateButton];
 }
 
 - (void)setSquarePosition:(MRFSquarePositionType)position {
