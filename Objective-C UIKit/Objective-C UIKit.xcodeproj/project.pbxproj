@@ -24,6 +24,7 @@
 		3F2B211B1BAC181200B83FB9 /* MRFAlphabetWithStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B210C1BAC181200B83FB9 /* MRFAlphabetWithStrings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3F2B211C1BAC181200B83FB9 /* MRFObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B210F1BAC181200B83FB9 /* MRFObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3F2B211D1BAC181200B83FB9 /* MRFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21121BAC181200B83FB9 /* MRFTableViewCell.m */; };
+		3F2B21201BAC379000B83FB9 /* Kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2B211F1BAC379000B83FB9 /* Kappa.png */; };
 		3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */; };
 		3FE68B431B9F2FF300632885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B2F1B9F2FF300632885 /* main.m */; };
 		3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B381B9F2FF300632885 /* LaunchScreen.xib */; };
@@ -68,6 +69,7 @@
 		3F2B21111BAC181200B83FB9 /* MRFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFTableViewCell.h; sourceTree = "<group>"; };
 		3F2B21121BAC181200B83FB9 /* MRFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFTableViewCell.m; sourceTree = "<group>"; };
 		3F2B21131BAC181200B83FB9 /* MRFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFMacros.h; sourceTree = "<group>"; };
+		3F2B211F1BAC379000B83FB9 /* Kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kappa.png; sourceTree = "<group>"; };
 		3FE68B011B9F2D1000632885 /* Objective-C UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-C UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
 		3FE68B2E1B9F2FF300632885 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -259,6 +261,14 @@
 			path = MRFTableViewCell;
 			sourceTree = "<group>";
 		};
+		3F2B211E1BAC366500B83FB9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B211F1BAC379000B83FB9 /* Kappa.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		3FE68AF81B9F2D1000632885 = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +302,7 @@
 		3FE68B371B9F2FF300632885 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F2B211E1BAC366500B83FB9 /* Images */,
 				3FE68B381B9F2FF300632885 /* LaunchScreen.xib */,
 				3FE68B3C1B9F2FF300632885 /* Images.xcassets */,
 			);
@@ -396,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2B21201BAC379000B83FB9 /* Kappa.png in Resources */,
 				3F2B20A51BAB559E00B83FB9 /* MRFInfoViewController.xib in Resources */,
 				3F2B20C11BABFC2300B83FB9 /* MRFInfoCell.xib in Resources */,
 				3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */,
