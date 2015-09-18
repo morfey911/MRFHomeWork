@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface MRFInfoModel : NSObject
+@property (nonatomic, copy)         NSString    *string;
+@property (nonatomic, readonly)     UIImage     *image;
 
 @end
