@@ -10,4 +10,23 @@
 
 @implementation MRFInfoCell
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setInfo:(MRFInfoModel *)info {
+    if (_info != info) {
+        _info = info;
+        
+        [self fillWithModel:info];
+    }
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)fillWithModel:(MRFInfoModel *)model {
+    self.stringLabel.text = model.string;
+    self.infoImageView.image = model.image;
+}
+
 @end

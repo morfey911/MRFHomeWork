@@ -7,11 +7,14 @@
 //
 
 #import "MRFTableViewCell.h"
+#import "MRFInfoModel.h"
 
 @interface MRFInfoCell : MRFTableViewCell
-@property (nonatomic, strong)   IBOutlet    UIImageView *image;
+@property (nonatomic, strong)   IBOutlet    UIImageView *infoImageView;
 @property (nonatomic, strong)   IBOutlet    UILabel     *stringLabel;
 
+@property (nonatomic, strong)   MRFInfoModel    *info;
 
+- (void)fillWithModel:(MRFInfoModel *)model;
 
 @end
