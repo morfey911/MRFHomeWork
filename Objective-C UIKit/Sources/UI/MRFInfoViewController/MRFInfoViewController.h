@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MRFInfoModel;
+
 @interface MRFInfoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong)   MRFInfoModel    *info;
 
 - (IBAction)onAddButton:(id)sender;
 - (IBAction)onRemoveButton:(id)sender;
