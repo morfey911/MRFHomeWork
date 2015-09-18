@@ -10,16 +10,17 @@
 		3F2B20A41BAB559E00B83FB9 /* MRFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20A21BAB559E00B83FB9 /* MRFInfoViewController.m */; };
 		3F2B20A51BAB559E00B83FB9 /* MRFInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2B20A31BAB559E00B83FB9 /* MRFInfoViewController.xib */; };
 		3F2B20A81BAB55DF00B83FB9 /* MRFInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20A71BAB55DF00B83FB9 /* MRFInfoView.m */; };
+		3F2B20B61BABF87500B83FB9 /* UIViewController+MRFExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20B01BABF87500B83FB9 /* UIViewController+MRFExtentions.m */; };
+		3F2B20B71BABF87500B83FB9 /* UIWindow+MFRExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20B31BABF87500B83FB9 /* UIWindow+MFRExtentions.m */; };
+		3F2B20BB1BABFA1400B83FB9 /* MRFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20BA1BABFA1400B83FB9 /* MRFTableViewCell.m */; };
 		3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */; };
 		3FE68B431B9F2FF300632885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B2F1B9F2FF300632885 /* main.m */; };
 		3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B381B9F2FF300632885 /* LaunchScreen.xib */; };
 		3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B3C1B9F2FF300632885 /* Images.xcassets */; };
-		3FE68B731BA7360F00632885 /* UIWindow+MFRExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B721BA7360F00632885 /* UIWindow+MFRExtentions.m */; };
 		3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B751BA739EB00632885 /* MRFAppDelegate.m */; };
 		3FE68B7D1BA73D4E00632885 /* MRFSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B791BA73D4E00632885 /* MRFSquareViewController.m */; };
 		3FE68B7E1BA73D4E00632885 /* MRFSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */; };
 		3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */; };
-		3FE68B851BA88FE400632885 /* UIViewController+MRFExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B841BA88FE400632885 /* UIViewController+MRFExtentions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,14 +29,19 @@
 		3F2B20A31BAB559E00B83FB9 /* MRFInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFInfoViewController.xib; sourceTree = "<group>"; };
 		3F2B20A61BAB55DF00B83FB9 /* MRFInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFInfoView.h; sourceTree = "<group>"; };
 		3F2B20A71BAB55DF00B83FB9 /* MRFInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoView.m; sourceTree = "<group>"; };
+		3F2B20AF1BABF87500B83FB9 /* UIViewController+MRFExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MRFExtentions.h"; sourceTree = "<group>"; };
+		3F2B20B01BABF87500B83FB9 /* UIViewController+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MRFExtentions.m"; sourceTree = "<group>"; };
+		3F2B20B21BABF87500B83FB9 /* UIWindow+MFRExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+MFRExtentions.h"; sourceTree = "<group>"; };
+		3F2B20B31BABF87500B83FB9 /* UIWindow+MFRExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+MFRExtentions.m"; sourceTree = "<group>"; };
+		3F2B20B51BABF87500B83FB9 /* MRFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFMacros.h; sourceTree = "<group>"; };
+		3F2B20B91BABFA1400B83FB9 /* MRFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFTableViewCell.h; sourceTree = "<group>"; };
+		3F2B20BA1BABFA1400B83FB9 /* MRFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFTableViewCell.m; sourceTree = "<group>"; };
 		3FE68B011B9F2D1000632885 /* Objective-C UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-C UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
 		3FE68B2E1B9F2FF300632885 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE68B2F1B9F2FF300632885 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FE68B391B9F2FF300632885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3FE68B3C1B9F2FF300632885 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3FE68B711BA7360F00632885 /* UIWindow+MFRExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+MFRExtentions.h"; sourceTree = "<group>"; };
-		3FE68B721BA7360F00632885 /* UIWindow+MFRExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+MFRExtentions.m"; sourceTree = "<group>"; };
 		3FE68B741BA739EB00632885 /* MRFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAppDelegate.h; sourceTree = "<group>"; };
 		3FE68B751BA739EB00632885 /* MRFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAppDelegate.m; sourceTree = "<group>"; };
 		3FE68B781BA73D4E00632885 /* MRFSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewController.h; sourceTree = "<group>"; };
@@ -43,9 +49,6 @@
 		3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFSquareViewController.xib; sourceTree = "<group>"; };
 		3FE68B7B1BA73D4E00632885 /* MRFSquareViewHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewHolder.h; sourceTree = "<group>"; };
 		3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewHolder.m; sourceTree = "<group>"; };
-		3FE68B811BA74B1000632885 /* MRFMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFMacros.h; sourceTree = "<group>"; };
-		3FE68B831BA88FE400632885 /* UIViewController+MRFExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MRFExtentions.h"; sourceTree = "<group>"; };
-		3FE68B841BA88FE400632885 /* UIViewController+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MRFExtentions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,60 @@
 				3F2B20A71BAB55DF00B83FB9 /* MRFInfoView.m */,
 			);
 			path = MRFInfoViewController;
+			sourceTree = "<group>";
+		};
+		3F2B20AC1BABF87500B83FB9 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20AD1BABF87500B83FB9 /* Categories */,
+				3F2B20B41BABF87500B83FB9 /* Classes */,
+				3F2B20B51BABF87500B83FB9 /* MRFMacros.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		3F2B20AD1BABF87500B83FB9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20AE1BABF87500B83FB9 /* UIViewController+MRFExtentions */,
+				3F2B20B11BABF87500B83FB9 /* UIWindow+MFRExtentions */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		3F2B20AE1BABF87500B83FB9 /* UIViewController+MRFExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20AF1BABF87500B83FB9 /* UIViewController+MRFExtentions.h */,
+				3F2B20B01BABF87500B83FB9 /* UIViewController+MRFExtentions.m */,
+			);
+			path = "UIViewController+MRFExtentions";
+			sourceTree = "<group>";
+		};
+		3F2B20B11BABF87500B83FB9 /* UIWindow+MFRExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20B21BABF87500B83FB9 /* UIWindow+MFRExtentions.h */,
+				3F2B20B31BABF87500B83FB9 /* UIWindow+MFRExtentions.m */,
+			);
+			path = "UIWindow+MFRExtentions";
+			sourceTree = "<group>";
+		};
+		3F2B20B41BABF87500B83FB9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20B81BABF9DC00B83FB9 /* MRFTableViewCell */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3F2B20B81BABF9DC00B83FB9 /* MRFTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20B91BABFA1400B83FB9 /* MRFTableViewCell.h */,
+				3F2B20BA1BABFA1400B83FB9 /* MRFTableViewCell.m */,
+			);
+			path = MRFTableViewCell;
 			sourceTree = "<group>";
 		};
 		3FE68AF81B9F2D1000632885 = {
@@ -113,21 +170,11 @@
 		3FE68B3D1B9F2FF300632885 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3FE68B3E1B9F2FF300632885 /* Library */,
+				3F2B20AC1BABF87500B83FB9 /* Library */,
 				3FE68B3F1B9F2FF300632885 /* Models */,
 				3FE68B401B9F2FF300632885 /* UI */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		3FE68B3E1B9F2FF300632885 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				3FE68B821BA88FB200632885 /* UIViewController+MRFExtentions */,
-				3FE68B6D1BA567C700632885 /* UIWindow+MFRExtentions */,
-				3FE68B811BA74B1000632885 /* MRFMacros.h */,
-			);
-			path = Library;
 			sourceTree = "<group>";
 		};
 		3FE68B3F1B9F2FF300632885 /* Models */ = {
@@ -146,15 +193,6 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		3FE68B6D1BA567C700632885 /* UIWindow+MFRExtentions */ = {
-			isa = PBXGroup;
-			children = (
-				3FE68B711BA7360F00632885 /* UIWindow+MFRExtentions.h */,
-				3FE68B721BA7360F00632885 /* UIWindow+MFRExtentions.m */,
-			);
-			path = "UIWindow+MFRExtentions";
-			sourceTree = "<group>";
-		};
 		3FE68B771BA73CF300632885 /* MRFSquareViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,15 +203,6 @@
 				3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */,
 			);
 			path = MRFSquareViewController;
-			sourceTree = "<group>";
-		};
-		3FE68B821BA88FB200632885 /* UIViewController+MRFExtentions */ = {
-			isa = PBXGroup;
-			children = (
-				3FE68B831BA88FE400632885 /* UIViewController+MRFExtentions.h */,
-				3FE68B841BA88FE400632885 /* UIViewController+MRFExtentions.m */,
-			);
-			path = "UIViewController+MRFExtentions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,14 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2B20B61BABF87500B83FB9 /* UIViewController+MRFExtentions.m in Sources */,
 				3FE68B7D1BA73D4E00632885 /* MRFSquareViewController.m in Sources */,
-				3FE68B851BA88FE400632885 /* UIViewController+MRFExtentions.m in Sources */,
+				3F2B20B71BABF87500B83FB9 /* UIWindow+MFRExtentions.m in Sources */,
 				3F2B20A41BAB559E00B83FB9 /* MRFInfoViewController.m in Sources */,
 				3FE68B431B9F2FF300632885 /* main.m in Sources */,
 				3F2B20A81BAB55DF00B83FB9 /* MRFInfoView.m in Sources */,
-				3FE68B731BA7360F00632885 /* UIWindow+MFRExtentions.m in Sources */,
 				3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */,
 				3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */,
+				3F2B20BB1BABFA1400B83FB9 /* MRFTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
