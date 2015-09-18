@@ -15,6 +15,8 @@
 		3F2B20BB1BABFA1400B83FB9 /* MRFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20BA1BABFA1400B83FB9 /* MRFTableViewCell.m */; };
 		3F2B20BF1BABFC0200B83FB9 /* MRFInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20BE1BABFC0200B83FB9 /* MRFInfoCell.m */; };
 		3F2B20C11BABFC2300B83FB9 /* MRFInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2B20C01BABFC2300B83FB9 /* MRFInfoCell.xib */; };
+		3F2B20C51BAC107000B83FB9 /* MRFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */; };
+		3F2B20C91BAC117700B83FB9 /* MRFArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20C81BAC117700B83FB9 /* MRFArrayModel.m */; };
 		3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */; };
 		3FE68B431B9F2FF300632885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B2F1B9F2FF300632885 /* main.m */; };
 		3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B381B9F2FF300632885 /* LaunchScreen.xib */; };
@@ -41,6 +43,10 @@
 		3F2B20BD1BABFC0200B83FB9 /* MRFInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFInfoCell.h; sourceTree = "<group>"; };
 		3F2B20BE1BABFC0200B83FB9 /* MRFInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoCell.m; sourceTree = "<group>"; };
 		3F2B20C01BABFC2300B83FB9 /* MRFInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFInfoCell.xib; sourceTree = "<group>"; };
+		3F2B20C31BAC107000B83FB9 /* MRFInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFInfoModel.h; sourceTree = "<group>"; };
+		3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoModel.m; sourceTree = "<group>"; };
+		3F2B20C71BAC117700B83FB9 /* MRFArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArrayModel.h; sourceTree = "<group>"; };
+		3F2B20C81BAC117700B83FB9 /* MRFArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFArrayModel.m; sourceTree = "<group>"; };
 		3FE68B011B9F2D1000632885 /* Objective-C UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-C UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
 		3FE68B2E1B9F2FF300632885 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +150,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3F2B20C21BAC103900B83FB9 /* MRFInfoModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20C31BAC107000B83FB9 /* MRFInfoModel.h */,
+				3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */,
+			);
+			path = MRFInfoModel;
+			sourceTree = "<group>";
+		};
+		3F2B20C61BAC10D900B83FB9 /* MRFArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B20C71BAC117700B83FB9 /* MRFArrayModel.h */,
+				3F2B20C81BAC117700B83FB9 /* MRFArrayModel.m */,
+			);
+			path = MRFArrayModel;
+			sourceTree = "<group>";
+		};
 		3FE68AF81B9F2D1000632885 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +220,8 @@
 		3FE68B3F1B9F2FF300632885 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F2B20C61BAC10D900B83FB9 /* MRFArrayModel */,
+				3F2B20C21BAC103900B83FB9 /* MRFInfoModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,9 +328,11 @@
 				3FE68B431B9F2FF300632885 /* main.m in Sources */,
 				3F2B20A81BAB55DF00B83FB9 /* MRFInfoView.m in Sources */,
 				3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */,
+				3F2B20C91BAC117700B83FB9 /* MRFArrayModel.m in Sources */,
 				3F2B20BF1BABFC0200B83FB9 /* MRFInfoCell.m in Sources */,
 				3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */,
 				3F2B20BB1BABFA1400B83FB9 /* MRFTableViewCell.m in Sources */,
+				3F2B20C51BAC107000B83FB9 /* MRFInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
