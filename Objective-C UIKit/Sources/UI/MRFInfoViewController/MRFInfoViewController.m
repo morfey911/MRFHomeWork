@@ -34,6 +34,21 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 }
 
 #pragma mark -
+#pragma mark Interface Handling
+
+- (IBAction)onAddButton:(id)sender {
+    
+}
+
+- (IBAction)onRemoveButton:(id)sender {
+    
+}
+
+- (IBAction)onResortButton:(id)sender {
+    
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
