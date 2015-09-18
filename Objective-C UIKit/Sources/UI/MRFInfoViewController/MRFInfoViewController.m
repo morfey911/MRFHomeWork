@@ -8,6 +8,7 @@
 
 #import "MRFInfoViewController.h"
 #import "MRFInfoView.h"
+#import "MRFInfoCell.h"
 #import "MRFMacros.h"
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
@@ -27,6 +28,8 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.infoView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,8 +60,18 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellClass = NSStringFromClass([MRFInfoCell class]);
+    MRFInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
     
-    return nil;
+    if (!cell) {
+        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
+        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
+        cell = [cells firstObject];
+    }
+    
+    cell.stringLabel.text = @"azaza";
+    
+    return cell;
 }
 
 @end
