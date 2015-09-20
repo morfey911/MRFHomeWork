@@ -10,6 +10,8 @@
 #import "MRFInfoView.h"
 #import "MRFInfoCell.h"
 #import "MRFMacros.h"
+#import "UINib+MRFExtentions.h"
+#import "UITableView+MRFExtentions.h"
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
@@ -60,13 +62,11 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellClass = NSStringFromClass([MRFInfoCell class]);
-    MRFInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
+    Class cellClass = [MRFInfoCell class];
+    MRFInfoCell *cell = [tableView dequeueReusableCellWithClass:cellClass];
     
     if (!cell) {
-        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
-        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
-        cell = [cells firstObject];
+        cell = [UINib objectWithClass:cellClass];
     }
     
     cell.info = [MRFInfoModel new];
