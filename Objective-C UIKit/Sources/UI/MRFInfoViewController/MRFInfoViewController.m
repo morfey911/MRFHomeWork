@@ -69,7 +69,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
         cell = [UINib objectWithClass:cellClass];
     }
     
-    cell.info = [MRFInfoModel new];
+    cell.info = self.infoModel;
     
     return cell;
 }

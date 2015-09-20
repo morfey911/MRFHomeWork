@@ -15,6 +15,28 @@
 
 @implementation MRFArrayModel
 
+@dynamic array;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.mutableArray = [NSMutableArray new];
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)array {
+    return [self.mutableArray copy];
+}
+
 #pragma mark -
 #pragma mark Public
 

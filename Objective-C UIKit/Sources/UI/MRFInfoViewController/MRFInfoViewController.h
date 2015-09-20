@@ -11,7 +11,7 @@
 @class MRFInfoModel;
 
 @interface MRFInfoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong)   MRFInfoModel    *info;
+@property (nonatomic, strong)   MRFInfoModel    *infoModel;
 
 - (IBAction)onAddButton:(id)sender;
 - (IBAction)onRemoveButton:(id)sender;

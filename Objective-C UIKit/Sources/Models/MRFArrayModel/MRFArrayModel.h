@@ -11,6 +11,7 @@
 @class MRFInfoModel;
 
 @interface MRFArrayModel : NSObject
+@property (nonatomic, readonly) NSArray *array;
 
 - (void)addModel:(MRFInfoModel *)model;
 - (void)removeModel:(MRFInfoModel *)model;
