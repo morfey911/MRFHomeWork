@@ -9,8 +9,8 @@
 #import "MRFInfoViewController.h"
 #import "MRFInfoView.h"
 #import "MRFInfoCell.h"
+#import "MRFArrayModel.h"
 #import "MRFMacros.h"
-#import "UINib+MRFExtentions.h"
 #import "UITableView+MRFExtentions.h"
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
@@ -58,18 +58,13 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return [self.arrayModel count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Class cellClass = [MRFInfoCell class];
-    MRFInfoCell *cell = [tableView dequeueReusableCellWithClass:cellClass];
+    MRFInfoCell *cell = [tableView dequeueReusableCellWithClass:[MRFInfoCell class]];
     
-    if (!cell) {
-        cell = [UINib objectWithClass:cellClass];
-    }
-    
-    cell.info = self.infoModel;
+    cell.info = [self.arrayModel modelAtIndex:indexPath.length];
     
     return cell;
 }

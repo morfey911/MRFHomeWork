@@ -11,6 +11,10 @@
 #import "MRFInfoViewController.h"
 #import "UIWindow+MFRExtentions.h"
 #import "UIViewController+MRFExtentions.h"
+#import "MRFInfoModel.h"
+#import "MRFArrayModel.h"
+
+static const NSUInteger kMRFInfoModelCount = 100;
 
 @interface MRFAppDelegate ()
 
@@ -23,32 +27,20 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-//    window.rootViewController = [MRFSquareViewController controller];
-    window.rootViewController = [MRFInfoViewController controller];
+    MRFArrayModel *arrayModel = [MRFArrayModel new];
+    
+    for (NSUInteger index = 0; index < kMRFInfoModelCount; index++) {
+        [arrayModel addModel:[MRFInfoModel new]];
+    }
+    
+    MRFInfoViewController *controller = [MRFInfoViewController new];
+    controller.arrayModel = arrayModel;
+    
+    window.rootViewController = controller;
     
     [window makeKeyAndVisible];
     
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    
 }
 
 @end

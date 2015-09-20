@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class MRFInfoModel;
+@class MRFArrayModel;
 
 @interface MRFInfoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong)   MRFInfoModel    *infoModel;
+@property (nonatomic, strong)   MRFArrayModel   *arrayModel;
 
 - (IBAction)onAddButton:(id)sender;
 - (IBAction)onRemoveButton:(id)sender;
