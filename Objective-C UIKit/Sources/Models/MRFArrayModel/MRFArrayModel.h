@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class MRFInfoModel;
+
 @interface MRFArrayModel : NSObject
+
+- (void)addModel:(MRFInfoModel *)model;
+- (void)removeModel:(MRFInfoModel *)model;
+
+- (void)addModel:(MRFInfoModel *)model atIndex:(NSUInteger)index;
+- (void)removeModelAtIndex:(NSUInteger)index;
+
+- (MRFInfoModel *)modelAtIndex:(NSUInteger)index;
+- (MRFInfoModel *)objectAtIndexedSubscript:(NSUInteger)idx;
+
+- (NSUInteger)count;
 
 @end
