@@ -15,7 +15,7 @@
 @property (nonatomic, strong)   MRFArrayModel   *arrayModel;
 
 - (IBAction)onAddButton:(id)sender;
-- (IBAction)onRemoveButton:(id)sender;
+- (IBAction)onEditButton:(id)sender;
 - (IBAction)onResortButton:(id)sender;
 
 @end

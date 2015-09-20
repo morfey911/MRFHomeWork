@@ -15,10 +15,6 @@
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
-@interface MRFInfoViewController ()
-
-@end
-
 @implementation MRFInfoViewController
 
 #pragma mark -
@@ -45,8 +41,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     
 }
 
-- (IBAction)onRemoveButton:(id)sender {
+- (IBAction)onEditButton:(id)sender {
+    MRFInfoView *view = self.infoView;
     
+    view.editing = !view.editing;
 }
 
 - (IBAction)onResortButton:(id)sender {
@@ -64,7 +62,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MRFInfoCell *cell = [tableView dequeueReusableCellWithClass:[MRFInfoCell class]];
     
-    cell.info = [self.arrayModel modelAtIndex:indexPath.length];
+    cell.info = self.arrayModel[indexPath.row];
     
     return cell;
 }

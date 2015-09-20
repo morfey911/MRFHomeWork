@@ -14,4 +14,6 @@
 @property (nonatomic, strong)   IBOutlet    UIButton    *removeButton;
 @property (nonatomic, strong)   IBOutlet    UIButton    *resortButton;
 
+@property (nonatomic, assign)   BOOL    editing;
+
 @end

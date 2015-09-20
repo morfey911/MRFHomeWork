@@ -34,15 +34,15 @@
                         <action selector="onAddButton:" destination="-1" eventType="touchUpInside" id="PKR-gn-DGE"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FSH-o2-BMN" userLabel="removeButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FSH-o2-BMN" userLabel="editButton">
                     <rect key="frame" x="116" y="513" width="88" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Remove">
+                    <state key="normal" title="Edit">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onRemoveButton:" destination="-1" eventType="touchUpInside" id="TUo-lq-HOx"/>
+                        <action selector="onEditButton:" destination="-1" eventType="touchUpInside" id="Sml-P4-CQp"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1AL-u3-Fup" userLabel="resortButton">
