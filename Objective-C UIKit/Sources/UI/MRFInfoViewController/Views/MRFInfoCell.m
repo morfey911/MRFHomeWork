@@ -16,9 +16,9 @@
 - (void)setInfo:(MRFInfoModel *)info {
     if (_info != info) {
         _info = info;
-        
-        [self fillWithModel:info];
     }
+    
+    [self fillWithModel:info];
 }
 
 #pragma mark -

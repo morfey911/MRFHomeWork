@@ -10,7 +10,9 @@
 
 #import "NSString+MRFExtensions.h"
 
-static const NSUInteger kMRFStringLength = 10;
+static const NSUInteger kMRFStringLength    = 10;
+static NSString * const kMRFImageName       = @"Kappa";
+static NSString * const kMRFImageType       = @"png";
 
 @interface MRFInfoModel ()
 @property (nonatomic, strong)   NSString *string;
@@ -37,9 +39,16 @@ static const NSUInteger kMRFStringLength = 10;
 #pragma mark Accessors
 
 - (UIImage *)image {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Kappa" ofType:@"png"];
+    static UIImage *image = nil;
     
-    return [UIImage imageWithContentsOfFile:path];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        image = [UIImage imageWithData:data];
+    });
+    
+    return image;
 }
 
 @end
