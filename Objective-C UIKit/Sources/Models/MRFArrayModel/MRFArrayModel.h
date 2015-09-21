@@ -13,16 +13,20 @@
 @interface MRFArrayModel : NSObject
 @property (nonatomic, readonly) NSArray *array;
 
-- (void)addModel:(MRFInfoModel *)model;
-- (void)removeModel:(MRFInfoModel *)model;
++ (instancetype)arrayWithModelsCount:(NSUInteger)count;
 
-- (void)addModel:(MRFInfoModel *)model atIndex:(NSUInteger)index;
+- (instancetype)initWithModelsCount:(NSUInteger)count;
+
+- (void)addModel:(id)model;
+- (void)removeModel:(id)model;
+
+- (void)insertModel:(id)model atIndex:(NSUInteger)index;
 - (void)removeModelAtIndex:(NSUInteger)index;
 
-- (void)exchangeModelAtIndex:(NSUInteger)idx1 withModelAtIndex:(NSUInteger)idx2;
+- (void)moveModelAtIndex:(NSUInteger)index1 withModelAtIndex:(NSUInteger)index2;
 
-- (MRFInfoModel *)modelAtIndex:(NSUInteger)index;
-- (MRFInfoModel *)objectAtIndexedSubscript:(NSUInteger)idx;
+- (id)modelAtIndex:(NSUInteger)index;
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 - (NSUInteger)count;
 

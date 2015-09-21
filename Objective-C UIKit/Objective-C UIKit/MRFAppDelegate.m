@@ -7,12 +7,12 @@
 //
 
 #import "MRFAppDelegate.h"
-#import "MRFSquareViewController.h"
 #import "MRFInfoViewController.h"
-#import "UIWindow+MFRExtentions.h"
-#import "UIViewController+MRFExtentions.h"
 #import "MRFInfoModel.h"
 #import "MRFArrayModel.h"
+
+#import "UIWindow+MFRExtentions.h"
+#import "UIViewController+MRFExtentions.h"
 
 static const NSUInteger kMRFInfoModelCount = 7;
 
@@ -22,19 +22,12 @@ static const NSUInteger kMRFInfoModelCount = 7;
 
 @implementation MRFAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    
-    MRFArrayModel *arrayModel = [MRFArrayModel new];
-    
-    for (NSUInteger index = 0; index < kMRFInfoModelCount; index++) {
-        [arrayModel addModel:[MRFInfoModel new]];
-    }
-    
-    MRFInfoViewController *controller = [MRFInfoViewController new];
-    controller.arrayModel = arrayModel;
+
+    MRFInfoViewController *controller = [MRFInfoViewController controller];
+    controller.arrayModel = [MRFArrayModel arrayWithModelsCount:kMRFInfoModelCount];
     
     window.rootViewController = controller;
     

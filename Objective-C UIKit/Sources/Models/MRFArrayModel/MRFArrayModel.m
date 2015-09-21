@@ -7,6 +7,7 @@
 //
 
 #import "MRFArrayModel.h"
+#import "MRFInfoModel.h"
 
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
@@ -18,6 +19,13 @@
 @dynamic array;
 
 #pragma mark -
+#pragma mark Class methods
+
++ (instancetype)arrayWithModelsCount:(NSUInteger)count {
+    return [[self alloc] initWithModelsCount:count];
+}
+
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)init {
@@ -25,6 +33,20 @@
     
     if (self) {
         self.mutableArray = [NSMutableArray new];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithModelsCount:(NSUInteger)count {
+    self = [self init];
+    
+    if (self) {
+        NSMutableArray *array = self.mutableArray;
+        
+        for (NSUInteger index = 0; index < count; index++) {
+            [array addObject:[MRFInfoModel new]];
+        }
     }
     
     return self;
@@ -40,15 +62,15 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addModel:(MRFInfoModel *)model {
+- (void)addModel:(id)model {
     [self.mutableArray addObject:model];
 }
 
-- (void)removeModel:(MRFInfoModel *)model {
+- (void)removeModel:(id)model {
     [self.mutableArray removeObject:model];
 }
 
-- (void)addModel:(MRFInfoModel *)model atIndex:(NSUInteger)index {
+- (void)insertModel:(id)model atIndex:(NSUInteger)index {
     [self.mutableArray insertObject:model atIndex:index];
 }
 
@@ -56,15 +78,18 @@
     [self.mutableArray removeObjectAtIndex:index];
 }
 
-- (void)exchangeModelAtIndex:(NSUInteger)idx1 withModelAtIndex:(NSUInteger)idx2 {
-    [self.mutableArray exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+- (void)moveModelAtIndex:(NSUInteger)index1 withModelAtIndex:(NSUInteger)index2 {
+    id model = [self modelAtIndex:index1];
+    
+    [self removeModelAtIndex:index1];
+    [self insertModel:model atIndex:index2];
 }
 
-- (MRFInfoModel *)modelAtIndex:(NSUInteger)index {
+- (id)modelAtIndex:(NSUInteger)index {
     return [self.mutableArray objectAtIndex:index];
 }
 
-- (MRFInfoModel *)objectAtIndexedSubscript:(NSUInteger)idx {
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
     return [self modelAtIndex:idx];
 }
 
