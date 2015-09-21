@@ -23,17 +23,6 @@
                         <outlet property="delegate" destination="-1" id="Ezm-KC-npY"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AkY-mr-oEq" userLabel="addButton">
-                    <rect key="frame" x="8" y="513" width="88" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Add">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onAddButton:" destination="-1" eventType="touchUpInside" id="PKR-gn-DGE"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FSH-o2-BMN" userLabel="editButton">
                     <rect key="frame" x="116" y="513" width="88" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,25 +34,12 @@
                         <action selector="onEditButton:" destination="-1" eventType="touchUpInside" id="Sml-P4-CQp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1AL-u3-Fup" userLabel="resortButton">
-                    <rect key="frame" x="224" y="513" width="88" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Resort">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onResortButton:" destination="-1" eventType="touchUpInside" id="vcP-oa-qi6"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
-                <outlet property="addButton" destination="AkY-mr-oEq" id="9vN-bk-NCM"/>
                 <outlet property="removeButton" destination="FSH-o2-BMN" id="lIV-gQ-YhC"/>
-                <outlet property="resortButton" destination="1AL-u3-Fup" id="yyQ-Mi-toC"/>
                 <outlet property="tableView" destination="7ch-Gw-sme" id="yE8-on-upS"/>
             </connections>
             <point key="canvasLocation" x="265" y="322"/>

@@ -56,6 +56,10 @@
     [self.mutableArray removeObjectAtIndex:index];
 }
 
+- (void)exchangeModelAtIndex:(NSUInteger)idx1 withModelAtIndex:(NSUInteger)idx2 {
+    [self.mutableArray exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
 - (MRFInfoModel *)modelAtIndex:(NSUInteger)index {
     return [self.mutableArray objectAtIndex:index];
 }

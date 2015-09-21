@@ -19,6 +19,8 @@
 - (void)addModel:(MRFInfoModel *)model atIndex:(NSUInteger)index;
 - (void)removeModelAtIndex:(NSUInteger)index;
 
+- (void)exchangeModelAtIndex:(NSUInteger)idx1 withModelAtIndex:(NSUInteger)idx2;
+
 - (MRFInfoModel *)modelAtIndex:(NSUInteger)index;
 - (MRFInfoModel *)objectAtIndexedSubscript:(NSUInteger)idx;
 

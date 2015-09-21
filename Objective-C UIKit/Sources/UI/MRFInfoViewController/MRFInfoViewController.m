@@ -37,18 +37,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark -
 #pragma mark Interface Handling
 
-- (IBAction)onAddButton:(id)sender {
-    
-}
-
 - (IBAction)onEditButton:(id)sender {
     MRFInfoView *view = self.infoView;
     
     view.editing = !view.editing;
-}
-
-- (IBAction)onResortButton:(id)sender {
-    
 }
 
 #pragma mark -
@@ -65,6 +57,31 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     cell.info = self.arrayModel[indexPath.row];
     
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == [self.arrayModel count] - 1) {
+        return UITableViewCellEditingStyleInsert;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (UITableViewCellEditingStyleDelete == editingStyle) {
+        [self.arrayModel removeModelAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (UITableViewCellEditingStyleInsert == editingStyle) {
+        [self.arrayModel addModel:[MRFInfoModel new]];
+        [tableView reloadData];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+      toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [self.arrayModel exchangeModelAtIndex:sourceIndexPath.row withModelAtIndex:destinationIndexPath.row];
 }
 
 @end

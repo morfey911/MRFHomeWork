@@ -14,7 +14,7 @@
 #import "MRFInfoModel.h"
 #import "MRFArrayModel.h"
 
-static const NSUInteger kMRFInfoModelCount = 100;
+static const NSUInteger kMRFInfoModelCount = 7;
 
 @interface MRFAppDelegate ()
 
