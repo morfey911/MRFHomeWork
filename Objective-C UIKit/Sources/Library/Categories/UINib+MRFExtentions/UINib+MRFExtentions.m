@@ -13,26 +13,26 @@
 #pragma mark -
 #pragma mark Class methods
 
-+ (UINib *)nibWithClass:(Class)class {
-    return [self nibWithClass:class bundle:nil];
++ (UINib *)nibWithClass:(Class)cls {
+    return [self nibWithClass:cls bundle:nil];
 }
 
-+ (UINib *)nibWithClass:(Class)class bundle:(NSBundle *)bundle {
-    return [UINib nibWithNibName:NSStringFromClass(class) bundle:bundle];
++ (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundle {
+    return [UINib nibWithNibName:NSStringFromClass(cls) bundle:bundle];
 }
 
-+ (id)objectWithClass:(Class)class {
-    return [[self nibWithClass:class] objectWithClass:class];
++ (id)objectWithClass:(Class)cls {
+    return [[self nibWithClass:cls] objectWithClass:cls];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (id)objectWithClass:(Class)class {
+- (id)objectWithClass:(Class)cls {
     NSArray *array = [self instantiate];
     
     for (id object in array) {
-        if ([object isMemberOfClass:class]) {
+        if ([object isMemberOfClass:cls]) {
             return object;
         }
     }

@@ -11,11 +11,11 @@
 
 @implementation UITableView (MRFExtentions)
 
-- (id)dequeueReusableCellWithClass:(Class)class {
-    id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(class)];
+- (id)dequeueReusableCellWithClass:(Class)cls {
+    id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
     
     if (!cell) {
-        cell = [UINib objectWithClass:class];
+        cell = [UINib objectWithClass:cls];
     }
     
     return cell;

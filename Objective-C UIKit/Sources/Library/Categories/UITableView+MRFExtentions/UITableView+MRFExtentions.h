@@ -10,6 +10,6 @@
 
 @interface UITableView (MRFExtentions)
 
-- (id)dequeueReusableCellWithClass:(Class)class;
+- (id)dequeueReusableCellWithClass:(Class)cls;
 
 @end

@@ -10,11 +10,11 @@
 
 @interface UINib (MRFExtentions)
 
-+ (UINib *)nibWithClass:(Class)class;
-+ (UINib *)nibWithClass:(Class)class bundle:(NSBundle *)bundle;
++ (UINib *)nibWithClass:(Class)cls;
++ (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundle;
 
-+ (id)objectWithClass:(Class)class;
-- (id)objectWithClass:(Class)class;
++ (id)objectWithClass:(Class)cls;
+- (id)objectWithClass:(Class)cls;
 
 - (NSArray *)instantiate;
 - (NSArray *)instantiateWithOwner:(id)ownerOrNil;
