@@ -8,32 +8,19 @@
 
 #import "MRFInfoView.h"
 
-@interface MRFInfoView ()
-
-- (void)changeEditingMode;
-
-@end
-
 @implementation MRFInfoView
+
+@dynamic editing;
 
 #pragma mark -
 #pragma mark Accessors
 
 - (void)setEditing:(BOOL)editing {
-    if (_editing != editing) {
-        _editing = editing;
-        
-        [self changeEditingMode];
-    }
+    [self.tableView setEditing:editing animated:YES];
 }
 
-#pragma mark -
-#pragma Private
-
-- (void)changeEditingMode {
-    UITableView *tableView = self.tableView;
-    
-    self.editing ? [tableView setEditing:YES animated:YES] : [tableView setEditing:NO animated:YES];
+- (BOOL)isEditing {
+    return self.tableView.editing;
 }
 
 @end
