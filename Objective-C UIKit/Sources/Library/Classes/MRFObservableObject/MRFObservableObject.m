@@ -15,6 +15,8 @@
 
 @implementation MRFObservableObject
 
+@synthesize state = _state;
+
 @dynamic observersSet;
 
 #pragma mark -
@@ -39,27 +41,55 @@
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setState:(NSUInteger)state {
+    @synchronized(self) {
+        _state = state;
+        
+        [self notifyObserversOnMainThreadWithSelector:[self selectorForState:state]];
+    }
+}
+
+- (NSUInteger)state {
+    @synchronized(self) {
+        return _state;
+    }
+}
+
 - (NSSet *)observersSet {
-    return self.observersHashTable.setRepresentation;
+    @synchronized(self) {
+        return self.observersHashTable.setRepresentation;
+    }
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-    [self.observersHashTable addObject:observer];
+    @synchronized(self) {
+        [self.observersHashTable addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.observersHashTable removeObject:observer];
+    @synchronized(self) {
+        [self.observersHashTable removeObject:observer];
+    }
 }
 
 - (void)removeObservers {
-    [self.observersHashTable removeAllObjects];
+    @synchronized(self) {
+        [self.observersHashTable removeAllObjects];
+    }
 }
 
 - (BOOL)containsObserver:(id)observer {
-    return [self.observersHashTable containsObject:observer];
+    @synchronized(self) {
+        return [self.observersHashTable containsObject:observer];
+    }
+}
+
+- (SEL)selectorForState:(NSUInteger)state {
+    return nil;
 }
 
 - (void)notifyObserversOnMainThreadWithSelector:(SEL)selector {

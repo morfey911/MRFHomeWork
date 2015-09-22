@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface MRFObservableObject : NSObject
-@property (nonatomic, retain, readonly) NSSet *observersSet;
+@property (nonatomic, assign)           NSUInteger  state;
+@property (nonatomic, retain, readonly) NSSet       *observersSet;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 - (void)removeObservers;
 - (BOOL)containsObserver:(id)observer;
+
+- (SEL)selectorForState:(NSUInteger)state;
 
 - (void)notifyObserversOnMainThreadWithSelector:(SEL)selector;
 - (void)notifyObserversWithSelector:(SEL)selector;
