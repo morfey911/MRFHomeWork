@@ -44,8 +44,7 @@ static NSString * const kMRFImageType       = @"png";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        image = [UIImage imageWithData:data];
+        image = [UIImage imageWithContentsOfFile:path];
     });
     
     return image;
