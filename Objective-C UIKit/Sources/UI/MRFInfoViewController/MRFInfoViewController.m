@@ -83,7 +83,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (void)    tableView:(UITableView *)tableView
    moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
           toIndexPath:(NSIndexPath *)destinationIndexPath {
-    [self.arrayModel moveModelAtIndex:sourceIndexPath.row withModelAtIndex:destinationIndexPath.row];
+    [self.arrayModel moveModelFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 @end

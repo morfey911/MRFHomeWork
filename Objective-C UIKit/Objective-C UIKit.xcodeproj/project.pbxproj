@@ -27,6 +27,7 @@
 		3F2B21201BAC379000B83FB9 /* Kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2B211F1BAC379000B83FB9 /* Kappa.png */; };
 		3F2B21241BAF0C8100B83FB9 /* UINib+MRFExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21231BAF0C8100B83FB9 /* UINib+MRFExtentions.m */; };
 		3F2B21281BAF14B700B83FB9 /* UITableView+MRFExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21271BAF14B700B83FB9 /* UITableView+MRFExtentions.m */; };
+		3F2B212C1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B212B1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.m */; };
 		3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */; };
 		3FE68B431B9F2FF300632885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B2F1B9F2FF300632885 /* main.m */; };
 		3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B381B9F2FF300632885 /* LaunchScreen.xib */; };
@@ -76,6 +77,8 @@
 		3F2B21231BAF0C8100B83FB9 /* UINib+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+MRFExtentions.m"; sourceTree = "<group>"; };
 		3F2B21261BAF14B700B83FB9 /* UITableView+MRFExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MRFExtentions.h"; sourceTree = "<group>"; };
 		3F2B21271BAF14B700B83FB9 /* UITableView+MRFExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MRFExtentions.m"; sourceTree = "<group>"; };
+		3F2B212A1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MRFExtension.h"; sourceTree = "<group>"; };
+		3F2B212B1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MRFExtension.m"; sourceTree = "<group>"; };
 		3FE68B011B9F2D1000632885 /* Objective-C UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-C UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
 		3FE68B2E1B9F2FF300632885 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		3F2B20F31BAC181200B83FB9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				3F2B21291BB1DA3100B83FB9 /* NSMutableArray+MRFExtension */,
 				3F2B21251BAF148600B83FB9 /* UITableView+MRFExtentions */,
 				3F2B21211BAF0C4500B83FB9 /* UINib+MRFExtentions */,
 				3F2B20F41BAC181200B83FB9 /* NSString+MRFExtensions */,
@@ -293,6 +297,15 @@
 				3F2B21271BAF14B700B83FB9 /* UITableView+MRFExtentions.m */,
 			);
 			path = "UITableView+MRFExtentions";
+			sourceTree = "<group>";
+		};
+		3F2B21291BB1DA3100B83FB9 /* NSMutableArray+MRFExtension */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B212A1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.h */,
+				3F2B212B1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.m */,
+			);
+			path = "NSMutableArray+MRFExtension";
 			sourceTree = "<group>";
 		};
 		3FE68AF81B9F2D1000632885 = {
@@ -465,6 +478,7 @@
 				3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */,
 				3F2B211B1BAC181200B83FB9 /* MRFAlphabetWithStrings.m in Sources */,
 				3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */,
+				3F2B212C1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.m in Sources */,
 				3F2B20C91BAC117700B83FB9 /* MRFArrayModel.m in Sources */,
 				3F2B20BF1BABFC0200B83FB9 /* MRFInfoCell.m in Sources */,
 				3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */,

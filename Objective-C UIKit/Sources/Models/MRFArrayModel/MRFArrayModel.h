@@ -23,7 +23,7 @@
 - (void)insertModel:(id)model atIndex:(NSUInteger)index;
 - (void)removeModelAtIndex:(NSUInteger)index;
 
-- (void)moveModelAtIndex:(NSUInteger)index1 withModelAtIndex:(NSUInteger)index2;
+- (void)moveModelFromIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2;
 
 - (id)modelAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;

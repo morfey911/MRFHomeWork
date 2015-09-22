@@ -9,6 +9,8 @@
 #import "MRFArrayModel.h"
 #import "MRFInfoModel.h"
 
+#import "NSMutableArray+MRFExtension.h"
+
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
 
@@ -78,11 +80,8 @@
     [self.mutableArray removeObjectAtIndex:index];
 }
 
-- (void)moveModelAtIndex:(NSUInteger)index1 withModelAtIndex:(NSUInteger)index2 {
-    id model = [self modelAtIndex:index1];
-    
-    [self removeModelAtIndex:index1];
-    [self insertModel:model atIndex:index2];
+- (void)moveModelFromIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2 {
+    [self.mutableArray moveObjectFromIndex:index1 toIndex:index2];
 }
 
 - (id)modelAtIndex:(NSUInteger)index {
