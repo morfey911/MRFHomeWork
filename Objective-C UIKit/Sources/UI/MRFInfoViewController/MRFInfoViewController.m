@@ -70,13 +70,19 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (void)    tableView:(UITableView *)tableView
    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     forRowAtIndexPath:(NSIndexPath *)indexPath {
+    MRFArrayModel *arrayModel = self.arrayModel;
+    NSArray *array = [NSArray arrayWithObject:indexPath];
+    
     if (UITableViewCellEditingStyleDelete == editingStyle) {
-        [self.arrayModel removeModelAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+        [arrayModel removeModelAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
     } else if (UITableViewCellEditingStyleInsert == editingStyle) {
-        [self.arrayModel addModel:[MRFInfoModel new]];
-        [tableView reloadData];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[arrayModel count] inSection:0];
+        
+        [arrayModel addModel:[MRFInfoModel new]];
+        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                         withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 
