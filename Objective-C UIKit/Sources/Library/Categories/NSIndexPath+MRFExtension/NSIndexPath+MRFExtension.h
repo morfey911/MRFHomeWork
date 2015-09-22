@@ -10,6 +10,6 @@
 
 @interface NSIndexPath (MRFExtension)
 
-+ (NSIndexPath *)indexPathForRow:(NSUInteger)count;
++ (instancetype)indexPathForRow:(NSUInteger)count;
 
 @end

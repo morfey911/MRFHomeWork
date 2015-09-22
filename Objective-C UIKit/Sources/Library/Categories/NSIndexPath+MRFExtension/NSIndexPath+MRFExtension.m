@@ -14,7 +14,7 @@ static const NSUInteger kMRFDefaultSectionCount = 0;
 
 @implementation NSIndexPath (MRFExtension)
 
-+ (NSIndexPath *)indexPathForRow:(NSUInteger)count {
++ (instancetype)indexPathForRow:(NSUInteger)count {
     return [self indexPathForRow:count inSection:kMRFDefaultSectionCount];
 }
 
