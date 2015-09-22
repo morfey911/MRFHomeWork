@@ -62,7 +62,7 @@
     return [self.observersHashTable containsObject:observer];
 }
 
-- (void)notifyObserversOnMainThreadWithSelector:(NSString *)selector {
+- (void)notifyObserversOnMainThreadWithSelector:(SEL)selector {
     if ([NSThread isMainThread]) {
         [self notifyObserversWithSelector:selector];
     } else {
@@ -72,15 +72,14 @@
     }
 }
 
-- (void)notifyObserversWithSelector:(NSString *)selector {
+- (void)notifyObserversWithSelector:(SEL)selector {
     [self notifyObserversWithSelector:selector withObject:self];
 }
 
-- (void)notifyObserversWithSelector:(NSString *)selector withObject:(id)object {
-    SEL trueSelector = NSSelectorFromString(selector);
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     for (id observer in self.observersHashTable) {
-        if ([observer respondsToSelector:trueSelector]) {
-            [observer performSelector:trueSelector withObject:object];
+        if ([observer respondsToSelector:selector]) {
+            [observer performSelector:selector withObject:object];
         }
     }
 }
