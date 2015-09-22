@@ -7,7 +7,6 @@
 //
 
 #import "MRFArrayModel.h"
-#import "MRFInfoModel.h"
 
 #import "NSMutableArray+MRFExtension.h"
 
@@ -21,13 +20,6 @@
 @dynamic array;
 
 #pragma mark -
-#pragma mark Class methods
-
-+ (instancetype)arrayWithModelsCount:(NSUInteger)count {
-    return [[self alloc] initWithModelsCount:count];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (instancetype)init {
@@ -35,20 +27,6 @@
     
     if (self) {
         self.mutableArray = [NSMutableArray new];
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithModelsCount:(NSUInteger)count {
-    self = [self init];
-    
-    if (self) {
-        NSMutableArray *array = self.mutableArray;
-        
-        for (NSUInteger index = 0; index < count; index++) {
-            [array addObject:[MRFInfoModel new]];
-        }
     }
     
     return self;

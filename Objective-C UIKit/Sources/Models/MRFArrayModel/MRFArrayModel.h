@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MRFObservableObject.h"
+
 @class MRFInfoModel;
 
-@interface MRFArrayModel : NSObject
+@interface MRFArrayModel : MRFObservableObject
 @property (nonatomic, readonly) NSArray *array;
-
-+ (instancetype)arrayWithModelsCount:(NSUInteger)count;
-
-- (instancetype)initWithModelsCount:(NSUInteger)count;
 
 - (void)addModel:(id)model;
 - (void)removeModel:(id)model;

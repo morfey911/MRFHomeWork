@@ -76,18 +76,17 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MRFArrayModel *arrayModel = self.arrayModel;
-    NSArray *array = [NSArray arrayWithObject:indexPath];
+    NSArray *array = @[indexPath];
     
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [arrayModel removeModelAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (UITableViewCellEditingStyleInsert == editingStyle) {
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[arrayModel count]];
+        NSIndexPath *lastRowIndexPath = [NSIndexPath indexPathForRow:[arrayModel count]];
         
         [arrayModel addModel:[MRFInfoModel new]];
         [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                         withRowAnimation:UITableViewRowAnimationMiddle];
+        [tableView reloadRowsAtIndexPaths:@[lastRowIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 

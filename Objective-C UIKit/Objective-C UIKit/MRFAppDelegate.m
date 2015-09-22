@@ -9,7 +9,7 @@
 #import "MRFAppDelegate.h"
 #import "MRFInfoViewController.h"
 #import "MRFInfoModel.h"
-#import "MRFArrayModel.h"
+#import "MRFInfoArrayModel.h"
 
 #import "UIWindow+MFRExtentions.h"
 #import "UIViewController+MRFExtentions.h"
@@ -27,7 +27,7 @@ static const NSUInteger kMRFInfoModelCount = 7;
     self.window = window;
 
     MRFInfoViewController *controller = [MRFInfoViewController controller];
-    controller.arrayModel = [MRFArrayModel arrayWithModelsCount:kMRFInfoModelCount];
+    controller.arrayModel = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
     
     window.rootViewController = controller;
     
