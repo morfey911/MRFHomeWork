@@ -10,8 +10,11 @@
 #import "MRFInfoView.h"
 #import "MRFInfoCell.h"
 #import "MRFArrayModel.h"
+
 #import "MRFMacros.h"
+
 #import "UITableView+MRFExtentions.h"
+#import "NSIndexPath+MRFExtension.h"
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
@@ -59,7 +62,8 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
-           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (indexPath.row == [self.arrayModel count] - 1) {
         return UITableViewCellEditingStyleInsert;
     } else {
@@ -69,18 +73,19 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 - (void)    tableView:(UITableView *)tableView
    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-    forRowAtIndexPath:(NSIndexPath *)indexPath {
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     MRFArrayModel *arrayModel = self.arrayModel;
     NSArray *array = [NSArray arrayWithObject:indexPath];
     
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [arrayModel removeModelAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (UITableViewCellEditingStyleInsert == editingStyle) {
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[arrayModel count] inSection:0];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[arrayModel count]];
         
         [arrayModel addModel:[MRFInfoModel new]];
-        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
                          withRowAnimation:UITableViewRowAnimationMiddle];
     }
@@ -88,7 +93,8 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 - (void)    tableView:(UITableView *)tableView
    moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-          toIndexPath:(NSIndexPath *)destinationIndexPath {
+          toIndexPath:(NSIndexPath *)destinationIndexPath
+{
     [self.arrayModel moveModelFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
