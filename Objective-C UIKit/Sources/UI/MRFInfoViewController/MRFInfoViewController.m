@@ -7,6 +7,7 @@
 //
 
 #import "MRFInfoViewController.h"
+
 #import "MRFInfoView.h"
 #import "MRFInfoCell.h"
 #import "MRFArrayModel.h"
@@ -64,11 +65,9 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == [self.arrayModel count] - 1) {
-        return UITableViewCellEditingStyleInsert;
-    } else {
-        return UITableViewCellEditingStyleDelete;
-    }
+    BOOL result = indexPath.row == [self.arrayModel count] - 1;
+    
+    return result ? UITableViewCellEditingStyleInsert : UITableViewCellEditingStyleDelete;
 }
 
 - (void)    tableView:(UITableView *)tableView

@@ -8,6 +8,8 @@
 
 #import "MRFObservableObject.h"
 
+#import "MRFDispatch.h"
+
 @interface MRFObservableObject ()
 @property (nonatomic, retain) NSHashTable *observersHashTable;
 
@@ -93,13 +95,9 @@
 }
 
 - (void)notifyObserversOnMainThreadWithSelector:(SEL)selector {
-    if ([NSThread isMainThread]) {
+    MRFDispatchSyncOnMainThread(^{
         [self notifyObserversWithSelector:selector];
-    } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self notifyObserversWithSelector:selector];
-        });
-    }
+    });
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
