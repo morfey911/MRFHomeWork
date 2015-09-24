@@ -81,13 +81,9 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [arrayModel removeModelAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (UITableViewCellEditingStyleInsert == editingStyle) {
-        NSIndexPath *lastRowIndexPath = [NSIndexPath indexPathForRow:[arrayModel count]];
-        
         [arrayModel addModel:[MRFInfoModel new]];
-        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
-        [tableView reloadRowsAtIndexPaths:@[lastRowIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 
@@ -102,7 +98,19 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark MRFArrayModelProtocol
 
 - (void)MRFArrayModelDidChange:(MRFArrayModel *)model withObject:(MRFArrayModelChanges *)object {
-    NSLog(@"test");
+    UITableView *tableView = self.infoView.tableView;
+    
+    switch (object.state) {
+        case MRFArrayModelChangesWithAdd:
+            [tableView insertRowsAtIndexPaths:object.array withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case MRFArrayModelChangesWithDelete:
+            [tableView deleteRowsAtIndexPaths:object.array withRowAnimation:UITableViewRowAnimationAutomatic];
+
+            
+        default:
+            break;
+    }
 }
 
 @end
