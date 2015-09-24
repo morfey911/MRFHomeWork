@@ -77,11 +77,9 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MRFArrayModel *arrayModel = self.arrayModel;
-    NSArray *array = @[indexPath];
     
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [arrayModel removeModelAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (UITableViewCellEditingStyleInsert == editingStyle) {
         [arrayModel addModel:[MRFInfoModel new]];
     }
@@ -97,16 +95,17 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark -
 #pragma mark MRFArrayModelProtocol
 
-- (void)MRFArrayModelDidChange:(MRFArrayModel *)model withObject:(MRFArrayModelChanges *)object {
+- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayModelChanges *)object {
     UITableView *tableView = self.infoView.tableView;
     
     switch (object.state) {
-        case MRFArrayModelChangesWithAdd:
+        case MRFArrayModelAppendChanges:
             [tableView insertRowsAtIndexPaths:object.array withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
-        case MRFArrayModelChangesWithDelete:
+            
+        case MRFArrayModelDeleteChanges:
             [tableView deleteRowsAtIndexPaths:object.array withRowAnimation:UITableViewRowAnimationAutomatic];
-
+            break;
             
         default:
             break;

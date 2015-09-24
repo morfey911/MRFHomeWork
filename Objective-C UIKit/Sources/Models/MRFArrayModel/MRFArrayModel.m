@@ -49,7 +49,7 @@
     
     MRFArrayModelChanges *changes = [[MRFArrayModelChanges alloc] init];
     [changes addRow:(self.mutableArray.count - 1)];
-    changes.state = MRFArrayModelChangesWithAdd;
+    changes.state = MRFArrayModelAppendChanges;
     
     [self setState:MRFArrayModelDidChange withObject:changes];
 }
@@ -87,7 +87,7 @@
     
     switch (state) {
         case MRFArrayModelDidChange:
-            selector = @selector (MRFArrayModelDidChange: withObject:);
+            selector = @selector (arrayModel:didChangeWithObject:);
             break;
             
         default:

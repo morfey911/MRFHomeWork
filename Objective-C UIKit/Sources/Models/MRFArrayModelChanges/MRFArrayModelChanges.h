@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, MRFArrayModelChangesState) {
-    MRFArrayModelChangesWithAdd,
-    MRFArrayModelChangesWithDelete,
-    MRFArrayModelChangesWithMove
+    MRFArrayModelAppendChanges,
+    MRFArrayModelDeleteChanges,
+    MRFArrayModelMoveChanges
 };
 
 @interface MRFArrayModelChanges : NSObject
-@property (nonatomic, readonly)   NSArray                   *array;
 @property (nonatomic, assign)     MRFArrayModelChangesState state;
+@property (nonatomic, readonly)   NSArray                   *array;
 
 - (void)addRow:(NSUInteger)row;
 - (void)addIndexPath:(NSIndexPath *)path;
