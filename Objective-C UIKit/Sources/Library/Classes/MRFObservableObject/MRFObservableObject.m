@@ -44,10 +44,16 @@
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
+    [self setState:state withObject:nil];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized(self) {
         _state = state;
         
-        [self notifyObserversOnMainThreadWithSelector:[self selectorForState:state]];
+        MRFDispatchSyncOnMainThread(^{
+            [self notifyObserversWithObject:object];
+        });
     }
 }
 
@@ -94,20 +100,14 @@
     return nil;
 }
 
-- (void)notifyObserversOnMainThreadWithSelector:(SEL)selector {
-    MRFDispatchSyncOnMainThread(^{
-        [self notifyObserversWithSelector:selector];
-    });
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector {
-    [self notifyObserversWithSelector:selector withObject:self];
+- (void)notifyObserversWithObject:(id)object {
+    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:object];
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     for (id observer in self.observersHashTable) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object];
+            [observer performSelector:selector withObject:self withObject:object];
         }
     }
 }

@@ -12,6 +12,8 @@
 @property (nonatomic, assign)           NSUInteger  state;
 @property (nonatomic, retain, readonly) NSSet       *observersSet;
 
+- (void)setState:(NSUInteger)state withObject:(id)object;
+
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 - (void)removeObservers;
@@ -19,8 +21,7 @@
 
 - (SEL)selectorForState:(NSUInteger)state;
 
-- (void)notifyObserversOnMainThreadWithSelector:(SEL)selector;
-- (void)notifyObserversWithSelector:(SEL)selector;
+- (void)notifyObserversWithObject:(id)object;
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
 
 @end

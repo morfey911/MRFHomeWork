@@ -31,6 +31,8 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.arrayModel addObserver:self];
+    
     [self.infoView.tableView reloadData];
 }
 
@@ -94,6 +96,13 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
           toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     [self.arrayModel moveModelFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
+#pragma mark -
+#pragma mark MRFArrayModelProtocol
+
+- (void)MRFArrayModelDidChange:(MRFArrayModel *)model withObject:(MRFArrayModelChanges *)object {
+    NSLog(@"test");
 }
 
 @end

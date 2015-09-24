@@ -12,6 +12,10 @@
 
 @class MRFInfoModel;
 
+typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
+    MRFArrayModelDidChange
+};
+
 @interface MRFArrayModel : MRFObservableObject
 @property (nonatomic, readonly) NSArray *array;
 

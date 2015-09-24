@@ -44,6 +44,7 @@
 
 - (void)addModel:(id)model {
     [self.mutableArray addObject:model];
+    [self setState:MRFArrayModelDidChange withObject:@"testObject"];
 }
 
 - (void)removeModel:(id)model {
@@ -73,5 +74,21 @@
 - (NSUInteger)count {
     return [self.mutableArray count];
 }
+
+- (SEL)selectorForState:(NSUInteger)state {
+    SEL selector = nil;
+    
+    switch (state) {
+        case MRFArrayModelDidChange:
+            selector = @selector (MRFArrayModelDidChange: withObject:);
+            break;
+            
+        default:
+            break;
+    }
+    
+    return selector;
+}
+
 
 @end
