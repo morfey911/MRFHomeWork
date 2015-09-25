@@ -33,23 +33,25 @@
     @end
 
 
+#define empty
 
 #define MRFWeakify(object) \
     __weak __typeof(object) __MRFWeak_##object = object
 
-//use ONLY after MRFWeakify macros!!!11
+//use MRFStrongify ONLY after MRFWeakify macros!!!
+
 #define MRFStrongify(object) \
     __strong __typeof(object) object = __MRFWeak_##object
 
-//use ONLY after MRFWeakify macros!!!11
-#define MRFStrongifyAndReturnIfNil(object) \
+#define MRFStrongifyAndReturnValueIfNil(object, value) \
     MRFStrongify(object); \
     if (!object) { \
-        return; \
+        return value; \
     }
 
+#define MRFStrongifyAndReturnIfNil(object) \
+    MRFStrongifyAndReturnValueIfNil(object, empty)
+
 #define MRFStrongifyAndReturnNilIfNil(object) \
-    MRFStrongify(object); \
-    if (!object) { \
-        return nil; \
-    }
+    MRFStrongifyAndReturnValueIfNil(object, nil)
+
