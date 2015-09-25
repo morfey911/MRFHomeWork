@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "UIWindow+MFRExtentions.h"
+#import "UIWindow+MFRExtensions.h"
 
-@implementation UIWindow (MFRExtentions)
+@implementation UIWindow (MFRExtensions)
 
 #pragma mark -
 #pragma mark Class methods

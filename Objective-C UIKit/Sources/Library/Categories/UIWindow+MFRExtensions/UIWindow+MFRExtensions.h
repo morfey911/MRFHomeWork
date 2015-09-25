@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWindow (MFRExtentions)
+@interface UIWindow (MFRExtensions)
 
 + (instancetype)window;
 

@@ -11,8 +11,8 @@
 #import "MRFInfoModel.h"
 #import "MRFInfoArrayModel.h"
 
-#import "UIWindow+MFRExtentions.h"
-#import "UIViewController+MRFExtentions.h"
+#import "UIWindow+MFRExtensions.h"
+#import "UIViewController+MRFExtensions.h"
 
 static const NSUInteger kMRFInfoModelCount = 7;
 

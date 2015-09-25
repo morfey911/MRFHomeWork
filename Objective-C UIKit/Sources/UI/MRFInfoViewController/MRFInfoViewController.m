@@ -14,7 +14,7 @@
 
 #import "MRFMacros.h"
 
-#import "UITableView+MRFExtentions.h"
+#import "UITableView+MRFExtensions.h"
 #import "NSIndexPath+MRFExtension.h"
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)

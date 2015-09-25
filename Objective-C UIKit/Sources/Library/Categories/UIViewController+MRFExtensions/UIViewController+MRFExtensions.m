@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "UIViewController+MRFExtentions.h"
+#import "UIViewController+MRFExtensions.h"
 
-@implementation UIViewController (MRFExtentions)
+@implementation UIViewController (MRFExtensions)
 
 #pragma mark -
 #pragma mark Class methods

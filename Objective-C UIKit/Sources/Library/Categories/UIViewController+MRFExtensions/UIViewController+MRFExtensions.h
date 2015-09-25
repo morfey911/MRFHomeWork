@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (MRFExtentions)
+@interface UIViewController (MRFExtensions)
 
 + (instancetype)controller;
 

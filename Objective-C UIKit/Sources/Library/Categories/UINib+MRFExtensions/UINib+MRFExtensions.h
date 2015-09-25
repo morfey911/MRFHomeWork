@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINib (MRFExtentions)
+@interface UINib (MRFExtensions)
 
 + (UINib *)nibWithClass:(Class)cls;
 + (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundle;
 
 + (id)objectWithClass:(Class)cls;
++ (id)objectWithClass:(Class)cls owner:(id)owner;
+
 - (id)objectWithClass:(Class)cls;
+- (id)objectWithClass:(Class)cls owner:(id)owner;
 
 - (NSArray *)instantiate;
 - (NSArray *)instantiateWithOwner:(id)ownerOrNil;
