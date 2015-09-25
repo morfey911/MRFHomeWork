@@ -49,7 +49,9 @@
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized(self) {
-        _state = state;
+        if (_state != state) {
+            _state = state;
+        }
         
         MRFDispatchSyncOnMainThread(^{
             [self notifyObserversWithObject:object];

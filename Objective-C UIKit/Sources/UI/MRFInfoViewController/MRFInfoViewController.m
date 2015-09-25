@@ -22,16 +22,30 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 @implementation MRFInfoViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.arrayModel = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
+- (void)setArrayModel:(MRFArrayModel *)arrayModel {
+    if (_arrayModel != arrayModel) {
+        [_arrayModel removeObserver:self];
+        
+        _arrayModel = arrayModel;
+        
+        [_arrayModel addObserver:self];
+    }
+}
 
 #pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.arrayModel addObserver:self];
     
     [self.infoView.tableView reloadData];
 }
