@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MRFArrayModelChanges.h"
+#import "MRFArrayChangesModel.h"
 
 @class MRFArrayModel;
 
@@ -16,6 +16,6 @@
 
 @optional
 
-- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayModelChanges *)object;
+- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object;
 
 @end

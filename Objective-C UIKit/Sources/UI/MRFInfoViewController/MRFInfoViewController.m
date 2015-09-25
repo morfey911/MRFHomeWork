@@ -109,7 +109,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark -
 #pragma mark MRFArrayModelProtocol
 
-- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayModelChanges *)object {
+- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
     UITableView *tableView = self.infoView.tableView;
     
     switch (object.state) {

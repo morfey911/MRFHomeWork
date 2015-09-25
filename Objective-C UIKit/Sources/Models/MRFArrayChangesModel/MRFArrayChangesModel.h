@@ -1,5 +1,5 @@
 //
-//  MRFArrayModelChanges.h
+//  MRFArrayChangesModel.h
 //  Objective-C UIKit
 //
 //  Created by Yurii Mamurko on 24.09.15.
@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, MRFArrayModelChangesState) {
+typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
     MRFArrayModelAppendChanges,
     MRFArrayModelDeleteChanges,
     MRFArrayModelMoveChanges
 };
 
-@interface MRFArrayModelChanges : NSObject
-@property (nonatomic, assign)     MRFArrayModelChangesState state;
+@interface MRFArrayChangesModel : NSObject
+@property (nonatomic, assign)     MRFArrayChangesModelState state;
 @property (nonatomic, readonly)   NSArray                   *array;
 
 - (void)addRow:(NSUInteger)row;

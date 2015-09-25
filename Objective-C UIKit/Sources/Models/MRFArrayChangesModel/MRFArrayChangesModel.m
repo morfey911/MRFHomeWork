@@ -1,21 +1,21 @@
 //
-//  MRFArrayModelChanges.m
+//  MRFArrayChangesModel.m
 //  Objective-C UIKit
 //
 //  Created by Yurii Mamurko on 24.09.15.
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "MRFArrayModelChanges.h"
+#import "MRFArrayChangesModel.h"
 
 #import "NSIndexPath+MRFExtension.h"
 
-@interface MRFArrayModelChanges ()
+@interface MRFArrayChangesModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
 
 @end
 
-@implementation MRFArrayModelChanges
+@implementation MRFArrayChangesModel
 
 @dynamic array;
 

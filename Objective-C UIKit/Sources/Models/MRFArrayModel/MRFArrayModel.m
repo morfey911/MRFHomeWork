@@ -8,7 +8,7 @@
 
 #import "MRFArrayModel.h"
 
-#import "MRFArrayModelChanges.h"
+#import "MRFArrayChangesModel.h"
 
 #import "NSMutableArray+MRFExtension.h"
 
@@ -47,7 +47,7 @@
 - (void)addModel:(id)model {
     [self.mutableArray addObject:model];
     
-    MRFArrayModelChanges *changes = [[MRFArrayModelChanges alloc] init];
+    MRFArrayChangesModel *changes = [[MRFArrayChangesModel alloc] init];
     [changes addRow:(self.mutableArray.count - 1)];
     changes.state = MRFArrayModelAppendChanges;
     
