@@ -110,25 +110,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark MRFArrayModelProtocol
 
 - (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
-    UITableView *tableView = self.infoView.tableView;
-    NSIndexPath *sourcePosition = [object getSourcePosition];
-    
-    switch (object.state) {
-        case MRFArrayModelAppendChanges:
-            [tableView insertRowsAtIndexPaths:@[sourcePosition] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case MRFArrayModelDeleteChanges:
-            [tableView deleteRowsAtIndexPaths:@[sourcePosition] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case MRFArrayModelMoveChanges:
-            [tableView moveRowAtIndexPath:sourcePosition toIndexPath:[object getDestinationPosition]];
-             break;
-             
-        default:
-            break;
-    }
+    [self.infoView.tableView updateWithChanges:object];
 }
 
 @end

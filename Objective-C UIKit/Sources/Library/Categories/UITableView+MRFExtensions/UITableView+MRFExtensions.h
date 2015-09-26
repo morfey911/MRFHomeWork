@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class MRFArrayChangesModel;
+
 @interface UITableView (MRFExtensions)
 
 - (id)dequeueReusableCellWithClass:(Class)cls;
+- (void)updateWithChanges:(MRFArrayChangesModel *)changes;
 
 @end
