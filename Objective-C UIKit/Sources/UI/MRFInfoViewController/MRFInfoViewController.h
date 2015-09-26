@@ -10,7 +10,6 @@
 
 #import "MRFArrayModelProtocol.h"
 
-@class MRFInfoModel;
 @class MRFArrayModel;
 
 @interface MRFInfoViewController : UIViewController <UITableViewDelegate,

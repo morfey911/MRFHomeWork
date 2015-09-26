@@ -8,45 +8,31 @@
 
 #import "MRFArrayChangesModel.h"
 
-#import "NSIndexPath+MRFExtension.h"
-
-@interface MRFArrayChangesModel ()
-@property (nonatomic, strong)   NSMutableArray  *mutableArray;
-
-@end
+#import "MRFPositionModel.h"
+#import "MRFMovingPositionModel.h"
 
 @implementation MRFArrayChangesModel
 
-@dynamic array;
-
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark Class Methods
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.mutableArray = [NSMutableArray array];
-    }
-    
-    return self;
++ (instancetype)changesModelWithPosition:(NSIndexPath *)position {
+    return [MRFPositionModel positionModelWithPosition:position];
 }
 
-#pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)array {
-    return [self.mutableArray copy];
++ (instancetype)changesModelWithMovingPositionFrom:(NSIndexPath *)fromPosition
+                                                to:(NSIndexPath *)toPosition
+{
+    return [MRFMovingPositionModel movingPositionModelWithSourcePosition:fromPosition
+                                                     destinationPosition:toPosition];
 }
 
-#pragma mark -
-#pragma mark Public
-
-- (void)addRow:(NSUInteger)row {
-    [self.mutableArray addObject:[NSIndexPath indexPathForRow:row]];
+- (NSIndexPath *)getSourcePosition {
+    return nil;
 }
 
-- (void)addIndexPath:(NSIndexPath *)path {
-    [self.mutableArray addObject:path];
+- (NSIndexPath *)getDestinationPosition {
+    return nil;
 }
 
 @end

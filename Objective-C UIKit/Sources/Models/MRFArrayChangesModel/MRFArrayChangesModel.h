@@ -16,9 +16,14 @@ typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
 
 @interface MRFArrayChangesModel : NSObject
 @property (nonatomic, assign)     MRFArrayChangesModelState state;
-@property (nonatomic, readonly)   NSArray                   *array;
 
-- (void)addRow:(NSUInteger)row;
-- (void)addIndexPath:(NSIndexPath *)path;
++ (instancetype)changesModelWithPosition:(NSIndexPath *)position;
+
++ (instancetype)changesModelWithMovingPositionFrom:(NSIndexPath *)fromPosition
+                                                to:(NSIndexPath *)toPosition;
+
+- (NSIndexPath *)getSourcePosition;
+
+- (NSIndexPath *)getDestinationPosition;
 
 @end
