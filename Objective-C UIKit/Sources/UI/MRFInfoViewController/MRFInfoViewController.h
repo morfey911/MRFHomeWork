@@ -14,7 +14,8 @@
 
 @interface MRFInfoViewController : UIViewController <UITableViewDelegate,
                                                         UITableViewDataSource,
-                                                        MRFArrayModelProtocol>
+                                                        MRFArrayModelProtocol,
+                                                        NSCoding>
 @property (nonatomic, strong)   MRFArrayModel   *arrayModel;
 
 - (IBAction)onEditButton:(id)sender;
