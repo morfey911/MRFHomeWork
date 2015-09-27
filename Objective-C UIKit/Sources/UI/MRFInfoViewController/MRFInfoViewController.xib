@@ -39,7 +39,7 @@
             <gestureRecognizers/>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
-                <outlet property="removeButton" destination="FSH-o2-BMN" id="lIV-gQ-YhC"/>
+                <outlet property="editButton" destination="FSH-o2-BMN" id="bKs-N9-c9e"/>
                 <outlet property="tableView" destination="7ch-Gw-sme" id="yE8-on-upS"/>
             </connections>
             <point key="canvasLocation" x="265" y="322"/>
