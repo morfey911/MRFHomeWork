@@ -98,8 +98,7 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTempFile";
     return [self.mutableArray count];
 }
 
-
-- (void)loadArrayFromFile {
+- (void)loadArrayFromFile {    
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
         sleep(4);
         
