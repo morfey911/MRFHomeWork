@@ -8,7 +8,6 @@
 
 #import "MRFAppDelegate.h"
 #import "MRFInfoViewController.h"
-#import "MRFInfoModel.h"
 #import "MRFInfoArrayModel.h"
 
 #import "UIWindow+MFRExtensions.h"
@@ -17,7 +16,7 @@
 static const NSUInteger kMRFInfoModelCount = 7;
 
 @interface MRFAppDelegate ()
-
+@property (nonatomic, strong)   MRFInfoArrayModel   *arrayModel;
 @end
 
 @implementation MRFAppDelegate
@@ -27,13 +26,29 @@ static const NSUInteger kMRFInfoModelCount = 7;
     self.window = window;
 
     MRFInfoViewController *controller = [MRFInfoViewController controller];
-    controller.arrayModel = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
+    
+    MRFInfoArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:@"/tmp/mrf"];
+    
+    if (!arrayModel) {
+        arrayModel = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
+    }
+
+    self.arrayModel = arrayModel;
+    controller.arrayModel = arrayModel;
     
     window.rootViewController = controller;
     
     [window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [NSKeyedArchiver archiveRootObject:self.arrayModel toFile:@"/tmp/mrf"];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [NSKeyedArchiver archiveRootObject:self.arrayModel toFile:@"/tmp/mrf"];
 }
 
 @end

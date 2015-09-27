@@ -136,4 +136,21 @@
     [self setState:MRFArrayModelDidChange withObject:changes];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:_mutableArray forKey:@"array"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    
+    if (self) {
+        _mutableArray = [aDecoder decodeObjectForKey:@"array"];
+    }
+    
+    return self;
+}
+
 @end

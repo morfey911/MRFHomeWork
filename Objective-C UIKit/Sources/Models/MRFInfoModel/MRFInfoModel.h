@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface MRFInfoModel : NSObject
+@interface MRFInfoModel : NSObject <NSCoding>
 @property (nonatomic, readonly)     NSString    *string;
 @property (nonatomic, readonly)     UIImage     *image;
 

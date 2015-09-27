@@ -50,4 +50,24 @@ static NSString * const kMRFImageType       = @"png";
     return image;
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.string forKey:@"string"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    
+    if (self) {
+        self.string = [aDecoder decodeObjectForKey:@"string"];
+    }
+    
+    return self;
+}
+
 @end
