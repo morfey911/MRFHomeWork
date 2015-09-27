@@ -19,6 +19,4 @@
 
 - (IBAction)onEditButton:(id)sender;
 
-- (void)saveArrayModelStateToFile;
-
 @end

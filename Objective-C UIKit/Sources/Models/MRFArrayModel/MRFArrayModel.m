@@ -13,6 +13,8 @@
 #import "NSMutableArray+MRFExtension.h"
 #import "NSIndexPath+MRFExtension.h"
 
+static NSString * const kMRFFilePath = @"/tmp/mrfTempFile";
+
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
 
@@ -96,6 +98,27 @@
     return [self.mutableArray count];
 }
 
+
+- (void)loadArrayFromFile {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        sleep(4);
+        
+        MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:kMRFFilePath];
+        
+        if (arrayModel) {
+            self.mutableArray = arrayModel.mutableArray;
+        }
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.state = MRFArrayModelLoaded;
+        });
+    });
+}
+
+- (void)saveArrayToFile {
+    [NSKeyedArchiver archiveRootObject:self toFile:kMRFFilePath];
+}
+
 #pragma mark -
 #pragma mark Private
 
@@ -129,6 +152,10 @@
     SEL selector = nil;
     
     switch (state) {
+        case MRFArrayModelLoaded:
+            selector = @selector(arrayModelDidLoad:);
+            break;
+            
         case MRFArrayModelDidChange:
             selector = @selector (arrayModel:didChangeWithObject:);
             break;

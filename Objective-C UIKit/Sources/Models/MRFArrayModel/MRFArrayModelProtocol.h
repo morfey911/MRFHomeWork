@@ -16,6 +16,8 @@
 
 @optional
 
+- (void)arrayModelDidLoad:(MRFArrayModel *)model;
+
 - (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object;
 
 @end

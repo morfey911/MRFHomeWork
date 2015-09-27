@@ -52,10 +52,8 @@
         if (_state != state) {
             _state = state;
         }
-        
-        MRFDispatchSyncOnMainThread(^{
-            [self notifyObserversWithObject:object];
-        });
+
+        [self notifyObserversWithObject:object];
     }
 }
 

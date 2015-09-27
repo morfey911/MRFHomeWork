@@ -13,6 +13,9 @@
 @class MRFInfoModel;
 
 typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
+    MRFArrayModelNotLoaded,
+    MRFArrayModelLoading,
+    MRFArrayModelLoaded,
     MRFArrayModelDidChange
 };
 
@@ -31,5 +34,8 @@ typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 - (NSUInteger)count;
+
+- (void)loadArrayFromFile;
+- (void)saveArrayToFile;
 
 @end

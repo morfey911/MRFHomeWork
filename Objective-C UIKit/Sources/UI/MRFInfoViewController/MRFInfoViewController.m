@@ -17,8 +17,6 @@
 #import "UITableView+MRFExtensions.h"
 #import "NSIndexPath+MRFExtension.h"
 
-static NSString * const MRFFilePath = @"/tmp/mrfTempFile";
-
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 @implementation MRFInfoViewController
@@ -37,13 +35,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     if (_arrayModel != arrayModel) {
         [_arrayModel removeObserver:self];
         
-        _arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:MRFFilePath];
-        
-        if (!_arrayModel) {
-            _arrayModel = arrayModel;
-        }
+        _arrayModel = arrayModel;
         
         [_arrayModel addObserver:self];
+        [self.arrayModel loadArrayFromFile];
     }
 }
 
@@ -67,13 +62,6 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     MRFInfoView *view = self.infoView;
     
     view.editing = !view.editing;
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)saveArrayModelStateToFile {
-    [NSKeyedArchiver archiveRootObject:self.arrayModel toFile:MRFFilePath];
 }
 
 #pragma mark -
@@ -124,6 +112,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 - (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
     [self.infoView.tableView updateWithChanges:object];
+}
+
+- (void)arrayModelDidLoad:(MRFArrayModel *)model {
+    [self.infoView.tableView reloadData];
 }
 
 @end

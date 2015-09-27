@@ -7,6 +7,7 @@
 //
 
 #import "MRFAppDelegate.h"
+
 #import "MRFInfoViewController.h"
 #import "MRFInfoArrayModel.h"
 
@@ -35,16 +36,12 @@ static const NSUInteger kMRFInfoModelCount = 7;
     [self saveApplicationState];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [self saveApplicationState];
-}
-
 #pragma mark -
 #pragma mark Private
 
 - (void)saveApplicationState {
     MRFInfoViewController *controller = (MRFInfoViewController *)(self.window.rootViewController);
-    [controller saveArrayModelStateToFile];
+    [controller.arrayModel saveArrayToFile];
 }
 
 @end
