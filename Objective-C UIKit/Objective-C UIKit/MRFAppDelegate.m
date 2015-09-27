@@ -15,10 +15,6 @@
 
 static const NSUInteger kMRFInfoModelCount = 7;
 
-@interface MRFAppDelegate ()
-@property (nonatomic, strong)   MRFInfoArrayModel   *arrayModel;
-@end
-
 @implementation MRFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -26,15 +22,7 @@ static const NSUInteger kMRFInfoModelCount = 7;
     self.window = window;
 
     MRFInfoViewController *controller = [MRFInfoViewController controller];
-    
-    MRFInfoArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:@"/tmp/mrf"];
-    
-    if (!arrayModel) {
-        arrayModel = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
-    }
-
-    self.arrayModel = arrayModel;
-    controller.arrayModel = arrayModel;
+    controller.arrayModel = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
     
     window.rootViewController = controller;
     
@@ -44,11 +32,19 @@ static const NSUInteger kMRFInfoModelCount = 7;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [NSKeyedArchiver archiveRootObject:self.arrayModel toFile:@"/tmp/mrf"];
+    [self saveApplicationState];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [NSKeyedArchiver archiveRootObject:self.arrayModel toFile:@"/tmp/mrf"];
+    [self saveApplicationState];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)saveApplicationState {
+    MRFInfoViewController *controller = (MRFInfoViewController *)(self.window.rootViewController);
+    [controller saveArrayModelStateToFile];
 }
 
 @end

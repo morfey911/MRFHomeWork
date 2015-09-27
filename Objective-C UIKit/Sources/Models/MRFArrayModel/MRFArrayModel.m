@@ -17,6 +17,7 @@
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
 
 - (void)changePositionWithIndex:(NSUInteger)index state:(MRFArrayChangesModelState)state;
+
 - (void)changeMovingPositionWithSourceIndex:(NSUInteger)sourceIndex
                            destinationIndex:(NSUInteger)destinationIndex
                                       state:(MRFArrayChangesModelState)state;
@@ -34,7 +35,7 @@
     self = [super init];
     
     if (self) {
-        self.mutableArray = [NSMutableArray new];
+        self.mutableArray = [NSMutableArray array];
     }
     
     return self;
@@ -95,21 +96,6 @@
     return [self.mutableArray count];
 }
 
-- (SEL)selectorForState:(NSUInteger)state {
-    SEL selector = nil;
-    
-    switch (state) {
-        case MRFArrayModelDidChange:
-            selector = @selector (arrayModel:didChangeWithObject:);
-            break;
-            
-        default:
-            break;
-    }
-    
-    return selector;
-}
-
 #pragma mark -
 #pragma mark Private
 
@@ -134,6 +120,24 @@
     changes.state = state;
     
     [self setState:MRFArrayModelDidChange withObject:changes];
+}
+
+#pragma mark -
+#pragma mark Observable Object
+
+- (SEL)selectorForState:(NSUInteger)state {
+    SEL selector = nil;
+    
+    switch (state) {
+        case MRFArrayModelDidChange:
+            selector = @selector (arrayModel:didChangeWithObject:);
+            break;
+            
+        default:
+            break;
+    }
+    
+    return selector;
 }
 
 #pragma mark -
