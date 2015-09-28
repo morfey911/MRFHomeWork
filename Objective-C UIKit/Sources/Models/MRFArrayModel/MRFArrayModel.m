@@ -11,18 +11,11 @@
 #import "MRFArrayChangesModel.h"
 
 #import "NSMutableArray+MRFExtension.h"
-#import "NSIndexPath+MRFExtension.h"
 
 static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
 
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
-
-- (void)changePositionWithIndex:(NSUInteger)index state:(MRFArrayChangesModelState)state;
-
-- (void)changeMovingPositionWithSourceIndex:(NSUInteger)sourceIndex
-                           destinationIndex:(NSUInteger)destinationIndex
-                                      state:(MRFArrayChangesModelState)state;
 
 @end
 
@@ -60,33 +53,35 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
 - (void)addModel:(id)model {
     [self.mutableArray addObject:model];
     
-    [self changePositionWithIndex:(self.count - 1) state:MRFArrayModelAppendChanges];
+    [self setState:MRFArrayModelDidChange
+        withObject:[MRFArrayChangesModel appendModelWithIndex:(self.count - 1)]];
 }
 
 - (void)removeModel:(id)model {
-    NSUInteger position = [self.mutableArray indexOfObject:model];
+    NSUInteger index = [self.mutableArray indexOfObject:model];
     
     [self.mutableArray removeObject:model];
-
-    [self changePositionWithIndex:position state:MRFArrayModelDeleteChanges];
+    
+    [self setState:MRFArrayModelDidChange withObject:[MRFArrayChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)insertModel:(id)model atIndex:(NSUInteger)index {
     [self.mutableArray insertObject:model atIndex:index];
     
-    [self changePositionWithIndex:index state:MRFArrayModelAppendChanges];
+    [self setState:MRFArrayModelDidChange withObject:[MRFArrayChangesModel appendModelWithIndex:index]];
 }
 
 - (void)removeModelAtIndex:(NSUInteger)index {
     [self.mutableArray removeObjectAtIndex:index];
     
-    [self changePositionWithIndex:index state:MRFArrayModelDeleteChanges];
+    [self setState:MRFArrayModelDidChange withObject:[MRFArrayChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)moveModelFromIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2 {
     [self.mutableArray moveObjectFromIndex:index1 toIndex:index2];
     
-    [self changeMovingPositionWithSourceIndex:index1 destinationIndex:index2 state:MRFArrayModelMoveChanges];
+    [self setState:MRFArrayModelDidChange
+        withObject:[MRFArrayChangesModel moveModelFromIndex:index1 toIndex:index2]];
 }
 
 - (id)modelAtIndex:(NSUInteger)index {
@@ -116,32 +111,6 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
 
 - (void)saveArrayToFile {
     [NSKeyedArchiver archiveRootObject:self toFile:kMRFFilePath];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)changePositionWithIndex:(NSUInteger)position state:(MRFArrayChangesModelState)state {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:position];
-    
-    MRFArrayChangesModel *changes = [MRFArrayChangesModel changesModelWithPosition:indexPath];
-    changes.state = state;
-    
-    [self setState:MRFArrayModelDidChange withObject:changes];
-}
-
-- (void)changeMovingPositionWithSourceIndex:(NSUInteger)sourceIndex
-                           destinationIndex:(NSUInteger)destinationIndex
-                                      state:(MRFArrayChangesModelState)state
-{
-    NSIndexPath *sourcePath = [NSIndexPath indexPathForRow:sourceIndex];
-    NSIndexPath *destinationPath = [NSIndexPath indexPathForRow:destinationIndex];
-    
-    MRFArrayChangesModel *changes = [MRFArrayChangesModel changesModelWithMovingPositionFrom:sourcePath
-                                                                                          to:destinationPath];
-    changes.state = state;
-    
-    [self setState:MRFArrayModelDidChange withObject:changes];
 }
 
 #pragma mark -

@@ -6,9 +6,12 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "MRFArrayChangesModel.h"
-
 #import "UITableView+MRFExtensions.h"
+
+#import "MRFArrayChangesModel.h"
+#import "MRFPositionModel.h"
+#import "MRFMovingPositionModel.h"
+
 #import "UINib+MRFExtensions.h"
 
 @implementation UITableView (MRFExtensions)
@@ -25,19 +28,20 @@
 
 - (void)updateWithChanges:(MRFArrayChangesModel *)changes {
     UITableView *tableView = self;
-    NSIndexPath *sourcePosition = [changes getSourcePosition];
+    NSIndexPath *indexPath = ((MRFPositionModel *)changes).indexPath;
     
     switch (changes.state) {
         case MRFArrayModelAppendChanges:
-            [tableView insertRowsAtIndexPaths:@[sourcePosition] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case MRFArrayModelDeleteChanges:
-            [tableView deleteRowsAtIndexPaths:@[sourcePosition] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case MRFArrayModelMoveChanges:
-            [tableView moveRowAtIndexPath:sourcePosition toIndexPath:[changes getDestinationPosition]];
+            [tableView moveRowAtIndexPath:((MRFMovingPositionModel *)changes).sourceIndexPath
+                              toIndexPath:((MRFMovingPositionModel *)changes).destinationIndexPath];
             break;
             
         default:
