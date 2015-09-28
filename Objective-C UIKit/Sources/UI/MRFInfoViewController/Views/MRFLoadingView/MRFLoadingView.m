@@ -8,17 +8,21 @@
 
 #import "MRFLoadingView.h"
 
+static const NSUInteger kMRFAnimateDuration = 2;
+static const CGFloat    kMRFHideAlpha       = 0;
+static const CGFloat    kMRFShowAlpha       = 1;
+
 @implementation MRFLoadingView
 
 - (void)hideWithAnimation {
-    [UIView animateWithDuration:2 animations:^{
-        self.alpha = 0;
+    [UIView animateWithDuration:kMRFAnimateDuration animations:^{
+        self.alpha = kMRFHideAlpha;
     }];
 }
 
 - (void)showWithAnimation {
-    [UIView animateWithDuration:2 animations:^{
-        self.alpha = 1;
+    [UIView animateWithDuration:kMRFAnimateDuration animations:^{
+        self.alpha = kMRFShowAlpha;
     }];
 }
 
