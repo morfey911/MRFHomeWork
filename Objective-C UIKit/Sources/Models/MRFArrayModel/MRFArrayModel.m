@@ -13,7 +13,7 @@
 #import "NSMutableArray+MRFExtension.h"
 #import "NSIndexPath+MRFExtension.h"
 
-static NSString * const kMRFFilePath = @"/tmp/mrfTempFile";
+static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
 
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
@@ -50,14 +50,17 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTempFile";
     return [self.mutableArray copy];
 }
 
+- (NSUInteger)count {
+    return self.mutableArray.count;
+}
+
 #pragma mark -
 #pragma mark Public
 
 - (void)addModel:(id)model {
     [self.mutableArray addObject:model];
     
-    [self changePositionWithIndex:([self count] - 1)
-                               state:MRFArrayModelAppendChanges];
+    [self changePositionWithIndex:(self.count - 1) state:MRFArrayModelAppendChanges];
 }
 
 - (void)removeModel:(id)model {
@@ -94,9 +97,6 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTempFile";
     return [self modelAtIndex:idx];
 }
 
-- (NSUInteger)count {
-    return [self.mutableArray count];
-}
 
 - (void)loadArrayFromFile {    
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
@@ -170,14 +170,14 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTempFile";
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_mutableArray forKey:@"array"];
+    [aCoder encodeObject:self.mutableArray forKey:@"array"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     
     if (self) {
-        _mutableArray = [aDecoder decodeObjectForKey:@"array"];
+        self.mutableArray = [aDecoder decodeObjectForKey:@"array"];
     }
     
     return self;

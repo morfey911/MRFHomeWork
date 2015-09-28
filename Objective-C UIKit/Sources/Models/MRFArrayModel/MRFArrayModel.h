@@ -19,7 +19,8 @@ typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
 };
 
 @interface MRFArrayModel : MRFObservableObject <NSCoding>
-@property (nonatomic, readonly) NSArray *array;
+@property (nonatomic, readonly) NSArray     *array;
+@property (nonatomic, readonly) NSUInteger  count;
 
 - (void)addModel:(id)model;
 - (void)removeModel:(id)model;
@@ -31,8 +32,6 @@ typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
 
 - (id)modelAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
-
-- (NSUInteger)count;
 
 - (void)loadArrayFromFile;
 - (void)saveArrayToFile;

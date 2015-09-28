@@ -8,8 +8,6 @@
 
 #import "MRFObservableObject.h"
 
-#import "MRFDispatch.h"
-
 @interface MRFObservableObject ()
 @property (nonatomic, retain) NSHashTable *observersHashTable;
 
