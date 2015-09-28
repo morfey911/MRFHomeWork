@@ -8,30 +8,52 @@
 
 #import "MRFPositionModel.h"
 
+#import "NSIndexPath+MRFExtension.h"
+
+@interface MRFPositionModel ()
+@property (nonatomic, assign)   NSUInteger  index;
+
+@end
+
 @implementation MRFPositionModel
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)positionModelWithPosition:(NSIndexPath *)position {
-    return [[self alloc] initWithPosition:position];
++ (instancetype)modelWithIndex:(NSUInteger)index state:(MRFArrayChangesModelState)state {
+    return [[self alloc] initWithIndex:index state:state];
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Initializations and Deallocations
 
-- (instancetype)initWithPosition:(NSIndexPath *)position {
-    self = [super init];
-    
+- (instancetype)initWithIndex:(NSUInteger)index state:(MRFArrayChangesModelState)state {
+    self = [super initWithState:state];
     if (self) {
-        self.position = position;
+        self.index = index;
     }
     
     return self;
 }
 
-- (NSIndexPath *)getSourcePosition {
-    return self.position;
+@end
+
+@implementation MRFPositionModel (MRFIndexPath)
+
+@dynamic indexPath;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)modelWithIndexPath:(NSIndexPath *)indexPath state:(MRFArrayChangesModelState)state {
+    return [self modelWithIndex:indexPath.row state:state];
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSIndexPath *)indexPath {
+    return [NSIndexPath indexPathForRow:self.index];
 }
 
 @end

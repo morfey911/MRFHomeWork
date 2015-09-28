@@ -11,12 +11,17 @@
 #import "MRFArrayChangesModel.h"
 
 @interface MRFPositionModel : MRFArrayChangesModel
-@property (nonatomic, strong)   NSIndexPath *position;
+@property (nonatomic, readonly) NSUInteger  index;
 
-+ (instancetype)positionModelWithPosition:(NSIndexPath *)position;
++ (instancetype)modelWithIndex:(NSUInteger)index state:(MRFArrayChangesModelState)state;
 
-- (instancetype)initWithPosition:(NSIndexPath *)position;
+- (instancetype)initWithIndex:(NSUInteger)index state:(MRFArrayChangesModelState)state;
 
-- (NSIndexPath *)getSourcePosition;
+@end
+
+@interface MRFPositionModel (MRFIndexPath)
+@property (nonatomic, readonly) NSIndexPath *indexPath;
+
++ (instancetype)modelWithIndexPath:(NSIndexPath *)indexPath state:(MRFArrayChangesModelState)state;
 
 @end

@@ -8,39 +8,72 @@
 
 #import "MRFMovingPositionModel.h"
 
+#import "NSIndexPath+MRFExtension.h"
+
+@interface MRFMovingPositionModel ()
+@property (nonatomic, assign)   NSUInteger  sourceIndex;
+@property (nonatomic, assign)   NSUInteger  destinationIndex;
+
+@end
+
 @implementation MRFMovingPositionModel
 
 #pragma mark -
 #pragma Class Methods
 
-+ (instancetype)movingPositionModelWithSourcePosition:(NSIndexPath *)source
-                             destinationPosition:(NSIndexPath *)destination
++ (instancetype)modelWithSourceIndex:(NSUInteger)sourceIndex
+                    destinationIndex:(NSUInteger)destinationIndex
+                               state:(MRFArrayChangesModelState)state
 {
-    return [[self alloc] initWithSourcePosition:source destinationPosition:destination];
+    return [[self alloc] initWithSourceIndex:sourceIndex
+                            destinationIndex:destinationIndex
+                                       state:state];
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Initializations and Deallocations
 
-- (instancetype)initWithSourcePosition:(NSIndexPath *)source
-                   destinationPosition:(NSIndexPath *)destination
+- (instancetype)initWithSourceIndex:(NSUInteger)sourceIndex
+                   destinationIndex:(NSUInteger)destinationIndex
+                              state:(MRFArrayChangesModelState)state
 {
-    self = [super init];
-    
+    self = [super initWithState:state];
     if (self) {
-        self.sourcePosition = source;
-        self.destinationPosition = destination;
+        self.sourceIndex = sourceIndex;
+        self.destinationIndex = destinationIndex;
     }
     
     return self;
 }
 
-- (NSIndexPath *)getSourcePosition {
-    return self.sourcePosition;
+@end
+
+@implementation MRFMovingPositionModel (MRFIndexPath)
+
+@dynamic sourceIndexPath;
+@dynamic destinationIndexPath;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)modelWithSourceIndexPath:(NSIndexPath *)sourceIndexPath
+                    destinationIndexPath:(NSIndexPath *)destinationIndexPath
+                                   state:(MRFArrayChangesModelState)state
+{
+    return [self modelWithSourceIndex:sourceIndexPath.row
+                     destinationIndex:destinationIndexPath.row
+                                state:state];
 }
 
-- (NSIndexPath *)getDestinationPosition {
-    return self.destinationPosition;
+#pragma mark -
+#pragma mark Accessors
+
+- (NSIndexPath *)sourceIndexPath {
+    return [NSIndexPath indexPathForRow:self.sourceIndex];
+}
+
+- (NSIndexPath *)destinationIndexPath {
+    return [NSIndexPath indexPathForRow:self.destinationIndex];
 }
 
 @end

@@ -11,28 +11,69 @@
 #import "MRFPositionModel.h"
 #import "MRFMovingPositionModel.h"
 
+@interface MRFArrayChangesModel ()
+@property (nonatomic, assign)   MRFArrayChangesModelState state;
+
+@end
+
 @implementation MRFArrayChangesModel
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)changesModelWithPosition:(NSIndexPath *)position {
-    return [MRFPositionModel positionModelWithPosition:position];
++ (instancetype)modelWithState:(MRFArrayChangesModelState)state {
+    return [[self alloc] initWithState:state];
 }
 
-+ (instancetype)changesModelWithMovingPositionFrom:(NSIndexPath *)fromPosition
-                                                to:(NSIndexPath *)toPosition
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithState:(MRFArrayChangesModelState)state {
+    self = [super init];
+    
+    if (self) {
+        self.state = state;
+    }
+    
+    return self;
+}
+
+@end
+
+@implementation MRFArrayChangesModel (MRFInitializers)
+
++ (MRFPositionModel *)appendModelWithIndex:(NSUInteger)index {
+    return [MRFPositionModel modelWithIndex:index state:MRFArrayModelAppendChanges];
+}
+
++ (MRFPositionModel *)deleteModelWithIndex:(NSUInteger)index {
+    return [MRFPositionModel modelWithIndex:index state:MRFArrayModelDeleteChanges];
+}
+
++ (MRFMovingPositionModel *)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
+    return [MRFMovingPositionModel modelWithSourceIndex:fromIndex
+                                       destinationIndex:toIndex
+                                                  state:MRFArrayModelMoveChanges];
+}
+
+@end
+
+@implementation MRFArrayChangesModel (MRFIndexPath)
+
++ (MRFPositionModel *)appendModelWithIndexPath:(NSIndexPath *)indexPath {
+    return [MRFPositionModel modelWithIndexPath:indexPath state:MRFArrayModelAppendChanges];
+}
+
++ (MRFPositionModel *)deleteModelWithIndexPath:(NSIndexPath *)indexPath {
+    return [MRFPositionModel modelWithIndexPath:indexPath state:MRFArrayModelDeleteChanges];
+}
+
++ (MRFMovingPositionModel *)moveModelFromIndexPath:(NSIndexPath *)fromIndexPath
+                                       toIndexPath:(NSIndexPath *)toIndexPath
 {
-    return [MRFMovingPositionModel movingPositionModelWithSourcePosition:fromPosition
-                                                     destinationPosition:toPosition];
-}
-
-- (NSIndexPath *)getSourcePosition {
-    return nil;
-}
-
-- (NSIndexPath *)getDestinationPosition {
-    return nil;
+    return [MRFMovingPositionModel modelWithSourceIndexPath:fromIndexPath
+                                       destinationIndexPath:toIndexPath
+                                                      state:MRFArrayModelMoveChanges];
 }
 
 @end

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class MRFPositionModel;
+@class MRFMovingPositionModel;
+
 typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
     MRFArrayModelAppendChanges,
     MRFArrayModelDeleteChanges,
@@ -15,15 +18,27 @@ typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
 };
 
 @interface MRFArrayChangesModel : NSObject
-@property (nonatomic, assign)     MRFArrayChangesModelState state;
+@property (nonatomic, readonly)     MRFArrayChangesModelState state;
 
-+ (instancetype)changesModelWithPosition:(NSIndexPath *)position;
++ (instancetype)modelWithState:(MRFArrayChangesModelState)state;
 
-+ (instancetype)changesModelWithMovingPositionFrom:(NSIndexPath *)fromPosition
-                                                to:(NSIndexPath *)toPosition;
+- (instancetype)initWithState:(MRFArrayChangesModelState)state;
 
-- (NSIndexPath *)getSourcePosition;
+@end
 
-- (NSIndexPath *)getDestinationPosition;
+@interface MRFArrayChangesModel (MRFInitializers)
+
++ (MRFPositionModel *)appendModelWithIndex:(NSUInteger)index;
++ (MRFPositionModel *)deleteModelWithIndex:(NSUInteger)index;
++ (MRFMovingPositionModel *)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+
+@end
+
+@interface MRFArrayChangesModel (MRFIndexPath)
+
++ (MRFPositionModel *)appendModelWithIndexPath:(NSIndexPath *)indexPath;
++ (MRFPositionModel *)deleteModelWithIndexPath:(NSIndexPath *)indexPath;
++ (MRFMovingPositionModel *)moveModelFromIndexPath:(NSIndexPath *)fromIndexPath
+                                       toIndexPath:(NSIndexPath *)toIndexPath;
 
 @end
