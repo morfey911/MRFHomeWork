@@ -12,7 +12,7 @@
 
 @interface MRFInfoArrayModel ()
 
-- (void)fillWithModel:(id)model count:(NSUInteger)count;
+- (void)fillWithModelClass:(Class)modelClass count:(NSUInteger)count;
 
 @end
 
@@ -32,7 +32,7 @@
     self = [super init];
     
     if (self) {
-        [self fillWithModel:[MRFInfoModel new] count:count];
+        [self fillWithModelClass:[MRFInfoModel class] count:count];
     }
     
     return self;
@@ -41,9 +41,9 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)fillWithModel:(id)model count:(NSUInteger)count {
+- (void)fillWithModelClass:(Class)modelClass count:(NSUInteger)count {
     for (NSUInteger index = 0; index < count; index++) {
-        [self addModel:model];
+        [self addModel:[modelClass new]];
     }
 }
 

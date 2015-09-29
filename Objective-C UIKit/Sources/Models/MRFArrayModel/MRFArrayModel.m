@@ -13,16 +13,12 @@
 #import "MRFArrayModelProtocol.h"
 
 #import "NSMutableArray+MRFExtension.h"
+#import "NSFileManager+MRFExtensions.h"
 
 static NSString * const kMRFFileName = @"mrfTemp.plist";
 
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
-@property (nonatomic, readonly) NSString        *filePath;
-@property (nonatomic, readonly) NSString        *fileName;
-@property (nonatomic, readonly) NSString        *fileFolder;
-
-@property (nonatomic, readonly, getter=isCached)    BOOL cached;
 
 @end
 
@@ -67,10 +63,10 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 }
 
 - (NSString *)fileFolder {
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    return [NSFileManager pathForUserDocument];
 }
 
-- (BOOL)cached {
+- (BOOL)isCached {
     return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
 }
 
@@ -123,14 +119,16 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 }
 
 
-- (void)load {    
+- (void)load {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-        sleep(4);
-        
-        MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
-        
-        if (arrayModel) {
-            self.mutableArray = arrayModel.mutableArray;
+        if (self.cached) {
+            sleep(2);
+            
+            MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
+            
+            if (arrayModel) {
+                self.mutableArray = arrayModel.mutableArray;
+            }
         }
         
         dispatch_sync(dispatch_get_main_queue(), ^{

@@ -19,8 +19,13 @@ typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
 };
 
 @interface MRFArrayModel : MRFObservableObject <NSCoding>
-@property (nonatomic, readonly) NSArray     *array;
-@property (nonatomic, readonly) NSUInteger  count;
+@property (nonatomic, readonly) NSArray         *array;
+@property (nonatomic, readonly) NSString        *filePath;
+@property (nonatomic, readonly) NSString        *fileName;
+@property (nonatomic, readonly) NSString        *fileFolder;
+@property (nonatomic, readonly) NSUInteger      count;
+
+@property (nonatomic, readonly, getter=isCached)    BOOL cached;
 
 - (void)addModel:(id)model;
 - (void)removeModel:(id)model;
