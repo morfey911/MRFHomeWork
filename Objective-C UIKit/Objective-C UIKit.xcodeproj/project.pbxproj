@@ -36,6 +36,7 @@
 		3FDF4F161BB841CE00BFAFFC /* MRFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDF4F151BB841CE00BFAFFC /* MRFLoadingView.xib */; };
 		3FDF4F1C1BB8644900BFAFFC /* MRFInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F1A1BB8644900BFAFFC /* MRFInfoCell.m */; };
 		3FDF4F1D1BB8644900BFAFFC /* MRFInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FDF4F1B1BB8644900BFAFFC /* MRFInfoCell.xib */; };
+		3FDF4F211BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F201BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m */; };
 		3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */; };
 		3FE68B431B9F2FF300632885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B2F1B9F2FF300632885 /* main.m */; };
 		3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B381B9F2FF300632885 /* LaunchScreen.xib */; };
@@ -103,6 +104,8 @@
 		3FDF4F191BB8644900BFAFFC /* MRFInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFInfoCell.h; sourceTree = "<group>"; };
 		3FDF4F1A1BB8644900BFAFFC /* MRFInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoCell.m; sourceTree = "<group>"; };
 		3FDF4F1B1BB8644900BFAFFC /* MRFInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFInfoCell.xib; sourceTree = "<group>"; };
+		3FDF4F1F1BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+MRFExtensions.h"; sourceTree = "<group>"; };
+		3FDF4F201BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+MRFExtensions.m"; sourceTree = "<group>"; };
 		3FE68B011B9F2D1000632885 /* Objective-C UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-C UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE68B2C1B9F2FF300632885 /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
 		3FE68B2E1B9F2FF300632885 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 		3F2B20F31BAC181200B83FB9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				3FDF4F1E1BBAE52800BFAFFC /* NSFileManager+MRFExtensions */,
 				3F2B212D1BB1F85100B83FB9 /* NSIndexPath+MRFExtension */,
 				3F2B21291BB1DA3100B83FB9 /* NSMutableArray+MRFExtension */,
 				3F2B21251BAF148600B83FB9 /* UITableView+MRFExtensions */,
@@ -410,6 +414,15 @@
 			path = MRFInfoCell;
 			sourceTree = "<group>";
 		};
+		3FDF4F1E1BBAE52800BFAFFC /* NSFileManager+MRFExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FDF4F1F1BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.h */,
+				3FDF4F201BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m */,
+			);
+			path = "NSFileManager+MRFExtensions";
+			sourceTree = "<group>";
+		};
 		3FE68AF81B9F2D1000632885 = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +583,7 @@
 			files = (
 				3F2B211A1BAC181200B83FB9 /* MRFAlphabetWithRange.m in Sources */,
 				3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */,
+				3FDF4F211BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m in Sources */,
 				3F2B21191BAC181200B83FB9 /* MRFAlphabetFromString.m in Sources */,
 				3F2B21181BAC181200B83FB9 /* MRFAlphabets.m in Sources */,
 				3F2B211C1BAC181200B83FB9 /* MRFObservableObject.m in Sources */,
