@@ -12,4 +12,6 @@
 
 + (instancetype)controller;
 
++ (NSString *)nibName;
+
 @end
