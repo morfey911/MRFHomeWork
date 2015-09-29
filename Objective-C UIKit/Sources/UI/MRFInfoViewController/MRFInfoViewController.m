@@ -34,11 +34,9 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (void)setArrayModel:(MRFArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         [_arrayModel removeObserver:self];
-        
         _arrayModel = arrayModel;
-        
         [_arrayModel addObserver:self];
-        [self.arrayModel loadArrayFromFile];
+        [_arrayModel load];
     }
 }
 
@@ -115,8 +113,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 }
 
 - (void)arrayModelDidLoad:(MRFArrayModel *)model {
-    [self.infoView.tableView reloadData];
-    [self.infoView hideLoadingView];
+    MRFInfoView *infoView = self.infoView;
+    
+    [infoView.tableView reloadData];
+    [infoView hideLoadingView];
 }
 
 @end

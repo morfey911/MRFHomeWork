@@ -30,10 +30,11 @@ typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
 
 - (void)moveModelFromIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2;
 
+- (NSUInteger)indexOfModel:(id)model;
 - (id)modelAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
-- (void)loadArrayFromFile;
-- (void)saveArrayToFile;
+- (void)load;
+- (void)save;
 
 @end

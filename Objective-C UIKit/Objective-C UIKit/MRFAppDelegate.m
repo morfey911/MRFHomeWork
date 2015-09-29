@@ -41,7 +41,7 @@ static const NSUInteger kMRFInfoModelCount = 7;
 
 - (void)saveApplicationState {
     MRFInfoViewController *controller = (MRFInfoViewController *)(self.window.rootViewController);
-    [controller.arrayModel saveArrayToFile];
+    [controller.arrayModel save];
 }
 
 @end

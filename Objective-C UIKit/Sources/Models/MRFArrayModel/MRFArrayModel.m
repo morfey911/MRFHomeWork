@@ -10,18 +10,29 @@
 
 #import "MRFArrayChangesModel.h"
 
+#import "MRFArrayModelProtocol.h"
+
 #import "NSMutableArray+MRFExtension.h"
 
-static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
+static NSString * const kMRFFileName = @"mrfTemp.plist";
 
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
+@property (nonatomic, readonly) NSString        *filePath;
+@property (nonatomic, readonly) NSString        *fileName;
+@property (nonatomic, readonly) NSString        *fileFolder;
+
+@property (nonatomic, readonly, getter=isCached)    BOOL cached;
 
 @end
 
 @implementation MRFArrayModel
 
 @dynamic array;
+@dynamic filePath;
+@dynamic fileName;
+@dynamic fileFolder;
+@dynamic cached;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -47,6 +58,22 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
     return self.mutableArray.count;
 }
 
+- (NSString *)filePath {
+    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
+}
+
+- (NSString *)fileName {
+    return kMRFFileName;
+}
+
+- (NSString *)fileFolder {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+}
+
+- (BOOL)cached {
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
+}
+
 #pragma mark -
 #pragma mark Public
 
@@ -58,11 +85,10 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
 }
 
 - (void)removeModel:(id)model {
-    NSUInteger index = [self.mutableArray indexOfObject:model];
-    
     [self.mutableArray removeObject:model];
     
-    [self setState:MRFArrayModelDidChange withObject:[MRFArrayChangesModel deleteModelWithIndex:index]];
+    [self setState:MRFArrayModelDidChange
+        withObject:[MRFArrayChangesModel deleteModelWithIndex:[self indexOfModel:model]]];
 }
 
 - (void)insertModel:(id)model atIndex:(NSUInteger)index {
@@ -84,6 +110,10 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
         withObject:[MRFArrayChangesModel moveModelFromIndex:index1 toIndex:index2]];
 }
 
+- (NSUInteger)indexOfModel:(id)model {
+    return [self.mutableArray indexOfObject:model];
+}
+
 - (id)modelAtIndex:(NSUInteger)index {
     return [self.mutableArray objectAtIndex:index];
 }
@@ -93,11 +123,11 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
 }
 
 
-- (void)loadArrayFromFile {    
+- (void)load {    
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
         sleep(4);
         
-        MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:kMRFFilePath];
+        MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
         
         if (arrayModel) {
             self.mutableArray = arrayModel.mutableArray;
@@ -109,8 +139,8 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
     });
 }
 
-- (void)saveArrayToFile {
-    [NSKeyedArchiver archiveRootObject:self toFile:kMRFFilePath];
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self toFile:self.filePath];
 }
 
 #pragma mark -
@@ -125,7 +155,7 @@ static NSString * const kMRFFilePath = @"/tmp/mrfTemp.plist";
             break;
             
         case MRFArrayModelDidChange:
-            selector = @selector (arrayModel:didChangeWithObject:);
+            selector = @selector(arrayModel:didChangeWithObject:);
             break;
             
         default:
