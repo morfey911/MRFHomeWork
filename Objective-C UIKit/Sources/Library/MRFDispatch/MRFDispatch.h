@@ -9,7 +9,7 @@
 #ifndef __Objective_C_UIKit__MRFDispatch__
 #define __Objective_C_UIKit__MRFDispatch__
 
-#include <stdio.h>
+#import <Foundation/Foundation.h>
 
 void MRFDispatchSyncOnMainThread(void(^block)(void));
 

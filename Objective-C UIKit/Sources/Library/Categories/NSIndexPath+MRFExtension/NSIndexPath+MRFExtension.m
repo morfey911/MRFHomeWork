@@ -8,8 +8,6 @@
 
 #import "NSIndexPath+MRFExtension.h"
 
-#import <UIKit/UITableView.h>
-
 static const NSUInteger kMRFDefaultSectionCount = 0;
 
 @implementation NSIndexPath (MRFExtension)
