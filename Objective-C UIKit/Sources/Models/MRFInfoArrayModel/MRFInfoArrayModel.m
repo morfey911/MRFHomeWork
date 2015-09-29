@@ -10,6 +10,12 @@
 
 #import "MRFInfoModel.h"
 
+@interface MRFInfoArrayModel ()
+
+- (void)fillWithModel:(id)model count:(NSUInteger)count;
+
+@end
+
 @implementation MRFInfoArrayModel
 
 #pragma mark -
@@ -26,12 +32,19 @@
     self = [super init];
     
     if (self) {
-        for (NSUInteger index = 0; index < count; index++) {
-            [self addModel:[MRFInfoModel new]];
-        }
+        [self fillWithModel:[MRFInfoModel new] count:count];
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)fillWithModel:(id)model count:(NSUInteger)count {
+    for (NSUInteger index = 0; index < count; index++) {
+        [self addModel:model];
+    }
 }
 
 @end
