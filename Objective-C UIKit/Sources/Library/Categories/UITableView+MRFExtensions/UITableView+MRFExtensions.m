@@ -28,19 +28,27 @@
 
 - (void)updateWithChanges:(id)changes {
     UITableView *tableView = self;
-    NSIndexPath *indexPath = [changes indexPath];
+    NSIndexPath *sourceIndexPath = nil;
+    NSIndexPath *destinationIndexPath = nil;
+    
+    if ([changes isMemberOfClass:[MRFPositionModel class]]) {
+        sourceIndexPath = [changes indexPath];
+    } else if ([changes isMemberOfClass:[MRFMovingPositionModel class]]) {
+        sourceIndexPath = [changes sourceIndexPath];
+        destinationIndexPath = [changes destinationIndexPath];
+    }
     
     switch ([changes state]) {
         case MRFArrayModelAppendChanges:
-            [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView insertRowsAtIndexPaths:@[sourceIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case MRFArrayModelDeleteChanges:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView deleteRowsAtIndexPaths:@[sourceIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case MRFArrayModelMoveChanges:
-            [tableView moveRowAtIndexPath:[changes sourceIndexPath] toIndexPath:[changes destinationIndexPath]];
+            [tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
             break;
             
         default:
