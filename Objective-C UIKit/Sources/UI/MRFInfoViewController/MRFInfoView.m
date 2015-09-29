@@ -22,14 +22,12 @@
 @dynamic editing;
 
 #pragma mark -
-#pragma mark ???
+#pragma mark Initializations and Deallocations
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    MRFLoadingView *loadingView = [UINib objectWithClass:[MRFLoadingView class]];
-    self.loadingView = loadingView;
-    [self addSubview:loadingView];
+    self.loadingView = [MRFLoadingView addLoadingToSelfSubviews:self];
 }
 
 #pragma mark -
