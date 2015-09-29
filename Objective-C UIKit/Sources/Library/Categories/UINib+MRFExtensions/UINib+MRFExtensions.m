@@ -37,7 +37,7 @@
 }
 
 - (id)objectWithClass:(Class)class owner:(id)owner {
-    NSArray *array = [self instantiateWithOwner:owner];
+    NSArray *array = [self objectsWithOwner:owner];
     
     for (id object in array) {
         if ([object isMemberOfClass:class]) {
@@ -48,11 +48,11 @@
     return nil;
 }
 
-- (NSArray *)instantiate {
-    return [self instantiateWithOwner:nil];
+- (NSArray *)objects {
+    return [self objectsWithOwner:nil];
 }
 
-- (NSArray *)instantiateWithOwner:(id)ownerOrNil {
+- (NSArray *)objectsWithOwner:(id)ownerOrNil {
     return [self instantiateWithOwner:ownerOrNil options:nil];
 }
 

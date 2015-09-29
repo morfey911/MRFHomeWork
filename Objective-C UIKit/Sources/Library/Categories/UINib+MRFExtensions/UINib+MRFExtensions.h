@@ -19,7 +19,7 @@
 - (id)objectWithClass:(Class)cls;
 - (id)objectWithClass:(Class)cls owner:(id)owner;
 
-- (NSArray *)instantiate;
-- (NSArray *)instantiateWithOwner:(id)ownerOrNil;
+- (NSArray *)objects;
+- (NSArray *)objectsWithOwner:(id)ownerOrNil;
 
 @end
