@@ -26,11 +26,11 @@
     return cell;
 }
 
-- (void)updateWithChanges:(MRFArrayChangesModel *)changes {
+- (void)updateWithChanges:(id)changes {
     UITableView *tableView = self;
-    NSIndexPath *indexPath = ((MRFPositionModel *)changes).indexPath;
+    NSIndexPath *indexPath = [changes indexPath];
     
-    switch (changes.state) {
+    switch ([changes state]) {
         case MRFArrayModelAppendChanges:
             [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
@@ -40,8 +40,7 @@
             break;
             
         case MRFArrayModelMoveChanges:
-            [tableView moveRowAtIndexPath:((MRFMovingPositionModel *)changes).sourceIndexPath
-                              toIndexPath:((MRFMovingPositionModel *)changes).destinationIndexPath];
+            [tableView moveRowAtIndexPath:[changes sourceIndexPath] toIndexPath:[changes destinationIndexPath]];
             break;
             
         default:
