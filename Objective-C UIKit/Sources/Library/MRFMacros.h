@@ -33,7 +33,7 @@
     @end
 
 
-#define empty
+#define MRFEmpty
 
 #define MRFWeakify(object) \
     __weak __typeof(object) __MRFWeak_##object = object
@@ -50,7 +50,7 @@
     }
 
 #define MRFStrongifyAndReturnIfNil(object) \
-    MRFStrongifyAndReturnValueIfNil(object, empty)
+    MRFStrongifyAndReturnValueIfNil(object, MRFEmpty)
 
 #define MRFStrongifyAndReturnNilIfNil(object) \
     MRFStrongifyAndReturnValueIfNil(object, nil)
