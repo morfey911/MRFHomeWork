@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MRFArrayChangesModel.h"
-
 @class MRFArrayModel;
+@class MRFArrayChangesModel;
 
 @protocol MRFArrayModelProtocol <NSObject>
 

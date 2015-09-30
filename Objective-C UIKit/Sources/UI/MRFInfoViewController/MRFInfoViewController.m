@@ -11,6 +11,7 @@
 #import "MRFInfoView.h"
 #import "MRFInfoCell.h"
 #import "MRFArrayModel.h"
+#import "MRFInfoModel.h"
 
 #import "MRFMacros.h"
 
