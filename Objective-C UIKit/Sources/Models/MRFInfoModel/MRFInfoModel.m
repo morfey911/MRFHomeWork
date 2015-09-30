@@ -64,9 +64,7 @@ static NSString * const kMRFString          = @"string";
     
     self.state = MRFInfoModelWillLoad;
     
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-        sleep(2);
-        
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{        
         //todo check for file exists, if no - setState:failLoaded
         NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
         self.image = [UIImage imageWithContentsOfFile:path];

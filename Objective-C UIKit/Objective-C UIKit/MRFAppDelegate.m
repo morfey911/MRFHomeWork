@@ -14,7 +14,7 @@
 #import "UIWindow+MFRExtensions.h"
 #import "UIViewController+MRFExtensions.h"
 
-static const NSUInteger kMRFInfoModelCount = 7;
+static const NSUInteger kMRFInfoModelCount = 25;
 
 @implementation MRFAppDelegate
 
