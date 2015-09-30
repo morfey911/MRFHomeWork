@@ -43,15 +43,33 @@
 #define MRFStrongify(object) \
     __strong __typeof(object) object = __MRFWeak_##object
 
-#define MRFStrongifyAndReturnValueIfNil(object, value) \
+#define __MRFStrongifyAndReturnValueIfNil(object, value) \
     MRFStrongify(object); \
     if (!object) { \
         return value; \
     }
 
 #define MRFStrongifyAndReturnIfNil(object) \
-    MRFStrongifyAndReturnValueIfNil(object, MRFEmpty)
+    __MRFStrongifyAndReturnValueIfNil(object, MRFEmpty)
 
 #define MRFStrongifyAndReturnNilIfNil(object) \
-    MRFStrongifyAndReturnValueIfNil(object, nil)
+    __MRFStrongifyAndReturnValueIfNil(object, nil)
+
+
+#define MRFLoad(propertyName) \
+    [_##propertyName load];
+
+#define __MRFSynthesizeObservingSetterWithParameter(propertyName, parameter) \
+    if (_##propertyName != propertyName) { \
+        [_##propertyName removeObserver:self]; \
+        _##propertyName = propertyName; \
+        [_##propertyName addObserver:self]; \
+        parameter \
+    }
+
+#define MRFSynthesizeObservingSetter(propertyName) \
+    __MRFSynthesizeObservingSetterWithParameter(propertyName, MRFEmpty)
+
+#define MRFSynthesizeObservingSetterAndLoad(propertyName) \
+    __MRFSynthesizeObservingSetterWithParameter(propertyName, MRFLoad(propertyName))
 

@@ -32,12 +32,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark Accessors
 
 - (void)setArrayModel:(MRFArrayModel *)arrayModel {
-    if (_arrayModel != arrayModel) {
-        [_arrayModel removeObserver:self];
-        _arrayModel = arrayModel;
-        [_arrayModel addObserver:self];
-        [_arrayModel load];
-    }
+    MRFSynthesizeObservingSetterAndLoad(arrayModel)
 }
 
 #pragma mark -
