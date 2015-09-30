@@ -123,6 +123,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 - (void)load {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
         if (self.cached) {
+            self.state = MRFArrayModelWillLoad;
             sleep(2);
             
             MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
@@ -133,7 +134,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
         }
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            self.state = MRFArrayModelLoaded;
+            self.state = MRFArrayModelDidLoad;
         });
     });
 }
@@ -149,7 +150,15 @@ static NSString * const kMRFMutableArray = @"mutableArray";
     SEL selector = nil;
     
     switch (state) {
-        case MRFArrayModelLoaded:
+        case MRFArrayModelWillLoad:
+            selector = @selector(arrayModelWillLoad:);
+            break;
+        
+        case MRFArrayModelFailLoaded:
+            selector = @selector(arrayModelFailLoaded:);
+            break;
+            
+        case MRFArrayModelDidLoad:
             selector = @selector(arrayModelDidLoad:);
             break;
             

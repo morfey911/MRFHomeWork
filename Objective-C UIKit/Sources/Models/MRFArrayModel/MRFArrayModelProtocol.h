@@ -16,6 +16,10 @@
 
 @optional
 
+- (void)arrayModelWillLoad:(MRFArrayModel *)model;
+
+- (void)arrayModelFailLoaded:(MRFArrayModel *)model;
+
 - (void)arrayModelDidLoad:(MRFArrayModel *)model;
 
 - (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object;

@@ -103,8 +103,8 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark -
 #pragma mark MRFArrayModelProtocol
 
-- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
-    [self.infoView.tableView updateWithChanges:object];
+- (void)arrayModelWillLoad:(MRFArrayModel *)model {
+    [self.infoView showLoadingView];
 }
 
 - (void)arrayModelDidLoad:(MRFArrayModel *)model {
@@ -112,6 +112,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
     
     [infoView.tableView reloadData];
     [infoView hideLoadingView];
+}
+
+- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
+    [self.infoView.tableView updateWithChanges:object];
 }
 
 @end

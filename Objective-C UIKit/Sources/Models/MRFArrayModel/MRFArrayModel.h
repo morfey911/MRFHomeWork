@@ -14,7 +14,9 @@
 
 typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
     MRFArrayModelNotLoaded,
-    MRFArrayModelLoaded,
+    MRFArrayModelWillLoad,
+    MRFArrayModelFailLoaded,
+    MRFArrayModelDidLoad,
     MRFArrayModelDidChange
 };
 
