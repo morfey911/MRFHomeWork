@@ -11,8 +11,13 @@
 #import "UINib+MRFExtensions.h"
 
 static const NSUInteger kMRFAnimateDuration = 1;
-static const CGFloat    kMRFHideAlpha       = 0;
-static const CGFloat    kMRFShowAlpha       = 0.1;
+
+@interface MRFLoadingView ()
+@property (nonatomic, assign, getter=isVisible)   BOOL    visible;
+
+- (void)animateWithState:(BOOL)state;
+
+@end
 
 @implementation MRFLoadingView
 
@@ -23,7 +28,8 @@ static const CGFloat    kMRFShowAlpha       = 0.1;
     MRFLoadingView *object = [UINib objectWithClass:[self class]];
     
     [selfView addSubview:object];
-    [object setBounds:selfView.bounds];
+
+    object.frame = selfView.bounds;
 
     return object;
 }
@@ -31,15 +37,26 @@ static const CGFloat    kMRFShowAlpha       = 0.1;
 #pragma mark -
 #pragma mark Public
 
-- (void)hideWithAnimation {
-    [UIView animateWithDuration:kMRFAnimateDuration animations:^{
-        self.alpha = kMRFHideAlpha;
-    }];
+- (void)hide {
+    [self animateWithState:NO];
 }
 
-- (void)showWithAnimation {
-    [UIView animateWithDuration:kMRFAnimateDuration animations:^{
-        self.alpha = kMRFShowAlpha;
+- (void)show {
+    [self animateWithState:YES];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)animateWithState:(BOOL)state {
+    NSUInteger duration = self.animated ? kMRFAnimateDuration : 0;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.alpha = (CGFloat)state;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            self.visible = YES;
+        }
     }];
 }
 

@@ -27,7 +27,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.loadingView = [MRFLoadingView addLoadingToSelfSubviews:self];
+    MRFLoadingView *loadingView = [MRFLoadingView addLoadingToSelfSubviews:self];
+    self.loadingView = loadingView;
+    loadingView.animated = YES;
 }
 
 #pragma mark -
@@ -45,11 +47,11 @@
 #pragma mark Public
 
 - (void)hideLoadingView {
-    [self.loadingView hideWithAnimation];
+    [self.loadingView hide];
 }
 
 - (void)showLoadingView {
-    [self.loadingView showWithAnimation];
+    [self.loadingView show];
 }
 
 @end

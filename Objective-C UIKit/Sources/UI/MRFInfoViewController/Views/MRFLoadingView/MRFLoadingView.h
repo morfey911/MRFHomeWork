@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface MRFLoadingView : UIView
-@property (nonatomic, readonly) BOOL    visible;
+@property (nonatomic, readonly, getter=isVisible) BOOL    visible;
+@property (nonatomic, assign)                     BOOL    animated;
 
 + (instancetype)addLoadingToSelfSubviews:(UIView *)selfView;
 
-- (void)hideWithAnimation;
+- (void)hide;
 
-- (void)showWithAnimation;
+- (void)show;
 
 @end
