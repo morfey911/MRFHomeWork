@@ -12,6 +12,8 @@
 
 #import "MRFArrayModelProtocol.h"
 
+#import "MRFMacros.h"
+
 #import "NSMutableArray+MRFExtension.h"
 #import "NSFileManager+MRFExtensions.h"
 
@@ -121,10 +123,14 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 
 
 - (void)load {
+    MRFWeakify(self);
+    
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        MRFStrongifyAndReturnIfNil(self);
+        
         if (self.cached) {
             self.state = MRFArrayModelWillLoad;
-            sleep(2);
+//            sleep(2);
             
             MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
             
