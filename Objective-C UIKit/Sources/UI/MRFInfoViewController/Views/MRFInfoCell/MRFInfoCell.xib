@@ -17,17 +17,23 @@
                         <rect key="frame" x="120" y="0.0" width="161" height="64.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tAZ-tB-9cy">
                         <rect key="frame" x="0.0" y="0.0" width="121" height="64.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="qCQ-Mr-Rqf">
+                        <rect key="frame" x="42" y="14" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </activityIndicatorView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="infoImageView" destination="tAZ-tB-9cy" id="o2d-fq-Lpp"/>
+                <outlet property="spinner" destination="qCQ-Mr-Rqf" id="ZTI-YC-0B4"/>
                 <outlet property="stringLabel" destination="Qgf-vn-3Qh" id="Znv-6V-fam"/>
             </connections>
             <point key="canvasLocation" x="328" y="307"/>

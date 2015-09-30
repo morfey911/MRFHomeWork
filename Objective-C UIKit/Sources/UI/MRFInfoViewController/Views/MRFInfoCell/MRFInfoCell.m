@@ -8,15 +8,17 @@
 
 #import "MRFInfoCell.h"
 
+#import "MRFInfoModel.h"
+
+#import "MRFMacros.h"
+
 @implementation MRFInfoCell
 
 #pragma mark -
 #pragma mark Accessors
 
 - (void)setInfo:(MRFInfoModel *)info {
-    if (_info != info) {
-        _info = info;
-    }
+    MRFSynthesizeObservingSetterAndLoad(info)
     
     [self fillWithModel:info];
 }
@@ -27,6 +29,22 @@
 - (void)fillWithModel:(MRFInfoModel *)model {
     self.stringLabel.text = model.string;
     self.infoImageView.image = model.image;
+}
+
+#pragma mark -
+#pragma mark MRFInfoModelProtocol
+
+- (void)infoModelWillLoad:(MRFInfoModel *)model {
+    [self.spinner startAnimating];
+}
+
+- (void)infoModelFailLoaded:(MRFInfoModel *)model {
+    
+}
+
+- (void)infoModelDidLoad:(MRFInfoModel *)model {
+    [self fillWithModel:model];
+    [self.spinner stopAnimating];
 }
 
 @end
