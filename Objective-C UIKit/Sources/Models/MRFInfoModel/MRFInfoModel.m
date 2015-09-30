@@ -13,6 +13,7 @@
 static const NSUInteger kMRFStringLength    = 10;
 static NSString * const kMRFImageName       = @"Kappa";
 static NSString * const kMRFImageType       = @"png";
+static NSString * const kMRFString          = @"string";
 
 @interface MRFInfoModel ()
 @property (nonatomic, strong)   NSString *string;
@@ -57,14 +58,14 @@ static NSString * const kMRFImageType       = @"png";
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.string forKey:@"string"];
+    [aCoder encodeObject:self.string forKey:kMRFString];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     
     if (self) {
-        self.string = [aDecoder decodeObjectForKey:@"string"];
+        self.string = [aDecoder decodeObjectForKey:kMRFString];
     }
     
     return self;

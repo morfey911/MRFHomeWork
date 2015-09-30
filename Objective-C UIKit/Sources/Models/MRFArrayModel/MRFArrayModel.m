@@ -16,6 +16,7 @@
 #import "NSFileManager+MRFExtensions.h"
 
 static NSString * const kMRFFileName = @"mrfTemp.plist";
+static NSString * const kMRFMutableArray = @"mutableArray";
 
 @interface MRFArrayModel ()
 @property (nonatomic, strong)   NSMutableArray  *mutableArray;
@@ -167,14 +168,14 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.mutableArray forKey:@"array"];
+    [aCoder encodeObject:self.mutableArray forKey:kMRFMutableArray];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     
     if (self) {
-        self.mutableArray = [aDecoder decodeObjectForKey:@"array"];
+        self.mutableArray = [aDecoder decodeObjectForKey:kMRFMutableArray];
     }
     
     return self;
