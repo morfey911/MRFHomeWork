@@ -6,11 +6,21 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface MRFInfoModel : NSObject <NSCoding>
+#import "MRFObservableObject.h"
+
+typedef NS_ENUM(NSUInteger, MRFInfoModelState) {
+    MRFInfoModelNotLoaded,
+    MRFInfoModelWillLoad,
+    MRFInfoModelFailLoaded,
+    MRFInfoModelDidLoad
+};
+
+@interface MRFInfoModel : MRFObservableObject <NSCoding>
 @property (nonatomic, readonly)     NSString    *string;
 @property (nonatomic, readonly)     UIImage     *image;
+
+- (void)load;
 
 @end
