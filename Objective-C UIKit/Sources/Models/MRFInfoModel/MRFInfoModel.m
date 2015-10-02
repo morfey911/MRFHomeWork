@@ -69,6 +69,8 @@ static NSString * const kMRFString          = @"string";
         NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
         self.image = [UIImage imageWithContentsOfFile:path];
         
+        [NSThread sleepForTimeInterval:2];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             self.state = MRFInfoModelDidLoad;
         });

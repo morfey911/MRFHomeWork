@@ -10,31 +10,12 @@
 
 @implementation NSFileManager (MRFExtensions)
 
-+ (NSString *)pathForUserDocument {
++ (NSString *)userDocumentPath {
     return [self pathForUserDirectory:NSDocumentDirectory];
 }
 
 + (NSString *)pathForUserDirectory:(NSSearchPathDirectory)directory {
-    return [self pathForDirectoryWithTilde:directory domainMask:NSUserDomainMask];
-}
-
-+ (NSString *)pathForDirectory:(NSSearchPathDirectory)directory
-                    domainMask:(NSSearchPathDomainMask)domainMask
-{
-    return [self pathForDirectory:directory domainMask:domainMask expandTilde:NO];
-}
-
-+ (NSString *)pathForDirectoryWithTilde:(NSSearchPathDirectory)directory
-                             domainMask:(NSSearchPathDomainMask)domainMask
-{
-    return [self pathForDirectory:directory domainMask:domainMask expandTilde:YES];
-}
-
-+ (NSString *)pathForDirectory:(NSSearchPathDirectory)directory
-                    domainMask:(NSSearchPathDomainMask)domainMask
-                   expandTilde:(BOOL)expandTilde
-{
-    return [NSSearchPathForDirectoriesInDomains(directory, domainMask, expandTilde) firstObject];
+    return [NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES) firstObject];
 }
 
 @end

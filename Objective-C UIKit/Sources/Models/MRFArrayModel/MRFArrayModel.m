@@ -66,7 +66,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 }
 
 - (NSString *)fileFolder {
-    return [NSFileManager pathForUserDocument];
+    return [NSFileManager userDocumentPath];
 }
 
 - (BOOL)isCached {
@@ -130,13 +130,11 @@ static NSString * const kMRFMutableArray = @"mutableArray";
         
         if (self.cached) {
             self.state = MRFArrayModelWillLoad;
-//            sleep(2);
+            [NSThread sleepForTimeInterval:2];
             
-            MRFArrayModel *arrayModel = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
+            id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
             
-            if (arrayModel) {
-                self.mutableArray = arrayModel.mutableArray;
-            }
+            self.mutableArray = [array mutableCopy];
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -146,7 +144,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 }
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:self.filePath];
+    [NSKeyedArchiver archiveRootObject:self.mutableArray toFile:self.filePath];
 }
 
 #pragma mark -

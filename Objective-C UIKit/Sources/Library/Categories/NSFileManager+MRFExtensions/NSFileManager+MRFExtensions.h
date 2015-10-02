@@ -10,18 +10,8 @@
 
 @interface NSFileManager (MRFExtensions)
 
-+ (NSString *)pathForUserDocument;
++ (NSString *)userDocumentPath;
 
 + (NSString *)pathForUserDirectory:(NSSearchPathDirectory)directory;
-
-+ (NSString *)pathForDirectory:(NSSearchPathDirectory)directory
-                    domainMask:(NSSearchPathDomainMask)domainMask;
-
-+ (NSString *)pathForDirectoryWithTilde:(NSSearchPathDirectory)directory
-                             domainMask:(NSSearchPathDomainMask)domainMask;
-
-+ (NSString *)pathForDirectory:(NSSearchPathDirectory)directory
-                    domainMask:(NSSearchPathDomainMask)domainMask
-                   expandTilde:(BOOL)expandTilde;
 
 @end
