@@ -160,8 +160,8 @@ static NSString * const kMRFMutableArray = @"mutableArray";
             selector = @selector(arrayModelWillLoad:);
             break;
         
-        case MRFArrayModelFailLoaded:
-            selector = @selector(arrayModelFailLoaded:);
+        case MRFArrayModelDidFailLoad:
+            selector = @selector(arrayModelDidFailLoad:);
             break;
             
         case MRFArrayModelDidLoad:

@@ -17,7 +17,7 @@
 
 - (void)arrayModelWillLoad:(MRFArrayModel *)model;
 
-- (void)arrayModelFailLoaded:(MRFArrayModel *)model;
+- (void)arrayModelDidFailLoad:(MRFArrayModel *)model;
 
 - (void)arrayModelDidLoad:(MRFArrayModel *)model;
 
