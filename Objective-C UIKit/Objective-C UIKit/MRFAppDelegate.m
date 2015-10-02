@@ -16,6 +16,11 @@
 
 static const NSUInteger kMRFInfoModelCount = 25;
 
+@interface MRFAppDelegate ()
+@property (nonatomic, strong) MRFInfoArrayModel *model;
+
+@end
+
 @implementation MRFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -23,7 +28,10 @@ static const NSUInteger kMRFInfoModelCount = 25;
     self.window = window;
 
     MRFInfoViewController *controller = [MRFInfoViewController controller];
-    controller.arrayModel = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
+    
+    MRFInfoArrayModel *model = [MRFInfoArrayModel arrayWithModelsCount:kMRFInfoModelCount];
+    self.model = model;
+    controller.arrayModel = model;
     
     window.rootViewController = controller;
     
@@ -40,8 +48,7 @@ static const NSUInteger kMRFInfoModelCount = 25;
 #pragma mark Private
 
 - (void)saveApplicationState {
-    MRFInfoViewController *controller = (MRFInfoViewController *)(self.window.rootViewController);
-    [controller.arrayModel save];
+    [self.model save];
 }
 
 @end
