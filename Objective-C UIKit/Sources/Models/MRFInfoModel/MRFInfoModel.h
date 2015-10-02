@@ -13,7 +13,7 @@
 typedef NS_ENUM(NSUInteger, MRFInfoModelState) {
     MRFInfoModelNotLoaded,
     MRFInfoModelWillLoad,
-    MRFInfoModelFailLoaded,
+    MRFInfoModelDidFailLoad,
     MRFInfoModelDidLoad
 };
 

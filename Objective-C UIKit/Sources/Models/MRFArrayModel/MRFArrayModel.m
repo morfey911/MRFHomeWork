@@ -139,7 +139,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
             }
         }
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             self.state = MRFArrayModelDidLoad;
         });
     });

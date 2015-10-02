@@ -69,7 +69,7 @@ static NSString * const kMRFString          = @"string";
         NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
         self.image = [UIImage imageWithContentsOfFile:path];
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             self.state = MRFInfoModelDidLoad;
         });
     });
@@ -86,8 +86,8 @@ static NSString * const kMRFString          = @"string";
             selector = @selector(infoModelWillLoad:);
             break;
             
-        case MRFInfoModelFailLoaded:
-            selector = @selector(infoModelFailLoaded:);
+        case MRFInfoModelDidFailLoad:
+            selector = @selector(infoModelDidFailLoad:);
             break;
             
         case MRFInfoModelDidLoad:

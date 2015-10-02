@@ -38,7 +38,7 @@
     [self.spinner startAnimating];
 }
 
-- (void)infoModelFailLoaded:(MRFInfoModel *)model {
+- (void)infoModelDidFailLoad:(MRFInfoModel *)model {
     
 }
 
