@@ -10,12 +10,12 @@
 
 @interface MRFLoadingView : UIView
 @property (nonatomic, readonly, getter=isVisible) BOOL    visible;
-@property (nonatomic, assign)                     BOOL    animated;
 
-+ (instancetype)addLoadingToSelfSubviews:(UIView *)selfView;
-
-- (void)hide;
++ (instancetype)loadingViewForSuperview:(UIView *)superview;
 
 - (void)show;
+- (void)hide;
 
+- (void)showWithCompletion:(void(^)(void))block;
+- (void)hideWithCompletion:(void(^)(void))block;
 @end

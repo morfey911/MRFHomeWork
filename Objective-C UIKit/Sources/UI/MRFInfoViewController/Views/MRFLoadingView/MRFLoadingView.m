@@ -11,11 +11,12 @@
 #import "UINib+MRFExtensions.h"
 
 static const NSUInteger kMRFAnimateDuration = 1;
+static const CGFloat    kMRFShowAlpha       = 1;
 
 @interface MRFLoadingView ()
 @property (nonatomic, assign, getter=isVisible)   BOOL    visible;
 
-- (void)animateWithState:(BOOL)state;
+- (void)animateWithState:(BOOL)state completionHandler:(void(^)(void))handler;
 
 @end
 
@@ -24,12 +25,12 @@ static const NSUInteger kMRFAnimateDuration = 1;
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-+ (instancetype)addLoadingToSelfSubviews:(UIView *)selfView {
++ (instancetype)loadingViewForSuperview:(UIView *)superview {
     MRFLoadingView *object = [UINib objectWithClass:[self class]];
     
-    [selfView addSubview:object];
+    [superview addSubview:object];
 
-    object.frame = selfView.bounds;
+    object.frame = superview.bounds;
 
     return object;
 }
@@ -37,26 +38,35 @@ static const NSUInteger kMRFAnimateDuration = 1;
 #pragma mark -
 #pragma mark Public
 
-- (void)hide {
-    [self animateWithState:NO];
+- (void)show {
+    [self showWithCompletion:nil];
 }
 
-- (void)show {
-    [self animateWithState:YES];
+- (void)hide {
+    [self hideWithCompletion:nil];
+}
+
+- (void)showWithCompletion:(void(^)(void))block {
+    [self animateWithState:YES completionHandler:block];
+}
+
+- (void)hideWithCompletion:(void(^)(void))block {
+    [self animateWithState:NO completionHandler:block];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)animateWithState:(BOOL)state {
-    NSUInteger duration = self.animated ? kMRFAnimateDuration : 0;
-    
-    [UIView animateWithDuration:duration animations:^{
-        self.alpha = (CGFloat)state;
+- (void)animateWithState:(BOOL)state completionHandler:(void(^)(void))handler {
+    [UIView animateWithDuration:kMRFAnimateDuration animations:^{
+        self.alpha = state ? kMRFShowAlpha : 0;
     } completion:^(BOOL finished) {
-        if (finished) {
-            self.visible = YES;
+        self.visible = YES;
+        
+        if (handler) {
+            handler();
         }
+        
     }];
 }
 
