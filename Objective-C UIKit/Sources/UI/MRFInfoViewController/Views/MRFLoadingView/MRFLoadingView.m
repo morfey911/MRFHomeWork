@@ -58,7 +58,9 @@ static const CGFloat    kMRFShowAlpha       = 1;
 #pragma mark Private
 
 - (void)animateWithState:(BOOL)state completionHandler:(void(^)(void))handler {
-    [UIView animateWithDuration:kMRFAnimateDuration animations:^{
+    NSUInteger duration = self.animated ? kMRFAnimateDuration : 0;
+    
+    [UIView animateWithDuration:duration animations:^{
         self.alpha = state ? kMRFShowAlpha : 0;
     } completion:^(BOOL finished) {
         self.visible = YES;
