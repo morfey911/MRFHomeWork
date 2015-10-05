@@ -30,7 +30,7 @@
     //todo need to fix, should't be here
     //at the moment Loading View shown before first call [loadingView show]
     
-    MRFLoadingView *loadingView = [MRFLoadingView loadingViewForSuperview:self];
+    MRFLoadingView *loadingView = [MRFLoadingView loadingViewWithSuperview:self];
     self.loadingView = loadingView;
 }
 

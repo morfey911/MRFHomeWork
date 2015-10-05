@@ -67,7 +67,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 }
 
 - (NSString *)fileFolder {
-    return [NSFileManager userDocumentPath];
+    return [NSFileManager userDocumentsPath];
 }
 
 - (BOOL)isCached {
@@ -159,8 +159,8 @@ static NSString * const kMRFMutableArray = @"mutableArray";
             selector = @selector(arrayModelWillLoad:);
             break;
         
-        case MRFArrayModelDidFailLoad:
-            selector = @selector(arrayModelDidFailLoad:);
+        case MRFArrayModelDidFailLoading:
+            selector = @selector(arrayModelDidFailLoading:);
             break;
             
         case MRFArrayModelDidLoad:

@@ -12,7 +12,7 @@
 @property (nonatomic, readonly, getter=isVisible)   BOOL    visible;
 @property (nonatomic, assign, getter=isAnimated)    BOOL    animated;
 
-+ (instancetype)loadingViewForSuperview:(UIView *)superview;
++ (instancetype)loadingViewWithSuperview:(UIView *)superview;
 
 - (void)show;
 - (void)hide;

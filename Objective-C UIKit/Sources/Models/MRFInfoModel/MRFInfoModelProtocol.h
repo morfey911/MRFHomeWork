@@ -16,7 +16,7 @@
 
 - (void)infoModelWillLoad:(MRFInfoModel *)model;
 
-- (void)infoModelDidFailLoad:(MRFInfoModel *)model;
+- (void)infoModelDidFailLoading:(MRFInfoModel *)model;
 
 - (void)infoModelDidLoad:(MRFInfoModel *)model;
 

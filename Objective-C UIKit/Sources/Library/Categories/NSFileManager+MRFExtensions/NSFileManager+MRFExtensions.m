@@ -10,7 +10,7 @@
 
 @implementation NSFileManager (MRFExtensions)
 
-+ (NSString *)userDocumentPath {
++ (NSString *)userDocumentsPath {
     return [self pathForUserDirectory:NSDocumentDirectory];
 }
 

@@ -10,7 +10,7 @@
 
 @interface NSFileManager (MRFExtensions)
 
-+ (NSString *)userDocumentPath;
++ (NSString *)userDocumentsPath;
 
 + (NSString *)pathForUserDirectory:(NSSearchPathDirectory)directory;
 

@@ -25,7 +25,7 @@ static const CGFloat    kMRFShowAlpha       = 1;
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-+ (instancetype)loadingViewForSuperview:(UIView *)superview {
++ (instancetype)loadingViewWithSuperview:(UIView *)superview {
     MRFLoadingView *object = [UINib objectWithClass:[self class]];
     
     [superview addSubview:object];

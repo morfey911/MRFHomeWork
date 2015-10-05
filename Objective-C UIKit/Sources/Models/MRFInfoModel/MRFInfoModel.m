@@ -75,8 +75,8 @@ static NSString * const kMRFString          = @"string";
             selector = @selector(infoModelWillLoad:);
             break;
             
-        case MRFInfoModelDidFailLoad:
-            selector = @selector(infoModelDidFailLoad:);
+        case MRFInfoModelDidFailLoading:
+            selector = @selector(infoModelDidFailLoading:);
             break;
             
         case MRFInfoModelDidLoad:
