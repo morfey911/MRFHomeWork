@@ -13,6 +13,7 @@
 #import "MRFArrayModelProtocol.h"
 
 #import "MRFMacros.h"
+#import "MRFDispatch.h"
 
 #import "NSMutableArray+MRFExtension.h"
 #import "NSFileManager+MRFExtensions.h"
@@ -137,7 +138,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
             self.mutableArray = [array mutableCopy];
         }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        MRFDispatchAsyncOnMainThread(^{
             self.state = MRFArrayModelDidLoad;
         });
     });
@@ -171,6 +172,7 @@ static NSString * const kMRFMutableArray = @"mutableArray";
             break;
             
         default:
+            selector = [super selectorForState:state];
             break;
     }
     

@@ -19,3 +19,11 @@ void MRFDispatchSyncOnMainThread(void(^block)(void)) {
         dispatch_sync(dispatch_get_main_queue(), block);
     }
 }
+
+void MRFDispatchAsyncOnMainThread(void(^block)(void)) {
+    if (!block) {
+        return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), block);
+}

@@ -8,6 +8,8 @@
 
 #import "MRFInfoModel.h"
 
+#import "MRFDispatch.h"
+
 #import "MRFInfoModelProtocol.h"
 
 #import "NSString+MRFExtensions.h"
@@ -38,21 +40,6 @@ static NSString * const kMRFString          = @"string";
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-//- (UIImage *)image {
-//    static UIImage *image = nil;
-//    
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
-//        image = [UIImage imageWithContentsOfFile:path];
-//    });
-//    
-//    return image;
-//}
-
-#pragma mark -
 #pragma mark Public
 
 - (void)load {
@@ -71,7 +58,7 @@ static NSString * const kMRFString          = @"string";
         
         [NSThread sleepForTimeInterval:2];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        MRFDispatchAsyncOnMainThread(^{
             self.state = MRFInfoModelDidLoad;
         });
     });
@@ -97,6 +84,7 @@ static NSString * const kMRFString          = @"string";
             break;
             
         default:
+            selector = [super selectorForState:state];
             break;
     }
     
