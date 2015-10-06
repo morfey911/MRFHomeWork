@@ -8,11 +8,11 @@
 
 #import "MRFTableViewCell.h"
 
-#import "MRFInfoModelProtocol.h"
+#import "MRFModelProtocol.h"
 
 @class MRFInfoModel;
 
-@interface MRFInfoCell : MRFTableViewCell <MRFInfoModelProtocol>
+@interface MRFInfoCell : MRFTableViewCell <MRFModelProtocol>
 @property (nonatomic, strong)   IBOutlet    UIImageView             *infoImageView;
 @property (nonatomic, strong)   IBOutlet    UILabel                 *stringLabel;
 @property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *spinner;

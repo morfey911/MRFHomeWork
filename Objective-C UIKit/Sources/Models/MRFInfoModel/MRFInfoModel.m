@@ -10,8 +10,6 @@
 
 #import "MRFDispatch.h"
 
-#import "MRFInfoModelProtocol.h"
-
 #import "NSString+MRFExtensions.h"
 
 static const NSUInteger kMRFStringLength    = 10;
@@ -42,53 +40,16 @@ static NSString * const kMRFString          = @"string";
 #pragma mark -
 #pragma mark Public
 
-- (void)load {
-    NSUInteger state = self.state;
+- (void)performLoading {
+    //todo check for file exists, if no - setState:failLoaded
+    NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
+    self.image = [UIImage imageWithContentsOfFile:path];
     
-    if (MRFInfoModelDidLoad == state || MRFInfoModelWillLoad == state) {
-        return;
-    }
+//    [NSThread sleepForTimeInterval:2];
     
-    self.state = MRFInfoModelWillLoad;
-    
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{        
-        //todo check for file exists, if no - setState:failLoaded
-        NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
-        self.image = [UIImage imageWithContentsOfFile:path];
-        
-        [NSThread sleepForTimeInterval:2];
-        
-        MRFDispatchAsyncOnMainThread(^{
-            self.state = MRFInfoModelDidLoad;
-        });
+    MRFDispatchAsyncOnMainThread(^{
+        self.state = MRFModelDidLoad;
     });
-}
-
-#pragma mark -
-#pragma mark Observable Object
-
-- (SEL)selectorForState:(NSUInteger)state {
-    SEL selector = nil;
-    
-    switch (state) {
-        case MRFInfoModelWillLoad:
-            selector = @selector(infoModelWillLoad:);
-            break;
-            
-        case MRFInfoModelDidFailLoading:
-            selector = @selector(infoModelDidFailLoading:);
-            break;
-            
-        case MRFInfoModelDidLoad:
-            selector = @selector(infoModelDidLoad:);
-            break;
-            
-        default:
-            selector = [super selectorForState:state];
-            break;
-    }
-    
-    return selector;
 }
 
 #pragma mark -

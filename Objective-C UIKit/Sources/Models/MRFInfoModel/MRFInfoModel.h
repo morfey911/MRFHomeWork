@@ -8,19 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MRFObservableObject.h"
+#import "MRFModel.h"
 
-typedef NS_ENUM(NSUInteger, MRFInfoModelState) {
-    MRFInfoModelNotLoaded,
-    MRFInfoModelWillLoad,
-    MRFInfoModelDidFailLoading,
-    MRFInfoModelDidLoad
-};
-
-@interface MRFInfoModel : MRFObservableObject <NSCoding>
+@interface MRFInfoModel : MRFModel <NSCoding>
 @property (nonatomic, readonly)     NSString    *string;
 @property (nonatomic, readonly)     UIImage     *image;
-
-- (void)load;
 
 @end

@@ -34,15 +34,15 @@
 #pragma mark -
 #pragma mark MRFInfoModelProtocol
 
-- (void)infoModelWillLoad:(MRFInfoModel *)model {
+- (void)modelWillLoad:(MRFInfoModel *)model {
     [self.spinner startAnimating];
 }
 
-- (void)infoModelDidFailLoading:(MRFInfoModel *)model {
+- (void)modelDidFailLoading:(MRFInfoModel *)model {
     
 }
 
-- (void)infoModelDidLoad:(MRFInfoModel *)model {
+- (void)modelDidLoad:(MRFInfoModel *)model {
     [self fillWithModel:model];
     [self.spinner stopAnimating];
 }
