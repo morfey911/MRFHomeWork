@@ -29,6 +29,7 @@
 		3F2B21301BB1F89F00B83FB9 /* NSIndexPath+MRFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B212F1BB1F89F00B83FB9 /* NSIndexPath+MRFExtension.m */; };
 		3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21331BB2072300B83FB9 /* MRFInfoArrayModel.m */; };
 		3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21361BB36E2A00B83FB9 /* MRFDispatch.m */; };
+		3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F86FAB61BC4168E00978807 /* MRFModel.m */; };
 		3FDF4F051BB5A80100BFAFFC /* MRFArrayChangesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F041BB5A80100BFAFFC /* MRFArrayChangesModel.m */; };
 		3FDF4F091BB6ED3400BFAFFC /* MRFPositionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F081BB6ED3400BFAFFC /* MRFPositionModel.m */; };
 		3FDF4F0D1BB6ED6C00BFAFFC /* MRFMovingPositionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F0C1BB6ED6C00BFAFFC /* MRFMovingPositionModel.m */; };
@@ -91,6 +92,9 @@
 		3F2B21331BB2072300B83FB9 /* MRFInfoArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoArrayModel.m; sourceTree = "<group>"; };
 		3F2B21361BB36E2A00B83FB9 /* MRFDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFDispatch.m; sourceTree = "<group>"; };
 		3F2B21371BB36E2A00B83FB9 /* MRFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFDispatch.h; sourceTree = "<group>"; };
+		3F86FAB51BC4168E00978807 /* MRFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFModel.h; sourceTree = "<group>"; };
+		3F86FAB61BC4168E00978807 /* MRFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFModel.m; sourceTree = "<group>"; };
+		3F86FAB81BC4170100978807 /* MRFModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFModelProtocol.h; sourceTree = "<group>"; };
 		3FC8DCD51BB37A090078A2E7 /* MRFArrayModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFArrayModelProtocol.h; sourceTree = "<group>"; };
 		3FDF4F031BB5A80100BFAFFC /* MRFArrayChangesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArrayChangesModel.h; sourceTree = "<group>"; };
 		3FDF4F041BB5A80100BFAFFC /* MRFArrayChangesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFArrayChangesModel.m; sourceTree = "<group>"; };
@@ -367,6 +371,16 @@
 			path = MRFDispatch;
 			sourceTree = "<group>";
 		};
+		3F86FAB41BC4165900978807 /* MRFModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F86FAB51BC4168E00978807 /* MRFModel.h */,
+				3F86FAB61BC4168E00978807 /* MRFModel.m */,
+				3F86FAB81BC4170100978807 /* MRFModelProtocol.h */,
+			);
+			path = MRFModel;
+			sourceTree = "<group>";
+		};
 		3FDF4F021BB5A80100BFAFFC /* MRFArrayChangesModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,9 +492,10 @@
 		3FE68B3F1B9F2FF300632885 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3FDF4F021BB5A80100BFAFFC /* MRFArrayChangesModel */,
-				3F2B21311BB206D200B83FB9 /* MRFInfoArrayModel */,
+				3F86FAB41BC4165900978807 /* MRFModel */,
 				3F2B20C61BAC10D900B83FB9 /* MRFArrayModel */,
+				3F2B21311BB206D200B83FB9 /* MRFInfoArrayModel */,
+				3FDF4F021BB5A80100BFAFFC /* MRFArrayChangesModel */,
 				3F2B20C21BAC103900B83FB9 /* MRFInfoModel */,
 			);
 			path = Models;
@@ -604,6 +619,7 @@
 				3F2B211B1BAC181200B83FB9 /* MRFAlphabetWithStrings.m in Sources */,
 				3FDF4F141BB841B800BFAFFC /* MRFLoadingView.m in Sources */,
 				3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */,
+				3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */,
 				3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */,
 				3F2B212C1BB1DA6800B83FB9 /* NSMutableArray+MRFExtension.m in Sources */,
 				3F2B20C91BAC117700B83FB9 /* MRFArrayModel.m in Sources */,
