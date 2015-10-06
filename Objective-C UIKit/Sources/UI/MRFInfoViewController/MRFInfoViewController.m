@@ -104,18 +104,18 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark -
 #pragma mark MRFArrayModelProtocol
 
-- (void)arrayModelWillLoad:(MRFArrayModel *)model {
+- (void)modelWillLoad:(MRFArrayModel *)model {
     [self.infoView showLoadingView];
 }
 
-- (void)arrayModelDidLoad:(MRFArrayModel *)model {
+- (void)modelDidLoad:(MRFArrayModel *)model {
     MRFInfoView *infoView = self.infoView;
     
     [infoView.tableView reloadData];
     [infoView hideLoadingView];
 }
 
-- (void)arrayModel:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
+- (void)model:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
     [self.infoView.tableView updateWithChanges:object];
 }
 

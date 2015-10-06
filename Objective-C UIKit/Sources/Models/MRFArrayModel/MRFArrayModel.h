@@ -8,19 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MRFObservableObject.h"
+#import "MRFModel.h"
 
-@class MRFInfoModel;
-
-typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
-    MRFArrayModelNotLoaded,
-    MRFArrayModelWillLoad,
-    MRFArrayModelDidFailLoading,
-    MRFArrayModelDidLoad,
-    MRFArrayModelDidChange
-};
-
-@interface MRFArrayModel : MRFObservableObject <NSCoding>
+@interface MRFArrayModel : MRFModel <NSCoding>
 @property (nonatomic, readonly) NSArray         *array;
 @property (nonatomic, readonly) NSString        *filePath;
 @property (nonatomic, readonly) NSString        *fileName;
@@ -41,7 +31,8 @@ typedef NS_ENUM(NSUInteger, MRFArrayModelState) {
 - (id)modelAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
-- (void)load;
+- (void)performLoading;
+
 - (void)save;
 
 @end

@@ -9,6 +9,7 @@
 #import "MRFModel.h"
 
 #import "MRFDispatch.h"
+#import "MRFMacros.h"
 
 #import "MRFModelProtocol.h"
 
@@ -32,7 +33,9 @@
     
     [self setupLoading];
     
+    MRFWeakify(self);
     MRFDispatchAsyncOnBackgroundThread(^{
+        MRFStrongifyAndReturnIfNil(self);
         [self performLoading];
     });
 }

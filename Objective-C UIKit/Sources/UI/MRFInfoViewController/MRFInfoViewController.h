@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MRFArrayModelProtocol.h"
+#import "MRFModelProtocol.h"
 
 @class MRFArrayModel;
 
 @interface MRFInfoViewController : UIViewController <UITableViewDelegate,
                                                         UITableViewDataSource,
-                                                        MRFArrayModelProtocol>
+                                                        MRFModelProtocol>
 @property (nonatomic, strong)   MRFArrayModel   *arrayModel;
 
 - (IBAction)onEditButton:(id)sender;

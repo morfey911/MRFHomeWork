@@ -95,7 +95,6 @@
 		3F86FAB51BC4168E00978807 /* MRFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFModel.h; sourceTree = "<group>"; };
 		3F86FAB61BC4168E00978807 /* MRFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFModel.m; sourceTree = "<group>"; };
 		3F86FAB81BC4170100978807 /* MRFModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFModelProtocol.h; sourceTree = "<group>"; };
-		3FC8DCD51BB37A090078A2E7 /* MRFArrayModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFArrayModelProtocol.h; sourceTree = "<group>"; };
 		3FDF4F031BB5A80100BFAFFC /* MRFArrayChangesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArrayChangesModel.h; sourceTree = "<group>"; };
 		3FDF4F041BB5A80100BFAFFC /* MRFArrayChangesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFArrayChangesModel.m; sourceTree = "<group>"; };
 		3FDF4F071BB6ED3400BFAFFC /* MRFPositionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFPositionModel.h; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 			children = (
 				3F2B20C71BAC117700B83FB9 /* MRFArrayModel.h */,
 				3F2B20C81BAC117700B83FB9 /* MRFArrayModel.m */,
-				3FC8DCD51BB37A090078A2E7 /* MRFArrayModelProtocol.h */,
 			);
 			path = MRFArrayModel;
 			sourceTree = "<group>";

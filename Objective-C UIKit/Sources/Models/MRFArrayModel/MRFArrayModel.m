@@ -10,9 +10,6 @@
 
 #import "MRFArrayChangesModel.h"
 
-#import "MRFArrayModelProtocol.h"
-
-#import "MRFMacros.h"
 #import "MRFDispatch.h"
 
 #import "NSMutableArray+MRFExtension.h"
@@ -80,33 +77,32 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 - (void)addModel:(id)model {
     [self.mutableArray addObject:model];
     
-    [self setState:MRFArrayModelDidChange
-        withObject:[MRFArrayChangesModel appendModelWithIndex:(self.count - 1)]];
+    [self setState:MRFModelDidChange withObject:[MRFArrayChangesModel appendModelWithIndex:(self.count - 1)]];
 }
 
 - (void)removeModel:(id)model {
     [self.mutableArray removeObject:model];
     
-    [self setState:MRFArrayModelDidChange
+    [self setState:MRFModelDidChange
         withObject:[MRFArrayChangesModel deleteModelWithIndex:[self indexOfModel:model]]];
 }
 
 - (void)insertModel:(id)model atIndex:(NSUInteger)index {
     [self.mutableArray insertObject:model atIndex:index];
     
-    [self setState:MRFArrayModelDidChange withObject:[MRFArrayChangesModel appendModelWithIndex:index]];
+    [self setState:MRFModelDidChange withObject:[MRFArrayChangesModel appendModelWithIndex:index]];
 }
 
 - (void)removeModelAtIndex:(NSUInteger)index {
     [self.mutableArray removeObjectAtIndex:index];
     
-    [self setState:MRFArrayModelDidChange withObject:[MRFArrayChangesModel deleteModelWithIndex:index]];
+    [self setState:MRFModelDidChange withObject:[MRFArrayChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)moveModelFromIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2 {
     [self.mutableArray moveObjectFromIndex:index1 toIndex:index2];
     
-    [self setState:MRFArrayModelDidChange
+    [self setState:MRFModelDidChange
         withObject:[MRFArrayChangesModel moveModelFromIndex:index1 toIndex:index2]];
 }
 
@@ -122,61 +118,25 @@ static NSString * const kMRFMutableArray = @"mutableArray";
     return [self modelAtIndex:idx];
 }
 
-
-- (void)load {
-    MRFWeakify(self);
-    
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-        MRFStrongifyAndReturnIfNil(self);
-        
-        if (self.cached) {
-            self.state = MRFArrayModelWillLoad;
-            [NSThread sleepForTimeInterval:2];
-            
-            id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
-            
-            self.mutableArray = [array mutableCopy];
-        }
-        
-        MRFDispatchAsyncOnMainThread(^{
-            self.state = MRFArrayModelDidLoad;
-        });
-    });
-}
-
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self.mutableArray toFile:self.filePath];
 }
 
 #pragma mark -
-#pragma mark Observable Object
+#pragma mark MRFModel
 
-- (SEL)selectorForState:(NSUInteger)state {
-    SEL selector = nil;
-    
-    switch (state) {
-        case MRFArrayModelWillLoad:
-            selector = @selector(arrayModelWillLoad:);
-            break;
+- (void)performLoading {
+    if (self.cached) {
+        id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
         
-        case MRFArrayModelDidFailLoading:
-            selector = @selector(arrayModelDidFailLoading:);
-            break;
-            
-        case MRFArrayModelDidLoad:
-            selector = @selector(arrayModelDidLoad:);
-            break;
-            
-        case MRFArrayModelDidChange:
-            selector = @selector(arrayModel:didChangeWithObject:);
-            break;
-            
-        default:
-            selector = [super selectorForState:state];
-            break;
+        [NSThread sleepForTimeInterval:2];
+        
+        self.mutableArray = [array mutableCopy];
     }
     
-    return selector;
+    MRFDispatchAsyncOnMainThread(^{
+        self.state = MRFModelDidLoad;
+    });
 }
 
 #pragma mark -
