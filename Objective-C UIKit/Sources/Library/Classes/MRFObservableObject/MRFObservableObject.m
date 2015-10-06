@@ -98,6 +98,10 @@
     return nil;
 }
 
+- (void)notifyObservers {
+    [self notifyObserversWithObject:nil];
+}
+
 - (void)notifyObserversWithObject:(id)object {
     [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:object];
 }
