@@ -14,4 +14,6 @@
 @property (nonatomic, readonly)     NSString    *string;
 @property (nonatomic, readonly)     UIImage     *image;
 
+- (void)performLoading;
+
 @end

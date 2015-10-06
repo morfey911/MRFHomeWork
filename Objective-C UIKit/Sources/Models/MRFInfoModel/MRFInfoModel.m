@@ -38,14 +38,14 @@ static NSString * const kMRFString          = @"string";
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark MRFModel
 
 - (void)performLoading {
     //todo check for file exists, if no - setState:failLoaded
     NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
     self.image = [UIImage imageWithContentsOfFile:path];
     
-//    [NSThread sleepForTimeInterval:2];
+    [NSThread sleepForTimeInterval:2];
     
     MRFDispatchAsyncOnMainThread(^{
         self.state = MRFModelDidLoad;
