@@ -10,7 +10,7 @@
 
 #import "MRFModel.h"
 
-@interface MRFArrayModel : MRFModel <NSCoding>
+@interface MRFArrayModel : MRFModel <NSCoding, NSFastEnumeration>
 @property (nonatomic, readonly) NSArray         *array;
 @property (nonatomic, readonly) NSString        *filePath;
 @property (nonatomic, readonly) NSString        *fileName;

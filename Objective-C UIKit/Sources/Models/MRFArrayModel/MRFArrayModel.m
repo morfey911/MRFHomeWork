@@ -156,4 +156,14 @@ static NSString * const kMRFMutableArray = @"mutableArray";
     return self;
 }
 
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len
+{
+    return [self.mutableArray countByEnumeratingWithState:state objects:buffer count:len];
+}
+
 @end
