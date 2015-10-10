@@ -12,6 +12,6 @@
 
 + (NSString *)userDocumentsPath;
 
-+ (NSString *)pathForUserDirectory:(NSSearchPathDirectory)directory;
++ (NSString *)pathWithSearchPathDirectory:(NSSearchPathDirectory)directory;
 
 @end

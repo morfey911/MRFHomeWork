@@ -11,10 +11,10 @@
 @implementation NSFileManager (MRFExtensions)
 
 + (NSString *)userDocumentsPath {
-    return [self pathForUserDirectory:NSDocumentDirectory];
+    return [self pathWithSearchPathDirectory:NSDocumentDirectory];
 }
 
-+ (NSString *)pathForUserDirectory:(NSSearchPathDirectory)directory {
++ (NSString *)pathWithSearchPathDirectory:(NSSearchPathDirectory)directory {
     return [NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES) firstObject];
 }
 
