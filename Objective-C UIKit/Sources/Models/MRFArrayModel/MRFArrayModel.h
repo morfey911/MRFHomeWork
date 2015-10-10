@@ -33,6 +33,4 @@
 
 - (void)performLoading;
 
-- (void)save;
-
 @end

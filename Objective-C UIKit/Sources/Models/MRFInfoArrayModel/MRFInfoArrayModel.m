@@ -47,4 +47,11 @@
     }
 }
 
+#pragma mark -
+#pragma mark Public
+
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self.array toFile:self.filePath];
+}
+
 @end

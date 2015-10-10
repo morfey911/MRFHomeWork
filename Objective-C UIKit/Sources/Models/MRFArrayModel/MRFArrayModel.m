@@ -118,10 +118,6 @@ static NSString * const kMRFMutableArray = @"mutableArray";
     return [self modelAtIndex:idx];
 }
 
-- (void)save {
-    [NSKeyedArchiver archiveRootObject:self.mutableArray toFile:self.filePath];
-}
-
 #pragma mark -
 #pragma mark MRFModel
 
