@@ -22,11 +22,14 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 @property (nonatomic, assign)   NSUInteger  initCount;
 
 - (void)fillWithModelClass:(Class)modelClass count:(NSUInteger)count;
+- (void)subscribeToAplicationNotifications:(NSArray *)notifications;
+- (void)unsubcribeFromAplicationNotifications:(NSArray *)notifications;
 
 @end
 
 @implementation MRFInfoArrayModel
 
+@dynamic notifications;
 @dynamic filePath;
 @dynamic fileName;
 @dynamic fileFolder;
@@ -42,11 +45,16 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    [self unsubcribeFromAplicationNotifications:self.notifications];
+}
+
 - (instancetype)initWithModelsCount:(NSUInteger)count {
     self = [super init];
     
     if (self) {
         self.initCount = count;
+        [self subscribeToAplicationNotifications:self.notifications];
     }
     
     return self;
@@ -54,6 +62,10 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 
 #pragma mark -
 #pragma mark Accessors
+
+- (NSArray *)notifications {
+    return @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
+}
 
 - (NSString *)filePath {
     return [self.fileFolder stringByAppendingPathComponent:self.fileName];
@@ -78,6 +90,21 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
     for (NSUInteger index = 0; index < count; index++) {
         [self addModel:[modelClass new]];
     }
+}
+
+- (void)subscribeToAplicationNotifications:(NSArray *)notifications {
+    NSNotificationCenter *noticationCenter = [NSNotificationCenter defaultCenter];
+    
+    for (id notification in notifications) {
+        [noticationCenter addObserver:self
+                             selector:@selector(save)
+                                 name:notification
+                               object:nil];
+    }
+}
+
+- (void)unsubcribeFromAplicationNotifications:(NSArray *)notifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -

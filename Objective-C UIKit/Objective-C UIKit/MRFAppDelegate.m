@@ -40,15 +40,4 @@ static const NSUInteger kMRFInfoModelCount = 25;
     return YES;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self saveApplicationState];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)saveApplicationState {
-    [self.model save];
-}
-
 @end

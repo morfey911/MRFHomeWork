@@ -9,6 +9,7 @@
 #import "MRFArrayModel.h"
 
 @interface MRFInfoArrayModel : MRFArrayModel
+@property (nonatomic, readonly)                     NSArray     *notifications;
 @property (nonatomic, readonly)                     NSString    *filePath;
 @property (nonatomic, readonly)                     NSString    *fileName;
 @property (nonatomic, readonly)                     NSString    *fileFolder;
