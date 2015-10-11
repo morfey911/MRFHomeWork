@@ -112,14 +112,12 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 
 - (void)modelWillLoad:(MRFArrayModel *)model {
     self.loadingView = [MRFLoadingView loadingViewWithSuperview:self.view];
-    [self.loadingView show];
+    self.loadingView.visible = YES;
 }
 
 - (void)modelDidLoad:(MRFArrayModel *)model {
-    MRFInfoView *infoView = self.infoView;
-    
-    [infoView.tableView reloadData];
-    [self.loadingView hide];
+    [self.infoView.tableView reloadData];
+    self.loadingView.visible = NO;
 }
 
 - (void)model:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {

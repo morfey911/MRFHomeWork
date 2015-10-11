@@ -11,19 +11,20 @@
 #import "UINib+MRFExtensions.h"
 
 static const NSUInteger kMRFAnimateDuration = 1;
-static const CGFloat    kMRFShowAlpha       = 1;
+static const CGFloat    kMRFShowAlpha       = 1.0;
 
 @interface MRFLoadingView ()
-@property (nonatomic, assign, getter=isVisible)   BOOL    visible;
 
-- (void)animateWithState:(BOOL)state completionHandler:(void(^)(void))handler;
+- (void)animateWithVisibleState:(BOOL)state
+                       duration:(NSUInteger)duration
+              completionHandler:(void(^)(void))handler;
 
 @end
 
 @implementation MRFLoadingView
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark Class methods
 
 + (instancetype)loadingViewWithSuperview:(UIView *)superview {
     MRFLoadingView *object = [UINib objectWithClass:[self class]];
@@ -36,34 +37,33 @@ static const CGFloat    kMRFShowAlpha       = 1;
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Accessors
 
-- (void)show {
-    [self showWithCompletion:nil];
+- (void)setVisible:(BOOL)visible {
+    [self setVisible:visible animated:YES];
 }
 
-- (void)hide {
-    [self hideWithCompletion:nil];
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated {
+    [self setVisible:visible animated:animated complition:nil];
 }
 
-- (void)showWithCompletion:(void(^)(void))block {
-    [self animateWithState:YES completionHandler:block];
-}
-
-- (void)hideWithCompletion:(void(^)(void))block {
-    [self animateWithState:NO completionHandler:block];
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated complition:(void(^)(void))block {
+    NSUInteger duration = animated ? kMRFAnimateDuration : 0;
+    
+    [self animateWithVisibleState:visible duration:duration completionHandler:block];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)animateWithState:(BOOL)state completionHandler:(void(^)(void))handler {
-    NSUInteger duration = self.animated ? kMRFAnimateDuration : 0;
-    
+- (void)animateWithVisibleState:(BOOL)state
+                       duration:(NSUInteger)duration
+              completionHandler:(void(^)(void))handler
+{
     [UIView animateWithDuration:duration animations:^{
         self.alpha = state ? kMRFShowAlpha : 0;
     } completion:^(BOOL finished) {
-        self.visible = YES;
+        _visible = state;
         
         if (handler) {
             handler();

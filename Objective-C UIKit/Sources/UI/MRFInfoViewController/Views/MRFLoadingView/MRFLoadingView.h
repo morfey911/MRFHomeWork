@@ -9,15 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface MRFLoadingView : UIView
-@property (nonatomic, readonly, getter=isVisible)   BOOL    visible;
-@property (nonatomic, assign, getter=isAnimated)    BOOL    animated;
+@property (nonatomic, getter=isVisible)   BOOL    visible;
 
 + (instancetype)loadingViewWithSuperview:(UIView *)superview;
 
-- (void)show;
-- (void)hide;
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated;
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated complition:(void(^)(void))block;
 
-- (void)showWithCompletion:(void(^)(void))block;
-- (void)hideWithCompletion:(void(^)(void))block;
 
 @end
