@@ -9,6 +9,10 @@
 #import "MRFArrayModel.h"
 
 @interface MRFInfoArrayModel : MRFArrayModel
+@property (nonatomic, readonly)                     NSString    *filePath;
+@property (nonatomic, readonly)                     NSString    *fileName;
+@property (nonatomic, readonly)                     NSString    *fileFolder;
+@property (nonatomic, readonly, getter=isCached)    BOOL        cached;
 
 + (instancetype)arrayWithModelsCount:(NSUInteger)count;
 

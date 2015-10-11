@@ -10,13 +10,25 @@
 
 #import "MRFInfoModel.h"
 
+#import "MRFDispatch.h"
+
+#import "NSFileManager+MRFExtensions.h"
+
+static NSString * const kMRFFileName = @"mrfTemp.plist";
+
 @interface MRFInfoArrayModel ()
+@property (nonatomic, assign)   NSUInteger  initCount;
 
 - (void)fillWithModelClass:(Class)modelClass count:(NSUInteger)count;
 
 @end
 
 @implementation MRFInfoArrayModel
+
+@dynamic filePath;
+@dynamic fileName;
+@dynamic fileFolder;
+@dynamic cached;
 
 #pragma mark -
 #pragma mark Class methods
@@ -32,10 +44,29 @@
     self = [super init];
     
     if (self) {
-        [self fillWithModelClass:[MRFInfoModel class] count:count];
+        self.initCount = count;
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)filePath {
+    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
+}
+
+- (NSString *)fileName {
+    return kMRFFileName;
+}
+
+- (NSString *)fileFolder {
+    return [NSFileManager userDocumentsPath];
+}
+
+- (BOOL)isCached {
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
 }
 
 #pragma mark -
@@ -52,6 +83,29 @@
 
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self.array toFile:self.filePath];
+}
+
+#pragma mark -
+#pragma mark MRFModel
+
+- (void)performLoading {
+    if (self.cached) {
+        id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
+        
+        [NSThread sleepForTimeInterval:2];
+        
+        [self performBlockWithoutNotification:^{
+            [self addModels:array];
+        }];
+    } else {
+        [self performBlockWithoutNotification:^{
+            [self fillWithModelClass:[MRFInfoModel class] count:self.initCount];
+        }];
+    }
+    
+    MRFDispatchAsyncOnMainThread(^{
+        self.state = MRFModelDidLoad;
+    });
 }
 
 @end
