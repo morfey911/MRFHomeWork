@@ -13,6 +13,7 @@
 #import "MRFMovingPositionModel.h"
 
 #import "UINib+MRFExtensions.h"
+#import "MRFArrayChangesModel+UITableView.h"
 
 @implementation UITableView (MRFExtensions)
 
@@ -26,26 +27,16 @@
     return cell;
 }
 
-- (void)updateWithChanges:(id)changes {
-    UITableView *tableView = self;
+- (void)updateWithChanges:(MRFArrayChangesModel *)changes {
+    [self updateWithChanges:changes rowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)updateWithChanges:(MRFArrayChangesModel *)changes rowAnimation:(UITableViewRowAnimation)rowAnimation {
+    [self beginUpdates];
     
-    switch ([changes state]) {
-        case MRFArrayModelAppendChanges:
-            [tableView insertRowsAtIndexPaths:@[[changes indexPath]] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case MRFArrayModelDeleteChanges:
-            [tableView deleteRowsAtIndexPaths:@[[changes indexPath]] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case MRFArrayModelMoveChanges:
-            [tableView moveRowAtIndexPath:[changes sourceIndexPath]
-                              toIndexPath:[changes destinationIndexPath]];
-            break;
-            
-        default:
-            break;
-    }
+    [changes applyToTableView:self rowAnimation:rowAnimation];
+    
+    [self endUpdates];
 }
 
 @end
