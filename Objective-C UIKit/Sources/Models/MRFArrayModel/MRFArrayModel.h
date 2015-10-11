@@ -12,15 +12,12 @@
 
 @interface MRFArrayModel : MRFModel <NSCoding, NSFastEnumeration>
 @property (nonatomic, readonly) NSArray         *array;
-@property (nonatomic, readonly) NSString        *filePath;
-@property (nonatomic, readonly) NSString        *fileName;
-@property (nonatomic, readonly) NSString        *fileFolder;
 @property (nonatomic, readonly) NSUInteger      count;
-
-@property (nonatomic, readonly, getter=isCached)    BOOL cached;
 
 - (void)addModel:(id)model;
 - (void)removeModel:(id)model;
+
+- (void)addModels:(NSArray *)models;
 
 - (void)insertModel:(id)model atIndex:(NSUInteger)index;
 - (void)removeModelAtIndex:(NSUInteger)index;
@@ -30,7 +27,5 @@
 - (NSUInteger)indexOfModel:(id)model;
 - (id)modelAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
-
-- (void)performLoading;
 
 @end

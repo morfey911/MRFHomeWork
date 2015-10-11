@@ -10,12 +10,8 @@
 
 #import "MRFArrayChangesModel.h"
 
-#import "MRFDispatch.h"
-
 #import "NSMutableArray+MRFExtension.h"
-#import "NSFileManager+MRFExtensions.h"
 
-static NSString * const kMRFFileName = @"mrfTemp.plist";
 static NSString * const kMRFMutableArray = @"mutableArray";
 
 @interface MRFArrayModel ()
@@ -26,10 +22,6 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 @implementation MRFArrayModel
 
 @dynamic array;
-@dynamic filePath;
-@dynamic fileName;
-@dynamic fileFolder;
-@dynamic cached;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -55,22 +47,6 @@ static NSString * const kMRFMutableArray = @"mutableArray";
     return self.mutableArray.count;
 }
 
-- (NSString *)filePath {
-    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
-}
-
-- (NSString *)fileName {
-    return kMRFFileName;
-}
-
-- (NSString *)fileFolder {
-    return [NSFileManager userDocumentsPath];
-}
-
-- (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
-}
-
 #pragma mark -
 #pragma mark Public
 
@@ -85,6 +61,12 @@ static NSString * const kMRFMutableArray = @"mutableArray";
     
     [self setState:MRFModelDidChange
         withObject:[MRFArrayChangesModel deleteModelWithIndex:[self indexOfModel:model]]];
+}
+
+- (void)addModels:(NSArray *)models {
+    for (id model in models) {
+        [self addModel:model];
+    }
 }
 
 - (void)insertModel:(id)model atIndex:(NSUInteger)index {
@@ -116,23 +98,6 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx {
     return [self modelAtIndex:idx];
-}
-
-#pragma mark -
-#pragma mark MRFModel
-
-- (void)performLoading {
-    if (self.cached) {
-        id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
-        
-        [NSThread sleepForTimeInterval:2];
-        
-        self.mutableArray = [array mutableCopy];
-    }
-    
-    MRFDispatchAsyncOnMainThread(^{
-        self.state = MRFModelDidLoad;
-    });
 }
 
 #pragma mark -
