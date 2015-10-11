@@ -11,6 +11,8 @@
 @interface MRFObservableObject ()
 @property (nonatomic, retain) NSHashTable *observersHashTable;
 
+- (void)performBlock:(void(^)(void))block shouldNotify:(BOOL)shouldNotify;
+
 @end
 
 @implementation MRFObservableObject
@@ -32,6 +34,7 @@
     self = [super init];
     
     if (self) {
+        self.shouldNotify = YES;
         self.observersHashTable = [NSHashTable weakObjectsHashTable];
     }
     
@@ -50,8 +53,10 @@
         if (_state != state) {
             _state = state;
         }
-
-        [self notifyObserversWithObject:object];
+        
+        if (self.shouldNotify) {
+            [self notifyObserversWithObject:object];
+        }
     }
 }
 
@@ -111,6 +116,30 @@
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self withObject:object];
         }
+    }
+}
+
+- (void)performBlockWithNotification:(void(^)(void))block {
+    [self performBlock:block shouldNotify:YES];
+}
+
+- (void)performBlockWithoutNotification:(void(^)(void))block {
+    [self performBlock:block shouldNotify:NO];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)performBlock:(void(^)(void))block shouldNotify:(BOOL)shouldNotify {
+    @synchronized(self) {
+        BOOL notificationState = self.shouldNotify;
+        self.shouldNotify = shouldNotify;
+        
+        if (block) {
+            block();
+        }
+        
+        self.shouldNotify = notificationState;
     }
 }
 
