@@ -10,6 +10,8 @@
 
 #import "MRFInfoModel.h"
 
+#import "MRFMacros.h"
+
 #import "MRFDispatch.h"
 
 #import "NSFileManager+MRFExtensions.h"
@@ -92,7 +94,7 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
     if (self.cached) {
         id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
         
-        [NSThread sleepForTimeInterval:2];
+        MRFSleep(3)
         
         [self performBlockWithoutNotification:^{
             [self addModels:array];

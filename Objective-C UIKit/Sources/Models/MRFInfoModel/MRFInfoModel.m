@@ -10,6 +10,8 @@
 
 #import "MRFDispatch.h"
 
+#import "MRFMacros.h"
+
 #import "NSString+MRFExtensions.h"
 
 static const NSUInteger kMRFStringLength    = 10;
@@ -45,7 +47,7 @@ static NSString * const kMRFString          = @"string";
     NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
     self.image = [UIImage imageWithContentsOfFile:path];
     
-    [NSThread sleepForTimeInterval:2];
+    MRFSleep(2);
     
     MRFDispatchAsyncOnMainThread(^{
         self.state = MRFModelDidLoad;

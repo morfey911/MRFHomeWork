@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
+#define MRFShouldSleep 1
+#define MRFEmpty
+
 #define MRFDefineBaseViewProperty(propertyName, viewClass) \
     @property (nonatomic, readonly) viewClass *propertyName;
 
@@ -32,8 +35,6 @@
     \
     @end
 
-
-#define MRFEmpty
 
 #define MRFWeakify(object) \
     __weak __typeof(object) __MRFWeak_##object = object
@@ -72,4 +73,10 @@
 
 #define MRFSynthesizeObservingSetterAndLoad(propertyName) \
     __MRFSynthesizeObservingSetterWithParameter(propertyName, MRFLoad(propertyName))
+
+#if MRFShouldSleep == 1
+#define MRFSleep(time) [NSThread sleepForTimeInterval:time];
+#else
+#define MRFSleep(time)
+#endif
 
