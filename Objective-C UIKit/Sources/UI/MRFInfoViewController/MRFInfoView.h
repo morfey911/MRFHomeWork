@@ -14,8 +14,4 @@
 
 @property (nonatomic, assign, getter=isEditing)   BOOL    editing;
 
-- (void)hideLoadingView;
-
-- (void)showLoadingView;
-
 @end

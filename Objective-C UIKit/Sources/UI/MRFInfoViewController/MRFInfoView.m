@@ -8,31 +8,11 @@
 
 #import "MRFInfoView.h"
 
-#import "MRFLoadingView.h"
-
 #import "UINib+MRFExtensions.h"
-
-@interface MRFInfoView ()
-@property (nonatomic, strong)   MRFLoadingView  *loadingView;
-
-@end
 
 @implementation MRFInfoView
 
 @dynamic editing;
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    //todo need to fix, should't be here
-    //at the moment Loading View shown before first call [loadingView show]
-    
-    MRFLoadingView *loadingView = [MRFLoadingView loadingViewWithSuperview:self];
-    self.loadingView = loadingView;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -43,17 +23,6 @@
 
 - (BOOL)isEditing {
     return self.tableView.editing;
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)hideLoadingView {
-    [self.loadingView hide];
-}
-
-- (void)showLoadingView {
-    [self.loadingView show];
 }
 
 @end
