@@ -18,17 +18,3 @@
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation;
 
 @end
-
-@interface MRFPositionModel (UITableView)
-
-- (void)applyToTableView:(UITableView *)tableView;
-- (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation;
-
-@end
-
-@interface MRFMovingPositionModel (UITableView)
-
-- (void)applyToTableView:(UITableView *)tableView;
-- (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation;
-
-@end

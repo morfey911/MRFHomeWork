@@ -22,10 +22,6 @@
 
 @implementation MRFPositionModel (UITableView)
 
-- (void)applyToTableView:(UITableView *)tableView {
-    [self applyToTableView:tableView rowAnimation:UITableViewRowAnimationAutomatic];
-}
-
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation {
     switch (self.state) {
         case MRFArrayModelAppendChanges:
@@ -45,19 +41,8 @@
 
 @implementation MRFMovingPositionModel (UITableView)
 
-- (void)applyToTableView:(UITableView *)tableView {
-    switch (self.state) {
-        case MRFArrayModelMoveChanges:
-            [tableView moveRowAtIndexPath:self.sourceIndexPath toIndexPath:self.destinationIndexPath];
-            break;
-            
-        default:
-            break;
-    }
-}
-
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation {
-    [self applyToTableView:tableView];
+    [tableView moveRowAtIndexPath:self.sourceIndexPath toIndexPath:self.destinationIndexPath];
 }
 
 @end
