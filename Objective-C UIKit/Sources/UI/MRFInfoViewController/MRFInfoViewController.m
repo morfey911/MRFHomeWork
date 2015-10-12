@@ -42,7 +42,7 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.infoView.tableView reloadData];
+    [self.arrayModel load];
 }
 
 - (void)didReceiveMemoryWarning {
