@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MRFImageModel : UIImage
+#import "MRFModel.h"
+
+@interface MRFImageModel : MRFModel
+@property (nonatomic, strong, readonly) UIImage *image;
+
++ (instancetype)imageModelWithURL:(NSURL *)url;
+
+- (instancetype)initWithURL:(NSURL *)url;
 
 @end
