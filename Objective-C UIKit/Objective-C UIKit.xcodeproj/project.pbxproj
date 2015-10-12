@@ -47,6 +47,7 @@
 		3FE68B7D1BA73D4E00632885 /* MRFSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B791BA73D4E00632885 /* MRFSquareViewController.m */; };
 		3FE68B7E1BA73D4E00632885 /* MRFSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */; };
 		3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */; };
+		5F420E7B1BCBA90C00B018A9 /* MRFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F420E7A1BCBA90C00B018A9 /* MRFView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,8 @@
 		3FE68B7A1BA73D4E00632885 /* MRFSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFSquareViewController.xib; sourceTree = "<group>"; };
 		3FE68B7B1BA73D4E00632885 /* MRFSquareViewHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewHolder.h; sourceTree = "<group>"; };
 		3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewHolder.m; sourceTree = "<group>"; };
+		5F420E791BCBA90C00B018A9 /* MRFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFView.h; sourceTree = "<group>"; };
+		5F420E7A1BCBA90C00B018A9 /* MRFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +524,7 @@
 		3FE68B401B9F2FF300632885 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5F420E771BCBA8C000B018A9 /* Views */,
 				3F2B20A01BAB554A00B83FB9 /* MRFInfoViewController */,
 				3FE68B771BA73CF300632885 /* MRFSquareViewController */,
 			);
@@ -537,6 +541,23 @@
 				3FE68B7C1BA73D4E00632885 /* MRFSquareViewHolder.m */,
 			);
 			path = MRFSquareViewController;
+			sourceTree = "<group>";
+		};
+		5F420E771BCBA8C000B018A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F420E781BCBA8EA00B018A9 /* MRFView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5F420E781BCBA8EA00B018A9 /* MRFView */ = {
+			isa = PBXGroup;
+			children = (
+				5F420E791BCBA90C00B018A9 /* MRFView.h */,
+				5F420E7A1BCBA90C00B018A9 /* MRFView.m */,
+			);
+			path = MRFView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -634,6 +655,7 @@
 				3F2B21151BAC181200B83FB9 /* UIViewController+MRFExtensions.m in Sources */,
 				3FE68B7F1BA73D4E00632885 /* MRFSquareViewHolder.m in Sources */,
 				3F2B211B1BAC181200B83FB9 /* MRFAlphabetWithStrings.m in Sources */,
+				5F420E7B1BCBA90C00B018A9 /* MRFView.m in Sources */,
 				3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */,
 				3FDF4F141BB841B800BFAFFC /* MRFLoadingView.m in Sources */,
 				3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */,

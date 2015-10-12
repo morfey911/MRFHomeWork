@@ -12,7 +12,6 @@
 #import "MRFInfoCell.h"
 #import "MRFArrayModel.h"
 #import "MRFInfoModel.h"
-#import "MRFLoadingView.h"
 
 #import "MRFMacros.h"
 
@@ -20,11 +19,6 @@
 #import "NSIndexPath+MRFExtension.h"
 
 MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
-
-@interface MRFInfoViewController ()
-@property (nonatomic, strong)   MRFLoadingView  *loadingView;
-
-@end
 
 @implementation MRFInfoViewController
 
@@ -111,13 +105,12 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 #pragma mark MRFArrayModelProtocol
 
 - (void)modelWillLoad:(MRFArrayModel *)model {
-    self.loadingView = [MRFLoadingView loadingViewWithSuperview:self.view];
-    self.loadingView.visible = YES;
+    [self.infoView showLoadingView];
 }
 
 - (void)modelDidLoad:(MRFArrayModel *)model {
     [self.infoView.tableView reloadData];
-    self.loadingView.visible = NO;
+    [self.infoView hideLoadingView];
 }
 
 - (void)model:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {

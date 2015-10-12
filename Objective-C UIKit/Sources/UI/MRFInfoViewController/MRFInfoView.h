@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MRFInfoView : UIView
+#import "MRFView.h"
+
+@interface MRFInfoView : MRFView
 @property (nonatomic, strong)   IBOutlet    UITableView     *tableView;
 @property (nonatomic, strong)   IBOutlet    UIButton        *editButton;
 
