@@ -13,7 +13,7 @@
 @interface MRFView : UIView
 
 //for overloading
-- (MRFLoadingView *)loadingView;
+- (MRFLoadingView *)newLoadingView;
 
 - (void)showLoadingView;
 - (void)hideLoadingView;

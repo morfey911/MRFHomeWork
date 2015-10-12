@@ -22,7 +22,7 @@
 #pragma mark -
 #pragma mark Public
 
-- (MRFLoadingView *)loadingView {
+- (MRFLoadingView *)newLoadingView {
     return [MRFLoadingView loadingViewWithSuperview:self];
 }
 
@@ -40,9 +40,7 @@
 #pragma mark Private
 
 - (void)connectLoadingView {
-    if (nil == self.loadingView) {
-        self.loadingView = [self loadingView];
-    }
+    self.loadingView = [self newLoadingView];
 }
 
 @end
