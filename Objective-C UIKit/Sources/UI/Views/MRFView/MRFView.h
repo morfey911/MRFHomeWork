@@ -11,7 +11,7 @@
 @class MRFLoadingView;
 
 @interface MRFView : UIView
-@property (nonatomic, readonly, getter=isVisibleLoadingView)    BOOL    visibleLoadingView;
+@property (nonatomic, readonly, getter=isLoadingViewVisible)    BOOL    loadingViewVisible;
 
 //for overloading
 - (MRFLoadingView *)newLoadingView;
