@@ -11,7 +11,9 @@
 @class MRFLoadingView;
 
 @interface MRFView : UIView
-@property (nonatomic, readonly)   MRFLoadingView  *loadingView;
+
+//for overloading
+- (MRFLoadingView *)loadingView;
 
 - (void)showLoadingView;
 - (void)hideLoadingView;
