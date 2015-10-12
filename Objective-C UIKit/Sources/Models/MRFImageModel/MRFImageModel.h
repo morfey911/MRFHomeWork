@@ -11,7 +11,11 @@
 #import "MRFModel.h"
 
 @interface MRFImageModel : MRFModel
-@property (nonatomic, strong, readonly) UIImage *image;
+@property (nonatomic, readonly)                     UIImage     *image;
+@property (nonatomic, readonly)                     NSString    *filePath;
+@property (nonatomic, readonly)                     NSString    *fileName;
+@property (nonatomic, readonly)                     NSString    *fileFolder;
+@property (nonatomic, readonly, getter=isCached)    BOOL        cached;
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 
