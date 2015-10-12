@@ -19,6 +19,15 @@
 
 @implementation MRFView
 
+@dynamic visibleLoadingView;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (BOOL)isVisibleLoadingView {
+    return self.loadingView.visible;
+}
+
 #pragma mark -
 #pragma mark Public
 
