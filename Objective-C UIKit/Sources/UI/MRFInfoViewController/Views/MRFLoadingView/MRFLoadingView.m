@@ -10,7 +10,7 @@
 
 #import "UINib+MRFExtensions.h"
 
-static const NSUInteger kMRFAnimateDuration = 1;
+static const NSUInteger kMRFAnimateDuration    = 1;
 static const CGFloat    kMRFVisibleAlpha       = 1.0;
 
 @interface MRFLoadingView ()
