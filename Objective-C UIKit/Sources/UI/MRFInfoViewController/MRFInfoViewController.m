@@ -109,8 +109,10 @@ MRFViewControllerBaseViewProperty(MRFInfoViewController, infoView, MRFInfoView)
 }
 
 - (void)modelDidLoad:(MRFArrayModel *)model {
-    [self.infoView.tableView reloadData];
-    [self.infoView hideLoadingView];
+    MRFInfoView *infoView = self.infoView;
+    
+    [infoView.tableView reloadData];
+    [infoView hideLoadingView];
 }
 
 - (void)model:(MRFArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
