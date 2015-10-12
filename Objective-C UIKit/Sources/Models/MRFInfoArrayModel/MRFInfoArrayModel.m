@@ -123,19 +123,19 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 #pragma mark MRFModel
 
 - (void)performLoading {
+    id block = nil;
+    
     if (self.cached) {
         id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
         
         MRFSleep(3)
         
-        [self performBlockWithoutNotification:^{
-            [self addModels:array];
-        }];
+        block = ^{ [self addModels:array]; };
     } else {
-        [self performBlockWithoutNotification:^{
-            [self fillWithModelClass:[MRFInfoModel class] count:self.initCount];
-        }];
+        block = ^{ [self fillWithModelClass:[MRFInfoModel class] count:self.initCount]; };
     }
+    
+    [self performBlockWithoutNotification:block];
     
     MRFDispatchAsyncOnMainThread(^{
         self.state = MRFModelDidLoad;
