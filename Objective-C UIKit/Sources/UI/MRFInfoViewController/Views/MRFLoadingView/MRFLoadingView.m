@@ -11,7 +11,7 @@
 #import "UINib+MRFExtensions.h"
 
 static const NSUInteger kMRFAnimateDuration = 1;
-static const CGFloat    kMRFShowAlpha       = 1.0;
+static const CGFloat    kMRFVisibleAlpha       = 1.0;
 
 @interface MRFLoadingView ()
 
@@ -61,7 +61,7 @@ static const CGFloat    kMRFShowAlpha       = 1.0;
               completionHandler:(void(^)(void))handler
 {
     [UIView animateWithDuration:duration animations:^{
-        self.alpha = state ? kMRFShowAlpha : 0;
+        self.alpha = state ? kMRFVisibleAlpha : 0;
     } completion:^(BOOL finished) {
         _visible = state;
         
