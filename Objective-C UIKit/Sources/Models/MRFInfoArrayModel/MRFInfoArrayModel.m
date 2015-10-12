@@ -104,7 +104,12 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 }
 
 - (void)unsubcribeFromAplicationNotifications:(NSArray *)notifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSNotificationCenter *noticationCenter = [NSNotificationCenter defaultCenter];
+    
+    for (id notification in notifications) {
+        [noticationCenter removeObserver:self name:notification object:nil];
+    }
+    
 }
 
 #pragma mark -
