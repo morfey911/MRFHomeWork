@@ -10,4 +10,12 @@
 
 @interface MRFCacheModel : NSObject
 
++ (MRFCacheModel *)cacheModel;
+
+- (void)addObject:(id)object forKey:(id)key;
+
+- (void)removeObjectForKey:(id)key;
+
+- (id)objectForKey:(id)key;
+
 @end
