@@ -10,7 +10,7 @@
 
 #import "UINib+MRFExtensions.h"
 
-static const NSUInteger kMRFAnimateDuration    = 1;
+static const NSTimeInterval kMRFAnimateDuration    = 1;
 static const CGFloat    kMRFVisibleAlpha       = 1.0;
 
 @interface MRFLoadingView ()
@@ -48,7 +48,7 @@ static const CGFloat    kMRFVisibleAlpha       = 1.0;
 }
 
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated complition:(void(^)(void))block {
-    NSUInteger duration = animated ? kMRFAnimateDuration : 0;
+    NSTimeInterval duration = animated ? kMRFAnimateDuration : 0;
     
     [self animateWithVisibleState:visible duration:duration completionHandler:block];
 }
