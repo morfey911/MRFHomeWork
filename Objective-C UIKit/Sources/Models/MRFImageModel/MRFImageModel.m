@@ -23,6 +23,11 @@
 
 @implementation MRFImageModel
 
+@dynamic filePath;
+@dynamic fileName;
+@dynamic fileFolder;
+@dynamic cached;
+
 #pragma mark -
 #pragma mark Class Methods
 
