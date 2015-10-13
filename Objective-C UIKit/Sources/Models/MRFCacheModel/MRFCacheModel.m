@@ -58,7 +58,7 @@
 
 - (id)objectForKey:(id)key {
     @synchronized(self) {
-        [self.mapTable objectForKey:key];
+        return [self.mapTable objectForKey:key];
     }
 }
 

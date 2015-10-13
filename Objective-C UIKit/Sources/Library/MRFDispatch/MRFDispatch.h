@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
-#ifndef __Objective_C_UIKit__MRFDispatch__
-#define __Objective_C_UIKit__MRFDispatch__
-
 #import <Foundation/Foundation.h>
 
 void MRFDispatchSyncOnMainThread(void(^block)(void));
@@ -16,5 +13,3 @@ void MRFDispatchSyncOnMainThread(void(^block)(void));
 void MRFDispatchAsyncOnMainThread(void(^block)(void));
 
 void MRFDispatchAsyncOnBackgroundThread(void(^block)(void));
-
-#endif /* defined(__Objective_C_UIKit__MRFDispatch__) */
