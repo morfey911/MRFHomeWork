@@ -1,5 +1,5 @@
 //
-//  MRFCacheModel.h
+//  MRFImageCache.h
 //  Objective-C UIKit
 //
 //  Created by Yurii Mamurko on 12.10.15.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MRFCacheModel : NSObject
+@interface MRFImageCache : NSObject
 
-+ (MRFCacheModel *)cacheModel;
++ (MRFImageCache *)imageCache;
 
 - (void)addObject:(id)object forKey:(id)key;
 

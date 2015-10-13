@@ -8,7 +8,7 @@
 
 #import "MRFImageModel.h"
 
-#import "MRFCacheModel.h"
+#import "MRFImageCache.h"
 
 #import "MRFDispatch.h"
 
@@ -17,7 +17,7 @@
 @interface MRFImageModel ()
 @property (nonatomic, strong)   NSURL           *url;
 @property (nonatomic, strong)   UIImage         *image;
-@property (nonatomic, strong)   MRFCacheModel   *cacheModel;
+@property (nonatomic, strong)   MRFImageCache   *imageCache;
 
 @end
 
@@ -37,7 +37,7 @@
     self = [super init];
     if (self) {
         self.url = url;
-        self.cacheModel = [MRFCacheModel cacheModel];
+        self.imageCache = [MRFImageCache imageCache];
     }
     
     return self;
@@ -59,7 +59,7 @@
 }
 
 - (BOOL)isCached {
-    return [self.cacheModel objectForKey:self.url];
+    return [self.imageCache objectForKey:self.url];
 }
 
 #pragma mark -
