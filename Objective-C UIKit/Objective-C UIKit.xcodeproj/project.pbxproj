@@ -31,6 +31,9 @@
 		3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21361BB36E2A00B83FB9 /* MRFDispatch.m */; };
 		3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */; settings = {ASSET_TAGS = (); }; };
 		3F6F086A1BCD51B0005A6CB0 /* MRFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08691BCD51B0005A6CB0 /* MRFImageCache.m */; settings = {ASSET_TAGS = (); }; };
+		3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */; settings = {ASSET_TAGS = (); }; };
+		3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */; settings = {ASSET_TAGS = (); }; };
+		3F6F08761BCEDB3C005A6CB0 /* MRFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */; settings = {ASSET_TAGS = (); }; };
 		3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F86FAB61BC4168E00978807 /* MRFModel.m */; };
 		3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDC17D61BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m */; };
 		3FDF4F051BB5A80100BFAFFC /* MRFArrayChangesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F041BB5A80100BFAFFC /* MRFArrayChangesModel.m */; };
@@ -100,6 +103,12 @@
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F08681BCD51B0005A6CB0 /* MRFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageCache.h; sourceTree = "<group>"; };
 		3F6F08691BCD51B0005A6CB0 /* MRFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageCache.m; sourceTree = "<group>"; };
+		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
+		3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFURLImageModel.m; sourceTree = "<group>"; };
+		3F6F08701BCD8507005A6CB0 /* MRFFileImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFileImageModel.h; sourceTree = "<group>"; };
+		3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFileImageModel.m; sourceTree = "<group>"; };
+		3F6F08741BCEDB3C005A6CB0 /* MRFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageView.h; sourceTree = "<group>"; };
+		3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageView.m; sourceTree = "<group>"; };
 		3F86FAB51BC4168E00978807 /* MRFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFModel.h; sourceTree = "<group>"; };
 		3F86FAB61BC4168E00978807 /* MRFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFModel.m; sourceTree = "<group>"; };
 		3F86FAB81BC4170100978807 /* MRFModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFModelProtocol.h; sourceTree = "<group>"; };
@@ -163,6 +172,7 @@
 		3F2B20BC1BABFB9C00B83FB9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F6F08731BCEDAC8005A6CB0 /* MRFImageView */,
 				3FDF4F181BB8644900BFAFFC /* MRFInfoCell */,
 				3FDF4F111BB8417A00BFAFFC /* MRFLoadingView */,
 			);
@@ -383,6 +393,8 @@
 		3F6F085F1BCC2ECE005A6CB0 /* MRFImageModel */ = {
 			isa = PBXGroup;
 			children = (
+				3F6F086C1BCD84C7005A6CB0 /* MRFURLImageModel */,
+				3F6F086B1BCD5ECB005A6CB0 /* MRFFileImageModel */,
 				3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */,
 				3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */,
 			);
@@ -396,6 +408,33 @@
 				3F6F08691BCD51B0005A6CB0 /* MRFImageCache.m */,
 			);
 			path = MRFImageCache;
+			sourceTree = "<group>";
+		};
+		3F6F086B1BCD5ECB005A6CB0 /* MRFFileImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F08701BCD8507005A6CB0 /* MRFFileImageModel.h */,
+				3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */,
+			);
+			path = MRFFileImageModel;
+			sourceTree = "<group>";
+		};
+		3F6F086C1BCD84C7005A6CB0 /* MRFURLImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */,
+				3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */,
+			);
+			path = MRFURLImageModel;
+			sourceTree = "<group>";
+		};
+		3F6F08731BCEDAC8005A6CB0 /* MRFImageView */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F08741BCEDB3C005A6CB0 /* MRFImageView.h */,
+				3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */,
+			);
+			path = MRFImageView;
 			sourceTree = "<group>";
 		};
 		3F86FAB41BC4165900978807 /* MRFModel */ = {
@@ -667,6 +706,7 @@
 				3FDF4F211BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m in Sources */,
 				3F2B21191BAC181200B83FB9 /* MRFAlphabetFromString.m in Sources */,
 				3F2B21181BAC181200B83FB9 /* MRFAlphabets.m in Sources */,
+				3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */,
 				3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */,
 				3F2B211C1BAC181200B83FB9 /* MRFObservableObject.m in Sources */,
 				3F2B21241BAF0C8100B83FB9 /* UINib+MRFExtensions.m in Sources */,
@@ -675,6 +715,7 @@
 				3FDF4F091BB6ED3400BFAFFC /* MRFPositionModel.m in Sources */,
 				3F2B20A41BAB559E00B83FB9 /* MRFInfoViewController.m in Sources */,
 				3F2B21161BAC181200B83FB9 /* UIWindow+MFRExtensions.m in Sources */,
+				3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */,
 				3FE68B431B9F2FF300632885 /* main.m in Sources */,
 				3FDF4F051BB5A80100BFAFFC /* MRFArrayChangesModel.m in Sources */,
 				3F2B20A81BAB55DF00B83FB9 /* MRFInfoView.m in Sources */,
@@ -696,6 +737,7 @@
 				3FE68B761BA739EB00632885 /* MRFAppDelegate.m in Sources */,
 				3F2B21171BAC181200B83FB9 /* MRFAlphabet.m in Sources */,
 				3F2B211D1BAC181200B83FB9 /* MRFTableViewCell.m in Sources */,
+				3F6F08761BCEDB3C005A6CB0 /* MRFImageView.m in Sources */,
 				3F2B20C51BAC107000B83FB9 /* MRFInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

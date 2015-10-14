@@ -7,10 +7,7 @@
 //
 
 #import "MRFInfoModel.h"
-
-#import "MRFDispatch.h"
-
-#import "MRFMacros.h"
+#import "MRFFileImageModel.h"
 
 #import "NSString+MRFExtensions.h"
 
@@ -20,8 +17,8 @@ static NSString * const kMRFImageType       = @"png";
 static NSString * const kMRFString          = @"string";
 
 @interface MRFInfoModel ()
-@property (nonatomic, strong)   NSString *string;
-@property (nonatomic, strong)   UIImage  *image;
+@property (nonatomic, strong)   NSString        *string;
+@property (nonatomic, strong)   MRFImageModel   *imageModel;
 
 @end
 
@@ -40,18 +37,11 @@ static NSString * const kMRFString          = @"string";
 }
 
 #pragma mark -
-#pragma mark MRFModel
+#pragma mark Accessors
 
-- (void)performLoading {
-    //todo check for file exists, if no - setState:failLoaded
-    NSString *path = [[NSBundle mainBundle] pathForResource:kMRFImageName ofType:kMRFImageType];
-    self.image = [UIImage imageWithContentsOfFile:path];
-    
-    MRFSleep(2);
-    
-    MRFDispatchAsyncOnMainThread(^{
-        self.state = MRFModelDidLoad;
-    });
+- (MRFImageModel *)imageModel {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:kMRFImageName withExtension:kMRFImageType];
+    return [MRFFileImageModel imageModelWithURL:url];
 }
 
 #pragma mark -

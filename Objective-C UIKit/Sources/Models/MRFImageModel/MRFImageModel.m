@@ -12,8 +12,6 @@
 
 #import "MRFDispatch.h"
 
-#import "NSFileManager+MRFExtensions.h"
-
 @interface MRFImageModel ()
 @property (nonatomic, strong)   NSURL           *url;
 @property (nonatomic, strong)   UIImage         *image;
@@ -23,10 +21,7 @@
 
 @implementation MRFImageModel
 
-@dynamic filePath;
-@dynamic fileName;
-@dynamic fileFolder;
-@dynamic cached;
+@dynamic imageCache;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -39,10 +34,17 @@
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithURL:(NSURL *)url {
+    MRFImageCache *imageCache = self.imageCache;
+    id imageModel = [imageCache objectForKey:url];
+    
+    if (imageModel) {
+        return imageModel;
+    }
+    
     self = [super init];
     if (self) {
         self.url = url;
-        self.imageCache = [MRFImageCache imageCache];
+        [imageCache addObject:self forKey:url];
     }
     
     return self;
@@ -51,38 +53,15 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)filePath {
-    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
-}
-
-- (NSString *)fileName {
-    return self.url.lastPathComponent;
-}
-
-- (NSString *)fileFolder {
-    return [NSFileManager userDocumentsPath];
-}
-
-- (BOOL)isCached {
-    return [self.imageCache objectForKey:self.url];
+- (MRFImageCache *)imageCache {
+    return [MRFImageCache imageCache];
 }
 
 #pragma mark -
-#pragma mark MRFModel
+#pragma mark Public
 
-- (void)performLoading {
-    id block = nil;
-    
-    if (self.cached) {
-        block = ^{
-            self.image = [UIImage imageWithContentsOfFile:self.filePath];
-        };
-    } else {
-//        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-//        NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    }
-    
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), block);
+- (void)addImage:(UIImage *)image {
+    self.image = image;
     
     MRFDispatchAsyncOnMainThread(^{
         self.state = MRFModelDidLoad;

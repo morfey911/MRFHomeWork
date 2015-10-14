@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MRFModel.h"
+@class MRFImageModel;
 
-@interface MRFInfoModel : MRFModel <NSCoding>
-@property (nonatomic, readonly)     NSString    *string;
-@property (nonatomic, readonly)     UIImage     *image;
+@interface MRFInfoModel : NSObject <NSCoding>
+@property (nonatomic, readonly) NSString            *string;
+@property (nonatomic, readonly) MRFImageModel   *imageModel;
 
-- (void)performLoading;
+- (instancetype)init;
 
 @end
