@@ -30,10 +30,11 @@
 		3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21331BB2072300B83FB9 /* MRFInfoArrayModel.m */; };
 		3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B21361BB36E2A00B83FB9 /* MRFDispatch.m */; };
 		3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */; settings = {ASSET_TAGS = (); }; };
-		3F6F086A1BCD51B0005A6CB0 /* MRFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08691BCD51B0005A6CB0 /* MRFImageCache.m */; settings = {ASSET_TAGS = (); }; };
 		3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */; settings = {ASSET_TAGS = (); }; };
 		3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */; settings = {ASSET_TAGS = (); }; };
 		3F6F08761BCEDB3C005A6CB0 /* MRFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */; settings = {ASSET_TAGS = (); }; };
+		3F6F08781BD02289005A6CB0 /* MRFImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6F08771BD02289005A6CB0 /* MRFImageView.xib */; settings = {ASSET_TAGS = (); }; };
+		3F6F087C1BD028A1005A6CB0 /* MRFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F087B1BD028A1005A6CB0 /* MRFCache.m */; settings = {ASSET_TAGS = (); }; };
 		3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F86FAB61BC4168E00978807 /* MRFModel.m */; };
 		3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDC17D61BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m */; };
 		3FDF4F051BB5A80100BFAFFC /* MRFArrayChangesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F041BB5A80100BFAFFC /* MRFArrayChangesModel.m */; };
@@ -101,14 +102,15 @@
 		3F2B21371BB36E2A00B83FB9 /* MRFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFDispatch.h; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
-		3F6F08681BCD51B0005A6CB0 /* MRFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageCache.h; sourceTree = "<group>"; };
-		3F6F08691BCD51B0005A6CB0 /* MRFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageCache.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
 		3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFURLImageModel.m; sourceTree = "<group>"; };
 		3F6F08701BCD8507005A6CB0 /* MRFFileImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFileImageModel.h; sourceTree = "<group>"; };
 		3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFileImageModel.m; sourceTree = "<group>"; };
 		3F6F08741BCEDB3C005A6CB0 /* MRFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageView.h; sourceTree = "<group>"; };
 		3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageView.m; sourceTree = "<group>"; };
+		3F6F08771BD02289005A6CB0 /* MRFImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFImageView.xib; sourceTree = "<group>"; };
+		3F6F087A1BD028A1005A6CB0 /* MRFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCache.h; sourceTree = "<group>"; };
+		3F6F087B1BD028A1005A6CB0 /* MRFCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCache.m; sourceTree = "<group>"; };
 		3F86FAB51BC4168E00978807 /* MRFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFModel.h; sourceTree = "<group>"; };
 		3F86FAB61BC4168E00978807 /* MRFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFModel.m; sourceTree = "<group>"; };
 		3F86FAB81BC4170100978807 /* MRFModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFModelProtocol.h; sourceTree = "<group>"; };
@@ -253,7 +255,7 @@
 		3F2B20FD1BAC181200B83FB9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3F6F08671BCD51B0005A6CB0 /* MRFImageCache */,
+				3F6F08791BD028A1005A6CB0 /* MRFCache */,
 				3F2B20FE1BAC181200B83FB9 /* MRFAlphabet */,
 				3F2B210D1BAC181200B83FB9 /* MRFObservableObject */,
 				3F2B21101BAC181200B83FB9 /* MRFTableViewCell */,
@@ -401,15 +403,6 @@
 			path = MRFImageModel;
 			sourceTree = "<group>";
 		};
-		3F6F08671BCD51B0005A6CB0 /* MRFImageCache */ = {
-			isa = PBXGroup;
-			children = (
-				3F6F08681BCD51B0005A6CB0 /* MRFImageCache.h */,
-				3F6F08691BCD51B0005A6CB0 /* MRFImageCache.m */,
-			);
-			path = MRFImageCache;
-			sourceTree = "<group>";
-		};
 		3F6F086B1BCD5ECB005A6CB0 /* MRFFileImageModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,8 +426,18 @@
 			children = (
 				3F6F08741BCEDB3C005A6CB0 /* MRFImageView.h */,
 				3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */,
+				3F6F08771BD02289005A6CB0 /* MRFImageView.xib */,
 			);
 			path = MRFImageView;
+			sourceTree = "<group>";
+		};
+		3F6F08791BD028A1005A6CB0 /* MRFCache */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F087A1BD028A1005A6CB0 /* MRFCache.h */,
+				3F6F087B1BD028A1005A6CB0 /* MRFCache.m */,
+			);
+			path = MRFCache;
 			sourceTree = "<group>";
 		};
 		3F86FAB41BC4165900978807 /* MRFModel */ = {
@@ -689,6 +692,7 @@
 				3F2B20A51BAB559E00B83FB9 /* MRFInfoViewController.xib in Resources */,
 				3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */,
 				3FE68B7E1BA73D4E00632885 /* MRFSquareViewController.xib in Resources */,
+				3F6F08781BD02289005A6CB0 /* MRFImageView.xib in Resources */,
 				3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */,
 				3FE68B411B9F2FF300632885 /* IDPStudyPlan in Resources */,
 			);
@@ -701,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6F087C1BD028A1005A6CB0 /* MRFCache.m in Sources */,
 				3F2B211A1BAC181200B83FB9 /* MRFAlphabetWithRange.m in Sources */,
 				3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */,
 				3FDF4F211BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m in Sources */,
@@ -726,7 +731,6 @@
 				5F420E7B1BCBA90C00B018A9 /* MRFView.m in Sources */,
 				3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */,
 				3FDF4F141BB841B800BFAFFC /* MRFLoadingView.m in Sources */,
-				3F6F086A1BCD51B0005A6CB0 /* MRFImageCache.m in Sources */,
 				3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */,
 				3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */,
 				3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */,

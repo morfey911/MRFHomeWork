@@ -6,27 +6,27 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "MRFImageCache.h"
+#import "MRFCache.h"
 
-@interface MRFImageCache ()
+@interface MRFCache ()
 @property (nonatomic, strong)   NSMapTable  *mapTable;
 
 @end
 
-@implementation MRFImageCache
+@implementation MRFCache
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (MRFImageCache *)imageCache {
-    static MRFImageCache *imageCache = nil;
++ (MRFCache *)cache {
+    static MRFCache *cache = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        imageCache = [[self alloc] init];
+        cache = [[self alloc] init];
     });
     
-    return imageCache;
+    return cache;
 }
 
 #pragma mark -

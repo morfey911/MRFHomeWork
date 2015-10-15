@@ -8,14 +8,14 @@
 
 #import "MRFImageModel.h"
 
-#import "MRFImageCache.h"
+#import "MRFCache.h"
 
 #import "MRFDispatch.h"
 
 @interface MRFImageModel ()
-@property (nonatomic, strong)   NSURL           *url;
-@property (nonatomic, strong)   UIImage         *image;
-@property (nonatomic, strong)   MRFImageCache   *imageCache;
+@property (nonatomic, strong)   NSURL       *url;
+@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   MRFCache    *imageCache;
 
 @end
 
@@ -34,7 +34,7 @@
 #pragma mark Initializations and Deallocations
 
 - (instancetype)initWithURL:(NSURL *)url {
-    MRFImageCache *imageCache = self.imageCache;
+    MRFCache *imageCache = self.imageCache;
     id imageModel = [imageCache objectForKey:url];
     
     if (imageModel) {
@@ -53,8 +53,8 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (MRFImageCache *)imageCache {
-    return [MRFImageCache imageCache];
+- (MRFCache *)imageCache {
+    return [MRFCache cache];
 }
 
 #pragma mark -
