@@ -9,7 +9,8 @@
 #import "MRFObservableObject.h"
 
 @interface MRFObservableObject ()
-@property (nonatomic, retain) NSHashTable *observersHashTable;
+@property (nonatomic, retain)   NSHashTable *observersHashTable;
+@property (nonatomic, assign)   BOOL        shouldNotify;
 
 - (void)performBlock:(void(^)(void))block shouldNotify:(BOOL)shouldNotify;
 

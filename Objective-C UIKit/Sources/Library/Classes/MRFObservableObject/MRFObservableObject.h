@@ -10,7 +10,7 @@
 
 @interface MRFObservableObject : NSObject
 @property (nonatomic, assign)           NSUInteger  state;
-@property (nonatomic, assign)           BOOL        shouldNotify;
+@property (nonatomic, readonly)         BOOL        shouldNotify;
 @property (nonatomic, retain, readonly) NSSet       *observersSet;
 
 - (void)setState:(NSUInteger)state withObject:(id)object;
