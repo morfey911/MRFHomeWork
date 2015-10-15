@@ -34,7 +34,7 @@
 #pragma mark Public
 
 - (void)fillWithModel:(MRFImageModel *)model {
-    self.image = model.image;
+    self.imageView.image = model.image;
 }
 
 #pragma mark -

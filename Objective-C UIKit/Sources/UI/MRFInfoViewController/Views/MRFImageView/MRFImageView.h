@@ -12,7 +12,7 @@
 
 @class MRFImageModel;
 
-@interface MRFImageView : UIImageView <MRFModelProtocol>
+@interface MRFImageView : UIView <MRFModelProtocol>
 @property (nonatomic, strong)   IBOutlet    UIImageView     *imageView;
 
 @property (nonatomic, strong)   MRFImageModel   *imageModel;
