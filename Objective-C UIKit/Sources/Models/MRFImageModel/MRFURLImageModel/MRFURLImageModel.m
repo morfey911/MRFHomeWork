@@ -10,4 +10,11 @@
 
 @implementation MRFURLImageModel
 
+#pragma mark -
+#pragma mark MRFModel
+
+- (void)performLoadingWithCompletion:(void (^)(UIImage *, id))completion {
+    [super performLoadingWithCompletion:completion];
+}
+
 @end

@@ -10,7 +10,11 @@
 
 #import "MRFCache.h"
 
+#import "MRFFileImageModel.h"
+#import "MRFURLImageModel.h"
+
 #import "MRFDispatch.h"
+#import "MRFMacros.h"
 
 @interface MRFImageModel ()
 @property (nonatomic, strong)   NSURL       *url;
@@ -27,7 +31,9 @@
 #pragma mark Class Methods
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
-    return [[self alloc] initWithURL:url];
+    Class class = [@"file" isEqual:url.scheme] ? [MRFFileImageModel class] : [MRFURLImageModel class];
+    
+    return [[class alloc] initWithURL:url];
 }
 
 #pragma mark -
@@ -60,11 +66,42 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addImage:(UIImage *)image {
-    self.image = image;
+- (void)save {
     
+}
+
+- (void)dump {
+    self.image = nil;
+    self.state = MRFModelNotLoaded;
+}
+
+#pragma mark -
+#pragma mark MRFModel
+
+- (void)performLoading {
+    MRFWeakify(self);
+    [self performLoadingWithCompletion:^(UIImage *image, id error) {
+        MRFStrongifyAndReturnIfNil(self);
+        
+        [self finalizeLoadingWithImage:image error:error];
+        [self notifyOfLoadingStateWithImage:image error:error];
+    }];
+}
+
+- (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion {
+    
+}
+
+- (void)finalizeLoadingWithImage:(UIImage *)image error:(id)error {
+    self.image = image;
+}
+
+- (void)notifyOfLoadingStateWithImage:(UIImage *)image error:(id)error {
+    MRFWeakify(self);
     MRFDispatchAsyncOnMainThread(^{
-        self.state = MRFModelDidLoad;
+        MRFStrongifyAndReturnIfNil(self);
+        
+        self.state = self.image ? MRFModelDidLoad : MRFModelDidFailLoading;
     });
 }
 

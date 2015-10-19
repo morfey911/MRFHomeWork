@@ -7,7 +7,8 @@
 //
 
 #import "MRFInfoModel.h"
-#import "MRFFileImageModel.h"
+
+#import "MRFImageModel.h"
 
 #import "NSString+MRFExtensions.h"
 
@@ -41,7 +42,7 @@ static NSString * const kMRFString          = @"string";
 
 - (MRFImageModel *)imageModel {
     NSURL *url = [[NSBundle mainBundle] URLForResource:kMRFImageName withExtension:kMRFImageType];
-    return [MRFFileImageModel imageModelWithURL:url];
+    return [MRFImageModel imageModelWithURL:url];
 }
 
 #pragma mark -

@@ -12,71 +12,24 @@
 
 #import "MRFDispatch.h"
 
-@interface MRFFileImageModel ()
-
-@end
-
 @implementation MRFFileImageModel
 
-@dynamic filePath;
-@dynamic fileName;
-@dynamic fileFolder;
-@dynamic fileCached;
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)initWithURL:(NSURL *)url {
-    return [super initWithURL:url];
-}
+@dynamic cached;
 
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)filePath {
-    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
-}
-
-- (NSString *)fileName {
-    return self.url.lastPathComponent;
-}
-
-- (NSString *)fileFolder {
-    return [NSFileManager userDocumentsPath];
-}
-
-- (BOOL)isFileCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)dump {
-    if (self.isFileCached) {
-        [[NSFileManager defaultManager] removeItemAtPath:self.filePath error:nil];
-    }
+- (BOOL)isCached {
+    return [[NSFileManager defaultManager] fileExistsAtPath:[self.url relativePath]];
 }
 
 #pragma mark -
 #pragma mark MRFModel
 
-- (void)performLoading {
-    if (!self.isFileCached) {
-        [[NSFileManager defaultManager] copyItemAtURL:self.url toURL:[NSURL fileURLWithPath:self.filePath] error:nil];
-    } else if (self.isFileCached) {
-        UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
-        
-        if (image) {
-            [self addImage:image];
-        } else {
-            [self dump];
-            
-            MRFDispatchAsyncOnMainThread(^{
-                self.state = MRFModelDidFailLoading;
-            });
-        }
-    }
+- (void)performLoadingWithCompletion:(void (^)(UIImage *, id))completion {
+    UIImage *image = [UIImage imageWithContentsOfFile:[self.url relativePath]];
+    
+    completion(image, nil);
 }
 
 @end

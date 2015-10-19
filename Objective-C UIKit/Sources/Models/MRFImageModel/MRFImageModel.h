@@ -18,6 +18,12 @@
 
 - (instancetype)initWithURL:(NSURL *)url;
 
-- (void)addImage:(UIImage *)image;
+- (void)save;
+- (void)dump;
+
+//you must call a complition in subclasses, when loading was finished
+- (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion;
+- (void)finalizeLoadingWithImage:(UIImage *)image error:(id)error;
+- (void)notifyOfLoadingStateWithImage:(UIImage *)image error:(id)error;
 
 @end
