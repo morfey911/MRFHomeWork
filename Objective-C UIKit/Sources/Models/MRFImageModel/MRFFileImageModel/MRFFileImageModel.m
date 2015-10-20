@@ -24,9 +24,9 @@
 }
 
 #pragma mark -
-#pragma mark MRFModel
+#pragma mark MRFImageModel
 
-- (void)performLoadingWithCompletion:(void (^)(UIImage *, id))completion {
+- (void)performLoadingWithCompletion:(void (^)(UIImage *image, id error))completion {
     UIImage *image = [UIImage imageWithContentsOfFile:[self.url relativePath]];
     
     completion(image, nil);

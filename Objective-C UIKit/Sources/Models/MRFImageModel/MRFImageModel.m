@@ -75,19 +75,6 @@
     self.state = MRFModelNotLoaded;
 }
 
-#pragma mark -
-#pragma mark MRFModel
-
-- (void)performLoading {
-    MRFWeakify(self);
-    [self performLoadingWithCompletion:^(UIImage *image, id error) {
-        MRFStrongifyAndReturnIfNil(self);
-        
-        [self finalizeLoadingWithImage:image error:error];
-        [self notifyOfLoadingStateWithImage:image error:error];
-    }];
-}
-
 - (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion {
     
 }
@@ -103,6 +90,19 @@
         
         self.state = self.image ? MRFModelDidLoad : MRFModelDidFailLoading;
     });
+}
+
+#pragma mark -
+#pragma mark MRFModel
+
+- (void)performLoading {
+    MRFWeakify(self);
+    [self performLoadingWithCompletion:^(UIImage *image, id error) {
+        MRFStrongifyAndReturnIfNil(self);
+        
+        [self finalizeLoadingWithImage:image error:error];
+        [self notifyOfLoadingStateWithImage:image error:error];
+    }];
 }
 
 @end
