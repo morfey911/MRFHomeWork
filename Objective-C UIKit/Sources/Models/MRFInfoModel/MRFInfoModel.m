@@ -16,6 +16,7 @@ static const NSUInteger kMRFStringLength    = 10;
 static NSString * const kMRFImageName       = @"Kappa";
 static NSString * const kMRFImageType       = @"png";
 static NSString * const kMRFString          = @"string";
+static NSString * const kMRFImageURLString  = @"http://risovach.ru/upload/2013/04/mem/eto-norma_17169846_orig_.jpeg";
 
 @interface MRFInfoModel ()
 @property (nonatomic, strong)   NSString        *string;
@@ -41,7 +42,8 @@ static NSString * const kMRFString          = @"string";
 #pragma mark Accessors
 
 - (MRFImageModel *)imageModel {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:kMRFImageName withExtension:kMRFImageType];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:kMRFImageName withExtension:kMRFImageType];
+    NSURL *url = [NSURL URLWithString:kMRFImageURLString];
     return [MRFImageModel imageModelWithURL:url];
 }
 

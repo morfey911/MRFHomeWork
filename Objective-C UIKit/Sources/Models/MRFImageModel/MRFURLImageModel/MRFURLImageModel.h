@@ -10,4 +10,6 @@
 
 @interface MRFURLImageModel : MRFImageModel
 
+- (void)cancel;
+
 @end

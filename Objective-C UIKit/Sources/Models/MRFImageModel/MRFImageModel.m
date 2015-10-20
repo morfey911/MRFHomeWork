@@ -13,6 +13,8 @@
 #import "MRFFileImageModel.h"
 #import "MRFURLImageModel.h"
 
+#import "NSURL+MRFExtensions.h"
+
 #import "MRFDispatch.h"
 #import "MRFMacros.h"
 
@@ -31,9 +33,7 @@
 #pragma mark Class Methods
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
-    Class class = [@"file" isEqual:url.scheme] ? [MRFFileImageModel class] : [MRFURLImageModel class];
-    
-    return [[class alloc] initWithURL:url];
+    return [NSURL imageModelForURL:url];
 }
 
 #pragma mark -
