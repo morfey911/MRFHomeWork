@@ -35,6 +35,7 @@
 		3F6F08761BCEDB3C005A6CB0 /* MRFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08751BCEDB3C005A6CB0 /* MRFImageView.m */; settings = {ASSET_TAGS = (); }; };
 		3F6F08781BD02289005A6CB0 /* MRFImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6F08771BD02289005A6CB0 /* MRFImageView.xib */; settings = {ASSET_TAGS = (); }; };
 		3F6F087C1BD028A1005A6CB0 /* MRFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F087B1BD028A1005A6CB0 /* MRFCache.m */; settings = {ASSET_TAGS = (); }; };
+		3F6F08841BD6CBAD005A6CB0 /* NSURL+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08831BD6CBAD005A6CB0 /* NSURL+MRFExtensions.m */; settings = {ASSET_TAGS = (); }; };
 		3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F86FAB61BC4168E00978807 /* MRFModel.m */; };
 		3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDC17D61BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m */; };
 		3FDF4F051BB5A80100BFAFFC /* MRFArrayChangesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF4F041BB5A80100BFAFFC /* MRFArrayChangesModel.m */; };
@@ -111,6 +112,8 @@
 		3F6F08771BD02289005A6CB0 /* MRFImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFImageView.xib; sourceTree = "<group>"; };
 		3F6F087A1BD028A1005A6CB0 /* MRFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFCache.h; sourceTree = "<group>"; };
 		3F6F087B1BD028A1005A6CB0 /* MRFCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFCache.m; sourceTree = "<group>"; };
+		3F6F08821BD6CBAD005A6CB0 /* NSURL+MRFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+MRFExtensions.h"; sourceTree = "<group>"; };
+		3F6F08831BD6CBAD005A6CB0 /* NSURL+MRFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+MRFExtensions.m"; sourceTree = "<group>"; };
 		3F86FAB51BC4168E00978807 /* MRFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFModel.h; sourceTree = "<group>"; };
 		3F86FAB61BC4168E00978807 /* MRFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFModel.m; sourceTree = "<group>"; };
 		3F86FAB81BC4170100978807 /* MRFModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFModelProtocol.h; sourceTree = "<group>"; };
@@ -213,6 +216,7 @@
 		3F2B20F31BAC181200B83FB9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				3F6F08811BD6CB8B005A6CB0 /* NSURL+MRFExtensions */,
 				3FDF4F1E1BBAE52800BFAFFC /* NSFileManager+MRFExtensions */,
 				3F2B212D1BB1F85100B83FB9 /* NSIndexPath+MRFExtension */,
 				3F2B21291BB1DA3100B83FB9 /* NSMutableArray+MRFExtension */,
@@ -438,6 +442,15 @@
 				3F6F087B1BD028A1005A6CB0 /* MRFCache.m */,
 			);
 			path = MRFCache;
+			sourceTree = "<group>";
+		};
+		3F6F08811BD6CB8B005A6CB0 /* NSURL+MRFExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F08821BD6CBAD005A6CB0 /* NSURL+MRFExtensions.h */,
+				3F6F08831BD6CBAD005A6CB0 /* NSURL+MRFExtensions.m */,
+			);
+			path = "NSURL+MRFExtensions";
 			sourceTree = "<group>";
 		};
 		3F86FAB41BC4165900978807 /* MRFModel */ = {
@@ -709,6 +722,7 @@
 				3F2B211A1BAC181200B83FB9 /* MRFAlphabetWithRange.m in Sources */,
 				3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */,
 				3FDF4F211BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m in Sources */,
+				3F6F08841BD6CBAD005A6CB0 /* NSURL+MRFExtensions.m in Sources */,
 				3F2B21191BAC181200B83FB9 /* MRFAlphabetFromString.m in Sources */,
 				3F2B21181BAC181200B83FB9 /* MRFAlphabets.m in Sources */,
 				3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */,
