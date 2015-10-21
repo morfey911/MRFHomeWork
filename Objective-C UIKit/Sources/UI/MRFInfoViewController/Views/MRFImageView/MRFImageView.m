@@ -25,9 +25,10 @@
 #pragma mark Accessors
 
 - (void)setImageModel:(MRFImageModel *)imageModel {
-    MRFSynthesizeObservingSetterAndLoad(imageModel);
+    MRFSynthesizeObservingSetter(imageModel);
     
     [self fillWithModel:imageModel];
+    [imageModel load];
 }
 
 #pragma mark -
@@ -45,7 +46,8 @@
 }
 
 - (void)modelDidFailLoading:(id)model {
-    
+    //if cached image broken, reload it from internet
+    [self.imageModel load];
 }
 
 - (void)modelDidLoad:(id)model {
