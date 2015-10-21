@@ -6,10 +6,8 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "MRFImageModel.h"
+#import "MRFFileImageModel.h"
 
-@interface MRFURLImageModel : MRFImageModel
-
-- (void)cancel;
+@interface MRFURLImageModel : MRFFileImageModel
 
 @end
