@@ -19,14 +19,14 @@
 #pragma mark Class Methods
 
 + (MRFCache *)cache {
-    static MRFCache *cache = nil;
+    static MRFCache *__cache = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        cache = [[self alloc] init];
+        __cache = [[self alloc] init];
     });
     
-    return cache;
+    return __cache;
 }
 
 #pragma mark -
