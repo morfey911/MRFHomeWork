@@ -22,12 +22,18 @@
 @property (nonatomic, strong)   NSURL       *url;
 @property (nonatomic, strong)   UIImage     *image;
 @property (nonatomic, strong)   MRFCache    *imageCache;
+@property (nonatomic, readonly) NSArray     *notificationNames;
+
+- (void)subscribeToAplicationNotifications:(NSArray *)notifications;
+- (void)unsubcribeFromAplicationNotifications:(NSArray *)notifications;
+- (void)dumpWithNotification:(id)notification;
 
 @end
 
 @implementation MRFImageModel
 
 @dynamic imageCache;
+@dynamic notificationNames;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -38,6 +44,10 @@
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    [self unsubcribeFromAplicationNotifications:self.notificationNames];
+}
 
 - (instancetype)initWithURL:(NSURL *)url {
     MRFCache *imageCache = self.imageCache;
@@ -51,6 +61,7 @@
     if (self) {
         self.url = url;
         [imageCache addObject:self forKey:url];
+        [self subscribeToAplicationNotifications:self.notificationNames];
     }
     
     return self;
@@ -61,6 +72,10 @@
 
 - (MRFCache *)imageCache {
     return [MRFCache cache];
+}
+
+- (NSArray *)notificationNames {
+    return @[UIApplicationDidReceiveMemoryWarningNotification];
 }
 
 #pragma mark -
@@ -90,6 +105,33 @@
         
         self.state = self.image ? MRFModelDidLoad : MRFModelDidFailLoading;
     });
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)subscribeToAplicationNotifications:(NSArray *)notifications {
+    NSNotificationCenter *noticationCenter = [NSNotificationCenter defaultCenter];
+    
+    for (id notification in notifications) {
+        [noticationCenter addObserver:self
+                             selector:@selector(dumpWithNotification:)
+                                 name:notification
+                               object:nil];
+    }
+}
+
+- (void)unsubcribeFromAplicationNotifications:(NSArray *)notifications {
+    NSNotificationCenter *noticationCenter = [NSNotificationCenter defaultCenter];
+    
+    for (id notification in notifications) {
+        [noticationCenter removeObserver:self name:notification object:nil];
+    }
+    
+}
+
+- (void)dumpWithNotification:(id)notification {
+    [self dump];
 }
 
 #pragma mark -
