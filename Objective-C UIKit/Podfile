@@ -1,0 +1,5 @@
+platform :ios, '8.0'
+
+pod 'FBSDKCoreKit', '~> 4.7'
+pod 'FBSDKShareKit', '~> 4.7'
+pod 'FBSDKLoginKit', '~> 4.7'

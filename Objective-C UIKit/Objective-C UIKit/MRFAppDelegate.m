@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "MRFAppDelegate.h"
 
 #import "MRFInfoViewController.h"
@@ -19,6 +21,8 @@ static const NSUInteger kMRFInfoModelCount = 2;
 @implementation MRFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     UIWindow *window = [UIWindow window];
     self.window = window;
 
@@ -29,6 +33,20 @@ static const NSUInteger kMRFInfoModelCount = 2;
     [window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBSDKAppEvents activateApp];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 @end
