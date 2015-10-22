@@ -19,7 +19,6 @@
 @interface MRFImageModel ()
 @property (nonatomic, strong)   NSURL       *url;
 @property (nonatomic, strong)   UIImage     *image;
-@property (nonatomic, strong)   MRFCache    *imageCache;
 @property (nonatomic, readonly) NSArray     *notificationNames;
 
 - (void)subscribeToAplicationNotifications:(NSArray *)notifications;
@@ -30,7 +29,6 @@
 
 @implementation MRFImageModel
 
-@dynamic imageCache;
 @dynamic notificationNames;
 
 #pragma mark -
@@ -42,6 +40,10 @@
     return [[class alloc] initWithURL:url];
 }
 
++ (MRFCache *)sharedCache {
+    return [MRFCache cache];
+}
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -50,7 +52,7 @@
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
-    MRFCache *imageCache = self.imageCache;
+    MRFCache *imageCache = [MRFImageModel sharedCache];
     id imageModel = [imageCache objectForKey:url];
     
     if (imageModel) {
@@ -69,10 +71,6 @@
 
 #pragma mark -
 #pragma mark Accessors
-
-- (MRFCache *)imageCache {
-    return [MRFCache cache];
-}
 
 - (NSArray *)notificationNames {
     return @[UIApplicationDidReceiveMemoryWarningNotification];
