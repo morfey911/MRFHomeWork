@@ -39,7 +39,9 @@
 #pragma mark Class Methods
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
-    return [NSURL imageModelForURL:url];
+    Class class = url.fileURL ? [MRFFileImageModel class] : [MRFURLImageModel class];
+    
+    return [[class alloc] initWithURL:url];
 }
 
 #pragma mark -
