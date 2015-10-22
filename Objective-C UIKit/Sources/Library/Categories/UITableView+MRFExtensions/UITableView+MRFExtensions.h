@@ -14,5 +14,6 @@
 
 - (id)dequeueReusableCellWithClass:(Class)cls;
 - (void)updateWithChanges:(MRFArrayChangesModel *)changes;
+- (void)updateWithChanges:(MRFArrayChangesModel *)changes rowAnimation:(UITableViewRowAnimation)rowAnimation;
 
 @end

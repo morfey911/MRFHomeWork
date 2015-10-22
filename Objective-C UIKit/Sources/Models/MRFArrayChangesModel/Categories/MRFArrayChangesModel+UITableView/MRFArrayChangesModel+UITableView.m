@@ -23,13 +23,15 @@
 @implementation MRFPositionModel (UITableView)
 
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation {
+    NSIndexPath *path = self.indexPath;
+    
     switch (self.state) {
         case MRFArrayModelAppendChanges:
-            [tableView insertRowsAtIndexPaths:@[self.indexPath] withRowAnimation:rowAnimation];
+            [tableView insertRowsAtIndexPaths:@[path] withRowAnimation:rowAnimation];
             break;
             
         case MRFArrayModelDeleteChanges:
-            [tableView deleteRowsAtIndexPaths:@[self.indexPath] withRowAnimation:rowAnimation];
+            [tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:rowAnimation];
             break;
             
         default:
