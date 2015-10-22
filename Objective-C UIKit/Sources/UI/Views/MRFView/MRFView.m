@@ -10,6 +10,8 @@
 
 #import "MRFLoadingView.h"
 
+#import "MRFMacros.h"
+
 @interface MRFView ()
 @property (nonatomic, strong)   MRFLoadingView  *loadingView;
 
@@ -42,7 +44,11 @@
 }
 
 - (void)hideLoadingView {
-    self.loadingView.visible = NO;
+    MRFWeakify(self);
+    [self.loadingView setVisible:NO animated:YES complition:^{
+        MRFStrongifyAndReturnIfNil(self);
+        self.loadingView = nil;
+    }];
 }
 
 #pragma mark -
