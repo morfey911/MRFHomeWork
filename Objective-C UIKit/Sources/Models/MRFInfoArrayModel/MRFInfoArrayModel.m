@@ -29,7 +29,7 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 
 @implementation MRFInfoArrayModel
 
-@dynamic notifications;
+@dynamic notificationNames;
 @dynamic filePath;
 @dynamic fileName;
 @dynamic fileFolder;
@@ -46,7 +46,7 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self unsubcribeFromAplicationNotifications:self.notifications];
+    [self unsubcribeFromAplicationNotifications:self.notificationNames];
 }
 
 - (instancetype)initWithModelsCount:(NSUInteger)count {
@@ -54,7 +54,7 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
     
     if (self) {
         self.initCount = count;
-        [self subscribeToAplicationNotifications:self.notifications];
+        [self subscribeToAplicationNotifications:self.notificationNames];
     }
     
     return self;
@@ -63,7 +63,7 @@ static NSString * const kMRFFileName = @"mrfTemp.plist";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)notifications {
+- (NSArray *)notificationNames {
     return @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
 }
 
