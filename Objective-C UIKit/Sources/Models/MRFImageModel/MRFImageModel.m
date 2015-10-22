@@ -13,8 +13,6 @@
 #import "MRFFileImageModel.h"
 #import "MRFURLImageModel.h"
 
-#import "NSURL+MRFExtensions.h"
-
 #import "MRFDispatch.h"
 #import "MRFMacros.h"
 
