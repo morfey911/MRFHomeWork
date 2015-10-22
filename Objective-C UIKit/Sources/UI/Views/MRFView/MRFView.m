@@ -40,6 +40,7 @@
 - (void)showLoadingView {
     [self connectLoadingView];
     
+    [self bringSubviewToFront:self.loadingView];
     self.loadingView.visible = YES;
 }
 
