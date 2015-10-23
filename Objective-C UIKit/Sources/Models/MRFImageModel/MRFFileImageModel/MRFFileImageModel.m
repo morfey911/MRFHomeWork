@@ -20,8 +20,6 @@
 
 @implementation MRFFileImageModel
 
-@dynamic fileFolder;
-@dynamic fileName;
 @dynamic filePath;
 @dynamic cached;
 
@@ -32,24 +30,15 @@
     return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
 }
 
-- (NSString *)fileFolder {
-    return [NSFileManager userDocumentsPath];
-}
-
-- (NSString *)fileName {
-    return self.url.lastPathComponent;
-}
-
 - (NSString *)filePath {
-    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
+    return self.url.path;
 }
 
 #pragma mark -
 #pragma mark MRFImageModel
 
 - (void)performLoadingWithCompletion:(void (^)(UIImage *image, id error))completion {
-    NSString *path = self.cached ? self.filePath : self.url.path;
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
     
     if (!image) {
         [self deleteFromCacheIfNeeded];

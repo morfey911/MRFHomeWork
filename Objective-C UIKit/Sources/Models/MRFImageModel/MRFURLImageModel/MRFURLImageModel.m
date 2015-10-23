@@ -22,6 +22,8 @@
 
 @implementation MRFURLImageModel
 
+@dynamic fileFolder;
+@dynamic fileName;
 @dynamic session;
 
 #pragma mark -
@@ -52,6 +54,18 @@
         _task = task;
         [_task resume];
     }
+}
+
+- (NSString *)fileFolder {
+    return [NSFileManager userDocumentsPath];
+}
+
+- (NSString *)fileName {
+    return self.url.lastPathComponent;
+}
+
+- (NSString *)filePath {
+    return [self.fileFolder stringByAppendingPathComponent:self.fileName];
 }
 
 #pragma mark -
