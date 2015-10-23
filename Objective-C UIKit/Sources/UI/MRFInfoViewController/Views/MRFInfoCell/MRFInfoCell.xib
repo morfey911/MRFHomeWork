@@ -22,15 +22,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" id="rgM-a6-8m4" customClass="MRFImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="63"/>
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="62"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="b6z-rd-V4u">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="63"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="b8T-zj-ziT">
-                                <rect key="frame" x="37" y="13" width="37" height="37"/>
+                                <rect key="frame" x="37" y="12" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="1" green="0.0" blue="0.12986796797030742" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>

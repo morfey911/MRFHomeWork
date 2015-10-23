@@ -35,7 +35,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mapTable = [NSMapTable weakToStrongObjectsMapTable];
+        self.mapTable = [NSMapTable strongToWeakObjectsMapTable];
     }
     
     return self;
