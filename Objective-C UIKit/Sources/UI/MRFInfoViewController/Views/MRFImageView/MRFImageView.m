@@ -42,7 +42,7 @@
 #pragma mark MRFModel
 
 - (void)modelWillLoad:(id)model {
-    
+    [self.spinner startAnimating];
 }
 
 - (void)modelDidFailLoading:(id)model {
@@ -52,6 +52,7 @@
 
 - (void)modelDidLoad:(id)model {
     [self fillWithModel:model];
+    [self.spinner stopAnimating];
 }
 
 @end

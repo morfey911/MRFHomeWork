@@ -140,6 +140,8 @@
     [self performLoadingWithCompletion:^(UIImage *image, id error) {
         MRFStrongifyAndReturnIfNil(self);
         
+        MRFSleep(3);
+        
         [self finalizeLoadingWithImage:image error:error];
         [self notifyOfLoadingStateWithImage:image error:error];
     }];

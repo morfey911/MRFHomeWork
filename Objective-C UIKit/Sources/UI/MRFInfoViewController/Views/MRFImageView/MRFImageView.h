@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MRFView.h"
+
 #import "MRFModelProtocol.h"
 
 @class MRFImageModel;
 
 @interface MRFImageView : UIView <MRFModelProtocol>
-@property (nonatomic, strong)   IBOutlet    UIImageView     *imageView;
+@property (nonatomic, strong)   IBOutlet    UIImageView             *imageView;
+@property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *spinner;
 
 @property (nonatomic, strong)   MRFImageModel   *imageModel;
 
