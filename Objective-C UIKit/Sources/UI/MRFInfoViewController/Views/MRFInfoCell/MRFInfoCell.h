@@ -16,7 +16,6 @@
 @interface MRFInfoCell : MRFTableViewCell
 @property (nonatomic, strong)   IBOutlet    MRFImageView            *infoImageView;
 @property (nonatomic, strong)   IBOutlet    UILabel                 *stringLabel;
-@property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *spinner;
 
 @property (nonatomic, strong)   MRFInfoModel    *info;
 
