@@ -19,6 +19,8 @@
 		3F10E8251BDB89CD004EB5FA /* MRFSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E81E1BDB89CD004EB5FA /* MRFSquareViewController.m */; };
 		3F10E8261BDB89CD004EB5FA /* MRFSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F10E81F1BDB89CD004EB5FA /* MRFSquareViewController.xib */; };
 		3F10E8271BDB89CD004EB5FA /* MRFSquareViewHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E8211BDB89CD004EB5FA /* MRFSquareViewHolder.m */; };
+		3F10E82C1BDB8C95004EB5FA /* MRFBaseContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E82B1BDB8C95004EB5FA /* MRFBaseContext.m */; };
+		3F10E8301BDB8CE7004EB5FA /* MRFFBLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E82F1BDB8CE7004EB5FA /* MRFFBLoginContext.m */; };
 		3F2B20C51BAC107000B83FB9 /* MRFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */; };
 		3F2B20C91BAC117700B83FB9 /* MRFArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20C81BAC117700B83FB9 /* MRFArrayModel.m */; };
 		3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20F61BAC181200B83FB9 /* NSString+MRFExtensions.m */; };
@@ -75,6 +77,10 @@
 		3F10E81F1BDB89CD004EB5FA /* MRFSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFSquareViewController.xib; sourceTree = "<group>"; };
 		3F10E8201BDB89CD004EB5FA /* MRFSquareViewHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFSquareViewHolder.h; sourceTree = "<group>"; };
 		3F10E8211BDB89CD004EB5FA /* MRFSquareViewHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFSquareViewHolder.m; sourceTree = "<group>"; };
+		3F10E82A1BDB8C95004EB5FA /* MRFBaseContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFBaseContext.h; sourceTree = "<group>"; };
+		3F10E82B1BDB8C95004EB5FA /* MRFBaseContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFBaseContext.m; sourceTree = "<group>"; };
+		3F10E82E1BDB8CE7004EB5FA /* MRFFBLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFBLoginContext.h; sourceTree = "<group>"; };
+		3F10E82F1BDB8CE7004EB5FA /* MRFFBLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFBLoginContext.m; sourceTree = "<group>"; };
 		3F2B20C31BAC107000B83FB9 /* MRFInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFInfoModel.h; sourceTree = "<group>"; };
 		3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoModel.m; sourceTree = "<group>"; };
 		3F2B20C71BAC117700B83FB9 /* MRFArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArrayModel.h; sourceTree = "<group>"; };
@@ -219,6 +225,33 @@
 				3F10E8211BDB89CD004EB5FA /* MRFSquareViewHolder.m */,
 			);
 			path = MRFSquareViewController;
+			sourceTree = "<group>";
+		};
+		3F10E8281BDB8C6F004EB5FA /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				3F10E82D1BDB8CBC004EB5FA /* MRFFBLoginContext */,
+				3F10E8291BDB8C6F004EB5FA /* MRFBaseContext */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		3F10E8291BDB8C6F004EB5FA /* MRFBaseContext */ = {
+			isa = PBXGroup;
+			children = (
+				3F10E82A1BDB8C95004EB5FA /* MRFBaseContext.h */,
+				3F10E82B1BDB8C95004EB5FA /* MRFBaseContext.m */,
+			);
+			path = MRFBaseContext;
+			sourceTree = "<group>";
+		};
+		3F10E82D1BDB8CBC004EB5FA /* MRFFBLoginContext */ = {
+			isa = PBXGroup;
+			children = (
+				3F10E82E1BDB8CE7004EB5FA /* MRFFBLoginContext.h */,
+				3F10E82F1BDB8CE7004EB5FA /* MRFFBLoginContext.m */,
+			);
+			path = MRFFBLoginContext;
 			sourceTree = "<group>";
 		};
 		3F2B20C21BAC103900B83FB9 /* MRFInfoModel */ = {
@@ -582,6 +615,7 @@
 			children = (
 				3F2B20F21BAC181200B83FB9 /* Library */,
 				3FE68B3F1B9F2FF300632885 /* Models */,
+				3F10E8281BDB8C6F004EB5FA /* Contexts */,
 				3FE68B401B9F2FF300632885 /* UI */,
 			);
 			path = Sources;
@@ -773,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6F087C1BD028A1005A6CB0 /* MRFCache.m in Sources */,
+				3F10E8301BDB8CE7004EB5FA /* MRFFBLoginContext.m in Sources */,
 				3F2B211A1BAC181200B83FB9 /* MRFAlphabetWithRange.m in Sources */,
 				3F10E8231BDB89CD004EB5FA /* MRFInfoViewController.m in Sources */,
 				3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */,
@@ -780,6 +815,7 @@
 				3F2B21191BAC181200B83FB9 /* MRFAlphabetFromString.m in Sources */,
 				3F2B21181BAC181200B83FB9 /* MRFAlphabets.m in Sources */,
 				3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */,
+				3F10E82C1BDB8C95004EB5FA /* MRFBaseContext.m in Sources */,
 				3F10E8131BDB8912004EB5FA /* MRFLoadingView.m in Sources */,
 				3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */,
 				3F10E8101BDB8912004EB5FA /* MRFImageView.m in Sources */,
