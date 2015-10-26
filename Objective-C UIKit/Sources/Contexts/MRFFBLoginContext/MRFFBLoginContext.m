@@ -76,7 +76,6 @@
     
     if (token) {
         self.model.userID = token.userID;
-        self.model.state = MRFModelDidLoad;
     }
 }
 
