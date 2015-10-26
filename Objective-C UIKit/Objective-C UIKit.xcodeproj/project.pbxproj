@@ -21,6 +21,10 @@
 		3F10E8271BDB89CD004EB5FA /* MRFSquareViewHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E8211BDB89CD004EB5FA /* MRFSquareViewHolder.m */; };
 		3F10E82C1BDB8C95004EB5FA /* MRFBaseContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E82B1BDB8C95004EB5FA /* MRFBaseContext.m */; };
 		3F10E8301BDB8CE7004EB5FA /* MRFFBLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E82F1BDB8CE7004EB5FA /* MRFFBLoginContext.m */; };
+		3F10E8341BDB95F0004EB5FA /* MRFUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E8331BDB95F0004EB5FA /* MRFUserModel.m */; };
+		3F10E8391BDB97C7004EB5FA /* MRFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E8371BDB97C7004EB5FA /* MRFLoginViewController.m */; };
+		3F10E83A1BDB97C7004EB5FA /* MRFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F10E8381BDB97C7004EB5FA /* MRFLoginViewController.xib */; };
+		3F10E83D1BDB984B004EB5FA /* MRFLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10E83C1BDB984B004EB5FA /* MRFLoginView.m */; };
 		3F2B20C51BAC107000B83FB9 /* MRFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */; };
 		3F2B20C91BAC117700B83FB9 /* MRFArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20C81BAC117700B83FB9 /* MRFArrayModel.m */; };
 		3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B20F61BAC181200B83FB9 /* NSString+MRFExtensions.m */; };
@@ -81,6 +85,13 @@
 		3F10E82B1BDB8C95004EB5FA /* MRFBaseContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFBaseContext.m; sourceTree = "<group>"; };
 		3F10E82E1BDB8CE7004EB5FA /* MRFFBLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFBLoginContext.h; sourceTree = "<group>"; };
 		3F10E82F1BDB8CE7004EB5FA /* MRFFBLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFBLoginContext.m; sourceTree = "<group>"; };
+		3F10E8321BDB95F0004EB5FA /* MRFUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFUserModel.h; sourceTree = "<group>"; };
+		3F10E8331BDB95F0004EB5FA /* MRFUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFUserModel.m; sourceTree = "<group>"; };
+		3F10E8361BDB97C7004EB5FA /* MRFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLoginViewController.h; sourceTree = "<group>"; };
+		3F10E8371BDB97C7004EB5FA /* MRFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFLoginViewController.m; sourceTree = "<group>"; };
+		3F10E8381BDB97C7004EB5FA /* MRFLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFLoginViewController.xib; sourceTree = "<group>"; };
+		3F10E83B1BDB984B004EB5FA /* MRFLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLoginView.h; sourceTree = "<group>"; };
+		3F10E83C1BDB984B004EB5FA /* MRFLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFLoginView.m; sourceTree = "<group>"; };
 		3F2B20C31BAC107000B83FB9 /* MRFInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFInfoModel.h; sourceTree = "<group>"; };
 		3F2B20C41BAC107000B83FB9 /* MRFInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoModel.m; sourceTree = "<group>"; };
 		3F2B20C71BAC117700B83FB9 /* MRFArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFArrayModel.h; sourceTree = "<group>"; };
@@ -197,6 +208,7 @@
 		3F10E8151BDB8986004EB5FA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F10E8351BDB9795004EB5FA /* MRFLoginViewController */,
 				3F10E8161BDB89CD004EB5FA /* MRFInfoViewController */,
 				3F10E81C1BDB89CD004EB5FA /* MRFSquareViewController */,
 			);
@@ -252,6 +264,27 @@
 				3F10E82F1BDB8CE7004EB5FA /* MRFFBLoginContext.m */,
 			);
 			path = MRFFBLoginContext;
+			sourceTree = "<group>";
+		};
+		3F10E8311BDB9399004EB5FA /* MRFUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F10E8321BDB95F0004EB5FA /* MRFUserModel.h */,
+				3F10E8331BDB95F0004EB5FA /* MRFUserModel.m */,
+			);
+			path = MRFUserModel;
+			sourceTree = "<group>";
+		};
+		3F10E8351BDB9795004EB5FA /* MRFLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F10E83B1BDB984B004EB5FA /* MRFLoginView.h */,
+				3F10E83C1BDB984B004EB5FA /* MRFLoginView.m */,
+				3F10E8361BDB97C7004EB5FA /* MRFLoginViewController.h */,
+				3F10E8371BDB97C7004EB5FA /* MRFLoginViewController.m */,
+				3F10E8381BDB97C7004EB5FA /* MRFLoginViewController.xib */,
+			);
+			path = MRFLoginViewController;
 			sourceTree = "<group>";
 		};
 		3F2B20C21BAC103900B83FB9 /* MRFInfoModel */ = {
@@ -624,6 +657,7 @@
 		3FE68B3F1B9F2FF300632885 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F10E8311BDB9399004EB5FA /* MRFUserModel */,
 				3F6F085F1BCC2ECE005A6CB0 /* MRFImageModel */,
 				3F86FAB41BC4165900978807 /* MRFModel */,
 				3F2B20C61BAC10D900B83FB9 /* MRFArrayModel */,
@@ -741,6 +775,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F10E83A1BDB97C7004EB5FA /* MRFLoginViewController.xib in Resources */,
 				3F10E8141BDB8912004EB5FA /* MRFLoadingView.xib in Resources */,
 				3F10E8121BDB8912004EB5FA /* MRFInfoCell.xib in Resources */,
 				3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */,
@@ -806,6 +841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F10E83D1BDB984B004EB5FA /* MRFLoginView.m in Sources */,
 				3F6F087C1BD028A1005A6CB0 /* MRFCache.m in Sources */,
 				3F10E8301BDB8CE7004EB5FA /* MRFFBLoginContext.m in Sources */,
 				3F2B211A1BAC181200B83FB9 /* MRFAlphabetWithRange.m in Sources */,
@@ -818,6 +854,7 @@
 				3F10E82C1BDB8C95004EB5FA /* MRFBaseContext.m in Sources */,
 				3F10E8131BDB8912004EB5FA /* MRFLoadingView.m in Sources */,
 				3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */,
+				3F10E8391BDB97C7004EB5FA /* MRFLoginViewController.m in Sources */,
 				3F10E8101BDB8912004EB5FA /* MRFImageView.m in Sources */,
 				3F2B211C1BAC181200B83FB9 /* MRFObservableObject.m in Sources */,
 				3F2B21241BAF0C8100B83FB9 /* UINib+MRFExtensions.m in Sources */,
@@ -835,6 +872,7 @@
 				5F420E7B1BCBA90C00B018A9 /* MRFView.m in Sources */,
 				3F10E8221BDB89CD004EB5FA /* MRFInfoView.m in Sources */,
 				3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */,
+				3F10E8341BDB95F0004EB5FA /* MRFUserModel.m in Sources */,
 				3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */,
 				3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */,
 				3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */,
