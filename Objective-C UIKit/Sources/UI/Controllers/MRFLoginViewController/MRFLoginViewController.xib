@@ -31,6 +31,12 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IwC-1x-iHd">
+                    <rect key="frame" x="85" y="344" width="151" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <state key="normal" title="Show friends"/>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ecR-Ie-0vy">
                     <rect key="frame" x="85" y="395" width="151" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -47,6 +53,7 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="friendsButton" destination="IwC-1x-iHd" id="8BJ-bj-Mqy"/>
                 <outlet property="loginButton" destination="ecR-Ie-0vy" id="YbX-BS-bGB"/>
                 <outlet property="userID" destination="rwc-oG-eZM" id="fNb-v2-no3"/>
             </connections>

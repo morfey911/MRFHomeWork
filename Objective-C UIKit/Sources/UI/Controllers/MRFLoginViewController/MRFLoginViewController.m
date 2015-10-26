@@ -6,12 +6,13 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "MRFLoginViewController.h"
+#import <FBSDKLoginManager.h>
+#import <FBSDKAccessToken.h>
 
+#import "MRFLoginViewController.h"
 #import "MRFLoginView.h"
 
 #import "MRFUserModel.h"
-
 #import "MRFFBLoginContext.h"
 
 #import "MRFMacros.h"
@@ -66,6 +67,23 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [self logOutFromFacebook];
+    } else {
+        [self performLoginContext];
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)logOutFromFacebook {
+    [[[FBSDKLoginManager alloc] init] logOut];
+    self.userModel.userID = nil;
+    NSLog(@"Logged out");
+}
+
+- (void)performLoginContext {
     MRFFBLoginContext *context = [[MRFFBLoginContext alloc] initWithModel:self.userModel];
     self.loginContext = context;
     [context execute];
