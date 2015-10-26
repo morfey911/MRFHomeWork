@@ -8,7 +8,12 @@
 
 #import "MRFModel.h"
 
+typedef NS_ENUM(NSUInteger, MRFUserModelState) {
+    MRFUserModelDidChangeID
+};
+
 @interface MRFUserModel : MRFModel
 @property (nonatomic, copy) NSString    *userID;
+@property (nonatomic, copy) NSString    *name;
 
 @end
