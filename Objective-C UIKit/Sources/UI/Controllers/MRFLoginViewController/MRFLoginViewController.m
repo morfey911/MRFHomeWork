@@ -67,7 +67,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    if ([FBSDKAccessToken currentAccessToken]) {
+    if (self.userModel.userID) {
         [self logOutFromFacebook];
     } else {
         [self performLoginContext];
