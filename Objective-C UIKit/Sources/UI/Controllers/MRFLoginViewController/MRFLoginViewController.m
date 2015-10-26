@@ -23,6 +23,9 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 @property (nonatomic, strong)   MRFBaseContext  *loginContext;
 @property (nonatomic, strong)   MRFUserModel    *userModel;
 
+- (void)logOutFromFacebook;
+- (void)performLoginContext;
+
 @end
 
 @implementation MRFLoginViewController
