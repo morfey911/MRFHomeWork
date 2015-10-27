@@ -14,8 +14,8 @@
 
 @interface MRFLoginView : UIView <MRFUserModelObserver>
 @property (nonatomic, strong)   IBOutlet    UIButton    *loginButton;
-@property (nonatomic, strong)   IBOutlet    UIButton    *friendsButton;
 @property (nonatomic, strong)   IBOutlet    UILabel     *userID;
+
 @property (nonatomic, strong)   MRFUserModel    *userModel;
 
 - (void)fillWithModel:(MRFUserModel *)model;

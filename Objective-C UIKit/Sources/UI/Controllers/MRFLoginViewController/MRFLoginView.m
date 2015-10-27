@@ -24,6 +24,13 @@
 @dynamic loginButtonTitle;
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.userModel = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUserModel:(MRFUserModel *)userModel {
@@ -44,7 +51,6 @@
     
     [self.loginButton setTitle:self.loginButtonTitle forState:UIControlStateNormal];
     self.userID.text = userID;
-    self.friendsButton.hidden = userID ? NO : YES;
 }
 
 #pragma mark -
