@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class MRFImageView;
+
 @interface MRFFriendsView : UIView
-@property (nonatomic, strong)   IBOutlet    UITableView *tableView;
+@property (nonatomic, strong)   IBOutlet    UILabel         *userNameLabel;
+@property (nonatomic, strong)   IBOutlet    MRFImageView    *userImageView;
+@property (nonatomic, strong)   IBOutlet    UITableView     *friendsTableView;
 
 @end
