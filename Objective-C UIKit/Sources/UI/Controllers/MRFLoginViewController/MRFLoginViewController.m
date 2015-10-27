@@ -12,8 +12,12 @@
 #import "MRFLoginViewController.h"
 #import "MRFLoginView.h"
 
+#import "MRFFriendsViewController.h"
+
 #import "MRFUserModel.h"
 #import "MRFFBLoginContext.h"
+
+#import "UIViewController+MRFExtensions.h"
 
 #import "MRFMacros.h"
 
@@ -73,7 +77,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    if ([FBSDKAccessToken currentAccessToken]) {
+    if (self.userModel.userID) {
         [self logOutFromFacebook];
     } else {
         self.loginContext = [[MRFFBLoginContext alloc] initWithModel:self.userModel];
@@ -95,7 +99,10 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark MRFUserModel
 
 - (void)userModelDidChangeID:(MRFUserModel *)model {
-    
+    if (model.userID) {
+        MRFFriendsViewController *controller = [MRFFriendsViewController controller];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 @end

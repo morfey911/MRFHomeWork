@@ -46,6 +46,23 @@
 #pragma mark MRFBaseContext
 
 - (void)execute {
+    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+    
+    if (token) {
+        [self finalizeLogIn];
+    } else {
+        [self logInToFacebook];
+    }
+}
+
+- (void)cancel {
+    
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)logInToFacebook {
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
     
     id block = ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
@@ -63,13 +80,6 @@
                         fromViewController:nil
                                    handler:block];
 }
-
-- (void)cancel {
-    
-}
-
-#pragma mark -
-#pragma mark Private
 
 - (void)finalizeLogIn {
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
