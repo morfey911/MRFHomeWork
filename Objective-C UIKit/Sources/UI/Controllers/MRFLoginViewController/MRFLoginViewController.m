@@ -92,4 +92,11 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
     [context execute];
 }
 
+#pragma mark -
+#pragma mark MRFUserModel
+
+- (void)userModelDidChangeID:(MRFUserModel *)model {
+    
+}
+
 @end

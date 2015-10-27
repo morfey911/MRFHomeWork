@@ -129,6 +129,7 @@
 		3F2B21331BB2072300B83FB9 /* MRFInfoArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFInfoArrayModel.m; sourceTree = "<group>"; };
 		3F2B21361BB36E2A00B83FB9 /* MRFDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFDispatch.m; sourceTree = "<group>"; };
 		3F2B21371BB36E2A00B83FB9 /* MRFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFDispatch.h; sourceTree = "<group>"; };
+		3F3753721BDFC57000B6079A /* MRFUserModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFUserModelObserver.h; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 			children = (
 				3F10E8321BDB95F0004EB5FA /* MRFUserModel.h */,
 				3F10E8331BDB95F0004EB5FA /* MRFUserModel.m */,
+				3F3753721BDFC57000B6079A /* MRFUserModelObserver.h */,
 			);
 			path = MRFUserModel;
 			sourceTree = "<group>";

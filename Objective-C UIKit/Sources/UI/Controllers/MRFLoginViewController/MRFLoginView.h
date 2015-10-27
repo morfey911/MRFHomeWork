@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MRFUserModelObserver.h"
+
 @class MRFUserModel;
 
-@interface MRFLoginView : UIView
+@interface MRFLoginView : UIView <MRFUserModelObserver>
 @property (nonatomic, strong)   IBOutlet    UIButton    *loginButton;
 @property (nonatomic, strong)   IBOutlet    UIButton    *friendsButton;
 @property (nonatomic, strong)   IBOutlet    UILabel     *userID;

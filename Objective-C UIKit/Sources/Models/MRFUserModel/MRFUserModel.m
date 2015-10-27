@@ -8,6 +8,8 @@
 
 #import "MRFUserModel.h"
 
+#import "MRFUserModelObserver.h"
+
 @implementation MRFUserModel
 
 #pragma mark -
