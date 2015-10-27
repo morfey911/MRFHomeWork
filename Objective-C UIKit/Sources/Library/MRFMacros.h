@@ -74,6 +74,13 @@
 #define MRFSynthesizeObservingSetterAndLoad(propertyName) \
     __MRFSynthesizeObservingSetterWithParameter(propertyName, MRFLoad(propertyName))
 
+#define MRFSynthesizeContextSetter(propertyName) \
+    if (_##propertyName != propertyName) { \
+        [_##propertyName cancel]; \
+        _##propertyName = propertyName; \
+        [_##propertyName execute]; \
+    }
+
 #if MRFShouldSleep == 1
 #define MRFSleep(time) [NSThread sleepForTimeInterval:time];
 #else

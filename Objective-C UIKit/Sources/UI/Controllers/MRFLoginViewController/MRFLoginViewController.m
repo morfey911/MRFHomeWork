@@ -49,11 +49,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 }
 
 - (void)setLoginContext:(MRFBaseContext *)loginContext {
-    if (_loginContext != loginContext) {
-        [_loginContext cancel];
-        _loginContext = loginContext;
-        [_loginContext execute];
-    }
+    MRFSynthesizeContextSetter(loginContext);
 }
 
 #pragma mark -
