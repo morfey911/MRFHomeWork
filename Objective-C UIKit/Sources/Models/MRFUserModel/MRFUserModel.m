@@ -26,10 +26,6 @@
 #pragma mark -
 #pragma mark MRFModel
 
-- (void)performLoading {
-    
-}
-
 - (SEL)selectorForState:(NSUInteger)state {
     SEL selector = NULL;
     

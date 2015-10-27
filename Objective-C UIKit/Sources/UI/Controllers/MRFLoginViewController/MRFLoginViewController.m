@@ -24,7 +24,6 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 @property (nonatomic, strong)   MRFUserModel    *userModel;
 
 - (void)logOutFromFacebook;
-- (void)performLoginContext;
 
 @end
 
@@ -49,6 +48,14 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
     MRFSynthesizeObservingSetter(userModel);
 }
 
+- (void)setLoginContext:(MRFBaseContext *)loginContext {
+    if (_loginContext != loginContext) {
+        [_loginContext cancel];
+        _loginContext = loginContext;
+        [_loginContext execute];
+    }
+}
+
 #pragma mark -
 #pragma mark View Lifecycle
 
@@ -70,10 +77,10 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    if (self.userModel.userID) {
+    if ([FBSDKAccessToken currentAccessToken]) {
         [self logOutFromFacebook];
     } else {
-        [self performLoginContext];
+        self.loginContext = [[MRFFBLoginContext alloc] initWithModel:self.userModel];
     }
 }
 
@@ -81,15 +88,11 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Private
 
 - (void)logOutFromFacebook {
+    MRFUserModel *userModel = self.userModel;
+    
     [[[FBSDKLoginManager alloc] init] logOut];
-    self.userModel.userID = nil;
-    NSLog(@"Logged out");
-}
-
-- (void)performLoginContext {
-    MRFFBLoginContext *context = [[MRFFBLoginContext alloc] initWithModel:self.userModel];
-    self.loginContext = context;
-    [context execute];
+    userModel.userID = nil;
+    userModel.state = MRFModelNotLoaded;
 }
 
 #pragma mark -
