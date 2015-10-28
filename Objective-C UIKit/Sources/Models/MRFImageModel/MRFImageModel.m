@@ -52,6 +52,10 @@
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
+    if (!url) {
+        return nil;
+    }
+    
     MRFCache *imageCache = [MRFImageModel sharedCache];
     id imageModel = [imageCache objectForKey:url];
     
