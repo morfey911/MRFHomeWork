@@ -19,6 +19,7 @@
 
 #import "UIViewController+MRFExtensions.h"
 
+#import "MRFDispatch.h"
 #import "MRFMacros.h"
 
 MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginView);
@@ -28,6 +29,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 @property (nonatomic, strong)   MRFUserModel    *userModel;
 
 - (void)logOutFromFacebook;
+- (void)moveToNextScreen;
 
 @end
 
@@ -95,13 +97,24 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
     userModel.state = MRFModelNotLoaded;
 }
 
+- (void)moveToNextScreen {
+    [self.loginView showLoadingView];
+    MRFFriendsViewController *controller = [MRFFriendsViewController controller];
+    
+    controller.userModel = self.userModel;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    [self.loginView hideLoadingView];
+}
+
 #pragma mark -
 #pragma mark MRFUserModel
 
 - (void)userModelDidChangeID:(MRFUserModel *)model {
     if (model.userID) {
-        MRFFriendsViewController *controller = [MRFFriendsViewController controller];
-        [self.navigationController pushViewController:controller animated:YES];
+        MRFDispatchAsyncOnMainThread(^{
+            [self moveToNextScreen];
+        });
     }
 }
 
