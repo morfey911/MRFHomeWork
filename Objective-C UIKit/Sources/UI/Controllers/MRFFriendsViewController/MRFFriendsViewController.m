@@ -9,9 +9,15 @@
 #import "MRFFriendsViewController.h"
 #import "MRFFriendsView.h"
 
+#import "MRFFriendCell.h"
+
+#import "MRFArrayModel.h"
 #import "MRFUserModel.h"
+
 #import "MRFBaseContext.h"
 #import "MRFFBUserContext.h"
+
+#import "UITableView+MRFExtensions.h"
 
 #import "MRFMacros.h"
 
@@ -54,11 +60,15 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.userModel.friends.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    MRFFriendCell *cell = [tableView dequeueReusableCellWithClass:[MRFFriendCell class]];
+    
+    [cell fillWithModel:self.userModel.friends[indexPath.row]];
+    
+    return cell;
 }
 
 #pragma mark -
@@ -66,6 +76,13 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+#pragma mark -
+#pragma mark MRFModelProtocol
+
+- (void)modelDidLoad:(MRFUserModel *)model {
+    [self.friendsView.friendsTableView reloadData];
 }
 
 @end
