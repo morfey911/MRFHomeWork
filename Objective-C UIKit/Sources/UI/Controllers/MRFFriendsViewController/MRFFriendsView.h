@@ -9,10 +9,14 @@
 #import "MRFView.h"
 
 @class MRFImageView;
+@class MRFUserModel;
 
 @interface MRFFriendsView : MRFView
 @property (nonatomic, strong)   IBOutlet    UILabel         *userNameLabel;
+@property (nonatomic, strong)   IBOutlet    UILabel         *userEmailLabel;
 @property (nonatomic, strong)   IBOutlet    MRFImageView    *userImageView;
 @property (nonatomic, strong)   IBOutlet    UITableView     *friendsTableView;
+
+- (void)fillWithModel:(MRFUserModel *)model;
 
 @end
