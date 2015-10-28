@@ -69,4 +69,11 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
     
 }
 
+#pragma mark -
+#pragma mark MRFModelProtocol
+
+- (void)modelDidLoad:(MRFUserModel *)model {
+    [self.friendsView fillWithModel:model];
+}
+
 @end
