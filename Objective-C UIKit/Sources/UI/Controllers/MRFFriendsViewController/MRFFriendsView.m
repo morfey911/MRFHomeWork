@@ -17,6 +17,13 @@
 @implementation MRFFriendsView
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.userModel = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUserModel:(MRFUserModel *)userModel {
