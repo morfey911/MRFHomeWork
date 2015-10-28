@@ -15,8 +15,9 @@ typedef NS_ENUM(NSUInteger, MRFUserModelState) {
 @class MRFImageModel;
 
 @interface MRFUserModel : MRFModel
-@property (nonatomic, copy)     NSString        *userID;
-@property (nonatomic, copy)     NSString        *name;
-@property (nonatomic, strong)   MRFImageModel   *imageModel;
+@property (nonatomic, copy)     NSString    *userID;
+@property (nonatomic, copy)     NSString    *name;
+@property (nonatomic, copy)     NSString    *email;
+@property (nonatomic, strong)   NSURL       *imageURL;
 
 @end
