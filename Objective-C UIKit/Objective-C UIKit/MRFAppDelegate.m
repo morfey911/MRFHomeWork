@@ -10,15 +10,10 @@
 
 #import "MRFAppDelegate.h"
 
-//#import "MRFInfoViewController.h"
-//#import "MRFInfoArrayModel.h"
-
 #import "MRFLoginViewController.h"
 
 #import "UIWindow+MFRExtensions.h"
 #import "UIViewController+MRFExtensions.h"
-
-//static const NSUInteger kMRFInfoModelCount = 2;
 
 @implementation MRFAppDelegate
 
