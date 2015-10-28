@@ -28,6 +28,8 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 
 - (void)setUserModel:(MRFUserModel *)userModel {
     MRFSynthesizeObservingSetter(userModel);
+    
+    self.userContext = [[MRFFBUserContext alloc] initWithModel:self.userModel];
 }
 
 - (void)setUserContext:(MRFBaseContext *)userContext {
@@ -41,10 +43,7 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
     [super viewDidLoad];
     
     [self.friendsView showLoadingView];
-    
-    self.userContext = [[MRFFBUserContext alloc] initWithModel:self.userModel];
-    
-    [self.friendsView hideLoadingView];
+    self.friendsView.userModel = self.userModel;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,13 +66,6 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-}
-
-#pragma mark -
-#pragma mark MRFModelProtocol
-
-- (void)modelDidLoad:(MRFUserModel *)model {
-    [self.friendsView fillWithModel:model];
 }
 
 @end

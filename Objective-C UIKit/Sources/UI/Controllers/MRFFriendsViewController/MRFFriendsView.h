@@ -16,6 +16,7 @@
 @property (nonatomic, strong)   IBOutlet    UILabel         *userEmailLabel;
 @property (nonatomic, strong)   IBOutlet    MRFImageView    *userImageView;
 @property (nonatomic, strong)   IBOutlet    UITableView     *friendsTableView;
+@property (nonatomic, strong)   MRFUserModel    *userModel;
 
 - (void)fillWithModel:(MRFUserModel *)model;
 

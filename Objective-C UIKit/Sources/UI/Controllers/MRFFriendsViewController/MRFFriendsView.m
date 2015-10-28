@@ -12,7 +12,16 @@
 #import "MRFImageView.h"
 #import "MRFImageModel.h"
 
+#import "MRFMacros.h"
+
 @implementation MRFFriendsView
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUserModel:(MRFUserModel *)userModel {
+    MRFSynthesizeObservingSetter(userModel);
+}
 
 #pragma mark -
 #pragma mark Public
@@ -21,6 +30,14 @@
     self.userImageView.imageModel = [MRFImageModel imageModelWithURL:model.imageURL];
     self.userNameLabel.text = model.name;
     self.userEmailLabel.text = model.email;
+}
+
+#pragma mark -
+#pragma mark MRFModelProtocol
+
+- (void)modelDidLoad:(MRFUserModel *)model {
+    [self fillWithModel:model];
+    [self hideLoadingView];
 }
 
 @end

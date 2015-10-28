@@ -98,13 +98,11 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 }
 
 - (void)moveToNextScreen {
-    [self.loginView showLoadingView];
     MRFFriendsViewController *controller = [MRFFriendsViewController controller];
     
     controller.userModel = self.userModel;
     
     [self.navigationController pushViewController:controller animated:YES];
-    [self.loginView hideLoadingView];
 }
 
 #pragma mark -
