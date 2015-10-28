@@ -47,6 +47,8 @@
 		3F3753781BDFCDD300B6079A /* MRFFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3753761BDFCDD300B6079A /* MRFFriendsViewController.xib */; };
 		3F37537B1BDFCE5500B6079A /* MRFFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37537A1BDFCE5500B6079A /* MRFFriendsView.m */; };
 		3F37537F1BE0FCA900B6079A /* MRFFBUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */; };
+		3F3753841BE16AE200B6079A /* MRFFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3753821BE16AE200B6079A /* MRFFriendCell.m */; };
+		3F3753851BE16AE200B6079A /* MRFFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3753831BE16AE200B6079A /* MRFFriendCell.xib */; };
 		3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */; };
 		3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */; };
 		3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */; };
@@ -141,6 +143,9 @@
 		3F37537A1BDFCE5500B6079A /* MRFFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFriendsView.m; sourceTree = "<group>"; };
 		3F37537D1BE0FCA900B6079A /* MRFFBUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFBUserContext.h; sourceTree = "<group>"; };
 		3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFBUserContext.m; sourceTree = "<group>"; };
+		3F3753811BE16AE200B6079A /* MRFFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFriendCell.h; sourceTree = "<group>"; };
+		3F3753821BE16AE200B6079A /* MRFFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFriendCell.m; sourceTree = "<group>"; };
+		3F3753831BE16AE200B6079A /* MRFFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFriendCell.xib; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
@@ -515,6 +520,7 @@
 		3F3753731BDFCDA600B6079A /* MRFFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3F3753801BE16A9900B6079A /* MRFFriendCell */,
 				3F3753791BDFCE5500B6079A /* MRFFriendsView.h */,
 				3F37537A1BDFCE5500B6079A /* MRFFriendsView.m */,
 				3F3753741BDFCDD300B6079A /* MRFFriendsViewController.h */,
@@ -531,6 +537,16 @@
 				3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */,
 			);
 			path = MRFFBUserContext;
+			sourceTree = "<group>";
+		};
+		3F3753801BE16A9900B6079A /* MRFFriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				3F3753811BE16AE200B6079A /* MRFFriendCell.h */,
+				3F3753821BE16AE200B6079A /* MRFFriendCell.m */,
+				3F3753831BE16AE200B6079A /* MRFFriendCell.xib */,
+			);
+			path = MRFFriendCell;
 			sourceTree = "<group>";
 		};
 		3F6F085F1BCC2ECE005A6CB0 /* MRFImageModel */ = {
@@ -814,6 +830,7 @@
 				3F10E83A1BDB97C7004EB5FA /* MRFLoginViewController.xib in Resources */,
 				3F10E8141BDB8912004EB5FA /* MRFLoadingView.xib in Resources */,
 				3F10E8121BDB8912004EB5FA /* MRFInfoCell.xib in Resources */,
+				3F3753851BE16AE200B6079A /* MRFFriendCell.xib in Resources */,
 				3FE68B481B9F2FF300632885 /* Images.xcassets in Resources */,
 				3FE68B461B9F2FF300632885 /* LaunchScreen.xib in Resources */,
 				3F3753781BDFCDD300B6079A /* MRFFriendsViewController.xib in Resources */,
@@ -883,6 +900,7 @@
 				3F37537B1BDFCE5500B6079A /* MRFFriendsView.m in Sources */,
 				3F10E8301BDB8CE7004EB5FA /* MRFFBLoginContext.m in Sources */,
 				3F2B211A1BAC181200B83FB9 /* MRFAlphabetWithRange.m in Sources */,
+				3F3753841BE16AE200B6079A /* MRFFriendCell.m in Sources */,
 				3F10E8231BDB89CD004EB5FA /* MRFInfoViewController.m in Sources */,
 				3F2B21381BB36E2A00B83FB9 /* MRFDispatch.m in Sources */,
 				3FDF4F211BBAE55E00BFAFFC /* NSFileManager+MRFExtensions.m in Sources */,
