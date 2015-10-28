@@ -11,6 +11,7 @@
 #import "MRFFBUserContext.h"
 
 #import "MRFUserModel.h"
+#import "MRFArrayModel.h"
 
 @interface MRFFBUserContext ()
 @property (nonatomic, strong)   MRFUserModel                *userModel;
@@ -39,7 +40,7 @@
 #pragma mark Accessors
 
 - (NSString *)graphPath {
-    return @"me?fields=name,email,picture";
+    return @"me?fields=name,email,picture,friends";
 }
 
 - (FBSDKGraphRequest *)request {
@@ -66,11 +67,33 @@
 #pragma mark Public
 
 - (void)parseWithResult:(id)result error:(NSError *)error {
+    [self parseBasicInfoWithResult:result];
+    [self parseFriendsInfoWithResult:result];
+    
+    self.userModel.state = MRFModelDidLoad;
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)parseBasicInfoWithResult:(id)result {
     self.userModel.name = result[@"name"];
     self.userModel.email = result[@"email"];
     self.userModel.imageURL = [NSURL URLWithString:result[@"picture"][@"data"][@"url"]];
+}
+
+- (void)parseFriendsInfoWithResult:(id)result {
+    MRFArrayModel *friendsModel = [MRFArrayModel new];
+    NSArray *friends = result[@"friends"][@"data"];
     
-    self.userModel.state = MRFModelDidLoad;
+    for (id friend in friends) {
+        MRFUserModel *user = [MRFUserModel new];
+        user.userID = friend[@"userID"];
+        user.name = friend[@"name"];
+        [friendsModel addModel:user];
+    }
+    
+    self.userModel.friends = friendsModel;
 }
 
 #pragma mark -
