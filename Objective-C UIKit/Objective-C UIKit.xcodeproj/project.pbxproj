@@ -46,6 +46,7 @@
 		3F3753771BDFCDD300B6079A /* MRFFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3753751BDFCDD300B6079A /* MRFFriendsViewController.m */; };
 		3F3753781BDFCDD300B6079A /* MRFFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3753761BDFCDD300B6079A /* MRFFriendsViewController.xib */; };
 		3F37537B1BDFCE5500B6079A /* MRFFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37537A1BDFCE5500B6079A /* MRFFriendsView.m */; };
+		3F37537F1BE0FCA900B6079A /* MRFFBUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */; };
 		3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */; };
 		3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */; };
 		3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */; };
@@ -138,6 +139,8 @@
 		3F3753761BDFCDD300B6079A /* MRFFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFriendsViewController.xib; sourceTree = "<group>"; };
 		3F3753791BDFCE5500B6079A /* MRFFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFriendsView.h; sourceTree = "<group>"; };
 		3F37537A1BDFCE5500B6079A /* MRFFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFriendsView.m; sourceTree = "<group>"; };
+		3F37537D1BE0FCA900B6079A /* MRFFBUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFBUserContext.h; sourceTree = "<group>"; };
+		3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFBUserContext.m; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 		3F10E8281BDB8C6F004EB5FA /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				3F37537C1BE0FC5C00B6079A /* MRFFBUserContext */,
 				3F10E82D1BDB8CBC004EB5FA /* MRFFBLoginContext */,
 				3F10E8291BDB8C6F004EB5FA /* MRFBaseContext */,
 			);
@@ -518,6 +522,15 @@
 				3F3753761BDFCDD300B6079A /* MRFFriendsViewController.xib */,
 			);
 			path = MRFFriendsViewController;
+			sourceTree = "<group>";
+		};
+		3F37537C1BE0FC5C00B6079A /* MRFFBUserContext */ = {
+			isa = PBXGroup;
+			children = (
+				3F37537D1BE0FCA900B6079A /* MRFFBUserContext.h */,
+				3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */,
+			);
+			path = MRFFBUserContext;
 			sourceTree = "<group>";
 		};
 		3F6F085F1BCC2ECE005A6CB0 /* MRFImageModel */ = {
@@ -909,6 +922,7 @@
 				3F3753771BDFCDD300B6079A /* MRFFriendsViewController.m in Sources */,
 				3F2B21171BAC181200B83FB9 /* MRFAlphabet.m in Sources */,
 				3F2B211D1BAC181200B83FB9 /* MRFTableViewCell.m in Sources */,
+				3F37537F1BE0FCA900B6079A /* MRFFBUserContext.m in Sources */,
 				3F2B20C51BAC107000B83FB9 /* MRFInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
