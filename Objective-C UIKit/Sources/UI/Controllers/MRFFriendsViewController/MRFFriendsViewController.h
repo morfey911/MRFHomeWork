@@ -10,8 +10,13 @@
 
 #import "MRFUserModelObserver.h"
 
+@class MRFUserModel;
+@class MRFBaseContext;
+
 @interface MRFFriendsViewController : UIViewController <UITableViewDelegate,
                                                             UITableViewDataSource,
                                                             MRFUserModelObserver>
+@property (nonatomic, strong)   MRFUserModel      *userModel;
+@property (nonatomic, strong)   MRFBaseContext    *userContext;
 
 @end

@@ -7,6 +7,15 @@
 //
 
 #import "MRFFriendsViewController.h"
+#import "MRFFriendsView.h"
+
+#import "MRFUserModel.h"
+#import "MRFBaseContext.h"
+#import "MRFFBUserContext.h"
+
+#import "MRFMacros.h"
+
+MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFriendsView)
 
 @interface MRFFriendsViewController ()
 
@@ -15,10 +24,27 @@
 @implementation MRFFriendsViewController
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setUserModel:(MRFUserModel *)userModel {
+    MRFSynthesizeObservingSetter(userModel);
+}
+
+- (void)setUserContext:(MRFBaseContext *)userContext {
+    MRFSynthesizeContextSetter(userContext);
+}
+
+#pragma mark -
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.friendsView showLoadingView];
+    
+    self.userContext = [[MRFFBUserContext alloc] initWithModel:self.userModel];
+    
+    [self.friendsView hideLoadingView];
 }
 
 - (void)didReceiveMemoryWarning {
