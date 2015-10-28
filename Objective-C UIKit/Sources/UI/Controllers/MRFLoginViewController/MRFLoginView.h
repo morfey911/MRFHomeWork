@@ -6,13 +6,13 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MRFView.h"
 
 #import "MRFUserModelObserver.h"
 
 @class MRFUserModel;
 
-@interface MRFLoginView : UIView <MRFUserModelObserver>
+@interface MRFLoginView : MRFView <MRFUserModelObserver>
 @property (nonatomic, strong)   IBOutlet    UIButton    *loginButton;
 @property (nonatomic, strong)   IBOutlet    UILabel     *userID;
 

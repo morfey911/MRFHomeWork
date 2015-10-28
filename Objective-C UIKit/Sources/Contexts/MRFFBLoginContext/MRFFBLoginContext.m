@@ -48,7 +48,7 @@
 - (void)execute {
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
     
-    if (token) {
+    if (token.userID) {
         [self finalizeLogIn];
     } else {
         [self logInToFacebook];

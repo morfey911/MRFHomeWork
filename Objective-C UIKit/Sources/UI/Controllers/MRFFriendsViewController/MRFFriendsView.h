@@ -6,11 +6,11 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MRFView.h"
 
 @class MRFImageView;
 
-@interface MRFFriendsView : UIView
+@interface MRFFriendsView : MRFView
 @property (nonatomic, strong)   IBOutlet    UILabel         *userNameLabel;
 @property (nonatomic, strong)   IBOutlet    MRFImageView    *userImageView;
 @property (nonatomic, strong)   IBOutlet    UITableView     *friendsTableView;
