@@ -7,6 +7,7 @@
 //
 
 #import "MRFFriendsViewController.h"
+#import "MRFFriendDetailViewController.h"
 #import "MRFFriendsView.h"
 
 #import "MRFFriendCell.h"
@@ -18,6 +19,7 @@
 #import "MRFFBUserContext.h"
 
 #import "UITableView+MRFExtensions.h"
+#import "UIViewController+MRFExtensions.h"
 
 #import "MRFMacros.h"
 
@@ -76,13 +78,13 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.userModel.friends.count;
+    return self.friendsModel.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MRFFriendCell *cell = [tableView dequeueReusableCellWithClass:[MRFFriendCell class]];
     
-    [cell fillWithModel:self.userModel.friends[indexPath.row]];
+    [cell fillWithModel:self.friendsModel[indexPath.row]];
     
     return cell;
 }
@@ -91,7 +93,10 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MRFFriendDetailViewController *controller = [MRFFriendDetailViewController controller];
+    controller.model = self.friendsModel[indexPath.row];
     
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -
