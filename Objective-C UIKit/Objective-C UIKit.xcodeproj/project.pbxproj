@@ -149,6 +149,7 @@
 		3F3753831BE16AE200B6079A /* MRFFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFriendCell.xib; sourceTree = "<group>"; };
 		3F3753871BE26D6700B6079A /* MRFFBGraphRequestContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFBGraphRequestContext.h; sourceTree = "<group>"; };
 		3F3753881BE26D6700B6079A /* MRFFBGraphRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFBGraphRequestContext.m; sourceTree = "<group>"; };
+		3F37538A1BE27C7300B6079A /* MRFFBRequestConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFFBRequestConstants.h; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 				3F2B20FD1BAC181200B83FB9 /* Classes */,
 				3F2B21351BB36DA600B83FB9 /* MRFDispatch */,
 				3F2B21131BAC181200B83FB9 /* MRFMacros.h */,
+				3F37538A1BE27C7300B6079A /* MRFFBRequestConstants.h */,
 			);
 			path = Library;
 			sourceTree = "<group>";
