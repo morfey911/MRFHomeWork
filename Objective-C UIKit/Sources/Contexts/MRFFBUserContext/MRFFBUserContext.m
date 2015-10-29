@@ -8,6 +8,8 @@
 
 #import "MRFFBUserContext.h"
 
+#import "MRFFBRequestConstants.h"
+
 #import "MRFUserModel.h"
 #import "MRFArrayModel.h"
 
@@ -17,7 +19,11 @@
 #pragma mark MRFFBGraphRequestContext
 
 - (NSString *)graphPath {
-    return @"me?fields=name,email,picture,friends";
+    return kMRFLogedUser;
+}
+
+- (NSDictionary *)graphPathParameters {
+    return @{@"fields":@"name,email,picture{url},friends{id,name,picture{url}}",};
 }
 
 - (void)parseWithResult:(id)result error:(NSError *)error {
@@ -31,19 +37,23 @@
 #pragma mark Private
 
 - (void)parseBasicInfoWithResult:(id)result {
-    self.model.name = result[@"name"];
-    self.model.email = result[@"email"];
-    self.model.imageURL = [NSURL URLWithString:result[@"picture"][@"data"][@"url"]];
+    MRFUserModel *model = self.model;
+    
+    model.name = result[kMRFName];
+    model.email = result[kMRFEmail];
+    model.imageURL = [NSURL URLWithString:result[kMRFPicture][kMRFData][kMRFURL]];
 }
 
 - (void)parseFriendsInfoWithResult:(id)result {
     MRFArrayModel *friendsModel = [MRFArrayModel new];
-    NSArray *friends = result[@"friends"][@"data"];
+    NSArray *friends = result[kMRFFriends][kMRFData];
     
     for (id friend in friends) {
         MRFUserModel *user = [MRFUserModel new];
-        user.userID = friend[@"userID"];
-        user.name = friend[@"name"];
+        user.userID = friend[kMRFUserID];
+        user.name = friend[kMRFName];
+        user.imageURL = [NSURL URLWithString:friend[kMRFPicture][kMRFData][kMRFURL]];
+
         [friendsModel addModel:user];
     }
     

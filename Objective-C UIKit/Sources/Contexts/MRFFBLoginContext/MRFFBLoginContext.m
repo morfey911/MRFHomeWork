@@ -11,6 +11,8 @@
 #import <FBSDKLoginKit.h>
 #import <FBSDKAccessToken.h>
 
+#import "MRFFBRequestConstants.h"
+
 #import "MRFUserModel.h"
 
 @interface MRFFBLoginContext ()
@@ -39,7 +41,7 @@
 #pragma Accessors
 
 - (NSArray *)permissions {
-    return @[@"public_profile", @"email", @"user_friends"];
+    return @[kMRFPublicProfile, kMRFEmail, kMRFUserFriends];
 }
 
 #pragma mark -
