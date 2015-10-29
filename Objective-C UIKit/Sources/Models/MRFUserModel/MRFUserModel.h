@@ -9,7 +9,7 @@
 #import "MRFModel.h"
 
 typedef NS_ENUM(NSUInteger, MRFUserModelState) {
-    MRFUserModelDidChangeID
+    MRFModelDidChangeID
 };
 
 @class MRFImageModel;

@@ -56,7 +56,7 @@
 #pragma mark -
 #pragma mark MRFModelProtocol
 
-- (void)userModelDidChangeID:(MRFUserModel *)model {
+- (void)modelDidChangeID:(MRFUserModel *)model {
     [self fillWithModel:model];
 }
 

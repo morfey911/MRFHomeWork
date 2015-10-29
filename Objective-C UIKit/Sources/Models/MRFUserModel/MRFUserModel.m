@@ -19,7 +19,7 @@
     if (_userID != userID) {
         _userID = userID;
         
-        self.state = MRFUserModelDidChangeID;
+        self.state = MRFModelDidChangeID;
     }
 }
 
@@ -30,8 +30,8 @@
     SEL selector = NULL;
     
     switch (state) {
-        case MRFUserModelDidChangeID:
-            selector = @selector(userModelDidChangeID:);
+        case MRFModelDidChangeID:
+            selector = @selector(modelDidChangeID:);
             break;
             
         default:

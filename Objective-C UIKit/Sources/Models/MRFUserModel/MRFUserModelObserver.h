@@ -6,14 +6,12 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MRFModelProtocol.h"
 
-@class MRFUserModel;
-
-@protocol MRFUserModelObserver <NSObject>
+@protocol MRFUserModelObserver <MRFModelProtocol>
 
 @optional
 
-- (void)userModelDidChangeID:(MRFUserModel *)model;
+- (void)modelDidChangeID:(MRFModel *)model;
 
 @end

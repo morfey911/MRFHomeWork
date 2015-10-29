@@ -110,7 +110,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark -
 #pragma mark MRFUserModel
 
-- (void)userModelDidChangeID:(MRFUserModel *)model {
+- (void)modelDidChangeID:(MRFUserModel *)model {
     if (model.userID) {
         MRFDispatchAsyncOnMainThread(^{
             [self moveToNextScreen];
