@@ -23,6 +23,15 @@
     self.userModel = nil;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self showLoadingView];
+    }
+    
+    return self;
+}
+
 #pragma mark -
 #pragma mark Accessors
 

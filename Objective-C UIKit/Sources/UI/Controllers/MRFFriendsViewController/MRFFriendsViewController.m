@@ -48,7 +48,6 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.friendsView showLoadingView];
     self.friendsView.userModel = self.userModel;
 }
 
