@@ -30,7 +30,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 @property (nonatomic, strong)   MRFUserModel    *userModel;
 
 - (void)logOutFromFacebook;
-- (void)moveToNextScreen;
+- (void)pushFriendsViewController;
 
 @end
 
@@ -103,7 +103,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
     userModel.state = MRFModelNotLoaded;
 }
 
-- (void)moveToNextScreen {
+- (void)pushFriendsViewController {
     MRFFriendsViewController *controller = [MRFFriendsViewController controller];
     MRFUserModel *userModel = self.userModel;
     
@@ -119,7 +119,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 - (void)modelDidChangeID:(MRFUserModel *)model {
     if (model.userID) {
         MRFDispatchAsyncOnMainThread(^{
-            [self moveToNextScreen];
+            [self pushFriendsViewController];
         });
     }
 }
