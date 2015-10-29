@@ -38,6 +38,11 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    self.userModel = nil;
+    self.loginContext = nil;
+}
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {

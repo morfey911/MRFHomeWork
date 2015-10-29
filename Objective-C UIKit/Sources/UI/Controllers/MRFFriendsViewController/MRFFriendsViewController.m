@@ -24,10 +24,19 @@
 MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFriendsView)
 
 @interface MRFFriendsViewController ()
+@property (nonatomic, strong)   MRFBaseContext    *userContext;
 
 @end
 
 @implementation MRFFriendsViewController
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.userModel = nil;
+    self.userContext = nil;
+}
 
 #pragma mark -
 #pragma mark Accessors

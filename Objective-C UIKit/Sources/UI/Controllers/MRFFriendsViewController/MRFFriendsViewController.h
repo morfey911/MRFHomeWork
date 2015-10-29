@@ -17,6 +17,5 @@
                                                             UITableViewDataSource,
                                                             MRFUserModelObserver>
 @property (nonatomic, strong)   MRFUserModel      *userModel;
-@property (nonatomic, strong)   MRFBaseContext    *userContext;
 
 @end
