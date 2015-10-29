@@ -19,6 +19,9 @@
 - (NSString *)graphPath;
 
 //method for override
+- (NSDictionary *)graphPathParameters;
+
+//method for override
 - (void)parseWithResult:(id)result error:(NSError *)error;
 
 @end

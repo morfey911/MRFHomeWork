@@ -10,6 +10,8 @@
 
 #import <FBSDKCoreKit.h>
 
+#import "MRFUserModel.h"
+
 #import "MRFMacros.h"
 
 @interface MRFFBGraphRequestContext ()
@@ -38,7 +40,7 @@
 #pragma mark Accessors
 
 - (FBSDKGraphRequest *)request {
-    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath parameters:nil];
+    return [[FBSDKGraphRequest alloc] initWithGraphPath:[self graphPath] parameters:[self graphPathParameters]];
 }
 
 - (void)setConnection:(FBSDKGraphRequestConnection *)connection {
@@ -55,6 +57,11 @@
              NSError *error)
     {
         MRFStrongifyAndReturnIfNil(self);
+        if (error ) {
+            self.model.state = MRFModelDidFailLoading;
+            return;
+        }
+        
         [self parseWithResult:result error:error];
     };
 }
@@ -63,6 +70,10 @@
 #pragma mark Public
 
 - (NSString *)graphPath {
+    return nil;
+}
+
+- (NSDictionary *)graphPathParameters {
     return nil;
 }
 
