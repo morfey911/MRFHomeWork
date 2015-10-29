@@ -14,6 +14,7 @@
 
 #import "MRFFriendsViewController.h"
 
+#import "MRFArrayModel.h"
 #import "MRFUserModel.h"
 #import "MRFFBLoginContext.h"
 
@@ -104,8 +105,10 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 
 - (void)moveToNextScreen {
     MRFFriendsViewController *controller = [MRFFriendsViewController controller];
+    MRFUserModel *userModel = self.userModel;
     
-    controller.userModel = self.userModel;
+    userModel.friends = [MRFArrayModel new];
+    controller.userModel = userModel;
     
     [self.navigationController pushViewController:controller animated:YES];
 }

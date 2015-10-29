@@ -29,8 +29,6 @@
 - (void)parseWithResult:(id)result error:(NSError *)error {
     [self parseBasicInfoWithResult:result];
     [self parseFriendsInfoWithResult:result];
-    
-    self.model.state = MRFModelDidLoad;
 }
 
 #pragma mark -
@@ -42,22 +40,26 @@
     model.name = result[kMRFName];
     model.email = result[kMRFEmail];
     model.imageURL = [NSURL URLWithString:result[kMRFPicture][kMRFData][kMRFURL]];
+    
+    self.model.state = MRFModelDidLoad;
 }
 
 - (void)parseFriendsInfoWithResult:(id)result {
-    MRFArrayModel *friendsModel = [MRFArrayModel new];
+    MRFArrayModel *friendsModel = self.model.friends;
     NSArray *friends = result[kMRFFriends][kMRFData];
     
-    for (id friend in friends) {
-        MRFUserModel *user = [MRFUserModel new];
-        user.userID = friend[kMRFUserID];
-        user.name = friend[kMRFName];
-        user.imageURL = [NSURL URLWithString:friend[kMRFPicture][kMRFData][kMRFURL]];
-
-        [friendsModel addModel:user];
-    }
+    [friendsModel performBlockWithoutNotification:^{
+        for (id friend in friends) {
+            MRFUserModel *user = [MRFUserModel new];
+            user.userID = friend[kMRFUserID];
+            user.name = friend[kMRFName];
+            user.imageURL = [NSURL URLWithString:friend[kMRFPicture][kMRFData][kMRFURL]];
+            
+            [friendsModel addModel:user];
+        }
+    }];
     
-    self.model.friends = friendsModel;
+    friendsModel.state = MRFModelDidLoad;
 }
 
 @end

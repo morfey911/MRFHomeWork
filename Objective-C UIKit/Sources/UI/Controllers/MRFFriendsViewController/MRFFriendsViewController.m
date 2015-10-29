@@ -25,6 +25,7 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 
 @interface MRFFriendsViewController ()
 @property (nonatomic, strong)   MRFBaseContext    *userContext;
+@property (nonatomic, assign)   MRFArrayModel     *friendsModel;
 
 @end
 
@@ -42,9 +43,16 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 #pragma mark Accessors
 
 - (void)setUserModel:(MRFUserModel *)userModel {
-    MRFSynthesizeObservingSetter(userModel);
-    
-    self.userContext = [[MRFFBUserContext alloc] initWithModel:self.userModel];
+    if (_userModel != userModel) {
+        _userModel = userModel;
+        
+        self.friendsModel = userModel.friends;
+        self.userContext = [[MRFFBUserContext alloc] initWithModel:self.userModel];
+    }
+}
+
+- (void)setFriendsModel:(MRFArrayModel *)friendsModel {
+    MRFSynthesizeObservingSetter(friendsModel);
 }
 
 - (void)setUserContext:(MRFBaseContext *)userContext {
@@ -89,7 +97,7 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
 #pragma mark -
 #pragma mark MRFModelProtocol
 
-- (void)modelDidLoad:(MRFUserModel *)model {
+- (void)modelDidLoad:(MRFArrayModel *)model {
     [self.friendsView.friendsTableView reloadData];
 }
 
