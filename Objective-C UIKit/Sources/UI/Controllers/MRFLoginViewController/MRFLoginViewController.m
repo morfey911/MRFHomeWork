@@ -102,9 +102,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
     
     controller.userModel = self.userModel;
     
-    MRFDispatchSyncOnMainThread(^{
-        [self.navigationController pushViewController:controller animated:YES];
-    });
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -

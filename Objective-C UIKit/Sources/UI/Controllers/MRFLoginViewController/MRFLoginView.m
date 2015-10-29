@@ -14,6 +14,9 @@
 
 #import "MRFMacros.h"
 
+static NSString * const kMRFLogOut = @"Log Out";
+static NSString * const kMRFLogIn  = @"Log In";
+
 @interface MRFLoginView ()
 @property (nonatomic, readonly) NSString    *loginButtonTitle;
 
@@ -40,7 +43,7 @@
 }
 
 - (NSString *)loginButtonTitle {
-    return self.userModel.userID ? @"Log Out" : @"Log In";
+    return self.userModel.userID ? kMRFLogOut : kMRFLogIn;
 }
 
 #pragma mark -
