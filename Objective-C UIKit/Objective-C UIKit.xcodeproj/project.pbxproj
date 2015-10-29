@@ -49,6 +49,7 @@
 		3F37537F1BE0FCA900B6079A /* MRFFBUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37537E1BE0FCA900B6079A /* MRFFBUserContext.m */; };
 		3F3753841BE16AE200B6079A /* MRFFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3753821BE16AE200B6079A /* MRFFriendCell.m */; };
 		3F3753851BE16AE200B6079A /* MRFFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3753831BE16AE200B6079A /* MRFFriendCell.xib */; };
+		3F3753891BE26D6700B6079A /* MRFFBGraphRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3753881BE26D6700B6079A /* MRFFBGraphRequestContext.m */; };
 		3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */; };
 		3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */; };
 		3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */; };
@@ -146,6 +147,8 @@
 		3F3753811BE16AE200B6079A /* MRFFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFriendCell.h; sourceTree = "<group>"; };
 		3F3753821BE16AE200B6079A /* MRFFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFriendCell.m; sourceTree = "<group>"; };
 		3F3753831BE16AE200B6079A /* MRFFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFriendCell.xib; sourceTree = "<group>"; };
+		3F3753871BE26D6700B6079A /* MRFFBGraphRequestContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFBGraphRequestContext.h; sourceTree = "<group>"; };
+		3F3753881BE26D6700B6079A /* MRFFBGraphRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFBGraphRequestContext.m; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
@@ -260,9 +263,10 @@
 		3F10E8281BDB8C6F004EB5FA /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				3F10E8291BDB8C6F004EB5FA /* MRFBaseContext */,
+				3F3753861BE26CDA00B6079A /* MRFFBGraphRequestContext */,
 				3F37537C1BE0FC5C00B6079A /* MRFFBUserContext */,
 				3F10E82D1BDB8CBC004EB5FA /* MRFFBLoginContext */,
-				3F10E8291BDB8C6F004EB5FA /* MRFBaseContext */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -549,6 +553,15 @@
 			path = MRFFriendCell;
 			sourceTree = "<group>";
 		};
+		3F3753861BE26CDA00B6079A /* MRFFBGraphRequestContext */ = {
+			isa = PBXGroup;
+			children = (
+				3F3753871BE26D6700B6079A /* MRFFBGraphRequestContext.h */,
+				3F3753881BE26D6700B6079A /* MRFFBGraphRequestContext.m */,
+			);
+			path = MRFFBGraphRequestContext;
+			sourceTree = "<group>";
+		};
 		3F6F085F1BCC2ECE005A6CB0 /* MRFImageModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +814,7 @@
 				TargetAttributes = {
 					3FE68B001B9F2D1000632885 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = RHH786W29R;
 					};
 				};
 			};
@@ -929,6 +943,7 @@
 				3F10E8221BDB89CD004EB5FA /* MRFInfoView.m in Sources */,
 				3FDC17D71BCAAEB300EFA689 /* MRFArrayChangesModel+UITableView.m in Sources */,
 				3F10E8341BDB95F0004EB5FA /* MRFUserModel.m in Sources */,
+				3F3753891BE26D6700B6079A /* MRFFBGraphRequestContext.m in Sources */,
 				3F2B21341BB2072300B83FB9 /* MRFInfoArrayModel.m in Sources */,
 				3F86FAB71BC4168E00978807 /* MRFModel.m in Sources */,
 				3F2B21141BAC181200B83FB9 /* NSString+MRFExtensions.m in Sources */,
@@ -1046,11 +1061,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Objective-C UIKit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MRF.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1060,11 +1077,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Objective-C UIKit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MRF.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

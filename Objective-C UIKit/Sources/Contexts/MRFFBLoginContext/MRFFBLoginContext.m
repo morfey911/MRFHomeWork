@@ -15,7 +15,7 @@
 
 @interface MRFFBLoginContext ()
 @property (nonatomic, strong)   MRFUserModel    *model;
-@property (nonatomic, readonly) NSArray     *permissions;
+@property (nonatomic, readonly) NSArray         *permissions;
 
 @end
 

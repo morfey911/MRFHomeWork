@@ -6,13 +6,8 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "MRFBaseContext.h"
+#import "MRFFBGraphRequestContext.h"
 
-@class MRFUserModel;
-
-@interface MRFFBUserContext : MRFBaseContext
-@property (nonatomic, readonly) MRFUserModel    *userModel;
-
-- (instancetype)initWithModel:(MRFUserModel *)userModel;
+@interface MRFFBUserContext : MRFFBGraphRequestContext
 
 @end
