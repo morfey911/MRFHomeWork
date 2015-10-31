@@ -13,7 +13,23 @@
 #import "MRFUserModel.h"
 #import "MRFArrayModel.h"
 
+@interface MRFFBUserContext ()
+@property (nonatomic, readonly) MRFUserModel    *userModel;
+
+- (void)fillUser:(MRFUserModel *)user withResult:(NSDictionary *)result;
+
+@end
+
 @implementation MRFFBUserContext
+
+@dynamic userModel;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (MRFUserModel *)userModel {
+    return (MRFUserModel *)self.model;
+}
 
 #pragma mark -
 #pragma mark MRFFBGraphRequestContext
@@ -26,7 +42,7 @@
     return @{@"fields":@"name,email,picture{url},friends{id,name,picture{url}}",};
 }
 
-- (void)parseWithResult:(id)result error:(NSError *)error {
+- (void)parseResult:(id)result error:(NSError *)error {
     [self parseBasicInfoWithResult:result];
     [self parseFriendsInfoWithResult:result];
 }
@@ -34,32 +50,32 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)parseBasicInfoWithResult:(id)result {
-    MRFUserModel *model = self.model;
-    
-    model.name = result[kMRFName];
-    model.email = result[kMRFEmail];
-    model.imageURL = [NSURL URLWithString:result[kMRFPicture][kMRFData][kMRFURL]];
-    
-    self.model.state = MRFModelDidLoad;
+- (void)parseBasicInfoWithResult:(NSDictionary *)result {
+    [self fillUser:self.userModel withResult:result];
 }
 
-- (void)parseFriendsInfoWithResult:(id)result {
-    MRFArrayModel *friendsModel = self.model.friends;
+- (void)parseFriendsInfoWithResult:(NSDictionary *)result {
+    MRFArrayModel *friendsModel = self.userModel.friends;
     NSArray *friends = result[kMRFFriends][kMRFData];
     
     [friendsModel performBlockWithoutNotification:^{
         for (id friend in friends) {
             MRFUserModel *user = [MRFUserModel new];
-            user.userID = friend[kMRFUserID];
-            user.name = friend[kMRFName];
-            user.imageURL = [NSURL URLWithString:friend[kMRFPicture][kMRFData][kMRFURL]];
+            [self fillUser:user withResult:friend];
             
             [friendsModel addModel:user];
         }
     }];
     
     friendsModel.state = MRFModelDidLoad;
+}
+
+- (void)fillUser:(MRFUserModel *)user withResult:(NSDictionary *)result {
+    user.userID = result[kMRFUserID];
+    user.name = result[kMRFName];
+    user.email = result[kMRFEmail];
+    user.imageURL = [NSURL URLWithString:result[kMRFPicture][kMRFData][kMRFURL]];
+    user.state = MRFModelDidLoad;
 }
 
 @end

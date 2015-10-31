@@ -10,12 +10,12 @@
 
 #import <FBSDKCoreKit.h>
 
-#import "MRFUserModel.h"
+#import "MRFModel.h"
 
 #import "MRFMacros.h"
 
 @interface MRFFBGraphRequestContext ()
-@property (nonatomic, strong)   MRFUserModel                *model;
+@property (nonatomic, strong)   MRFModel                    *model;
 @property (nonatomic, strong)   FBSDKGraphRequestConnection *connection;
 @property (nonatomic, readonly) FBSDKGraphRequest           *request;
 @property (nonatomic, readonly) id                          handler;
@@ -31,7 +31,7 @@
     self.connection = nil;
 }
 
-- (instancetype)initWithModel:(MRFUserModel *)model {
+- (instancetype)initWithModel:(MRFModel *)model {
     self = [super init];
     if (self) {
         self.model = model;
@@ -62,11 +62,11 @@
     {
         MRFStrongifyAndReturnIfNil(self);
         if (error ) {
-            self.model.state = MRFModelDidFailLoading;
+            [self.model setState:MRFModelDidFailLoading withObject:error];
             return;
         }
         
-        [self parseWithResult:result error:error];
+        [self parseResult:result error:error];
     };
 }
 
@@ -81,7 +81,7 @@
     return nil;
 }
 
-- (void)parseWithResult:(id)result error:(NSError *)error {
+- (void)parseResult:(id)result error:(NSError *)error {
     
 }
 

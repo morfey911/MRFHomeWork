@@ -8,12 +8,12 @@
 
 #import "MRFBaseContext.h"
 
-@class MRFUserModel;
+@class MRFModel;
 
 @interface MRFFBGraphRequestContext : MRFBaseContext
-@property (nonatomic, readonly) MRFUserModel    *model;
+@property (nonatomic, readonly) MRFModel    *model;
 
-- (instancetype)initWithModel:(MRFUserModel *)model;
+- (instancetype)initWithModel:(MRFModel *)model;
 
 //method for override
 - (NSString *)graphPath;
@@ -22,6 +22,6 @@
 - (NSDictionary *)graphPathParameters;
 
 //method for override
-- (void)parseWithResult:(id)result error:(NSError *)error;
+- (void)parseResult:(id)result error:(NSError *)error;
 
 @end
