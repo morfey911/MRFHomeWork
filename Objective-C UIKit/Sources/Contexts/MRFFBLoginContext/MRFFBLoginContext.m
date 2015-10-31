@@ -65,7 +65,7 @@
 #pragma mark Private
 
 - (void)logInToFacebook {
-    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     
     id block = ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {

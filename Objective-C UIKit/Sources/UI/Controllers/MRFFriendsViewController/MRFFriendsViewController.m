@@ -70,10 +70,6 @@ MRFViewControllerBaseViewProperty(MRFFriendsViewController, friendsView, MRFFrie
     self.friendsView.userModel = self.userModel;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark -
 #pragma mark UITableViewDataSource
 

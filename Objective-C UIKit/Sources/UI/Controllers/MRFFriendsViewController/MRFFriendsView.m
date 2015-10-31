@@ -23,20 +23,13 @@
     self.userModel = nil;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self showLoadingView];
-    }
-    
-    return self;
-}
-
 #pragma mark -
 #pragma mark Accessors
 
 - (void)setUserModel:(MRFUserModel *)userModel {
     MRFSynthesizeObservingSetter(userModel);
+    
+    [self showLoadingView];
 }
 
 #pragma mark -

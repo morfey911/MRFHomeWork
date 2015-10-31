@@ -67,18 +67,10 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.loginView.userModel = self.userModel;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark -
@@ -98,7 +90,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 - (void)logOutFromFacebook {
     MRFUserModel *userModel = self.userModel;
     
-    [[[FBSDKLoginManager alloc] init] logOut];
+    [[FBSDKLoginManager new] logOut];
     userModel.userID = nil;
     userModel.state = MRFModelNotLoaded;
 }

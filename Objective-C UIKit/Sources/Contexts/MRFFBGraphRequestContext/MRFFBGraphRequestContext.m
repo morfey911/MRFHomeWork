@@ -27,6 +27,10 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    self.connection = nil;
+}
+
 - (instancetype)initWithModel:(MRFUserModel *)model {
     self = [super init];
     if (self) {
