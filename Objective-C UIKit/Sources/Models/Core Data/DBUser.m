@@ -21,6 +21,25 @@
 @dynamic images;
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (id)managedObjectWithUserID:(NSString *)userID {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.userID like %@", userID];
+    NSArray *objects = [self fetchEntityWithSortDescriptors:nil
+                                                  predicate:predicate
+                                              prefetchPaths:nil];
+    
+    if (objects.count > 0) {
+        return [objects firstObject];
+    }
+    
+    DBUser *user = [NSManagedObject managedObject];
+    user.userID = userID;
+    
+    return user;
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)addFriend:(DBUser *)value {

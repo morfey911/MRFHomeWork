@@ -22,6 +22,8 @@
 
 @interface DBUser (CoreDataGeneratedAccessors)
 
++ (id)managedObjectWithUserID:(NSString *)userID;
+
 - (void)addFriend:(DBUser *)value;
 - (void)removeFriend:(DBUser *)value;
 - (void)addFriends:(NSSet *)values;
