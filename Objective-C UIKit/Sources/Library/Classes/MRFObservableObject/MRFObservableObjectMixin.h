@@ -1,14 +1,17 @@
 //
-//  MRFObservableObject.h
-//  MRFHuman
+//  MRFObservableObjectMixin.h
+//  Objective-C UIKit
 //
-//  Created by Yurii Mamurko on 04.08.15.
-//  Copyright (c) 2015 Yurii Mamurko. All rights reserved.
+//  Created by Yurii Mamurko on 04.11.15.
+//  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface MRFObservableObject : NSObject
+@protocol MRFObservableObjectMixin <NSObject>
+
+@optional
+
 @property (nonatomic, assign)           NSUInteger  state;
 @property (nonatomic, readonly)         BOOL        shouldNotify;
 @property (nonatomic, retain, readonly) NSSet       *observersSet;

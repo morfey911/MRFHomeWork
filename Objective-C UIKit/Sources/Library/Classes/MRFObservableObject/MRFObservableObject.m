@@ -11,6 +11,7 @@
 @interface MRFObservableObject ()
 @property (nonatomic, retain)   NSHashTable *observersHashTable;
 @property (nonatomic, assign)   BOOL        shouldNotify;
+@property (nonatomic, retain)   id          target;
 
 - (void)performBlock:(void(^)(void))block shouldNotify:(BOOL)shouldNotify;
 
@@ -23,6 +24,13 @@
 @dynamic observersSet;
 
 #pragma mark -
+#pragma mark Class methods
+
++ (instancetype)observableObjectWithTarget:(id)target {
+    return [[self alloc] initWithTarget:target];
+}
+
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
@@ -32,11 +40,16 @@
 }
 
 - (instancetype)init {
+    return [self initWithTarget:nil];
+}
+
+- (instancetype)initWithTarget:(id)target {
     self = [super init];
     
     if (self) {
         self.shouldNotify = YES;
         self.observersHashTable = [NSHashTable weakObjectsHashTable];
+        self.target = target ? target : self;
     }
     
     return self;
@@ -109,13 +122,13 @@
 }
 
 - (void)notifyObserversWithObject:(id)object {
-    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:object];
+    [self notifyObserversWithSelector:[self.target selectorForState:self.state] withObject:object];
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     for (id observer in self.observersHashTable) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self withObject:object];
+            [observer performSelector:selector withObject:self.target withObject:object];
         }
     }
 }
