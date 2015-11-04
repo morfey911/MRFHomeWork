@@ -8,7 +8,18 @@
 
 #import <CoreData/CoreData.h>
 
-@interface MRFObject : NSManagedObject
+#import "MRFObservableObjectMixin.h"
+
+typedef NS_ENUM(NSUInteger, MRFObjectState) {
+    MRFObjectNotLoaded,
+    MRFObjectWillLoad,
+    MRFObjectDidFailLoading,
+    MRFObjectDidLoad,
+    MRFObjectDidChange,
+    MRFObjectDidChangeID
+};
+
+@interface MRFObject : NSManagedObject <MRFObservableObjectMixin>
 @property (nonatomic, strong)   NSString    *ID;
 
 + (id)managedObjectWithID:(NSString *)ID;
