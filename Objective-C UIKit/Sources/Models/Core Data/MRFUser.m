@@ -6,13 +6,13 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import "DBUser.h"
+#import "MRFUser.h"
 
 #import "IDPObjCRuntime.h"
 
 #import "NSManagedObject+IDPExtensions.h"
 
-@implementation DBUser
+@implementation MRFUser
 
 @dynamic name;
 @dynamic email;
@@ -22,11 +22,11 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addFriend:(DBUser *)value {
+- (void)addFriend:(MRFUser *)value {
     [self addCustomValue:value inMutableSetForKey:IDPStringFromSEL(friends)];
 }
 
-- (void)removeFriend:(DBUser *)value {
+- (void)removeFriend:(MRFUser *)value {
     [self removeCustomValue:value inMutableSetForKey:IDPStringFromSEL(friends)];
 }
 

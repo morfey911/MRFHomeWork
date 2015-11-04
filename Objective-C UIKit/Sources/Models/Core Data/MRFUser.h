@@ -1,5 +1,5 @@
 //
-//  DBUser.h
+//  MRFUser.h
 //  Objective-C UIKit
 //
 //  Created by Yurii Mamurko on 02.11.15.
@@ -10,7 +10,7 @@
 
 @class DBImage;
 
-@interface DBUser : MRFObject
+@interface MRFUser : MRFObject
 @property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, strong)   NSString    *email;
 @property (nonatomic, strong)   NSSet       *friends;
@@ -18,10 +18,10 @@
 
 @end
 
-@interface DBUser (CoreDataGeneratedAccessors)
+@interface MRFUser (CoreDataGeneratedAccessors)
 
-- (void)addFriend:(DBUser *)value;
-- (void)removeFriend:(DBUser *)value;
+- (void)addFriend:(MRFUser *)value;
+- (void)removeFriend:(MRFUser *)value;
 - (void)addFriends:(NSSet *)values;
 - (void)removeFriends:(NSSet *)values;
 
