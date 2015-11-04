@@ -6,13 +6,11 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "MRFObject.h"
 
 @class DBImage;
 
-@interface DBUser : NSManagedObject
-@property (nonatomic, strong)   NSString    *userID;
+@interface DBUser : MRFObject
 @property (nonatomic, strong)   NSString    *name;
 @property (nonatomic, strong)   NSString    *email;
 @property (nonatomic, strong)   NSSet       *friends;
@@ -21,8 +19,6 @@
 @end
 
 @interface DBUser (CoreDataGeneratedAccessors)
-
-+ (id)managedObjectWithUserID:(NSString *)userID;
 
 - (void)addFriend:(DBUser *)value;
 - (void)removeFriend:(DBUser *)value;

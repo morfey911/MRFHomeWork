@@ -104,7 +104,7 @@
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
     [IDPCoreDataManager sharedManagerWithMomName:@"Objective-c UIKit"];
     
-    DBUser *user = [DBUser managedObjectWithUserID:token.userID];
+    DBUser *user = [DBUser managedObjectWithID:token.userID];
     [user saveManagedObject];
 }
 

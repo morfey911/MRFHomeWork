@@ -95,6 +95,7 @@
 		3F3756081BEA49F700B6079A /* IDPMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3755DC1BEA49F700B6079A /* IDPMath.m */; };
 		3F3756091BEA49F700B6079A /* IDPObjCRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3755DF1BEA49F700B6079A /* IDPObjCRuntime.m */; };
 		3F37560A1BEA49F700B6079A /* IDPTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3755E21BEA49F700B6079A /* IDPTypes.m */; };
+		3F37560D1BEA5A7500B6079A /* MRFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37560C1BEA5A7500B6079A /* MRFObject.m */; };
 		3F6F08621BCC2F3A005A6CB0 /* MRFImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */; };
 		3F6F086F1BCD84F6005A6CB0 /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F086E1BCD84F6005A6CB0 /* MRFURLImageModel.m */; };
 		3F6F08721BCD8507005A6CB0 /* MRFFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F08711BCD8507005A6CB0 /* MRFFileImageModel.m */; };
@@ -286,6 +287,8 @@
 		3F3755E11BEA49F700B6079A /* IDPTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPTypes.h; sourceTree = "<group>"; };
 		3F3755E21BEA49F700B6079A /* IDPTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPTypes.m; sourceTree = "<group>"; };
 		3F3755E31BEA49F700B6079A /* IDPUtilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUtilityMacros.h; sourceTree = "<group>"; };
+		3F37560B1BEA5A7500B6079A /* MRFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFObject.h; sourceTree = "<group>"; };
+		3F37560C1BEA5A7500B6079A /* MRFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFObject.m; sourceTree = "<group>"; };
 		3F6F08601BCC2F3A005A6CB0 /* MRFImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageModel.h; sourceTree = "<group>"; };
 		3F6F08611BCC2F3A005A6CB0 /* MRFImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageModel.m; sourceTree = "<group>"; };
 		3F6F086D1BCD84F6005A6CB0 /* MRFURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFURLImageModel.h; sourceTree = "<group>"; };
@@ -718,6 +721,8 @@
 			isa = PBXGroup;
 			children = (
 				3F3753951BE7AA6700B6079A /* Objective-c UIKit.xcdatamodeld */,
+				3F37560B1BEA5A7500B6079A /* MRFObject.h */,
+				3F37560C1BEA5A7500B6079A /* MRFObject.m */,
 				3F37556F1BE7F0CF00B6079A /* DBImage.h */,
 				3F3755701BE7F0CF00B6079A /* DBImage.m */,
 				3F3753A01BE7ACA300B6079A /* DBUser.h */,
@@ -1416,6 +1421,7 @@
 				3F3755F11BEA49F700B6079A /* NSPathUtilities+IDPExtensions.m in Sources */,
 				3F3756051BEA49F700B6079A /* IDPThreadSafeProxy.m in Sources */,
 				3F3756021BEA49F700B6079A /* IDPWeakReference.m in Sources */,
+				3F37560D1BEA5A7500B6079A /* MRFObject.m in Sources */,
 				3F3753841BE16AE200B6079A /* MRFFriendCell.m in Sources */,
 				3F3756081BEA49F700B6079A /* IDPMath.m in Sources */,
 				3F10E8231BDB89CD004EB5FA /* MRFInfoViewController.m in Sources */,
