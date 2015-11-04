@@ -2,17 +2,17 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="DBImage" representedClassName="DBImage" syncable="YES">
         <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBUser" inverseName="images" inverseEntity="DBUser" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MRFUser" inverseName="images" inverseEntity="MRFUser" syncable="YES"/>
     </entity>
-    <entity name="DBUser" representedClassName="DBUser" syncable="YES">
+    <entity name="MRFUser" representedClassName="MRFUser" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBUser" inverseName="friends" inverseEntity="DBUser" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MRFUser" inverseName="friends" inverseEntity="MRFUser" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBImage" inverseName="user" inverseEntity="DBImage" syncable="YES"/>
     </entity>
     <elements>
         <element name="DBImage" positionX="-45" positionY="36" width="128" height="75"/>
-        <element name="DBUser" positionX="-288" positionY="-24" width="128" height="120"/>
+        <element name="MRFUser" positionX="-288" positionY="-24" width="128" height="120"/>
     </elements>
 </model>

@@ -7,7 +7,7 @@
 //
 
 #import "DBImage.h"
-#import "DBUser.h"
+#import "MRFUser.h"
 
 @implementation DBImage
 
