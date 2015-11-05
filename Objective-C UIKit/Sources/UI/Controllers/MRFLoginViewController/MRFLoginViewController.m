@@ -9,16 +9,19 @@
 #import <FBSDKLoginManager.h>
 #import <FBSDKAccessToken.h>
 
+#import "IDPCoreDataManager.h"
+
 #import "MRFLoginViewController.h"
 #import "MRFLoginView.h"
 
 #import "MRFFriendsViewController.h"
 
+#import "MRFUser.h"
 #import "MRFArrayModel.h"
-#import "MRFUserModel.h"
 #import "MRFFBLoginContext.h"
 
 #import "UIViewController+MRFExtensions.h"
+#import "NSManagedObject+IDPExtensions.h"
 
 #import "MRFDispatch.h"
 #import "MRFMacros.h"
@@ -27,7 +30,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 
 @interface MRFLoginViewController ()
 @property (nonatomic, strong)   MRFBaseContext  *loginContext;
-@property (nonatomic, strong)   MRFUserModel    *userModel;
+@property (nonatomic, strong)   MRFUser *userModel;
 
 - (void)logOutFromFacebook;
 - (void)pushFriendsViewController;
@@ -47,7 +50,8 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.userModel = [MRFUserModel new];
+        [IDPCoreDataManager sharedManagerWithMomName:@"Objective-c UIKit"];
+        self.userModel = [MRFUser managedObject];
     }
     
     return self;
@@ -56,7 +60,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUserModel:(MRFUserModel *)userModel {
+- (void)setUserModel:(MRFUser *)userModel {
     MRFSynthesizeObservingSetter(userModel);
 }
 
@@ -77,7 +81,7 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
-    if (self.userModel.userID) {
+    if (self.userModel.ID) {
         [self logOutFromFacebook];
     } else {
         self.loginContext = [[MRFFBLoginContext alloc] initWithModel:self.userModel];
@@ -88,16 +92,16 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark Private
 
 - (void)logOutFromFacebook {
-    MRFUserModel *userModel = self.userModel;
+    MRFUser *userModel = self.userModel;
     
     [[FBSDKLoginManager new] logOut];
-    userModel.userID = nil;
+    userModel.ID = nil;
     userModel.state = MRFModelNotLoaded;
 }
 
 - (void)pushFriendsViewController {
     MRFFriendsViewController *controller = [MRFFriendsViewController controller];
-    MRFUserModel *userModel = self.userModel;
+    MRFUser *userModel = self.userModel;
     
     userModel.friends = [MRFArrayModel new];
     controller.userModel = userModel;
@@ -108,10 +112,10 @@ MRFViewControllerBaseViewProperty(MRFLoginViewController, loginView, MRFLoginVie
 #pragma mark -
 #pragma mark MRFUserModel
 
-- (void)modelDidChangeID:(MRFUserModel *)model {
-    if (model.userID) {
+- (void)objectDidChangeID:(MRFUser *)model {
+    if (model.ID) {
         MRFDispatchAsyncOnMainThread(^{
-            [self pushFriendsViewController];
+//            [self pushFriendsViewController];
         });
     }
 }

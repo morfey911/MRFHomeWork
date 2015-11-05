@@ -8,11 +8,11 @@
 
 #import "MRFBaseContext.h"
 
-@class MRFUserModel;
+@class MRFUser;
 
 @interface MRFFBLoginContext : MRFBaseContext
-@property (nonatomic, readonly)   MRFUserModel    *model;
+@property (nonatomic, readonly) MRFUser  *model;
 
-- (instancetype)initWithModel:(MRFUserModel *)model;
+- (instancetype)initWithModel:(MRFUser *)model;
 
 @end

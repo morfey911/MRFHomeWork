@@ -10,7 +10,7 @@
 
 #import "MRFLoginView.h"
 
-#import "MRFUserModel.h"
+#import "MRFUser.h"
 
 #import "MRFMacros.h"
 
@@ -36,21 +36,21 @@ static NSString * const kMRFLogIn  = @"Log In";
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUserModel:(MRFUserModel *)userModel {
+- (void)setUserModel:(MRFUser *)userModel {
     MRFSynthesizeObservingSetter(userModel);
     
     [self fillWithModel:userModel];
 }
 
 - (NSString *)loginButtonTitle {
-    return self.userModel.userID ? kMRFLogOut : kMRFLogIn;
+    return self.userModel.ID ? kMRFLogOut : kMRFLogIn;
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)fillWithModel:(MRFUserModel *)model {
-    NSString *userID = model.userID;
+- (void)fillWithModel:(MRFUser *)model {
+    NSString *userID = model.ID;
     
     [self.loginButton setTitle:self.loginButtonTitle forState:UIControlStateNormal];
     self.userID.text = userID;
@@ -59,7 +59,7 @@ static NSString * const kMRFLogIn  = @"Log In";
 #pragma mark -
 #pragma mark MRFModelProtocol
 
-- (void)modelDidChangeID:(MRFUserModel *)model {
+- (void)objectDidChangeID:(MRFUser *)model {
     [self fillWithModel:model];
 }
 

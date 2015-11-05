@@ -12,15 +12,14 @@
 #import <FBSDKAccessToken.h>
 
 #import "ActiveRecordKit.h"
-#import "DBUser.h"
+
+#import "MRFUser.h"
 
 #import "MRFFBRequestConstants.h"
 
-#import "MRFUserModel.h"
-
 @interface MRFFBLoginContext ()
-@property (nonatomic, strong)   MRFUserModel    *model;
-@property (nonatomic, readonly) NSArray         *permissions;
+@property (nonatomic, strong)   MRFUser     *model;
+@property (nonatomic, readonly) NSArray     *permissions;
 
 - (void)logInToFacebook;
 - (void)finalizeLogIn;
@@ -35,7 +34,7 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)initWithModel:(MRFUserModel *)model {
+- (instancetype)initWithModel:(MRFUser *)model {
     self = [super init];
     if (self) {
         self.model = model;
@@ -94,18 +93,11 @@
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
     
     if (token) {
-        self.model.userID = token.userID;
+        MRFUser *user = self.model;
+        
+        user.ID = token.userID;
+        [user saveManagedObject];
     }
-    
-    [self addUserToContextIfNeeded];
-}
-
-- (void)addUserToContextIfNeeded {
-    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-    [IDPCoreDataManager sharedManagerWithMomName:@"Objective-c UIKit"];
-    
-    DBUser *user = [DBUser managedObjectWithID:token.userID];
-    [user saveManagedObject];
 }
 
 @end

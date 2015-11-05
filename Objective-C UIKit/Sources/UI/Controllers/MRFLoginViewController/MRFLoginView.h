@@ -8,16 +8,14 @@
 
 #import "MRFView.h"
 
-#import "MRFUserModelObserver.h"
+@class MRFUser;
 
-@class MRFUserModel;
-
-@interface MRFLoginView : MRFView <MRFUserModelObserver>
+@interface MRFLoginView : MRFView
 @property (nonatomic, strong)   IBOutlet    UIButton    *loginButton;
 @property (nonatomic, strong)   IBOutlet    UILabel     *userID;
 
-@property (nonatomic, strong)   MRFUserModel    *userModel;
+@property (nonatomic, strong)   MRFUser    *userModel;
 
-- (void)fillWithModel:(MRFUserModel *)model;
+- (void)fillWithModel:(MRFUser *)model;
 
 @end

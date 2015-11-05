@@ -12,11 +12,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MRFUserModelObserver.h"
-
 @class MRFBaseContext;
 
-@interface MRFLoginViewController : UIViewController <MRFUserModelObserver>
+@interface MRFLoginViewController : UIViewController
 
 - (IBAction)onLoginButton:(id)sender;
 
