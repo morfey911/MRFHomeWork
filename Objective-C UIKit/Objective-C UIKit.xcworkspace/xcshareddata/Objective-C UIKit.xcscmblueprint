@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4A171DD767BBC7DF58E8A5E7288DCCDDD59D153C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4A171DD767BBC7DF58E8A5E7288DCCDDD59D153C" : 0,
+    "1E7CBCC35F2582ECEB5E87BBE9CB40F5A14E9812" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "07AB4A9A-150E-401D-99CA-B743715C808F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4A171DD767BBC7DF58E8A5E7288DCCDDD59D153C" : "MRFHomeWork\/",
+    "1E7CBCC35F2582ECEB5E87BBE9CB40F5A14E9812" : "..\/iOSStudy"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Objective-C UIKit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Objective-C UIKit\/Objective-C UIKit.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.github.com\/trimmurrti\/iOSStudy.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1E7CBCC35F2582ECEB5E87BBE9CB40F5A14E9812"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/morfey911\/MRFHomeWork.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4A171DD767BBC7DF58E8A5E7288DCCDDD59D153C"
+    }
+  ]
+}
