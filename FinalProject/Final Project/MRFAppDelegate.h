@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MRFAppDelegate.h
 //  Final Project
 //
 //  Created by Yurii Mamurko on 09.11.15.
@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MRFAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end

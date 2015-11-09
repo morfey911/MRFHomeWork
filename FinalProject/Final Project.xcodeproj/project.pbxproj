@@ -7,25 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F3756251BF0C18600B6079A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3756241BF0C18600B6079A /* main.m */; };
-		3F3756281BF0C18600B6079A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3756271BF0C18600B6079A /* AppDelegate.m */; };
-		3F37562B1BF0C18600B6079A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37562A1BF0C18600B6079A /* ViewController.m */; };
-		3F37562E1BF0C18600B6079A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F37562C1BF0C18600B6079A /* Main.storyboard */; };
-		3F3756301BF0C18600B6079A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F37562F1BF0C18600B6079A /* Assets.xcassets */; };
-		3F3756331BF0C18600B6079A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3756311BF0C18600B6079A /* LaunchScreen.storyboard */; };
+		3F3756521BF0C49200B6079A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37563E1BF0C49200B6079A /* main.m */; };
+		3F3756531BF0C49200B6079A /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3756401BF0C49200B6079A /* MRFAppDelegate.m */; };
+		3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3756421BF0C49200B6079A /* Assets.xcassets */; };
+		3F3756551BF0C49200B6079A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3756431BF0C49200B6079A /* LaunchScreen.storyboard */; };
+		3F3756571BF0C49200B6079A /* MRFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37564F1BF0C49200B6079A /* MRFMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F3756201BF0C18600B6079A /* Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F3756241BF0C18600B6079A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3F3756261BF0C18600B6079A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3F3756271BF0C18600B6079A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3F3756291BF0C18600B6079A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3F37562A1BF0C18600B6079A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3F37562D1BF0C18600B6079A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3F37562F1BF0C18600B6079A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3F3756321BF0C18600B6079A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3F3756341BF0C18600B6079A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F37563D1BF0C49200B6079A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F37563E1BF0C49200B6079A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F37563F1BF0C49200B6079A /* MRFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFAppDelegate.h; sourceTree = "<group>"; };
+		3F3756401BF0C49200B6079A /* MRFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAppDelegate.m; sourceTree = "<group>"; };
+		3F3756421BF0C49200B6079A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F3756441BF0C49200B6079A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F37564E1BF0C49200B6079A /* MRFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFMainViewController.h; sourceTree = "<group>"; };
+		3F37564F1BF0C49200B6079A /* MRFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +40,9 @@
 		3F3756171BF0C18600B6079A = {
 			isa = PBXGroup;
 			children = (
-				3F3756221BF0C18600B6079A /* Final Project */,
+				3F37563C1BF0C49200B6079A /* Final Project */,
+				3F3756411BF0C49200B6079A /* Resources */,
+				3F3756471BF0C49200B6079A /* Sources */,
 				3F3756211BF0C18600B6079A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,28 +55,89 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3F3756221BF0C18600B6079A /* Final Project */ = {
+		3F37563C1BF0C49200B6079A /* Final Project */ = {
 			isa = PBXGroup;
 			children = (
-				3F3756261BF0C18600B6079A /* AppDelegate.h */,
-				3F3756271BF0C18600B6079A /* AppDelegate.m */,
-				3F3756291BF0C18600B6079A /* ViewController.h */,
-				3F37562A1BF0C18600B6079A /* ViewController.m */,
-				3F37562C1BF0C18600B6079A /* Main.storyboard */,
-				3F37562F1BF0C18600B6079A /* Assets.xcassets */,
-				3F3756311BF0C18600B6079A /* LaunchScreen.storyboard */,
-				3F3756341BF0C18600B6079A /* Info.plist */,
-				3F3756231BF0C18600B6079A /* Supporting Files */,
+				3F37563D1BF0C49200B6079A /* Info.plist */,
+				3F37563E1BF0C49200B6079A /* main.m */,
+				3F37563F1BF0C49200B6079A /* MRFAppDelegate.h */,
+				3F3756401BF0C49200B6079A /* MRFAppDelegate.m */,
 			);
 			path = "Final Project";
 			sourceTree = "<group>";
 		};
-		3F3756231BF0C18600B6079A /* Supporting Files */ = {
+		3F3756411BF0C49200B6079A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3F3756241BF0C18600B6079A /* main.m */,
+				3F3756421BF0C49200B6079A /* Assets.xcassets */,
+				3F3756431BF0C49200B6079A /* LaunchScreen.storyboard */,
 			);
-			name = "Supporting Files";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3F3756471BF0C49200B6079A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3F3756481BF0C49200B6079A /* Contexts */,
+				3F3756491BF0C49200B6079A /* Library */,
+				3F37564A1BF0C49200B6079A /* Models */,
+				3F37564B1BF0C49200B6079A /* UI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3F3756481BF0C49200B6079A /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		3F3756491BF0C49200B6079A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		3F37564A1BF0C49200B6079A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F37564B1BF0C49200B6079A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3F37564C1BF0C49200B6079A /* Controllers */,
+				3F3756501BF0C49200B6079A /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3F37564C1BF0C49200B6079A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F37564D1BF0C49200B6079A /* MRFMainViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3F37564D1BF0C49200B6079A /* MRFMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F37564E1BF0C49200B6079A /* MRFMainViewController.h */,
+				3F37564F1BF0C49200B6079A /* MRFMainViewController.m */,
+			);
+			path = MRFMainViewController;
+			sourceTree = "<group>";
+		};
+		3F3756501BF0C49200B6079A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F3756331BF0C18600B6079A /* LaunchScreen.storyboard in Resources */,
-				3F3756301BF0C18600B6079A /* Assets.xcassets in Resources */,
-				3F37562E1BF0C18600B6079A /* Main.storyboard in Resources */,
+				3F3756551BF0C49200B6079A /* LaunchScreen.storyboard in Resources */,
+				3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,27 +210,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F37562B1BF0C18600B6079A /* ViewController.m in Sources */,
-				3F3756281BF0C18600B6079A /* AppDelegate.m in Sources */,
-				3F3756251BF0C18600B6079A /* main.m in Sources */,
+				3F3756531BF0C49200B6079A /* MRFAppDelegate.m in Sources */,
+				3F3756571BF0C49200B6079A /* MRFMainViewController.m in Sources */,
+				3F3756521BF0C49200B6079A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3F37562C1BF0C18600B6079A /* Main.storyboard */ = {
+		3F3756431BF0C49200B6079A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3F37562D1BF0C18600B6079A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3F3756311BF0C18600B6079A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F3756321BF0C18600B6079A /* Base */,
+				3F3756441BF0C49200B6079A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -214,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -251,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -301,6 +353,7 @@
 				3F3756391BF0C18600B6079A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
