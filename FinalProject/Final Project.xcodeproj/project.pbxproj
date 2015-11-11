@@ -11,7 +11,6 @@
 		3F3756531BF0C49200B6079A /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3756401BF0C49200B6079A /* MRFAppDelegate.m */; };
 		3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3756421BF0C49200B6079A /* Assets.xcassets */; };
 		3F3756551BF0C49200B6079A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3756431BF0C49200B6079A /* LaunchScreen.storyboard */; };
-		3F3756571BF0C49200B6079A /* MRFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37564F1BF0C49200B6079A /* MRFMainViewController.m */; };
 		3F3757001BF0C7D200B6079A /* NSFileManager+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37565C1BF0C7D200B6079A /* NSFileManager+MRFExtensions.m */; };
 		3F3757011BF0C7D200B6079A /* NSIndexPath+MRFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37565F1BF0C7D200B6079A /* NSIndexPath+MRFExtension.m */; };
 		3F3757021BF0C7D200B6079A /* NSMutableArray+MRFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3756621BF0C7D200B6079A /* NSMutableArray+MRFExtension.m */; };
@@ -71,6 +70,18 @@
 		3F3757661BF0C9A900B6079A /* MRFURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757501BF0C9A900B6079A /* MRFURLImageModel.m */; };
 		3F3757691BF0C9A900B6079A /* MRFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757591BF0C9A900B6079A /* MRFModel.m */; };
 		3F37576A1BF0C9A900B6079A /* MRFUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37575D1BF0C9A900B6079A /* MRFUserModel.m */; };
+		3F37576E1BF0D2D100B6079A /* MRFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37576D1BF0D2D100B6079A /* MRFViewController.m */; };
+		3F3757731BF0D34000B6079A /* MRFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757711BF0D34000B6079A /* MRFMainViewController.m */; };
+		3F3757741BF0D34000B6079A /* MRFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3757721BF0D34000B6079A /* MRFMainViewController.xib */; };
+		3F3757771BF0F39C00B6079A /* MRFMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757761BF0F39C00B6079A /* MRFMainView.m */; };
+		3F3757821BF0F3E800B6079A /* MRFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37577A1BF0F3E800B6079A /* MRFImageView.m */; };
+		3F3757831BF0F3E800B6079A /* MRFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37577D1BF0F3E800B6079A /* MRFLoadingView.m */; };
+		3F3757841BF0F3E800B6079A /* MRFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F37577E1BF0F3E800B6079A /* MRFLoadingView.xib */; };
+		3F3757851BF0F3E800B6079A /* MRFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757811BF0F3E800B6079A /* MRFView.m */; };
+		3F3757891BF2407B00B6079A /* CarFillings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757871BF2407B00B6079A /* CarFillings.xcdatamodeld */; };
+		3F37578F1BF2426D00B6079A /* MRFFilling.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37578D1BF2426D00B6079A /* MRFFilling.m */; };
+		3F3757931BF3446F00B6079A /* MRFFetchedArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757921BF3446F00B6079A /* MRFFetchedArrayModel.m */; };
+		3F3757971BF355CD00B6079A /* MRFFillingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757961BF355CD00B6079A /* MRFFillingCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,8 +92,6 @@
 		3F3756401BF0C49200B6079A /* MRFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFAppDelegate.m; sourceTree = "<group>"; };
 		3F3756421BF0C49200B6079A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F3756441BF0C49200B6079A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3F37564E1BF0C49200B6079A /* MRFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFMainViewController.h; sourceTree = "<group>"; };
-		3F37564F1BF0C49200B6079A /* MRFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFMainViewController.m; sourceTree = "<group>"; };
 		3F37565B1BF0C7D200B6079A /* NSFileManager+MRFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+MRFExtensions.h"; sourceTree = "<group>"; };
 		3F37565C1BF0C7D200B6079A /* NSFileManager+MRFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+MRFExtensions.m"; sourceTree = "<group>"; };
 		3F37565E1BF0C7D200B6079A /* NSIndexPath+MRFExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+MRFExtension.h"; sourceTree = "<group>"; };
@@ -208,6 +217,27 @@
 		3F37575C1BF0C9A900B6079A /* MRFUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFUserModel.h; sourceTree = "<group>"; };
 		3F37575D1BF0C9A900B6079A /* MRFUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFUserModel.m; sourceTree = "<group>"; };
 		3F37575E1BF0C9A900B6079A /* MRFUserModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFUserModelObserver.h; sourceTree = "<group>"; };
+		3F37576C1BF0D2D100B6079A /* MRFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFViewController.h; sourceTree = "<group>"; };
+		3F37576D1BF0D2D100B6079A /* MRFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFViewController.m; sourceTree = "<group>"; };
+		3F3757701BF0D34000B6079A /* MRFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFMainViewController.h; sourceTree = "<group>"; };
+		3F3757711BF0D34000B6079A /* MRFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFMainViewController.m; sourceTree = "<group>"; };
+		3F3757721BF0D34000B6079A /* MRFMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFMainViewController.xib; sourceTree = "<group>"; };
+		3F3757751BF0F39C00B6079A /* MRFMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFMainView.h; sourceTree = "<group>"; };
+		3F3757761BF0F39C00B6079A /* MRFMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFMainView.m; sourceTree = "<group>"; };
+		3F3757791BF0F3E800B6079A /* MRFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFImageView.h; sourceTree = "<group>"; };
+		3F37577A1BF0F3E800B6079A /* MRFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFImageView.m; sourceTree = "<group>"; };
+		3F37577C1BF0F3E800B6079A /* MRFLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFLoadingView.h; sourceTree = "<group>"; };
+		3F37577D1BF0F3E800B6079A /* MRFLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFLoadingView.m; sourceTree = "<group>"; };
+		3F37577E1BF0F3E800B6079A /* MRFLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFLoadingView.xib; sourceTree = "<group>"; };
+		3F3757801BF0F3E800B6079A /* MRFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFView.h; sourceTree = "<group>"; };
+		3F3757811BF0F3E800B6079A /* MRFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFView.m; sourceTree = "<group>"; };
+		3F3757881BF2407B00B6079A /* CarFillings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarFillings.xcdatamodel; sourceTree = "<group>"; };
+		3F37578C1BF2426D00B6079A /* MRFFilling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFilling.h; sourceTree = "<group>"; };
+		3F37578D1BF2426D00B6079A /* MRFFilling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFilling.m; sourceTree = "<group>"; };
+		3F3757911BF3446F00B6079A /* MRFFetchedArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFetchedArrayModel.h; sourceTree = "<group>"; };
+		3F3757921BF3446F00B6079A /* MRFFetchedArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFetchedArrayModel.m; sourceTree = "<group>"; };
+		3F3757951BF355CD00B6079A /* MRFFillingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingCell.h; sourceTree = "<group>"; };
+		3F3757961BF355CD00B6079A /* MRFFillingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,7 +322,9 @@
 		3F37564A1BF0C49200B6079A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F3757861BF23D3500B6079A /* Core Data */,
 				3F3757381BF0C9A900B6079A /* MRFArrayChangesModel */,
+				3F3757901BF3441F00B6079A /* MRFFetchedArrayModel */,
 				3F3757451BF0C9A900B6079A /* MRFArrayModel */,
 				3F3757481BF0C9A900B6079A /* MRFImageModel */,
 				3F3757571BF0C9A900B6079A /* MRFModel */,
@@ -313,23 +345,18 @@
 		3F37564C1BF0C49200B6079A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3F37564D1BF0C49200B6079A /* MRFMainViewController */,
+				3F37576F1BF0D31700B6079A /* MRFMainViewController */,
+				3F37576B1BF0D28F00B6079A /* MRFViewController */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		3F37564D1BF0C49200B6079A /* MRFMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3F37564E1BF0C49200B6079A /* MRFMainViewController.h */,
-				3F37564F1BF0C49200B6079A /* MRFMainViewController.m */,
-			);
-			path = MRFMainViewController;
 			sourceTree = "<group>";
 		};
 		3F3756501BF0C49200B6079A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F3757781BF0F3E800B6079A /* MRFImageView */,
+				3F37577B1BF0F3E800B6079A /* MRFLoadingView */,
+				3F37577F1BF0F3E800B6079A /* MRFView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -881,6 +908,84 @@
 			path = MRFUserModel;
 			sourceTree = "<group>";
 		};
+		3F37576B1BF0D28F00B6079A /* MRFViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F37576C1BF0D2D100B6079A /* MRFViewController.h */,
+				3F37576D1BF0D2D100B6079A /* MRFViewController.m */,
+			);
+			path = MRFViewController;
+			sourceTree = "<group>";
+		};
+		3F37576F1BF0D31700B6079A /* MRFMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F3757941BF3557E00B6079A /* MRFFillingCell */,
+				3F3757751BF0F39C00B6079A /* MRFMainView.h */,
+				3F3757761BF0F39C00B6079A /* MRFMainView.m */,
+				3F3757701BF0D34000B6079A /* MRFMainViewController.h */,
+				3F3757711BF0D34000B6079A /* MRFMainViewController.m */,
+				3F3757721BF0D34000B6079A /* MRFMainViewController.xib */,
+			);
+			path = MRFMainViewController;
+			sourceTree = "<group>";
+		};
+		3F3757781BF0F3E800B6079A /* MRFImageView */ = {
+			isa = PBXGroup;
+			children = (
+				3F3757791BF0F3E800B6079A /* MRFImageView.h */,
+				3F37577A1BF0F3E800B6079A /* MRFImageView.m */,
+			);
+			path = MRFImageView;
+			sourceTree = "<group>";
+		};
+		3F37577B1BF0F3E800B6079A /* MRFLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				3F37577C1BF0F3E800B6079A /* MRFLoadingView.h */,
+				3F37577D1BF0F3E800B6079A /* MRFLoadingView.m */,
+				3F37577E1BF0F3E800B6079A /* MRFLoadingView.xib */,
+			);
+			path = MRFLoadingView;
+			sourceTree = "<group>";
+		};
+		3F37577F1BF0F3E800B6079A /* MRFView */ = {
+			isa = PBXGroup;
+			children = (
+				3F3757801BF0F3E800B6079A /* MRFView.h */,
+				3F3757811BF0F3E800B6079A /* MRFView.m */,
+			);
+			path = MRFView;
+			sourceTree = "<group>";
+		};
+		3F3757861BF23D3500B6079A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				3F3757871BF2407B00B6079A /* CarFillings.xcdatamodeld */,
+				3F37578C1BF2426D00B6079A /* MRFFilling.h */,
+				3F37578D1BF2426D00B6079A /* MRFFilling.m */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		3F3757901BF3441F00B6079A /* MRFFetchedArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F3757911BF3446F00B6079A /* MRFFetchedArrayModel.h */,
+				3F3757921BF3446F00B6079A /* MRFFetchedArrayModel.m */,
+			);
+			path = MRFFetchedArrayModel;
+			sourceTree = "<group>";
+		};
+		3F3757941BF3557E00B6079A /* MRFFillingCell */ = {
+			isa = PBXGroup;
+			children = (
+				3F3757951BF355CD00B6079A /* MRFFillingCell.h */,
+				3F3757961BF355CD00B6079A /* MRFFillingCell.m */,
+			);
+			path = MRFFillingCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -907,6 +1012,7 @@
 		3F3756181BF0C18600B6079A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MRF;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Yurii Mamurko";
 				TargetAttributes = {
@@ -939,6 +1045,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3757741BF0D34000B6079A /* MRFMainViewController.xib in Resources */,
+				3F3757841BF0F3E800B6079A /* MRFLoadingView.xib in Resources */,
 				3F3756551BF0C49200B6079A /* LaunchScreen.storyboard in Resources */,
 				3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */,
 			);
@@ -951,6 +1059,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3757851BF0F3E800B6079A /* MRFView.m in Sources */,
 				3F37571B1BF0C7D200B6079A /* NSObject+IDPKVOPrivate.m in Sources */,
 				3F3757111BF0C7D200B6079A /* NSManagedObject+IDPExtensions.m in Sources */,
 				3F3757001BF0C7D200B6079A /* NSFileManager+MRFExtensions.m in Sources */,
@@ -962,15 +1071,17 @@
 				3F37572A1BF0C7D200B6079A /* IDPCopyReference.m in Sources */,
 				3F3757271BF0C7D200B6079A /* IDPMutableArray.m in Sources */,
 				3F3757211BF0C7D200B6079A /* IDPKVOMutableArray.m in Sources */,
+				3F3757831BF0F3E800B6079A /* MRFLoadingView.m in Sources */,
 				3F37571A1BF0C7D200B6079A /* IDPSafeKVOContext.m in Sources */,
 				3F3756531BF0C49200B6079A /* MRFAppDelegate.m in Sources */,
-				3F3756571BF0C49200B6079A /* MRFMainViewController.m in Sources */,
 				3F37575F1BF0C9A900B6079A /* MRFArrayChangesModel+UITableView.m in Sources */,
 				3F3757301BF0C7D200B6079A /* IDPEnumerationThreadSafeProxy.m in Sources */,
+				3F3757971BF355CD00B6079A /* MRFFillingCell.m in Sources */,
 				3F3757371BF0C7D200B6079A /* MRFDispatch.m in Sources */,
 				3F37576A1BF0C9A900B6079A /* MRFUserModel.m in Sources */,
 				3F3757181BF0C7D200B6079A /* IDPKVOObject.m in Sources */,
 				3F3757661BF0C9A900B6079A /* MRFURLImageModel.m in Sources */,
+				3F3757731BF0D34000B6079A /* MRFMainViewController.m in Sources */,
 				3F3757131BF0C7D200B6079A /* NSManagedObjectID+IDPExtensions.m in Sources */,
 				3F3757061BF0C7D200B6079A /* UIViewController+MRFExtensions.m in Sources */,
 				3F3757171BF0C7D200B6079A /* IDPKVONotification.m in Sources */,
@@ -995,13 +1106,19 @@
 				3F3757101BF0C7D200B6079A /* IDPCoreDataManager.m in Sources */,
 				3F3757191BF0C7D200B6079A /* NSObject+IDPKVO.m in Sources */,
 				3F3757201BF0C7D200B6079A /* IDPKVOContext.m in Sources */,
+				3F3757821BF0F3E800B6079A /* MRFImageView.m in Sources */,
+				3F3757931BF3446F00B6079A /* MRFFetchedArrayModel.m in Sources */,
 				3F3757351BF0C7D200B6079A /* IDPObjCRuntime.m in Sources */,
+				3F3757771BF0F39C00B6079A /* MRFMainView.m in Sources */,
 				3F3757621BF0C9A900B6079A /* MRFPositionModel.m in Sources */,
+				3F3757891BF2407B00B6079A /* CarFillings.xcdatamodeld in Sources */,
+				3F37578F1BF2426D00B6079A /* MRFFilling.m in Sources */,
 				3F3757601BF0C9A900B6079A /* MRFArrayChangesModel.m in Sources */,
 				3F3757011BF0C7D200B6079A /* NSIndexPath+MRFExtension.m in Sources */,
 				3F37570D1BF0C7D200B6079A /* MRFCache.m in Sources */,
 				3F3757051BF0C7D200B6079A /* UITableView+MRFExtensions.m in Sources */,
 				3F3757041BF0C7D200B6079A /* UINib+MRFExtensions.m in Sources */,
+				3F37576E1BF0D2D100B6079A /* MRFViewController.m in Sources */,
 				3F3757321BF0C7D200B6079A /* IDPWeakArray.m in Sources */,
 				3F3757311BF0C7D200B6079A /* IDPThreadSafeProxy.m in Sources */,
 				3F37572F1BF0C7D200B6079A /* IDPRetainingDictionary.m in Sources */,
@@ -1156,6 +1273,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F3757871BF2407B00B6079A /* CarFillings.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F3757881BF2407B00B6079A /* CarFillings.xcdatamodel */,
+			);
+			currentVersion = 3F3757881BF2407B00B6079A /* CarFillings.xcdatamodel */;
+			path = CarFillings.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F3756181BF0C18600B6079A /* Project object */;
 }

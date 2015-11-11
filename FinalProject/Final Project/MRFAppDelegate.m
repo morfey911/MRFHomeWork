@@ -6,38 +6,33 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
+#import "IDPCoreDataManager.h"
+
 #import "MRFAppDelegate.h"
 
-@interface MRFAppDelegate ()
+#import "MRFMainViewController.h"
 
-@end
+#import "UIWindow+MFRExtensions.h"
+#import "UIViewController+MRFExtensions.h"
 
 @implementation MRFAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
+    UIWindow *window = [UIWindow window];
+    self.window = window;
     
+    [IDPCoreDataManager sharedManagerWithMomName:@"CarFillings"];
+    
+    MRFMainViewController *controller = [MRFMainViewController controller];
+    UINavigationController *navigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:controller];
+    
+    window.rootViewController = navigationController;
+    
+    [window makeKeyAndVisible];
+    
+    return YES;
 }
 
 @end
