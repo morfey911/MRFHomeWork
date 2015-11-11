@@ -10,9 +10,9 @@
 
 @implementation MRFFilling
 
-@dynamic drove;
-@dynamic fuelConsumption;
-@dynamic moneySpent;
+@dynamic mileage;
+@dynamic volume;
+@dynamic price;
 @dynamic comment;
 @dynamic date;
 

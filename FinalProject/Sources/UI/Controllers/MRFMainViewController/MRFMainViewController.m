@@ -8,14 +8,13 @@
 
 #import "MRFMainViewController.h"
 
-#import "IDPCoreDataManager.h"
-
 #import "MRFMainView.h"
+#import "MRFFillingCell.h"
 
 #import "MRFFilling.h"
-
 #import "MRFFetchedArrayModel.h"
 
+#import "IDPCoreDataManager.h"
 #import "MRFMacros.h"
 
 #import "NSManagedObject+IDPExtensions.h"
@@ -38,7 +37,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.arrayModel = [self fetchedArrayModelWithRequest];
+//        self.arrayModel = [self fetchedArrayModelWithRequest];
     }
     
     return self;
@@ -48,7 +47,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark Accessors
 
 - (void)setArrayModel:(MRFFetchedArrayModel *)arrayModel {
-    MRFSynthesizeObservingSetterAndLoad(arrayModel);
+//    MRFSynthesizeObservingSetterAndLoad(arrayModel);
 }
 
 #pragma mark -
@@ -86,12 +85,16 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.arrayModel.count;
+//    return self.arrayModel.count;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
+//    MRFFillingCell *cell = [tableView dequeueReusableCellWithClass:[MRFFillingCell class]];
+//    
+//    cell.fillingModel = self.arrayModel[indexPath.row];
+//    
+//    return cell;
     return nil;
 }
 
