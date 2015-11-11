@@ -6,10 +6,11 @@
 //  Copyright © 2015 Yurii Mamurko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MRFViewController.h"
 
-@interface MRFMainViewController : UIViewController
+@interface MRFMainViewController : MRFViewController <UITableViewDataSource,
+                                                        UITableViewDelegate>
 
+- (IBAction)onStatisticButton:(id)sender;
 
 @end
-
