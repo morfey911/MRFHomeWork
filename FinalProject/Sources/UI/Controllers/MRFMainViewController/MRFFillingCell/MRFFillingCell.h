@@ -8,6 +8,15 @@
 
 #import "MRFTableViewCell.h"
 
+@class MRFFilling;
+
 @interface MRFFillingCell : MRFTableViewCell
+@property (nonatomic, strong)   IBOutlet    UILabel *dateLabel;
+@property (nonatomic, strong)   IBOutlet    UILabel *mileageLabel;
+@property (nonatomic, strong)   IBOutlet    UILabel *volumeLabel;
+@property (nonatomic, strong)   IBOutlet    UILabel *priceLabel;
+@property (nonatomic, strong)   MRFFilling  *filling;
+
+- (void)fillWithModel:(MRFFilling *)model;
 
 @end

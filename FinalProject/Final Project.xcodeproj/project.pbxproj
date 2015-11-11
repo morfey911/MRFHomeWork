@@ -81,7 +81,8 @@
 		3F3757891BF2407B00B6079A /* CarFillings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757871BF2407B00B6079A /* CarFillings.xcdatamodeld */; };
 		3F37578F1BF2426D00B6079A /* MRFFilling.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37578D1BF2426D00B6079A /* MRFFilling.m */; };
 		3F3757931BF3446F00B6079A /* MRFFetchedArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757921BF3446F00B6079A /* MRFFetchedArrayModel.m */; };
-		3F3757971BF355CD00B6079A /* MRFFillingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757961BF355CD00B6079A /* MRFFillingCell.m */; };
+		3F37579B1BF3577500B6079A /* MRFFillingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757991BF3577500B6079A /* MRFFillingCell.m */; };
+		3F37579C1BF3577500B6079A /* MRFFillingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F37579A1BF3577500B6079A /* MRFFillingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -236,8 +237,9 @@
 		3F37578D1BF2426D00B6079A /* MRFFilling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFilling.m; sourceTree = "<group>"; };
 		3F3757911BF3446F00B6079A /* MRFFetchedArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFetchedArrayModel.h; sourceTree = "<group>"; };
 		3F3757921BF3446F00B6079A /* MRFFetchedArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFetchedArrayModel.m; sourceTree = "<group>"; };
-		3F3757951BF355CD00B6079A /* MRFFillingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingCell.h; sourceTree = "<group>"; };
-		3F3757961BF355CD00B6079A /* MRFFillingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingCell.m; sourceTree = "<group>"; };
+		3F3757981BF3577500B6079A /* MRFFillingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingCell.h; sourceTree = "<group>"; };
+		3F3757991BF3577500B6079A /* MRFFillingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingCell.m; sourceTree = "<group>"; };
+		3F37579A1BF3577500B6079A /* MRFFillingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFillingCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -980,8 +982,9 @@
 		3F3757941BF3557E00B6079A /* MRFFillingCell */ = {
 			isa = PBXGroup;
 			children = (
-				3F3757951BF355CD00B6079A /* MRFFillingCell.h */,
-				3F3757961BF355CD00B6079A /* MRFFillingCell.m */,
+				3F3757981BF3577500B6079A /* MRFFillingCell.h */,
+				3F3757991BF3577500B6079A /* MRFFillingCell.m */,
+				3F37579A1BF3577500B6079A /* MRFFillingCell.xib */,
 			);
 			path = MRFFillingCell;
 			sourceTree = "<group>";
@@ -1046,6 +1049,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3757741BF0D34000B6079A /* MRFMainViewController.xib in Resources */,
+				3F37579C1BF3577500B6079A /* MRFFillingCell.xib in Resources */,
 				3F3757841BF0F3E800B6079A /* MRFLoadingView.xib in Resources */,
 				3F3756551BF0C49200B6079A /* LaunchScreen.storyboard in Resources */,
 				3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */,
@@ -1076,7 +1080,7 @@
 				3F3756531BF0C49200B6079A /* MRFAppDelegate.m in Sources */,
 				3F37575F1BF0C9A900B6079A /* MRFArrayChangesModel+UITableView.m in Sources */,
 				3F3757301BF0C7D200B6079A /* IDPEnumerationThreadSafeProxy.m in Sources */,
-				3F3757971BF355CD00B6079A /* MRFFillingCell.m in Sources */,
+				3F37579B1BF3577500B6079A /* MRFFillingCell.m in Sources */,
 				3F3757371BF0C7D200B6079A /* MRFDispatch.m in Sources */,
 				3F37576A1BF0C9A900B6079A /* MRFUserModel.m in Sources */,
 				3F3757181BF0C7D200B6079A /* IDPKVOObject.m in Sources */,

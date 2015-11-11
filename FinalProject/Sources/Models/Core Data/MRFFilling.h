@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 
 @interface MRFFilling : NSManagedObject
-@property (nonatomic, retain)   NSNumber    *drove;
-@property (nonatomic, retain)   NSNumber    *fuelConsumption;
-@property (nonatomic, retain)   NSNumber    *moneySpent;
+@property (nonatomic, retain)   NSNumber    *mileage;
+@property (nonatomic, retain)   NSNumber    *volume;
+@property (nonatomic, retain)   NSNumber    *price;
 @property (nonatomic, retain)   NSString    *comment;
 @property (nonatomic, retain)   NSDate      *date;
 
