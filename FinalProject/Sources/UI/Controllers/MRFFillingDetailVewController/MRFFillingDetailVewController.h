@@ -8,6 +8,6 @@
 
 #import "MRFViewController.h"
 
-@interface MRFFillingDetailVewController : MRFViewController
+@interface MRFFillingDetailVewController : MRFViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
