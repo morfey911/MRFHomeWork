@@ -7,6 +7,7 @@
 //
 
 #import "MRFMainViewController.h"
+#import "MRFFillingDetailVewController.h"
 
 #import "MRFMainView.h"
 #import "MRFFillingCell.h"
@@ -34,10 +35,14 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark -
 #pragma mark Initializations and Deallocations 
 
+- (void)dealloc {
+    self.arrayModel = nil;
+}
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-//        self.arrayModel = [self fetchedArrayModelWithRequest];
+        self.arrayModel = [self fetchedArrayModelWithRequest];
     }
     
     return self;
@@ -47,7 +52,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark Accessors
 
 - (void)setArrayModel:(MRFFetchedArrayModel *)arrayModel {
-//    MRFSynthesizeObservingSetterAndLoad(arrayModel);
+    MRFSynthesizeObservingSetterAndLoad(arrayModel);
 }
 
 #pragma mark -
@@ -66,12 +71,18 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
     
 }
 
+- (void)onAddButton {
+    MRFFillingDetailVewController *controller = [[MRFFillingDetailVewController alloc] init];
+
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 #pragma mark -
 #pragma mark Private
 
 - (void)setupNavigationBar {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
-    [self.navigationItem setLeftBarButtonItem:item];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton)];
+    [self.navigationItem setRightBarButtonItem:item];
 }
 
 - (MRFFetchedArrayModel *)fetchedArrayModelWithRequest {
@@ -85,17 +96,15 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.arrayModel.count;
-    return 0;
+    return self.arrayModel.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    MRFFillingCell *cell = [tableView dequeueReusableCellWithClass:[MRFFillingCell class]];
-//    
-//    cell.fillingModel = self.arrayModel[indexPath.row];
-//    
-//    return cell;
-    return nil;
+    MRFFillingCell *cell = [tableView dequeueReusableCellWithClass:[MRFFillingCell class]];
+    
+    cell.fillingModel = self.arrayModel[indexPath.row];
+    
+    return cell;
 }
 
 #pragma mark -
