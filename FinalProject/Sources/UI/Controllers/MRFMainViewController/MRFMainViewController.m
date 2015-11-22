@@ -7,7 +7,7 @@
 //
 
 #import "MRFMainViewController.h"
-#import "MRFFillingDetailVewController.h"
+#import "MRFFillingDetailViewController.h"
 
 #import "MRFMainView.h"
 #import "MRFFillingCell.h"
@@ -72,8 +72,9 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 }
 
 - (void)onAddButton {
-    MRFFillingDetailVewController *controller = [[MRFFillingDetailVewController alloc] init];
-
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
+    MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
+    
     [self.navigationController pushViewController:controller animated:YES];
 }
 

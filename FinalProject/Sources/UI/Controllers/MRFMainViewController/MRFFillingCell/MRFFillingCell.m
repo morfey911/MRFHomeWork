@@ -17,8 +17,8 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setFilling:(MRFFilling *)filling {
-    [self fillWithModel:filling];
+- (void)setFillingModel:(MRFFilling *)model {
+    [self fillWithModel:model];
 }
 
 #pragma mark -

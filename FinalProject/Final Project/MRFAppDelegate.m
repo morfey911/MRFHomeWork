@@ -15,8 +15,10 @@
 #import "UIWindow+MFRExtensions.h"
 #import "UIViewController+MRFExtensions.h"
 
-@implementation MRFAppDelegate
+#import "ActiveRecordKit.h"
+#import "MRFFilling.h"
 
+@implementation MRFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
@@ -33,6 +35,16 @@
     [window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)fillDB {
+    for (NSUInteger index = 0; index < 10; index++) {
+        MRFFilling *filling = [MRFFilling managedObject];
+        filling.mileage = [NSNumber numberWithInt:arc4random_uniform(1000)];
+        filling.volume = [NSNumber numberWithInt:arc4random_uniform(20)];
+    }
+    
+    [NSManagedObjectContext saveManagedObjectContext];
 }
 
 @end

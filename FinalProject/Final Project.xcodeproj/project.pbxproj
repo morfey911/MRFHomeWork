@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F3242EA1BFB6A13007AC49C /* MRFFillingDetailVewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3242E81BFB6A13007AC49C /* MRFFillingDetailVewController.m */; };
-		3F3242EB1BFB6A13007AC49C /* MRFFillingDetailVewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3242E91BFB6A13007AC49C /* MRFFillingDetailVewController.xib */; };
-		3F3242EE1BFB6A54007AC49C /* MRFFillingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3242ED1BFB6A54007AC49C /* MRFFillingDetailView.m */; };
-		3F3242FA1BFF5A12007AC49C /* MRFFillingDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3242F81BFF5A12007AC49C /* MRFFillingDetailCell.m */; };
-		3F3242FB1BFF5A12007AC49C /* MRFFillingDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3242F91BFF5A12007AC49C /* MRFFillingDetailCell.xib */; };
+		3F3243031C0082CB007AC49C /* MRFFillingDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */; };
+		3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */; };
+		3F32430C1C00A9FA007AC49C /* MRFFillingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32430B1C00A9FA007AC49C /* MRFFillingDetailView.m */; };
 		3F3756521BF0C49200B6079A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F37563E1BF0C49200B6079A /* main.m */; };
 		3F3756531BF0C49200B6079A /* MRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3756401BF0C49200B6079A /* MRFAppDelegate.m */; };
 		3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3756421BF0C49200B6079A /* Assets.xcassets */; };
@@ -91,14 +89,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F3242E71BFB6A13007AC49C /* MRFFillingDetailVewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailVewController.h; sourceTree = "<group>"; };
-		3F3242E81BFB6A13007AC49C /* MRFFillingDetailVewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailVewController.m; sourceTree = "<group>"; };
-		3F3242E91BFB6A13007AC49C /* MRFFillingDetailVewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFillingDetailVewController.xib; sourceTree = "<group>"; };
-		3F3242EC1BFB6A54007AC49C /* MRFFillingDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailView.h; sourceTree = "<group>"; };
-		3F3242ED1BFB6A54007AC49C /* MRFFillingDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailView.m; sourceTree = "<group>"; };
-		3F3242F71BFF5A12007AC49C /* MRFFillingDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailCell.h; sourceTree = "<group>"; };
-		3F3242F81BFF5A12007AC49C /* MRFFillingDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailCell.m; sourceTree = "<group>"; };
-		3F3242F91BFF5A12007AC49C /* MRFFillingDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFillingDetailCell.xib; sourceTree = "<group>"; };
+		3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MRFFillingDetailViewController.storyboard; sourceTree = "<group>"; };
+		3F3243071C0086F0007AC49C /* MRFFillingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailViewController.h; sourceTree = "<group>"; };
+		3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailViewController.m; sourceTree = "<group>"; };
+		3F32430A1C00A9FA007AC49C /* MRFFillingDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailView.h; sourceTree = "<group>"; };
+		3F32430B1C00A9FA007AC49C /* MRFFillingDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailView.m; sourceTree = "<group>"; };
 		3F3756201BF0C18600B6079A /* Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F37563D1BF0C49200B6079A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F37563E1BF0C49200B6079A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -269,24 +264,13 @@
 		3F3242E61BFB69A5007AC49C /* MRFFillingDetailVewController */ = {
 			isa = PBXGroup;
 			children = (
-				3F3242F61BFF59ED007AC49C /* MRFFillingDetailCell */,
-				3F3242EC1BFB6A54007AC49C /* MRFFillingDetailView.h */,
-				3F3242ED1BFB6A54007AC49C /* MRFFillingDetailView.m */,
-				3F3242E71BFB6A13007AC49C /* MRFFillingDetailVewController.h */,
-				3F3242E81BFB6A13007AC49C /* MRFFillingDetailVewController.m */,
-				3F3242E91BFB6A13007AC49C /* MRFFillingDetailVewController.xib */,
+				3F32430A1C00A9FA007AC49C /* MRFFillingDetailView.h */,
+				3F32430B1C00A9FA007AC49C /* MRFFillingDetailView.m */,
+				3F3243071C0086F0007AC49C /* MRFFillingDetailViewController.h */,
+				3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */,
+				3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */,
 			);
 			path = MRFFillingDetailVewController;
-			sourceTree = "<group>";
-		};
-		3F3242F61BFF59ED007AC49C /* MRFFillingDetailCell */ = {
-			isa = PBXGroup;
-			children = (
-				3F3242F71BFF5A12007AC49C /* MRFFillingDetailCell.h */,
-				3F3242F81BFF5A12007AC49C /* MRFFillingDetailCell.m */,
-				3F3242F91BFF5A12007AC49C /* MRFFillingDetailCell.xib */,
-			);
-			path = MRFFillingDetailCell;
 			sourceTree = "<group>";
 		};
 		3F3756171BF0C18600B6079A = {
@@ -1088,10 +1072,9 @@
 				3F3757741BF0D34000B6079A /* MRFMainViewController.xib in Resources */,
 				3F37579D1BF3699100B6079A /* MRFFillingCell.xib in Resources */,
 				3F3757841BF0F3E800B6079A /* MRFLoadingView.xib in Resources */,
-				3F3242EB1BFB6A13007AC49C /* MRFFillingDetailVewController.xib in Resources */,
+				3F3243031C0082CB007AC49C /* MRFFillingDetailViewController.storyboard in Resources */,
 				3F3756551BF0C49200B6079A /* LaunchScreen.storyboard in Resources */,
 				3F3756541BF0C49200B6079A /* Assets.xcassets in Resources */,
-				3F3242FB1BFF5A12007AC49C /* MRFFillingDetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,7 +1106,6 @@
 				3F3757371BF0C7D200B6079A /* MRFDispatch.m in Sources */,
 				3F37576A1BF0C9A900B6079A /* MRFUserModel.m in Sources */,
 				3F3757181BF0C7D200B6079A /* IDPKVOObject.m in Sources */,
-				3F3242EA1BFB6A13007AC49C /* MRFFillingDetailVewController.m in Sources */,
 				3F3757661BF0C9A900B6079A /* MRFURLImageModel.m in Sources */,
 				3F3757731BF0D34000B6079A /* MRFMainViewController.m in Sources */,
 				3F3757131BF0C7D200B6079A /* NSManagedObjectID+IDPExtensions.m in Sources */,
@@ -1141,6 +1123,7 @@
 				3F37572C1BF0C7D200B6079A /* IDPStrongReference.m in Sources */,
 				3F37571F1BF0C7D200B6079A /* IDPDispatch.m in Sources */,
 				3F3756521BF0C49200B6079A /* main.m in Sources */,
+				3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */,
 				3F37571C1BF0C7D200B6079A /* NSObject+IDPRuntime.m in Sources */,
 				3F3757651BF0C9A900B6079A /* MRFImageModel.m in Sources */,
 				3F3757641BF0C9A900B6079A /* MRFFileImageModel.m in Sources */,
@@ -1165,8 +1148,7 @@
 				3F37576E1BF0D2D100B6079A /* MRFViewController.m in Sources */,
 				3F3757321BF0C7D200B6079A /* IDPWeakArray.m in Sources */,
 				3F3757311BF0C7D200B6079A /* IDPThreadSafeProxy.m in Sources */,
-				3F3242EE1BFB6A54007AC49C /* MRFFillingDetailView.m in Sources */,
-				3F3242FA1BFF5A12007AC49C /* MRFFillingDetailCell.m in Sources */,
+				3F32430C1C00A9FA007AC49C /* MRFFillingDetailView.m in Sources */,
 				3F37572F1BF0C7D200B6079A /* IDPRetainingDictionary.m in Sources */,
 				3F3757231BF0C7D200B6079A /* IDPMixinIMP.m in Sources */,
 				3F37572B1BF0C7D200B6079A /* IDPReference.m in Sources */,
