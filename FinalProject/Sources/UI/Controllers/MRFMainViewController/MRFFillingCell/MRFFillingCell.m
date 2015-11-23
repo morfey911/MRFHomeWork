@@ -34,7 +34,7 @@
 - (NSString *)stringFromDate:(NSDate *)date {
     return [NSDateFormatter localizedStringFromDate:date
                                           dateStyle:NSDateFormatterShortStyle
-                                          timeStyle:NSDateFormatterMediumStyle];
+                                          timeStyle:NSDateFormatterShortStyle];
 }
 
 @end
