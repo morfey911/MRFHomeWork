@@ -122,8 +122,8 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
     [self.mainView.tableView reloadData];
 }
 
-- (void)model:(MRFFetchedArrayModel *)model didChangeWithObject:(id)object {
-    
+- (void)model:(MRFFetchedArrayModel *)model didChangeWithObject:(MRFArrayChangesModel *)object {
+    [self.mainView.tableView updateWithChanges:object];
 }
 
 @end
