@@ -88,7 +88,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
 - (MRFFetchedArrayModel *)fetchedArrayModelWithRequest {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES]];
+    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]];
     
     return [[MRFFetchedArrayModel alloc] initWithFetchRequest:request];
 }
@@ -120,6 +120,10 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
 - (void)modelDidLoad:(MRFFetchedArrayModel *)model {
     [self.mainView.tableView reloadData];
+}
+
+- (void)model:(MRFFetchedArrayModel *)model didChangeWithObject:(id)object {
+    
 }
 
 @end
