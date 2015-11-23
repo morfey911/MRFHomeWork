@@ -57,16 +57,19 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
 #pragma mark Private
 
 - (void)setupNavigationBar {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(onSaveButton)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                                                          target:self
+                                                                          action:@selector(onSaveButton)];
     [self.navigationItem setRightBarButtonItem:item];
 }
 
 - (MRFFilling *)lastFillingModelFromDB {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES]];
-    NSManagedObjectContext *context = [[IDPCoreDataManager sharedManager] managedObjectContext];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     
-    return [[context executeFetchRequest:request error:nil] firstObject];
+    return [[NSManagedObjectContext fetchEntity:NSStringFromClass([MRFFilling class])
+                           withSortDescriptors:@[sortDescriptor]
+                                     predicate:nil
+                                  prefetchPaths:nil] firstObject];
 }
 
 @end
