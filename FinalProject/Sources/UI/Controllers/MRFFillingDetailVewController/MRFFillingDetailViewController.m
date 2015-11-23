@@ -49,6 +49,8 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
     filling.date = view.date;
     
     [filling saveManagedObject];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
