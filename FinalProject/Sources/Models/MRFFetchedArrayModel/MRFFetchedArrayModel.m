@@ -84,7 +84,14 @@
      forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(nullable NSIndexPath *)newIndexPath
 {
-    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self insertModel:anObject atIndex:0];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
