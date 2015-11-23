@@ -12,11 +12,17 @@
 
 #import "MRFFilling.h"
 
-#import "IDPCoreDataManager.h"
+#import "ActiveRecordKit.h"
 
 #import "MRFMacros.h"
 
 MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MRFFillingDetailView)
+
+@interface MRFFillingDetailViewController ()
+
+- (MRFFilling *)lastFillingModelFromDB;
+
+@end
 
 @implementation MRFFillingDetailViewController
 
@@ -26,17 +32,34 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.detailView.model = [self lastFillingFromDB];
+    self.detailView.model = [self lastFillingModelFromDB];
+    [self setupNavigationBar];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark -
+#pragma mark Interface Handling
+
+- (void)onSaveButton {
+    MRFFilling *filling = [MRFFilling managedObject];
+    MRFFillingDetailView *view = self.detailView;
+    
+    filling.mileage = [NSNumber numberWithInteger:[view.mileageField.text integerValue]];
+    filling.volume = [NSNumber numberWithInteger:[view.volumeField.text integerValue]];
+    filling.price = [NSNumber numberWithInteger:[view.priceField.text integerValue]];
+    filling.date = view.date;
+    
+    [filling saveManagedObject];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (MRFFilling *)lastFillingFromDB {
+- (void)setupNavigationBar {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(onSaveButton)];
+    [self.navigationItem setRightBarButtonItem:item];
+}
+
+- (MRFFilling *)lastFillingModelFromDB {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
     request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES]];
     NSManagedObjectContext *context = [[IDPCoreDataManager sharedManager] managedObjectContext];
