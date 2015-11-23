@@ -17,5 +17,6 @@
 @property (nonatomic, strong)   IBOutlet    UITextField *priceField;
 @property (nonatomic, strong)   IBOutlet    UITextField *totalField;
 @property (nonatomic, strong)   MRFFilling  *model;
+@property (nonatomic, readonly) NSDate      *date;
 
 @end

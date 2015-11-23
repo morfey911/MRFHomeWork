@@ -10,7 +10,24 @@
 
 #import "MRFFilling.h"
 
+@interface MRFFillingDetailView ()
+@property (nonatomic, strong)   NSDate  *date;
+
+@end
+
 @implementation MRFFillingDetailView
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.date = [NSDate date];
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -26,10 +43,12 @@
     self.dateLabel.text = [self currentDateString];
     self.mileageField.placeholder = [model.mileage stringValue];
     self.priceField.placeholder = [model.price stringValue];
+    
+    [self.mileageField becomeFirstResponder];
 }
 
 - (NSString *)currentDateString {
-    return [NSDateFormatter localizedStringFromDate:[NSDate date]
+    return [NSDateFormatter localizedStringFromDate:self.date
                                           dateStyle:NSDateFormatterShortStyle
                                           timeStyle:NSDateFormatterShortStyle];
 }
