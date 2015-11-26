@@ -43,9 +43,9 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
     MRFFilling *filling = [MRFFilling managedObject];
     MRFFillingDetailView *view = self.detailView;
     
-    filling.mileage = [NSNumber numberWithInteger:[view.mileageField.text integerValue]];
-    filling.volume = [NSNumber numberWithInteger:[view.volumeField.text integerValue]];
-    filling.price = [NSNumber numberWithInteger:[view.priceField.text integerValue]];
+    filling.mileage = [NSNumber numberWithFloat:[view.mileageField.text floatValue]];
+    filling.volume = [NSNumber numberWithFloat:[view.volumeField.text floatValue]];
+    filling.price = [NSNumber numberWithFloat:[view.priceField.text floatValue]];
     filling.date = view.date;
     
     [filling saveManagedObject];
