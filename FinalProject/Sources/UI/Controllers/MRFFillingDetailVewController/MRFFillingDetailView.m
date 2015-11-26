@@ -36,21 +36,65 @@
     [self fillWithModel:model];
 }
 
+- (void)setDate:(NSDate *)date {
+    if (_date != date) {
+        _date = date;
+        self.dateField.text = [self stringFromDate:date];
+    }
+}
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    [self setupDateFieldInputView];
+    [self setupDateFieldInputAccessoryView];
+}
+
 #pragma mark -
 #pragma mark Private
 
 - (void)fillWithModel:(MRFFilling *)model {
-    self.dateLabel.text = [self currentDateString];
+    self.dateField.text = [self currentDateString];
     self.mileageField.placeholder = [model.mileage stringValue];
     self.priceField.placeholder = [model.price stringValue];
     
     [self.mileageField becomeFirstResponder];
 }
 
+- (void)setupDateFieldInputView {
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self
+                   action:@selector(datePickerValueChanged:)
+         forControlEvents:UIControlEventValueChanged];
+    
+    self.dateField.inputView = datePicker;
+}
+
+- (void)setupDateFieldInputAccessoryView {
+    CGRect toolbarRect = CGRectMake(0, 0, 0, 30);
+    UIView *toolbar = [[UIView alloc] initWithFrame:toolbarRect];
+    toolbar.backgroundColor = [UIColor blackColor];
+    
+    self.dateField.inputAccessoryView = toolbar;
+}
+
+- (void)datePickerValueChanged:(UIDatePicker *)sender {
+    self.date = sender.date;
+}
+
 - (NSString *)currentDateString {
-    return [NSDateFormatter localizedStringFromDate:self.date
+    return [self stringFromDate:[NSDate date]];
+}
+
+- (NSString *)stringFromDate:(NSDate *)date {
+    return [NSDateFormatter localizedStringFromDate:date
                                           dateStyle:NSDateFormatterShortStyle
-                                          timeStyle:NSDateFormatterShortStyle];
+                                          timeStyle:NSDateFormatterNoStyle];
 }
 
 @end
