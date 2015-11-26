@@ -16,6 +16,8 @@
 
 #import "MRFMacros.h"
 
+static NSString * const kMRFNavigationItemTitle = @"Add fuel";
+
 MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MRFFillingDetailView)
 
 @interface MRFFillingDetailViewController ()
@@ -43,9 +45,9 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
     MRFFilling *filling = [MRFFilling managedObject];
     MRFFillingDetailView *view = self.detailView;
     
-    filling.mileage = [NSNumber numberWithFloat:[view.mileageField.text floatValue]];
-    filling.volume = [NSNumber numberWithFloat:[view.volumeField.text floatValue]];
-    filling.price = [NSNumber numberWithFloat:[view.priceField.text floatValue]];
+    filling.mileage = [[NSDecimalNumber alloc] initWithString:view.mileageField.text];
+    filling.volume = [[NSDecimalNumber alloc] initWithString:view.volumeField.text];
+    filling.price = [[NSDecimalNumber alloc] initWithString:view.priceField.text];
     filling.date = view.date;
     
     [filling saveManagedObject];
@@ -57,10 +59,13 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
 #pragma mark Private
 
 - (void)setupNavigationBar {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+    UINavigationItem *navigationItem = self.navigationItem;
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                           target:self
                                                                           action:@selector(onSaveButton)];
-    [self.navigationItem setRightBarButtonItem:item];
+    
+    navigationItem.title = kMRFNavigationItemTitle;
+    [navigationItem setRightBarButtonItem:buttonItem];
 }
 
 - (MRFFilling *)lastFillingModelFromDB {
