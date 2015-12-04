@@ -88,9 +88,15 @@
         case NSFetchedResultsChangeInsert:
             [self insertModel:anObject atIndex:0];
             break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self removeModel:anObject];
+            break;
+            
         case NSFetchedResultsChangeUpdate:
             [self updateModel:anObject];
             break;
+            
         default:
             break;
     }

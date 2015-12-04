@@ -110,6 +110,17 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
     return cell;
 }
 
+- (void)    tableView:(UITableView *)tableView
+   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (UITableViewCellEditingStyleDelete == editingStyle) {
+        MRFFilling *filling = [self.arrayModel modelAtIndex:indexPath.row];
+        
+        [filling deleteManagedObject];
+    }
+}
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 
