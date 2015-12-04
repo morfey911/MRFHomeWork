@@ -71,7 +71,7 @@
     self.dateField.text = [self currentDateString];
     self.mileageField.placeholder = [model.mileage stringValue];
     self.priceField.placeholder = [model.price stringValue];
-
+    
     [self.mileageField becomeFirstResponder];
 }
 
@@ -95,9 +95,11 @@
 }
 
 - (NSString *)stringFromDate:(NSDate *)date {
-    return [NSDateFormatter localizedStringFromDate:date
-                                          dateStyle:NSDateFormatterShortStyle
-                                          timeStyle:NSDateFormatterNoStyle];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.locale = [NSLocale currentLocale];
+    formatter.dateFormat = @"d MMM. y HH:mm";
+    
+    return [formatter stringFromDate:date];
 }
 
 @end
