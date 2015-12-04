@@ -57,10 +57,12 @@ static NSString * const kMRFMutableArray = @"mutableArray";
 }
 
 - (void)removeModel:(id)model {
+    NSUInteger index = [self indexOfModel:model];
+    
     [self.mutableArray removeObject:model];
     
     [self setState:MRFModelDidChange
-        withObject:[MRFArrayChangesModel deleteModelWithIndex:[self indexOfModel:model]]];
+        withObject:[MRFArrayChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)addModels:(NSArray *)models {
