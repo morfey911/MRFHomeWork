@@ -10,24 +10,9 @@
 
 #import "MRFFilling.h"
 
-@interface MRFFillingDetailView ()
-@property (nonatomic, strong)   NSDate  *date;
-
-@end
+#import "MRFDateTextField.h"
 
 @implementation MRFFillingDetailView
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.date = [NSDate date];
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -40,27 +25,11 @@
     [self fillPlaceholdersWithModel:model];
 }
 
-- (void)setDate:(NSDate *)date {
-    if (_date != date) {
-        _date = date;
-        self.dateField.text = [self stringFromDate:date];
-    }
-}
-
-#pragma mark -
-#pragma mark View lifecycle
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-    
-    [self setupDateFieldInputView];
-}
-
 #pragma mark -
 #pragma mark Private
 
 - (void)fillWithModel:(MRFFilling *)model {
-    self.dateField.text = [self stringFromDate:model.date];
+    self.dateField.date = model.date;
     self.mileageField.text = [model.mileage stringValue];
     self.volumeField.text = [model.volume stringValue];
     self.priceField.text = [model.price stringValue];
@@ -68,38 +37,37 @@
 }
 
 - (void)fillPlaceholdersWithModel:(MRFFilling *)model {
-    self.dateField.text = [self currentDateString];
+    self.dateField.date = [NSDate date];
     self.mileageField.placeholder = [model.mileage stringValue];
     self.priceField.placeholder = [model.price stringValue];
     
     [self.mileageField becomeFirstResponder];
 }
 
-- (void)setupDateFieldInputView {
-    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-    
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [datePicker addTarget:self
-                   action:@selector(datePickerValueChanged:)
-         forControlEvents:UIControlEventValueChanged];
-    
-    self.dateField.inputView = datePicker;
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
 }
 
-- (void)datePickerValueChanged:(UIDatePicker *)sender {
-    self.date = sender.date;
-}
-
-- (NSString *)currentDateString {
-    return [self stringFromDate:[NSDate date]];
-}
-
-- (NSString *)stringFromDate:(NSDate *)date {
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.locale = [NSLocale currentLocale];
-    formatter.dateFormat = @"d MMM. y HH:mm";
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     
-    return [formatter stringFromDate:date];
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+}
+
+- (BOOL)                textField:(UITextField *)textField
+    shouldChangeCharactersInRange:(NSRange)range
+                replacementString:(NSString *)string
+{
+    return YES;
 }
 
 @end

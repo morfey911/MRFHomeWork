@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @class MRFFilling;
+@class MRFDateTextField;
 
 @interface MRFFillingDetailView : UITableView
-@property (nonatomic, strong)   IBOutlet    UITextField *dateField;
-@property (nonatomic, strong)   IBOutlet    UITextField *mileageField;
-@property (nonatomic, strong)   IBOutlet    UITextField *volumeField;
-@property (nonatomic, strong)   IBOutlet    UITextField *priceField;
-@property (nonatomic, strong)   IBOutlet    UITextField *totalField;
+@property (nonatomic, strong)   IBOutlet    MRFDateTextField    *dateField;
+@property (nonatomic, strong)   IBOutlet    UITextField         *mileageField;
+@property (nonatomic, strong)   IBOutlet    UITextField         *volumeField;
+@property (nonatomic, strong)   IBOutlet    UITextField         *priceField;
+@property (nonatomic, strong)   IBOutlet    UITextField         *totalField;
+@property (nonatomic, strong)   IBOutletCollection(UITextField)   NSSet     *textFieldsSet;
 @property (nonatomic, strong)   MRFFilling  *model;
 @property (nonatomic, strong)   MRFFilling  *placeholdersModel;
-@property (nonatomic, readonly) NSDate      *date;
 
 @end

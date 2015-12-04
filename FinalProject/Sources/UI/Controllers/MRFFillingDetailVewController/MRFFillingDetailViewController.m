@@ -12,6 +12,8 @@
 
 #import "MRFFilling.h"
 
+#import "MRFDateTextField.h"
+
 #import "ActiveRecordKit.h"
 
 #import "MRFMacros.h"
@@ -52,12 +54,11 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
     
     filling = self.filling ? self.filling : [MRFFilling managedObject];
     
+    filling.date = view.dateField.date;
     filling.mileage = [NSDecimalNumber decimalNumberWithString:view.mileageField.text];
     filling.volume = [NSDecimalNumber decimalNumberWithString:view.volumeField.text];
     filling.price = [NSDecimalNumber decimalNumberWithString:view.priceField.text
                                                       locale:[NSLocale currentLocale]];
-    
-    filling.date = view.date;
     
     [filling saveManagedObject];
     

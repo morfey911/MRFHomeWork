@@ -13,7 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="lhI-Eq-aU0">
                                 <cells>
@@ -33,7 +33,7 @@
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="5Mh-kV-yGn">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="5Mh-kV-yGn" customClass="MRFDateTextField">
                                                     <rect key="frame" x="130" y="7" width="173" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -168,6 +168,11 @@
                             <outlet property="priceField" destination="dOn-8I-Ffk" id="h5S-ly-Knz"/>
                             <outlet property="totalField" destination="7AW-LC-p0p" id="5bI-WX-E7e"/>
                             <outlet property="volumeField" destination="VNx-pU-o27" id="oie-xL-ki3"/>
+                            <outletCollection property="textFieldsSet" destination="5Mh-kV-yGn" id="EZT-Cp-xws"/>
+                            <outletCollection property="textFieldsSet" destination="y96-Qn-Ko8" id="3QG-cD-xGh"/>
+                            <outletCollection property="textFieldsSet" destination="VNx-pU-o27" id="YNV-ch-KYM"/>
+                            <outletCollection property="textFieldsSet" destination="dOn-8I-Ffk" id="BW9-1Y-eJj"/>
+                            <outletCollection property="textFieldsSet" destination="7AW-LC-p0p" id="R9N-No-JFc"/>
                         </connections>
                     </tableView>
                 </tableViewController>
