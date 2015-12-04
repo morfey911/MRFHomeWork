@@ -34,20 +34,29 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.detailView.model = [self lastFillingModelFromDB];
+    if (self.filling) {
+        self.detailView.model = self.filling;
+    } else {
+        self.detailView.placeholdersModel = [self lastFillingModelFromDB];
+    }
+    
     [self setupNavigationBar];
 }
 
 #pragma mark -
 #pragma mark Interface Handling
 
-- (void)onSaveButton {
-    MRFFilling *filling = [MRFFilling managedObject];
+- (void)onSaveButton:(UIBarButtonItem *)sender {
     MRFFillingDetailView *view = self.detailView;
+    MRFFilling *filling = nil;
     
-    filling.mileage = [[NSDecimalNumber alloc] initWithString:view.mileageField.text];
-    filling.volume = [[NSDecimalNumber alloc] initWithString:view.volumeField.text];
-    filling.price = [[NSDecimalNumber alloc] initWithString:view.priceField.text];
+    filling = self.filling ? self.filling : [MRFFilling managedObject];
+    
+    filling.mileage = [NSDecimalNumber decimalNumberWithString:view.mileageField.text];
+    filling.volume = [NSDecimalNumber decimalNumberWithString:view.volumeField.text];
+    filling.price = [NSDecimalNumber decimalNumberWithString:view.priceField.text
+                                                      locale:[NSLocale currentLocale]];
+    
     filling.date = view.date;
     
     [filling saveManagedObject];
@@ -62,7 +71,7 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
     UINavigationItem *navigationItem = self.navigationItem;
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                           target:self
-                                                                          action:@selector(onSaveButton)];
+                                                                          action:@selector(onSaveButton:)];
     
     navigationItem.title = kMRFNavigationItemTitle;
     [navigationItem setRightBarButtonItem:buttonItem];

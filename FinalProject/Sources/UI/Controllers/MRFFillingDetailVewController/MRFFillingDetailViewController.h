@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class MRFFilling;
+
 @interface MRFFillingDetailViewController : UITableViewController
+@property (nonatomic, strong)   MRFFilling  *filling;
 
 @end

@@ -36,6 +36,10 @@
     [self fillWithModel:model];
 }
 
+- (void)setPlaceholdersModel:(MRFFilling *)model {
+    [self fillPlaceholdersWithModel:model];
+}
+
 - (void)setDate:(NSDate *)date {
     if (_date != date) {
         _date = date;
@@ -50,17 +54,24 @@
     [super drawRect:rect];
     
     [self setupDateFieldInputView];
-    [self setupDateFieldInputAccessoryView];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)fillWithModel:(MRFFilling *)model {
+    self.dateField.text = [self stringFromDate:model.date];
+    self.mileageField.text = [model.mileage stringValue];
+    self.volumeField.text = [model.volume stringValue];
+    self.priceField.text = [model.price stringValue];
+    self.totalField.text = [NSString stringWithFormat:@"%.2f", [model.price floatValue] * [model.volume floatValue]];
+}
+
+- (void)fillPlaceholdersWithModel:(MRFFilling *)model {
     self.dateField.text = [self currentDateString];
     self.mileageField.placeholder = [model.mileage stringValue];
     self.priceField.placeholder = [model.price stringValue];
-    
+
     [self.mileageField becomeFirstResponder];
 }
 
@@ -73,14 +84,6 @@
          forControlEvents:UIControlEventValueChanged];
     
     self.dateField.inputView = datePicker;
-}
-
-- (void)setupDateFieldInputAccessoryView {
-    CGRect toolbarRect = CGRectMake(0, 0, 0, 30);
-    UIView *toolbar = [[UIView alloc] initWithFrame:toolbarRect];
-    toolbar.backgroundColor = [UIColor blackColor];
-    
-    self.dateField.inputAccessoryView = toolbar;
 }
 
 - (void)datePickerValueChanged:(UIDatePicker *)sender {

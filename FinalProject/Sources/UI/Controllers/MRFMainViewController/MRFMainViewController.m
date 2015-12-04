@@ -71,7 +71,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
     
 }
 
-- (void)onAddButton {
+- (void)onAddButton:(UIBarButtonItem *)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
     MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
     
@@ -82,7 +82,9 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark Private
 
 - (void)setupNavigationBar {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                          target:self
+                                                                          action:@selector(onAddButton:)];
     [self.navigationItem setRightBarButtonItem:item];
 }
 
@@ -112,7 +114,11 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
+    MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
+    controller.filling = self.arrayModel[indexPath.row];
     
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -
