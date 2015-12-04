@@ -14,7 +14,8 @@
 typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
     MRFArrayModelAppendChanges,
     MRFArrayModelDeleteChanges,
-    MRFArrayModelMoveChanges
+    MRFArrayModelMoveChanges,
+    MRFArrayModelUpdateChanges
 };
 
 @interface MRFArrayChangesModel : NSObject
@@ -30,6 +31,7 @@ typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
 
 + (MRFPositionModel *)appendModelWithIndex:(NSUInteger)index;
 + (MRFPositionModel *)deleteModelWithIndex:(NSUInteger)index;
++ (MRFPositionModel *)updateModelWithIndex:(NSUInteger)index;
 + (MRFMovingPositionModel *)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end
@@ -38,6 +40,7 @@ typedef NS_ENUM(NSUInteger, MRFArrayChangesModelState) {
 
 + (MRFPositionModel *)appendModelWithIndexPath:(NSIndexPath *)indexPath;
 + (MRFPositionModel *)deleteModelWithIndexPath:(NSIndexPath *)indexPath;
++ (MRFPositionModel *)updateModelWithIndexPath:(NSIndexPath *)indexPath;
 + (MRFMovingPositionModel *)moveModelFromIndexPath:(NSIndexPath *)fromIndexPath
                                        toIndexPath:(NSIndexPath *)toIndexPath;
 

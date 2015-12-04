@@ -88,6 +88,11 @@ static NSString * const kMRFMutableArray = @"mutableArray";
         withObject:[MRFArrayChangesModel moveModelFromIndex:index1 toIndex:index2]];
 }
 
+- (void)updateModel:(id)model {
+    [self setState:MRFModelDidChange
+        withObject:[MRFArrayChangesModel updateModelWithIndex:[self indexOfModel:model]]];
+}
+
 - (NSUInteger)indexOfModel:(id)model {
     return [self.mutableArray indexOfObject:model];
 }

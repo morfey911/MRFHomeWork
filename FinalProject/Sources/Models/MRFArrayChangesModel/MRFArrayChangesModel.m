@@ -50,6 +50,10 @@
     return [MRFPositionModel modelWithIndex:index state:MRFArrayModelDeleteChanges];
 }
 
++ (MRFPositionModel *)updateModelWithIndex:(NSUInteger)index {
+    return [MRFPositionModel modelWithIndex:index state:MRFArrayModelUpdateChanges];
+}
+
 + (MRFMovingPositionModel *)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     return [MRFMovingPositionModel modelWithSourceIndex:fromIndex
                                        destinationIndex:toIndex
@@ -66,6 +70,10 @@
 
 + (MRFPositionModel *)deleteModelWithIndexPath:(NSIndexPath *)indexPath {
     return [MRFPositionModel modelWithIndexPath:indexPath state:MRFArrayModelDeleteChanges];
+}
+
++ (MRFPositionModel *)updateModelWithIndexPath:(NSIndexPath *)indexPath {
+    return [MRFPositionModel modelWithIndexPath:indexPath state:MRFArrayModelUpdateChanges];
 }
 
 + (MRFMovingPositionModel *)moveModelFromIndexPath:(NSIndexPath *)fromIndexPath

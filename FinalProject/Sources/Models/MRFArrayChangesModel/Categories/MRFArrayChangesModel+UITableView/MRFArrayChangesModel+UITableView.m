@@ -34,6 +34,10 @@
             [tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:rowAnimation];
             break;
             
+        case MRFArrayModelUpdateChanges:
+            [tableView reloadRowsAtIndexPaths:@[path] withRowAnimation:rowAnimation];
+            break;
+            
         default:
             break;
     }

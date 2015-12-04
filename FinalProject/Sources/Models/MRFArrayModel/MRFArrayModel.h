@@ -24,6 +24,8 @@
 
 - (void)moveModelFromIndex:(NSUInteger)index1 toIndex:(NSUInteger)index2;
 
+- (void)updateModel:(id)model;
+
 - (NSUInteger)indexOfModel:(id)model;
 - (id)modelAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
