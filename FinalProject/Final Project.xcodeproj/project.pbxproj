@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0E52931C11BC9C00F0652C /* MRFDateTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */; };
 		3F3243031C0082CB007AC49C /* MRFFillingDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */; };
 		3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */; };
 		3F32430C1C00A9FA007AC49C /* MRFFillingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32430B1C00A9FA007AC49C /* MRFFillingDetailView.m */; };
@@ -89,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0E52911C11BC9C00F0652C /* MRFDateTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFDateTextField.h; sourceTree = "<group>"; };
+		3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFDateTextField.m; sourceTree = "<group>"; };
 		3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MRFFillingDetailViewController.storyboard; sourceTree = "<group>"; };
 		3F3243071C0086F0007AC49C /* MRFFillingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailViewController.h; sourceTree = "<group>"; };
 		3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailViewController.m; sourceTree = "<group>"; };
@@ -261,6 +264,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0E52901C11BC6E00F0652C /* MRFDateTextField */ = {
+			isa = PBXGroup;
+			children = (
+				3F0E52911C11BC9C00F0652C /* MRFDateTextField.h */,
+				3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */,
+			);
+			path = MRFDateTextField;
+			sourceTree = "<group>";
+		};
 		3F3242E61BFB69A5007AC49C /* MRFFillingDetailVewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +476,7 @@
 		3F3756721BF0C7D200B6079A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3F0E52901C11BC6E00F0652C /* MRFDateTextField */,
 				3F3756821BF0C7D200B6079A /* MRFCache */,
 				3F3756851BF0C7D200B6079A /* MRFObservableObject */,
 				3F3756891BF0C7D200B6079A /* MRFTableViewCell */,
@@ -1124,6 +1137,7 @@
 				3F37571F1BF0C7D200B6079A /* IDPDispatch.m in Sources */,
 				3F3756521BF0C49200B6079A /* main.m in Sources */,
 				3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */,
+				3F0E52931C11BC9C00F0652C /* MRFDateTextField.m in Sources */,
 				3F37571C1BF0C7D200B6079A /* NSObject+IDPRuntime.m in Sources */,
 				3F3757651BF0C9A900B6079A /* MRFImageModel.m in Sources */,
 				3F3757641BF0C9A900B6079A /* MRFFileImageModel.m in Sources */,
