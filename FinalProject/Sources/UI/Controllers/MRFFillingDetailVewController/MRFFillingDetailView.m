@@ -14,6 +14,14 @@
 
 @implementation MRFFillingDetailView
 
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    for (UITextField *field in self.textFieldsSet) {
+        field.delegate = self;
+    }
+}
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -33,7 +41,8 @@
     self.mileageField.text = [model.mileage stringValue];
     self.volumeField.text = [model.volume stringValue];
     self.priceField.text = [model.price stringValue];
-    self.totalField.text = [NSString stringWithFormat:@"%.2f", [model.price floatValue] * [model.volume floatValue]];
+    self.totalField.text = [self stringWithMultiplicationOfString:self.volumeField.text
+                                                withAnotherString:self.priceField.text];
 }
 
 - (void)fillPlaceholdersWithModel:(MRFFilling *)model {
@@ -44,29 +53,36 @@
     [self.mileageField becomeFirstResponder];
 }
 
+- (NSString *)stringWithMultiplicationOfString:(NSString *)string withAnotherString:(NSString *)anotherString {
+    return [NSString stringWithFormat:@"%.2f", [string floatValue] * [anotherString floatValue]];
+}
+
+- (NSString *)stringWithDivisionOfString:(NSString *)string withAnotherNumber:(NSString *)anotherString {
+    return [NSString stringWithFormat:@"%.2f", [string floatValue] / [anotherString floatValue]];
+}
+
 #pragma mark -
 #pragma mark UITextFieldDelegate
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-}
 
 - (BOOL)                textField:(UITextField *)textField
     shouldChangeCharactersInRange:(NSRange)range
                 replacementString:(NSString *)string
 {
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (textField == self.volumeField) {
+        self.totalField.text = [self stringWithMultiplicationOfString:newString
+                                                    withAnotherString:self.priceField.text];
+    }
+    if (textField == self.priceField) {
+        self.totalField.text = [self stringWithMultiplicationOfString:self.volumeField.text
+                                                    withAnotherString:newString];
+    }
+    if (textField == self.totalField) {
+        self.priceField.text = [self stringWithDivisionOfString:newString
+                                              withAnotherNumber:self.volumeField.text];
+    }
+    
     return YES;
 }
 

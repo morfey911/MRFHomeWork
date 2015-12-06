@@ -11,7 +11,7 @@
 @class MRFFilling;
 @class MRFDateTextField;
 
-@interface MRFFillingDetailView : UITableView
+@interface MRFFillingDetailView : UITableView <UITextFieldDelegate>
 @property (nonatomic, strong)   IBOutlet    MRFDateTextField    *dateField;
 @property (nonatomic, strong)   IBOutlet    UITextField         *mileageField;
 @property (nonatomic, strong)   IBOutlet    UITextField         *volumeField;
