@@ -26,11 +26,13 @@
     
     [IDPCoreDataManager sharedManagerWithMomName:@"CarFillings"];
     
+    UITabBarController *tabBarController = [UITabBarController new];
     MRFMainViewController *controller = [MRFMainViewController controller];
     UINavigationController *navigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:controller];
     
-    window.rootViewController = navigationController;
+    tabBarController.viewControllers = @[navigationController];
+    window.rootViewController = tabBarController;
     
     [window makeKeyAndVisible];
     

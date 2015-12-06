@@ -8,18 +8,51 @@
 
 #import "MRFViewController.h"
 
+#import "MRFFillingDetailViewController.h"
+
+#import "MRFFilling.h"
+
+#import "MRFFetchedArrayModel.h"
+
+#import "MRFMacros.h"
+
+//static NSString * const kMRFFillingDetailStoryboardName = @"MRFFillingDetailViewController";
+
 @interface MRFViewController ()
+
+- (void)setupNavigationBar;
 
 @end
 
 @implementation MRFViewController
 
+#pragma mark -
+#pragma mark View lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupNavigationBar];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark -
+#pragma mark Interface Handling
+
+- (void)onAddButton:(UIBarButtonItem *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
+    MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)setupNavigationBar {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                          target:self
+                                                                          action:@selector(onAddButton:)];
+    [self.navigationItem setRightBarButtonItem:item];
 }
 
 @end

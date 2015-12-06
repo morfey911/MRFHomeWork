@@ -21,7 +21,7 @@
 #import "NSManagedObject+IDPExtensions.h"
 #import "UITableView+MRFExtensions.h"
 
-static NSString * const kMRFHeaderTitle = @"Fuel";
+static NSString * const kMRFTitle = @"Fuel";
 static NSString * const kMRFFillingDetailStoryboardName = @"MRFFillingDetailViewController";
 
 MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
@@ -29,7 +29,6 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 @interface MRFMainViewController ()
 @property (nonatomic, strong)   MRFFetchedArrayModel    *arrayModel;
 
-- (void)setupNavigationBar;
 - (MRFFetchedArrayModel *)fetchedArrayModelWithRequest;
 
 @end
@@ -37,7 +36,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 @implementation MRFMainViewController
 
 #pragma mark -
-#pragma mark Initializations and Deallocations 
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.arrayModel = nil;
@@ -46,6 +45,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.title = kMRFTitle;
         self.arrayModel = [self fetchedArrayModelWithRequest];
     }
     
@@ -60,33 +60,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 }
 
 #pragma mark -
-#pragma mark View lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setupNavigationBar];
-}
-
-#pragma mark -
-#pragma mark Interface Handling
-
-- (void)onAddButton:(UIBarButtonItem *)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:kMRFFillingDetailStoryboardName bundle:nil];
-    MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
-    
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
-#pragma mark -
 #pragma mark Private
-
-- (void)setupNavigationBar {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                          target:self
-                                                                          action:@selector(onAddButton:)];
-    [self.navigationItem setRightBarButtonItem:item];
-}
 
 - (MRFFetchedArrayModel *)fetchedArrayModelWithRequest {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
@@ -95,12 +69,13 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
     return [[MRFFetchedArrayModel alloc] initWithFetchRequest:request];
 }
 
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (0 == section) {
-        return kMRFHeaderTitle;
+        return kMRFTitle;
     }
     return nil;
 }

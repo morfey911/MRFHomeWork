@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class MRFFetchedArrayModel;
+
 @interface MRFViewController : UIViewController
 
 @end
