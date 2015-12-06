@@ -21,12 +21,16 @@
 #import "NSManagedObject+IDPExtensions.h"
 #import "UITableView+MRFExtensions.h"
 
+static NSString * const kMRFHeaderTitle = @"Fuel";
+static NSString * const kMRFFillingDetailStoryboardName = @"MRFFillingDetailViewController";
+
 MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
 @interface MRFMainViewController ()
 @property (nonatomic, strong)   MRFFetchedArrayModel    *arrayModel;
 
 - (void)setupNavigationBar;
+- (MRFFetchedArrayModel *)fetchedArrayModelWithRequest;
 
 @end
 
@@ -67,12 +71,8 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark -
 #pragma mark Interface Handling
 
-- (IBAction)onStatisticButton:(id)sender {
-    
-}
-
 - (void)onAddButton:(UIBarButtonItem *)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kMRFFillingDetailStoryboardName bundle:nil];
     MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
     
     [self.navigationController pushViewController:controller animated:YES];
@@ -97,6 +97,13 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
 #pragma mark -
 #pragma mark UITableViewDataSource
+
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (0 == section) {
+        return kMRFHeaderTitle;
+    }
+    return nil;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayModel.count;
@@ -125,7 +132,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kMRFFillingDetailStoryboardName bundle:nil];
     MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
     controller.filling = self.arrayModel[indexPath.row];
     

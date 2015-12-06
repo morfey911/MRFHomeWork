@@ -11,6 +11,4 @@
 @interface MRFMainViewController : MRFViewController <UITableViewDataSource,
                                                         UITableViewDelegate>
 
-- (IBAction)onStatisticButton:(id)sender;
-
 @end
