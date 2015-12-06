@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F0E52931C11BC9C00F0652C /* MRFDateTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */; };
+		3F0E529A1C1462EE00F0652C /* NSString+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52991C1462EE00F0652C /* NSString+MRFExtensions.m */; };
 		3F3243031C0082CB007AC49C /* MRFFillingDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */; };
 		3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */; };
 		3F32430C1C00A9FA007AC49C /* MRFFillingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32430B1C00A9FA007AC49C /* MRFFillingDetailView.m */; };
@@ -92,6 +93,8 @@
 /* Begin PBXFileReference section */
 		3F0E52911C11BC9C00F0652C /* MRFDateTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFDateTextField.h; sourceTree = "<group>"; };
 		3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFDateTextField.m; sourceTree = "<group>"; };
+		3F0E52981C1462EE00F0652C /* NSString+MRFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MRFExtensions.h"; sourceTree = "<group>"; };
+		3F0E52991C1462EE00F0652C /* NSString+MRFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MRFExtensions.m"; sourceTree = "<group>"; };
 		3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MRFFillingDetailViewController.storyboard; sourceTree = "<group>"; };
 		3F3243071C0086F0007AC49C /* MRFFillingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailViewController.h; sourceTree = "<group>"; };
 		3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailViewController.m; sourceTree = "<group>"; };
@@ -273,6 +276,15 @@
 			path = MRFDateTextField;
 			sourceTree = "<group>";
 		};
+		3F0E52941C14628900F0652C /* NSString+MRFExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F0E52981C1462EE00F0652C /* NSString+MRFExtensions.h */,
+				3F0E52991C1462EE00F0652C /* NSString+MRFExtensions.m */,
+			);
+			path = "NSString+MRFExtensions";
+			sourceTree = "<group>";
+		};
 		3F3242E61BFB69A5007AC49C /* MRFFillingDetailVewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +411,7 @@
 		3F3756581BF0C7D200B6079A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				3F0E52941C14628900F0652C /* NSString+MRFExtensions */,
 				3F37565A1BF0C7D200B6079A /* NSFileManager+MRFExtensions */,
 				3F37565D1BF0C7D200B6079A /* NSIndexPath+MRFExtension */,
 				3F3756601BF0C7D200B6079A /* NSMutableArray+MRFExtension */,
@@ -1142,6 +1155,7 @@
 				3F3757651BF0C9A900B6079A /* MRFImageModel.m in Sources */,
 				3F3757641BF0C9A900B6079A /* MRFFileImageModel.m in Sources */,
 				3F3757361BF0C7D200B6079A /* IDPTypes.m in Sources */,
+				3F0E529A1C1462EE00F0652C /* NSString+MRFExtensions.m in Sources */,
 				3F3757281BF0C7D200B6079A /* IDPMutableDictionary.m in Sources */,
 				3F3757331BF0C7D200B6079A /* IDPMachTimer.m in Sources */,
 				3F3757101BF0C7D200B6079A /* IDPCoreDataManager.m in Sources */,

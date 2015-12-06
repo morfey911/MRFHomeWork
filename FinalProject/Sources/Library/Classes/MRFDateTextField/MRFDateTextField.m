@@ -8,7 +8,7 @@
 
 #import "MRFDateTextField.h"
 
-static NSString * const kMRFDateFormat = @"d MMM. y HH:mm";
+#import "NSString+MRFExtensions.h"
 
 @implementation MRFDateTextField
 
@@ -40,7 +40,7 @@ static NSString * const kMRFDateFormat = @"d MMM. y HH:mm";
     if (_date != date) {
         _date = date;
         
-        self.text = [self stringFromDate:date];
+        self.text = [NSString stringFromDate:date];
     }
 }
 
@@ -60,14 +60,6 @@ static NSString * const kMRFDateFormat = @"d MMM. y HH:mm";
 
 - (void)datePickerValueChanged:(UIDatePicker *)sender {
     self.date = sender.date;
-}
-
-- (NSString *)stringFromDate:(NSDate *)date {
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.locale = [NSLocale currentLocale];
-    formatter.dateFormat = kMRFDateFormat;
-    
-    return [formatter stringFromDate:date];
 }
 
 @end
