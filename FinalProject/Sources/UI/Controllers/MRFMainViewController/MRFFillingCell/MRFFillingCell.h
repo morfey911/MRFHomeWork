@@ -15,6 +15,7 @@
 @property (nonatomic, strong)   IBOutlet    UILabel *mileageLabel;
 @property (nonatomic, strong)   IBOutlet    UILabel *volumeLabel;
 @property (nonatomic, strong)   IBOutlet    UILabel *priceLabel;
+@property (nonatomic, strong)   IBOutlet    UILabel *totalLabel;
 @property (nonatomic, strong)   MRFFilling  *fillingModel;
 
 - (void)fillWithModel:(MRFFilling *)model;

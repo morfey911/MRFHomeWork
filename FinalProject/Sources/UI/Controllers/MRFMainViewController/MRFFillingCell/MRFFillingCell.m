@@ -12,6 +12,8 @@
 
 #import "MRFMacros.h"
 
+#import "NSString+MRFExtensions.h"
+
 @implementation MRFFillingCell
 
 #pragma mark -
@@ -25,10 +27,14 @@
 #pragma mark Public
 
 - (void)fillWithModel:(MRFFilling *)model {
-    self.dateLabel.text = [self stringFromDate:model.date];
-    self.volumeLabel.text = [model.volume stringValue];
-    self.priceLabel.text = [model.price stringValue];
+    NSNumber *price = model.price;
+    NSNumber *volume = model.volume;
+    
+    self.dateLabel.text = [NSString stringFromDate:model.date];
+    self.volumeLabel.text = [volume stringValue];
+    self.priceLabel.text = [price stringValue];
     self.mileageLabel.text = [model.mileage stringValue];
+    self.totalLabel.text = [NSString stringWithFormat:@"%.2f", [price floatValue] * [volume floatValue]];
 }
 
 - (NSString *)stringFromDate:(NSDate *)date {
