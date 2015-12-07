@@ -12,4 +12,6 @@ static NSString * const kMRFFillingDetailStoryboardName =   @"MRFFillingDetailVi
 static NSString * const kMRFNavigationItemTitle =           @"Add fuel";
 static NSString * const kMRFTitle =                         @"Fuel";
 static NSString * const kMRFDate =                          @"date";
-
+static NSString * const kMRFLiters =                        @" L.";
+static NSString * const kMRFKilometers =                    @" km";
+static NSString * const kMRFCurrency =                      @" ₴";

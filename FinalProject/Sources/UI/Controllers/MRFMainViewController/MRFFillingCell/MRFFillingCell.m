@@ -10,6 +10,8 @@
 
 #import "MRFFilling.h"
 
+#import "MRFConstants.h"
+
 #import "MRFMacros.h"
 
 #import "NSString+MRFExtensions.h"
@@ -31,10 +33,10 @@
     NSNumber *volume = model.volume;
     
     self.dateLabel.text = [NSString stringFromDate:model.date];
-    self.volumeLabel.text = [volume stringValue];
-    self.priceLabel.text = [price stringValue];
-    self.mileageLabel.text = [model.mileage stringValue];
-    self.totalLabel.text = [NSString stringWithFormat:@"%.2f", [price floatValue] * [volume floatValue]];
+    self.volumeLabel.text = [[volume stringValue] stringByAppendingString:kMRFLiters];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@ %@/%@", [price stringValue], kMRFCurrency, kMRFLiters];
+    self.mileageLabel.text = [[model.mileage stringValue] stringByAppendingString:kMRFKilometers];
+    self.totalLabel.text = [NSString stringWithFormat:@"%.2f %@", [price floatValue] * [volume floatValue], kMRFCurrency];
 }
 
 - (NSString *)stringFromDate:(NSDate *)date {
