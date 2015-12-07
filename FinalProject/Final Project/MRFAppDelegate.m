@@ -11,6 +11,7 @@
 #import "MRFAppDelegate.h"
 
 #import "MRFMainViewController.h"
+#import "MRFStatisticViewController.h"
 
 #import "UIWindow+MFRExtensions.h"
 #import "UIViewController+MRFExtensions.h"
@@ -27,11 +28,13 @@
     [IDPCoreDataManager sharedManagerWithMomName:@"CarFillings"];
     
     UITabBarController *tabBarController = [UITabBarController new];
-    MRFMainViewController *controller = [MRFMainViewController controller];
-    UINavigationController *navigationController = [[UINavigationController alloc]
-                                                    initWithRootViewController:controller];
-    
-    tabBarController.viewControllers = @[navigationController];
+    MRFMainViewController *mainViewController = [MRFMainViewController controller];
+    MRFStatisticViewController *statisticViewController = [MRFStatisticViewController controller];
+    UINavigationController *mainViewNavigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:mainViewController];
+    UINavigationController *statisticNavigationController = [[UINavigationController alloc]
+                                                             initWithRootViewController:statisticViewController];
+    tabBarController.viewControllers = @[mainViewNavigationController, statisticNavigationController];
     window.rootViewController = tabBarController;
     
     [window makeKeyAndVisible];
