@@ -89,6 +89,7 @@
 		3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFDateTextField.m; sourceTree = "<group>"; };
 		3F0E52981C1462EE00F0652C /* NSString+MRFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MRFExtensions.h"; sourceTree = "<group>"; };
 		3F0E52991C1462EE00F0652C /* NSString+MRFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MRFExtensions.m"; sourceTree = "<group>"; };
+		3F0E52A01C15B66200F0652C /* MRFConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRFConstants.h; sourceTree = "<group>"; };
 		3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MRFFillingDetailViewController.storyboard; sourceTree = "<group>"; };
 		3F3243071C0086F0007AC49C /* MRFFillingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailViewController.h; sourceTree = "<group>"; };
 		3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailViewController.m; sourceTree = "<group>"; };
@@ -334,6 +335,7 @@
 				3F37568C1BF0C7D200B6079A /* IDPKit */,
 				3F3756FC1BF0C7D200B6079A /* MRFDispatch */,
 				3F3756FF1BF0C7D200B6079A /* MRFMacros.h */,
+				3F0E52A01C15B66200F0652C /* MRFConstants.h */,
 			);
 			path = Library;
 			sourceTree = "<group>";

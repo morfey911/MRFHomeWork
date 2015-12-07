@@ -14,9 +14,9 @@
 
 #import "MRFFetchedArrayModel.h"
 
-#import "MRFMacros.h"
+#import "MRFConstants.h"
 
-//static NSString * const kMRFFillingDetailStoryboardName = @"MRFFillingDetailViewController";
+#import "MRFMacros.h"
 
 @interface MRFViewController ()
 
@@ -39,7 +39,7 @@
 #pragma mark Interface Handling
 
 - (void)onAddButton:(UIBarButtonItem *)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MRFFillingDetailViewController" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kMRFFillingDetailStoryboardName bundle:nil];
     MRFFillingDetailViewController *controller = [sb instantiateInitialViewController];
     
     [self.navigationController pushViewController:controller animated:YES];

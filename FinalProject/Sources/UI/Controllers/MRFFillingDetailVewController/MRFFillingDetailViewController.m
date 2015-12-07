@@ -16,9 +16,9 @@
 
 #import "ActiveRecordKit.h"
 
-#import "MRFMacros.h"
+#import "MRFConstants.h"
 
-static NSString * const kMRFNavigationItemTitle = @"Add fuel";
+#import "MRFMacros.h"
 
 MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MRFFillingDetailView)
 
@@ -79,7 +79,7 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
 }
 
 - (MRFFilling *)lastFillingModelFromDB {
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kMRFDate ascending:NO];
     
     return [[NSManagedObjectContext fetchEntity:NSStringFromClass([MRFFilling class])
                            withSortDescriptors:@[sortDescriptor]

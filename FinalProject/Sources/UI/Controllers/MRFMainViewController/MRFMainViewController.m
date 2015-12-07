@@ -16,13 +16,11 @@
 #import "MRFFetchedArrayModel.h"
 
 #import "IDPCoreDataManager.h"
+#import "MRFConstants.h"
 #import "MRFMacros.h"
 
 #import "NSManagedObject+IDPExtensions.h"
 #import "UITableView+MRFExtensions.h"
-
-static NSString * const kMRFTitle = @"Fuel";
-static NSString * const kMRFFillingDetailStoryboardName = @"MRFFillingDetailViewController";
 
 MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
@@ -64,7 +62,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
 - (MRFFetchedArrayModel *)fetchedArrayModelWithRequest {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]];
+    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:kMRFDate ascending:NO]];
     
     return [[MRFFetchedArrayModel alloc] initWithFetchRequest:request];
 }
