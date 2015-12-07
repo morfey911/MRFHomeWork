@@ -42,14 +42,4 @@
     return YES;
 }
 
-- (void)fillDB {
-    for (NSUInteger index = 0; index < 10; index++) {
-        MRFFilling *filling = [MRFFilling managedObject];
-        filling.mileage = [NSNumber numberWithInt:arc4random_uniform(1000)];
-        filling.volume = [NSNumber numberWithInt:arc4random_uniform(20)];
-    }
-    
-    [NSManagedObjectContext saveManagedObjectContext];
-}
-
 @end
