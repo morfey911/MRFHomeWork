@@ -8,6 +8,12 @@
 
 #import "MRFViewController.h"
 
+typedef NS_ENUM(NSUInteger, MRFStatisticCategories) {
+    MRFLast30DaysStatistic,
+    MRFAllTimeStatistic,
+    MRFStatisticCount
+};
+
 @interface MRFStatisticViewController : MRFViewController
 
 @end

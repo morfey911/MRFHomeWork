@@ -20,12 +20,16 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="YTR-JE-z30"/>
+                        <outlet property="delegate" destination="-1" id="8ew-JW-vbP"/>
+                    </connections>
                 </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="tableView" destination="n8Y-74-aJC" id="4vb-1Y-J0Y"/>
+                <outlet property="tableView" destination="n8Y-74-aJC" id="vSI-69-yc5"/>
             </connections>
             <point key="canvasLocation" x="290" y="353"/>
         </view>

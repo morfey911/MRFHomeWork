@@ -12,6 +12,8 @@
 		3F0E52A81C15C03000F0652C /* MRFStatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52A61C15C03000F0652C /* MRFStatisticViewController.m */; };
 		3F0E52A91C15C03000F0652C /* MRFStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E52A71C15C03000F0652C /* MRFStatisticViewController.xib */; };
 		3F0E52AC1C15C3EF00F0652C /* MRFStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52AB1C15C3EF00F0652C /* MRFStatisticView.m */; };
+		3F0E52B11C15DE1600F0652C /* MRFStaticticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52AF1C15DE1600F0652C /* MRFStaticticCell.m */; };
+		3F0E52B21C15DE1600F0652C /* MRFStaticticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E52B01C15DE1600F0652C /* MRFStaticticCell.xib */; };
 		3F3243031C0082CB007AC49C /* MRFFillingDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */; };
 		3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */; };
 		3F32430C1C00A9FA007AC49C /* MRFFillingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32430B1C00A9FA007AC49C /* MRFFillingDetailView.m */; };
@@ -98,6 +100,9 @@
 		3F0E52A71C15C03000F0652C /* MRFStatisticViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFStatisticViewController.xib; sourceTree = "<group>"; };
 		3F0E52AA1C15C3EF00F0652C /* MRFStatisticView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFStatisticView.h; sourceTree = "<group>"; };
 		3F0E52AB1C15C3EF00F0652C /* MRFStatisticView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFStatisticView.m; sourceTree = "<group>"; };
+		3F0E52AE1C15DE1600F0652C /* MRFStaticticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFStaticticCell.h; sourceTree = "<group>"; };
+		3F0E52AF1C15DE1600F0652C /* MRFStaticticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFStaticticCell.m; sourceTree = "<group>"; };
+		3F0E52B01C15DE1600F0652C /* MRFStaticticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFStaticticCell.xib; sourceTree = "<group>"; };
 		3F3243021C0082CB007AC49C /* MRFFillingDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MRFFillingDetailViewController.storyboard; sourceTree = "<group>"; };
 		3F3243071C0086F0007AC49C /* MRFFillingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingDetailViewController.h; sourceTree = "<group>"; };
 		3F3243081C0086F0007AC49C /* MRFFillingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingDetailViewController.m; sourceTree = "<group>"; };
@@ -278,6 +283,7 @@
 		3F0E52A11C15BFAB00F0652C /* MRFStatisticViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3F0E52AD1C15DDC900F0652C /* MRFStaticticCell */,
 				3F0E52AA1C15C3EF00F0652C /* MRFStatisticView.h */,
 				3F0E52AB1C15C3EF00F0652C /* MRFStatisticView.m */,
 				3F0E52A51C15C03000F0652C /* MRFStatisticViewController.h */,
@@ -285,6 +291,16 @@
 				3F0E52A71C15C03000F0652C /* MRFStatisticViewController.xib */,
 			);
 			path = MRFStatisticViewController;
+			sourceTree = "<group>";
+		};
+		3F0E52AD1C15DDC900F0652C /* MRFStaticticCell */ = {
+			isa = PBXGroup;
+			children = (
+				3F0E52AE1C15DE1600F0652C /* MRFStaticticCell.h */,
+				3F0E52AF1C15DE1600F0652C /* MRFStaticticCell.m */,
+				3F0E52B01C15DE1600F0652C /* MRFStaticticCell.xib */,
+			);
+			path = MRFStaticticCell;
 			sourceTree = "<group>";
 		};
 		3F3242E61BFB69A5007AC49C /* MRFFillingDetailVewController */ = {
@@ -1032,6 +1048,7 @@
 			files = (
 				3F3757741BF0D34000B6079A /* MRFMainViewController.xib in Resources */,
 				3F37579D1BF3699100B6079A /* MRFFillingCell.xib in Resources */,
+				3F0E52B21C15DE1600F0652C /* MRFStaticticCell.xib in Resources */,
 				3F0E52A91C15C03000F0652C /* MRFStatisticViewController.xib in Resources */,
 				3F3757841BF0F3E800B6079A /* MRFLoadingView.xib in Resources */,
 				3F3243031C0082CB007AC49C /* MRFFillingDetailViewController.storyboard in Resources */,
@@ -1113,6 +1130,7 @@
 				3F37570F1BF0C7D200B6079A /* MRFTableViewCell.m in Sources */,
 				3F3757691BF0C9A900B6079A /* MRFModel.m in Sources */,
 				3F37571E1BF0C7D200B6079A /* NSString+IDPExtensions.m in Sources */,
+				3F0E52B11C15DE1600F0652C /* MRFStaticticCell.m in Sources */,
 				3F0E52AC1C15C3EF00F0652C /* MRFStatisticView.m in Sources */,
 				3F3757221BF0C7D200B6079A /* IDPMixinContext.m in Sources */,
 				3F37571D1BF0C7D200B6079A /* NSPathUtilities+IDPExtensions.m in Sources */,

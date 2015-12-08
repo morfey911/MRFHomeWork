@@ -28,12 +28,15 @@
     [IDPCoreDataManager sharedManagerWithMomName:@"CarFillings"];
     
     UITabBarController *tabBarController = [UITabBarController new];
+    
     MRFMainViewController *mainViewController = [MRFMainViewController controller];
     MRFStatisticViewController *statisticViewController = [MRFStatisticViewController controller];
+    
     UINavigationController *mainViewNavigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:mainViewController];
     UINavigationController *statisticNavigationController = [[UINavigationController alloc]
                                                              initWithRootViewController:statisticViewController];
+    
     tabBarController.viewControllers = @[mainViewNavigationController, statisticNavigationController];
     window.rootViewController = tabBarController;
     

@@ -8,6 +8,12 @@
 
 #import "MRFStatisticViewController.h"
 
+#import "MRFStaticticCell.h"
+
+#import "MRFConstants.h"
+
+#import "UITableView+MRFExtensions.h"
+
 @interface MRFStatisticViewController ()
 
 @end
@@ -23,6 +29,38 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return MRFStatisticCount;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case MRFLast30DaysStatistic:
+            return kMRFLast30DaysSectionName;
+        case MRFAllTimeStatistic:
+            return kMRFAllTimeSectionName;
+            
+        default:
+            return nil;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MRFStaticticCell *cell = [tableView dequeueReusableCellWithClass:[MRFStaticticCell class]];
+    
+    return cell;
 }
 
 @end

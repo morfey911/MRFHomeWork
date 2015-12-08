@@ -15,3 +15,5 @@ static NSString * const kMRFDate =                          @"date";
 static NSString * const kMRFLiters =                        @" L.";
 static NSString * const kMRFKilometers =                    @" km";
 static NSString * const kMRFCurrency =                      @" ₴";
+static NSString * const kMRFLast30DaysSectionName =         @"Last 30 days";
+static NSString * const kMRFAllTimeSectionName =            @"All time";
