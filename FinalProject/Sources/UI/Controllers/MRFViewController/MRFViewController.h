@@ -11,5 +11,6 @@
 @class MRFFetchedArrayModel;
 
 @interface MRFViewController : UIViewController
+@property (nonatomic, readonly) MRFFetchedArrayModel    *arrayModel;
 
 @end

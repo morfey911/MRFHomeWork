@@ -24,49 +24,19 @@
 
 MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
-@interface MRFMainViewController ()
-@property (nonatomic, strong)   MRFFetchedArrayModel    *arrayModel;
-
-- (MRFFetchedArrayModel *)fetchedArrayModelWithRequest;
-
-@end
-
 @implementation MRFMainViewController
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-    self.arrayModel = nil;
-}
-
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = kMRFTitle;
-        self.arrayModel = [self fetchedArrayModelWithRequest];
     }
     
     return self;
 }
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setArrayModel:(MRFFetchedArrayModel *)arrayModel {
-    MRFSynthesizeObservingSetterAndLoad(arrayModel);
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (MRFFetchedArrayModel *)fetchedArrayModelWithRequest {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:kMRFDate ascending:NO]];
-    
-    return [[MRFFetchedArrayModel alloc] initWithFetchRequest:request];
-}
-
 
 #pragma mark -
 #pragma mark UITableViewDataSource

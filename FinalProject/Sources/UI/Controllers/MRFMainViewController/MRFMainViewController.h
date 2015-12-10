@@ -10,6 +10,5 @@
 
 @interface MRFMainViewController : MRFViewController <UITableViewDataSource,
                                                         UITableViewDelegate>
-@property (nonatomic, readonly)   MRFFetchedArrayModel    *arrayModel;
 
 @end
