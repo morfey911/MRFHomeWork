@@ -47,7 +47,8 @@
     NSManagedObjectContext *context = [[IDPCoreDataManager sharedManager] managedObjectContext];
     NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                                  managedObjectContext:context
-                                                                                   sectionNameKeyPath:nil cacheName:nil];
+                                                                                   sectionNameKeyPath:nil
+                                                                                            cacheName:nil];
     
     controller.delegate = self;
     
@@ -69,11 +70,8 @@
     
     [self performBlockWithoutNotification:block];
     
-    MRFDispatchAsyncOnMainThread(^{
-        self.state = MRFModelDidLoad;
-    });
+    self.state = MRFModelDidLoad;
 }
-
 
 #pragma mark -
 #pragma mark NSFetchedResultsControllerDelegate
