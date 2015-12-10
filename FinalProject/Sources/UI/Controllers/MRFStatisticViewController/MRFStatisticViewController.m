@@ -8,34 +8,39 @@
 
 #import "MRFStatisticViewController.h"
 
+#import "MRFStatisticView.h"
+
 #import "MRFStaticticCell.h"
 
 #import "MRFConstants.h"
 
+#import "MRFMacros.h"
+
 #import "UITableView+MRFExtensions.h"
 
-@interface MRFStatisticViewController ()
-
-@end
+MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRFStatisticView)
 
 @implementation MRFStatisticViewController
 
 #pragma mark -
-#pragma View lifecycle
+#pragma mark View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+#pragma mark -
+#pragma mark Private
 
 #pragma mark -
 #pragma mark UITableViewDelegate
 
 #pragma mark -
 #pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return MRFStatisticCount;
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
