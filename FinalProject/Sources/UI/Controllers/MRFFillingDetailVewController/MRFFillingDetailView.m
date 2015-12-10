@@ -49,8 +49,6 @@
     self.dateField.date = [NSDate date];
     self.mileageField.placeholder = [model.mileage stringValue];
     self.priceField.placeholder = [model.price stringValue];
-    
-    [self.mileageField becomeFirstResponder];
 }
 
 - (NSString *)stringWithMultiplicationOfString:(NSString *)string withAnotherString:(NSString *)anotherString {

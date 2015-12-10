@@ -45,6 +45,12 @@ MRFViewControllerBaseViewProperty(MRFFillingDetailViewController, detailView, MR
     [self setupNavigationBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.detailView.mileageField becomeFirstResponder];
+}
+
 #pragma mark -
 #pragma mark Interface Handling
 
