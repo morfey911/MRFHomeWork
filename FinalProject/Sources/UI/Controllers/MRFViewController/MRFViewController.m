@@ -12,17 +12,17 @@
 
 #import "MRFFilling.h"
 
-#import "MRFFetchedArrayModel.h"
+#import "MRFFillingFetchedArrayModel.h"
 
 #import "MRFConstants.h"
 
 #import "MRFMacros.h"
 
 @interface MRFViewController ()
-@property (nonatomic, strong)   MRFFetchedArrayModel    *arrayModel;
+@property (nonatomic, strong)   MRFFillingFetchedArrayModel    *arrayModel;
 
 - (void)setupNavigationBar;
-- (MRFFetchedArrayModel *)fetchedArrayModelWithRequest;
+- (MRFFillingFetchedArrayModel *)fetchedArrayModelWithRequest;
 
 @end
 
@@ -47,7 +47,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setArrayModel:(MRFFetchedArrayModel *)arrayModel {
+- (void)setArrayModel:(MRFFillingFetchedArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         MRFSynthesizeObservingSetterAndLoad(arrayModel);
     }
@@ -60,7 +60,6 @@
     [super viewDidLoad];
     
     [self setupNavigationBar];
-    [self.arrayModel load];
 }
 
 #pragma mark -
@@ -83,14 +82,14 @@
     [self.navigationItem setRightBarButtonItem:item];
 }
 
-- (MRFFetchedArrayModel *)fetchedArrayModelWithRequest {
-    static MRFFetchedArrayModel *model = nil;
+- (MRFFillingFetchedArrayModel *)fetchedArrayModelWithRequest {
+    static MRFFillingFetchedArrayModel *model = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MRFFilling class])];
         request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:kMRFDate ascending:NO]];
-        model = [MRFFetchedArrayModel fetchedArrayModelWithFetchRequest:request];
+        model = [MRFFillingFetchedArrayModel fetchedArrayModelWithFetchRequest:request];
     });
     
     return model;

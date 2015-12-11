@@ -70,7 +70,9 @@
     
     [self performBlockWithoutNotification:block];
     
-    self.state = MRFModelDidLoad;
+    MRFDispatchAsyncOnMainThread(^{
+        self.state = MRFModelDidLoad;
+    });
 }
 
 #pragma mark -
@@ -84,7 +86,7 @@
 {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [self insertModel:anObject atIndex:0];
+            [self addModel:anObject];
             break;
             
         case NSFetchedResultsChangeDelete:

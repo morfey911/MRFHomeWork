@@ -87,6 +87,8 @@
 		3F3757931BF3446F00B6079A /* MRFFetchedArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757921BF3446F00B6079A /* MRFFetchedArrayModel.m */; };
 		3F37579D1BF3699100B6079A /* MRFFillingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F37579A1BF3577500B6079A /* MRFFillingCell.xib */; };
 		3F37579E1BF3699300B6079A /* MRFFillingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757991BF3577500B6079A /* MRFFillingCell.m */; };
+		3F6EFE9D1C19EBAD00FDD444 /* MRFStatisticModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EFE9C1C19EBAC00FDD444 /* MRFStatisticModel.m */; };
+		3F6EFEA11C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EFEA01C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +251,10 @@
 		3F3757981BF3577500B6079A /* MRFFillingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingCell.h; sourceTree = "<group>"; };
 		3F3757991BF3577500B6079A /* MRFFillingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingCell.m; sourceTree = "<group>"; };
 		3F37579A1BF3577500B6079A /* MRFFillingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRFFillingCell.xib; sourceTree = "<group>"; };
+		3F6EFE9B1C19EBAC00FDD444 /* MRFStatisticModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFStatisticModel.h; sourceTree = "<group>"; };
+		3F6EFE9C1C19EBAC00FDD444 /* MRFStatisticModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFStatisticModel.m; sourceTree = "<group>"; };
+		3F6EFE9F1C1B357C00FDD444 /* MRFFillingFetchedArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingFetchedArrayModel.h; sourceTree = "<group>"; };
+		3F6EFEA01C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingFetchedArrayModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,9 +385,11 @@
 		3F37564A1BF0C49200B6079A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F6EFE9E1C1B355A00FDD444 /* MRFFillingFetchedArrayModel */,
 				3F3757861BF23D3500B6079A /* Core Data */,
 				3F3757381BF0C9A900B6079A /* MRFArrayChangesModel */,
 				3F3757901BF3441F00B6079A /* MRFFetchedArrayModel */,
+				3F6EFE9A1C19EA8A00FDD444 /* MRFStatisticModel */,
 				3F3757451BF0C9A900B6079A /* MRFArrayModel */,
 				3F3757571BF0C9A900B6079A /* MRFModel */,
 			);
@@ -987,6 +995,24 @@
 			path = MRFFillingCell;
 			sourceTree = "<group>";
 		};
+		3F6EFE9A1C19EA8A00FDD444 /* MRFStatisticModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EFE9B1C19EBAC00FDD444 /* MRFStatisticModel.h */,
+				3F6EFE9C1C19EBAC00FDD444 /* MRFStatisticModel.m */,
+			);
+			path = MRFStatisticModel;
+			sourceTree = "<group>";
+		};
+		3F6EFE9E1C1B355A00FDD444 /* MRFFillingFetchedArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EFE9F1C1B357C00FDD444 /* MRFFillingFetchedArrayModel.h */,
+				3F6EFEA01C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m */,
+			);
+			path = MRFFillingFetchedArrayModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1099,6 +1125,7 @@
 				3F3757341BF0C7D200B6079A /* IDPMath.m in Sources */,
 				3F37572C1BF0C7D200B6079A /* IDPStrongReference.m in Sources */,
 				3F37571F1BF0C7D200B6079A /* IDPDispatch.m in Sources */,
+				3F6EFEA11C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m in Sources */,
 				3F3756521BF0C49200B6079A /* main.m in Sources */,
 				3F3243091C0086F0007AC49C /* MRFFillingDetailViewController.m in Sources */,
 				3F0E52931C11BC9C00F0652C /* MRFDateTextField.m in Sources */,
@@ -1126,6 +1153,7 @@
 				3F32430C1C00A9FA007AC49C /* MRFFillingDetailView.m in Sources */,
 				3F37572F1BF0C7D200B6079A /* IDPRetainingDictionary.m in Sources */,
 				3F3757231BF0C7D200B6079A /* IDPMixinIMP.m in Sources */,
+				3F6EFE9D1C19EBAD00FDD444 /* MRFStatisticModel.m in Sources */,
 				3F37572B1BF0C7D200B6079A /* IDPReference.m in Sources */,
 				3F37570F1BF0C7D200B6079A /* MRFTableViewCell.m in Sources */,
 				3F3757691BF0C9A900B6079A /* MRFModel.m in Sources */,

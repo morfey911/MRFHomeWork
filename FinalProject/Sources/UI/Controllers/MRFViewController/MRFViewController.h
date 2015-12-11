@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MRFFetchedArrayModel;
+@class MRFFillingFetchedArrayModel;
 
 @interface MRFViewController : UIViewController
-@property (nonatomic, readonly) MRFFetchedArrayModel    *arrayModel;
+@property (nonatomic, readonly) MRFFillingFetchedArrayModel    *arrayModel;
 
 @end

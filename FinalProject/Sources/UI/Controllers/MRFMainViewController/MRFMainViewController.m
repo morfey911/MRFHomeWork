@@ -13,7 +13,7 @@
 #import "MRFFillingCell.h"
 
 #import "MRFFilling.h"
-#import "MRFFetchedArrayModel.h"
+#import "MRFFillingFetchedArrayModel.h"
 
 #import "IDPCoreDataManager.h"
 #import "MRFConstants.h"
