@@ -14,6 +14,14 @@ typedef NS_ENUM(NSUInteger, MRFStatisticCategories) {
     MRFStatisticCount
 };
 
+typedef NS_ENUM(NSUInteger, MRFRowTitles) {
+    MRFDistanceRow,
+    MRFAveragePriceRow,
+    MRFTotalSpentRow,
+    MRFAverageFuelConsumptionRow,
+    MRFRowsCount
+};
+
 @interface MRFStatisticViewController : MRFViewController
 
 @end
