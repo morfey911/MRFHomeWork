@@ -8,6 +8,8 @@
 
 #import "MRFStatisticModel.h"
 
+#import "MRFArrayModel.h"
+
 #import "MRFFilling.h"
 
 #import "MRFConstants.h"
@@ -30,13 +32,20 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)initWithStatisticFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
+- (instancetype)initFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
     self = [super init];
     if (self) {
         self.datePredicate = [NSPredicate predicateWithFormat:@"date >= %@ && date <= %@", fromDate, toDate];
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)reload {
+    [self performLoading];
 }
 
 #pragma mark -

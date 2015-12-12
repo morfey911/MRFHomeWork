@@ -39,7 +39,7 @@ MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRF
         NSDate *now = [NSDate date];
         NSDate *monthAgo = [self monthAgoDate];
         
-        self.last30DaysStatistic = [[MRFStatisticModel alloc] initWithStatisticFromDate:monthAgo toDate:now];
+        self.last30DaysStatistic = [[MRFStatisticModel alloc] initFromDate:monthAgo toDate:now];
         self.allTimeStatistic = [MRFStatisticModel new];
     }
     
@@ -147,8 +147,8 @@ MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRF
 
 - (void)model:(id)model didChangeWithObject:(id)object {
     if (model == self.arrayModel) {
-        // обновить модель статистики
-        [self.statisticView.tableView reloadData];
+        [self.allTimeStatistic reload];
+        [self.last30DaysStatistic reload];
     }
 }
 
