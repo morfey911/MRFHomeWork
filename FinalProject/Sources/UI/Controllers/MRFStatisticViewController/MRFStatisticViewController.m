@@ -148,6 +148,8 @@ MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRF
 
 - (void)model:(id)model didChangeWithObject:(id)object {
     if (model == self.arrayModel) {
+        [self.statisticView.graphView reloadGraph];
+        
         [self.allTimeStatistic reload];
         [self.last30DaysStatistic reload];
     }
