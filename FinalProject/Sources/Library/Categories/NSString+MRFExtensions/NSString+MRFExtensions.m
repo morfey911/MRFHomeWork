@@ -13,9 +13,13 @@ static NSString * const kMRFDateFormat = @"d MMM. y HH:mm";
 @implementation NSString (MRFExtensions)
 
 + (NSString *)stringFromDate:(NSDate *)date {
+    return [self stringFromDate:date withFormat:kMRFDateFormat];
+}
+
++ (NSString *)stringFromDate:(NSDate *)date withFormat:(NSString *)formatString {
     NSDateFormatter *formatter = [NSDateFormatter new];
     formatter.locale = [NSLocale currentLocale];
-    formatter.dateFormat = kMRFDateFormat;
+    formatter.dateFormat = formatString;
     
     return [formatter stringFromDate:date];
 }
