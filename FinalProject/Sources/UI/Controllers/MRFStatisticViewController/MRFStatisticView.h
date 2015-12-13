@@ -8,8 +8,10 @@
 
 #import "MRFView.h"
 
+#import "BEMSimpleLineGraphView.h"
+
 @interface MRFStatisticView : MRFView
-@property (nonatomic, strong)   IBOutlet    UITableView         *tableView;
-@property (nonatomic, strong)   IBOutlet    UIView              *statisticView;
+@property (nonatomic, strong)   IBOutlet    UITableView             *tableView;
+@property (nonatomic, strong)   IBOutlet    BEMSimpleLineGraphView  *graphView;
 
 @end

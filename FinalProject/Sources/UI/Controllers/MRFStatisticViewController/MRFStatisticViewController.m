@@ -14,11 +14,15 @@
 
 #import "MRFStatisticModel.h"
 
+#import "MRFFillingFetchedArrayModel.h"
+#import "MRFFilling.h"
+
 #import "MRFConstants.h"
 
 #import "MRFMacros.h"
 
 #import "UITableView+MRFExtensions.h"
+#import "NSString+MRFExtensions.h"
 
 MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRFStatisticView)
 
@@ -38,6 +42,7 @@ MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRF
     if (self) {
         NSDate *now = [NSDate date];
         NSDate *monthAgo = [self monthAgoDate];
+        self.title = @"Statistic";
         
         self.last30DaysStatistic = [[MRFStatisticModel alloc] initFromDate:monthAgo toDate:now];
         self.allTimeStatistic = [MRFStatisticModel new];
@@ -150,6 +155,23 @@ MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRF
         [self.allTimeStatistic reload];
         [self.last30DaysStatistic reload];
     }
+}
+
+#pragma mark -
+#pragma mark BEMSimpleLineGraphDataSource
+
+- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
+    return self.arrayModel.count;
+}
+
+- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
+    NSUInteger count = self.arrayModel.count - index - 1;
+    return [[self.arrayModel[count] price] doubleValue];
+}
+
+- (nullable NSString *)lineGraph:(nonnull BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    NSUInteger count = self.arrayModel.count - index - 1;
+    return [NSString stringFromDate:[self.arrayModel[count] date] withFormat:@"dd/MM"];
 }
 
 @end

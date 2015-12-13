@@ -8,6 +8,8 @@
 
 #import "MRFViewController.h"
 
+#import "BEMSimpleLineGraphView.h"
+
 typedef NS_ENUM(NSUInteger, MRFStatisticCategories) {
     MRFLast30DaysStatistic,
     MRFAllTimeStatistic,
@@ -22,6 +24,7 @@ typedef NS_ENUM(NSUInteger, MRFRowTitles) {
     MRFRowsCount
 };
 
-@interface MRFStatisticViewController : MRFViewController
+@interface MRFStatisticViewController : MRFViewController <BEMSimpleLineGraphDataSource,
+                                                                BEMSimpleLineGraphDelegate>
 
 @end
