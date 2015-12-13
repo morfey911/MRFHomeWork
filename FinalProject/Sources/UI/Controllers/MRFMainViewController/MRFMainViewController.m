@@ -32,7 +32,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = kMRFTitle;
+        self.title = kMRFFuelTitle;
     }
     
     return self;
@@ -43,7 +43,7 @@ MRFViewControllerBaseViewProperty(MRFMainViewController, mainView, MRFMainView)
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (0 == section) {
-        return kMRFTitle;
+        return kMRFFuelTitle;
     }
     return nil;
 }

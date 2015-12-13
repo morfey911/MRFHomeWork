@@ -7,18 +7,14 @@
 //
 
 #import "MRFStatisticViewController.h"
-
 #import "MRFStatisticView.h"
-
 #import "MRFStaticticCell.h"
-
 #import "MRFStatisticModel.h"
 
 #import "MRFFillingFetchedArrayModel.h"
 #import "MRFFilling.h"
 
 #import "MRFConstants.h"
-
 #import "MRFMacros.h"
 
 #import "UITableView+MRFExtensions.h"
@@ -42,7 +38,7 @@ MRFViewControllerBaseViewProperty(MRFStatisticViewController, statisticView, MRF
     if (self) {
         NSDate *now = [NSDate date];
         NSDate *monthAgo = [self monthAgoDate];
-        self.title = @"Statistic";
+        self.title = kMRFStatisticTitle;
         
         self.last30DaysStatistic = [[MRFStatisticModel alloc] initFromDate:monthAgo toDate:now];
         self.allTimeStatistic = [MRFStatisticModel new];
