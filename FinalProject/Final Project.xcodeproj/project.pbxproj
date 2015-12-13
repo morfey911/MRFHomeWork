@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17C863A94FF21124145D4FAD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9A9F599CBA9416A6460A33 /* Pods.framework */; };
 		3F0E52931C11BC9C00F0652C /* MRFDateTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */; };
 		3F0E529A1C1462EE00F0652C /* NSString+MRFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52991C1462EE00F0652C /* NSString+MRFExtensions.m */; };
 		3F0E52A81C15C03000F0652C /* MRFStatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E52A61C15C03000F0652C /* MRFStatisticViewController.m */; };
@@ -89,9 +90,11 @@
 		3F37579E1BF3699300B6079A /* MRFFillingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3757991BF3577500B6079A /* MRFFillingCell.m */; };
 		3F6EFE9D1C19EBAD00FDD444 /* MRFStatisticModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EFE9C1C19EBAC00FDD444 /* MRFStatisticModel.m */; };
 		3F6EFEA11C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EFEA01C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m */; };
+		3FA625D01C1DA6DB00366C44 /* libBEMSimpleLineGraph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA625CF1C1DA6DB00366C44 /* libBEMSimpleLineGraph.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2585F5D663295993A19DFFC2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3F0E52911C11BC9C00F0652C /* MRFDateTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFDateTextField.h; sourceTree = "<group>"; };
 		3F0E52921C11BC9C00F0652C /* MRFDateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFDateTextField.m; sourceTree = "<group>"; };
 		3F0E52981C1462EE00F0652C /* NSString+MRFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MRFExtensions.h"; sourceTree = "<group>"; };
@@ -255,6 +258,9 @@
 		3F6EFE9C1C19EBAC00FDD444 /* MRFStatisticModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFStatisticModel.m; sourceTree = "<group>"; };
 		3F6EFE9F1C1B357C00FDD444 /* MRFFillingFetchedArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRFFillingFetchedArrayModel.h; sourceTree = "<group>"; };
 		3F6EFEA01C1B357C00FDD444 /* MRFFillingFetchedArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRFFillingFetchedArrayModel.m; sourceTree = "<group>"; };
+		3FA625CF1C1DA6DB00366C44 /* libBEMSimpleLineGraph.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBEMSimpleLineGraph.a; path = "Pods/../build/Debug-iphoneos/libBEMSimpleLineGraph.a"; sourceTree = "<group>"; };
+		6E5F0619794A38F2223304CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8B9A9F599CBA9416A6460A33 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +268,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA625D01C1DA6DB00366C44 /* libBEMSimpleLineGraph.a in Frameworks */,
+				17C863A94FF21124145D4FAD /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +336,8 @@
 				3F3756411BF0C49200B6079A /* Resources */,
 				3F3756471BF0C49200B6079A /* Sources */,
 				3F3756211BF0C18600B6079A /* Products */,
+				4EF10F6C836A097AD3816866 /* Pods */,
+				F389A69A3191F91E2722D19B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1013,6 +1023,24 @@
 			path = MRFFillingFetchedArrayModel;
 			sourceTree = "<group>";
 		};
+		4EF10F6C836A097AD3816866 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E5F0619794A38F2223304CB /* Pods.debug.xcconfig */,
+				2585F5D663295993A19DFFC2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F389A69A3191F91E2722D19B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FA625CF1C1DA6DB00366C44 /* libBEMSimpleLineGraph.a */,
+				8B9A9F599CBA9416A6460A33 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1020,9 +1048,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F3756371BF0C18600B6079A /* Build configuration list for PBXNativeTarget "Final Project" */;
 			buildPhases = (
+				A0EC0603AF2F03565973A2BD /* Check Pods Manifest.lock */,
 				3F37561C1BF0C18600B6079A /* Sources */,
 				3F37561D1BF0C18600B6079A /* Frameworks */,
 				3F37561E1BF0C18600B6079A /* Resources */,
+				A071B83D908936C62562E304 /* Embed Pods Frameworks */,
+				DA5FD2DB005FDBF1CA04A8F6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1084,6 +1115,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A071B83D908936C62562E304 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0EC0603AF2F03565973A2BD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA5FD2DB005FDBF1CA04A8F6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F37561C1BF0C18600B6079A /* Sources */ = {
@@ -1263,11 +1342,16 @@
 		};
 		3F3756381BF0C18600B6079A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E5F0619794A38F2223304CB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Final Project/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "MRF.Final-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1275,11 +1359,16 @@
 		};
 		3F3756391BF0C18600B6079A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2585F5D663295993A19DFFC2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Final Project/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "MRF.Final-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
